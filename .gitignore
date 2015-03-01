@@ -16,5 +16,5 @@
 /tmp
 
 # Ignore personal setup
-/config/database.database.yml
+/config/database.yml
 
