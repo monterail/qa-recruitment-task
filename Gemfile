@@ -17,13 +17,13 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'slim-rails'
 # Use jquery as the JavaScript library
-gem 'rails-assets-angular'
+gem 'rails-assets-angular', '1.3.6'
+gem 'rails-assets-angular-ui-router', '0.2.13'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -39,3 +39,9 @@ source 'https://h6LuM_B67dJ3G6yqY5wL@repo.fury.io/monterail/' do
 end
 gem 'rails_sso'
 gem 'envied', '~> 0.8.1'
+
+group :development, :test do
+  gem 'pry-rails', '~> 0.3.2'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
