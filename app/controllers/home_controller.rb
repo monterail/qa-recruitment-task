@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
   
   def authenticate
-    user=User.auth!(current_user_data)
+    User.auth!(current_user_data)
   end
 end

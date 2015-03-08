@@ -1,5 +1,5 @@
 angular.module('BornApp').service 'User', ($http, Rails) ->
-  base = '//#{Rails.host}/api/v1/users'
+  base = '/api/v1/users'
 
   index: ->
     $http.get(base)

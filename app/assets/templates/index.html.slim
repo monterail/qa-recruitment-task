@@ -1,5 +1,8 @@
-p
-  | {{2+2}}
+h6
+  a ui-sref='user({id: current_user_data[uid]})'
+    | Edit my profile
 div ng-repeat='user in users'
-  p
+  h4
     | {{user.name}}
+  h6
+    span ng-bind='user.date_of_birth'
