@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true
   
-  scope :sooners, -> (uid) { where.not(sso_id: uid) }
+  scope :sooners, -> (uid) { where.not(sso_id: uid, birthday_month: nil, birthday_day: nil).order(birthday_month: :asc) }
 
   def self.auth!(auth_hash)
     attrs = {
