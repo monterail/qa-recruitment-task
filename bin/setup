@@ -1,0 +1,14 @@
+#! /user/bin/env bash
+
+set -e
+
+echo "* Bundle install"
+bundle install
+
+echo "* Copy example configuration files"
+cp .env.example .env
+cp config/database.example.yml config/database.yml
+
+echo "* Remember to fill your .env file"
+echo "* Please adjust your config/database.yml and run:"
+echo "$ bundle exec rake db:setup"
