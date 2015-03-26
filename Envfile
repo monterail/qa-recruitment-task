@@ -1,10 +1,10 @@
 enable_defaults!
 
-variable :ID_HUSSARS_HOST, :string, default: 'http://localhost:5000'
+variable :ID_HUSSARS_HOST, :string
 variable :HUSSARS_KEY, :string
 variable :HUSSARS_SECRET, :string
 
-%i{ staging preprod production }.each do |stage|
+%i{ staging production }.each do |stage|
   group stage do
     variable :ID_HUSSARS_HOST, :string
     variable :HUSSARS_KEY, :string
