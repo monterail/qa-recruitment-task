@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
   def index
     render json: User.sooners(current_user_data['uid'])
