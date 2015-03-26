@@ -7,7 +7,7 @@ module Api
 
     def update
       user = User.find_by(sso_id: current_user_data['uid'])
-      user.update!(user_params)
+      user.update(user_params)
 
       render json: user
     end
