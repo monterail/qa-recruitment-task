@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20150315133240) do
     t.string  "email",                       null: false
     t.string  "name",                        null: false
     t.string  "sso_id",                      null: false
-    t.date    "date_of_birth"
     t.boolean "szama"
     t.text    "hobbies",        default: [],              array: true
     t.integer "birthday_month"
