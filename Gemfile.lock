@@ -88,6 +88,9 @@ GEM
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    ngannotate-rails (0.15.4)
+      execjs
+      rails (>= 3.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
@@ -210,6 +213,7 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 4.0.0)
   envied (~> 0.8.1)
+  ngannotate-rails
   omniauth-hussars (= 0.1.1)!
   pg
   pry-rails (~> 0.3.2)

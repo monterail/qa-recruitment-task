@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'slim-rails'
 gem 'spring',        group: :development
+gem 'ngannotate-rails'
 
 source 'https://h6LuM_B67dJ3G6yqY5wL@repo.fury.io/monterail/' do
   gem 'omniauth-hussars', '0.1.1'
