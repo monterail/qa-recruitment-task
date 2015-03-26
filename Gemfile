@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
 
 gem 'rails', '4.2.0'
 gem 'pg'
@@ -17,7 +16,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-angular', '1.3.6'
   gem 'rails-assets-angular-ui-router', '0.2.13'
 end
-  
+
 gem 'rails_sso'
 gem 'envied', '~> 0.8.1'
 
