@@ -18,7 +18,7 @@ module Api
 
     private
       def user_params
-        params.require(:user).permit(:name, :email, :birthday_day, :birthday_month, :szama)
+        params.require(:user).permit(:birthday_day, :birthday_month, :szama)
       end
   end
 end
