@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: 
+  password:
+
+development:
+  <<: *default
+  database: BornHussaApp_development
+
+test:
+  <<: *default
+  database: BornHussaApp_test
+
+production:
+  <<: *default
+  database: BornHussaApp_production
+  username: BornHussaApp
+  password: <%= ENV['HELLOAPP_DATABASE_PASSWORD'] %>

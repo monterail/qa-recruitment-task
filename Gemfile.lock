@@ -60,6 +60,9 @@ GEM
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     envied (0.8.1)
       coercible (~> 1.0)
       rack (~> 1.4)
@@ -209,6 +212,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   envied (~> 0.8.1)
   omniauth-hussars (= 0.1.1)!
   pg
