@@ -1,7 +1,6 @@
 form ng-submit="update()"
   legend Edit user
-  span
-    | {{ user.email }}
+  span ng-bind="user.email"
   br
   label Birthday day
   input type="number" ng-model="user.birthday_day" min="1" max="31"
