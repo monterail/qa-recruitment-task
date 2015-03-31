@@ -10,11 +10,10 @@ module JsEnv
       env: Rails.env,
       templates: templates,
     }
-    
+
     <<-EOS.html_safe
       <script type="text/javascript">
-        shared = angular.module('BornApp')
-        shared.constant('Rails', #{data.to_json})
+        angular.module('BornApp').constant('Rails', #{data.to_json})
        </script>
     EOS
   end

@@ -9,6 +9,6 @@ RailsSso.configure do |config|
   # set if you support single sign out
   config.provider_sign_out_path = '/api/v1/me'
   # enable cache (will use Rails.cache store)
-  config.use_cache = false #Rails.application.config.action_controller.perform_caching
+  config.use_cache = false
   config.provider_url = ENV['ID_HUSSARS_HOST']
 end
