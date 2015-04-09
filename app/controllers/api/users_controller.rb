@@ -7,7 +7,7 @@ module Api
 
     def update
       user = User.find_by(sso_id: current_user_data['uid'])
-      user.update!(user_params)
+      user.update(user_params)
 
       render json: user
     end
@@ -18,7 +18,7 @@ module Api
 
     private
       def user_params
-        params.require(:user).permit(:name, :email)
+        params.require(:user).permit(:birthday_day, :birthday_month, :szama)
       end
   end
 end

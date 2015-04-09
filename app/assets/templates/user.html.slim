@@ -1,10 +1,14 @@
-form ng-submit='update(user)'
+form ng-submit="update()"
   legend Edit user
-
-  label Birth day
-  input type='date' ng-model='user.date_of_birth'
+  span ng-bind="user.email"
+  br
+  label Birthday day
+  input type="number" ng-model="user.birthday_day" min="1" max="31"
+  br
+  label Birthday month
+  input type="number" ng-model="user.birthday_month" min="1" max="12"
   br
   label Szama
-  input type='checkbox' ng-model='user.szama'
+  input type="checkbox" ng-model="user.szama"
   br
-  input type='submit' vaule='update me!'
+  input type="submit" vaule="update me!"
