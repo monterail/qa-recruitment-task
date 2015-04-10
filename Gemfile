@@ -27,4 +27,5 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rspec-rails'
+  gem 'database_cleaner', '~> 1.4.1'
 end
