@@ -34,15 +34,15 @@ describe Api::UsersController do
     subject { @user }
 
     it "returns users without current_user" do
-      is_expected.not_to include(current_user)
+      is_expected.not_to include(current_user.as_json)
     end
 
     it "returns users sorted by earliest birthday" do
-      is_expected.to eq([user_older, user_younger])
+      is_expected.to eq([user_older.as_json, user_younger.as_json])
     end
 
     it "doesn't include users without birthday date" do
-      is_expected.not_to include(user_without_birthday)
+      is_expected.not_to include(user_without_birthday.as_json)
     end
   end
 
@@ -50,8 +50,8 @@ describe Api::UsersController do
     context "with valid attributes" do
 
       it "updates current_user data" do
-        current_user["birthday_day"] = 12
-        put :update, :user => current_user
+        current_user.update_attribute(:birthday_day, 12)
+        put :update, :user => current_user.as_json
         updated_user = JSON.parse(response.body)
         expect(updated_user["birthday_day"]).to eq(12)
       end
@@ -59,13 +59,13 @@ describe Api::UsersController do
     context "with invalid attributes" do
 
       it "doesn't update current_user data" do
-        put :update, :user => invalid_user
+        put :update, :user => invalid_user.as_json
         updated_user = JSON.parse(response.body)
-        expect(updated_user).not_to eq(invalid_user)
+        expect(updated_user).not_to eq(invalid_user.as_json)
       end
       it "doesn't let update email" do
-        current_user["email"] = "new_email@test.es"
-        put :update, :user => current_user
+        current_user['email'] = 'new_email@test.es'
+        put :update, :user => current_user.as_json
         updated_user = JSON.parse(response.body)
         expect(updated_user["email"]).to eq("hodor@example.com")
       end
