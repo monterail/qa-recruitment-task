@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe User do
   let(:user) { User.create!(email: "hodor@hodor.eu", name: "hodor", sso_id: "12345") }
-  let!(:current_user_data) {{ "id" => 1, "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }}
 
   it "has a valid factory" do
     expect(user).to be_valid
@@ -65,6 +64,8 @@ describe User do
   end
 
   describe "User.auth!" do
+    let!(:current_user_data) {{ "id" => 1, "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }}
+
     context "if current user exists in born" do
       before(:each) do
         User.auth!(current_user_data)
