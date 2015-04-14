@@ -18,19 +18,18 @@ describe Api::UsersController do
   describe "GET #edit" do
     it "returns current_user data" do
       request.accept = "application/json"
-      get :edit, :format => :json
+      get :edit, format: :json
       user_shown = JSON.parse(response.body)
-      expect(user_shown["email"]).to eq current_user["email"]
+      expect(user_shown["email"]).to eq(current_user["email"])
     end
   end
 
   describe "GET #index" do
     before(:each) do
       get :index, :format => :json
-      @user = JSON.parse(response.body)
     end
 
-    subject { @user }
+    subject { JSON.parse(response.body) }
 
     it "returns users without current_user" do
       is_expected.not_to include(current_user.as_json)
