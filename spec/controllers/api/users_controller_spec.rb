@@ -25,7 +25,7 @@ describe Api::UsersController do
 
   describe "GET #index" do
     before(:each) do
-      get :index, :format => :json
+      get :index, format: :json
     end
 
     subject { JSON.parse(response.body) }
@@ -48,7 +48,7 @@ describe Api::UsersController do
     context "with valid attributes" do
       it "updates current_user data" do
         current_user["birthday_day"] = 12
-        put :update, :user => current_user.as_json
+        put :update, user: current_user.as_json
         updated_user = JSON.parse(response.body)
         expect(updated_user["birthday_day"]).to eq(12)
       end
@@ -56,13 +56,13 @@ describe Api::UsersController do
 
     context "with invalid attributes" do
       it "doesn't update current_user data" do
-        put :update, :user => invalid_user.as_json
+        put :update, user: invalid_user.as_json
         updated_user = JSON.parse(response.body)
         expect(updated_user).not_to eq(invalid_user.as_json)
       end
       it "doesn't let update email" do
         current_user['email'] = 'new_email@test.es'
-        put :update, :user => current_user.as_json
+        put :update, user: current_user.as_json
         updated_user = JSON.parse(response.body)
         expect(updated_user["email"]).to eq("hodor@example.com")
       end
