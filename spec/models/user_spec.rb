@@ -64,7 +64,7 @@ describe User do
     end
   end
 
-  describe "user#self.auth!" do
+  describe "User.auth!" do
     context "if current user exists in born" do
       before(:each) do
         User.auth!(current_user_data)
