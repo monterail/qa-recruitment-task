@@ -5,7 +5,6 @@ describe Api::UsersController do
 
   let!(:current_user_data) {{ "id" => 1, "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }}
   let!(:current_user) { User.create!(name: 'hodor', email: 'hodor@example.com', sso_id: '12345678') }
-  let!(:invalid_user) {{ "id" => nil, "email" => "hodor", "sso_id" => "12345678" }}
   let!(:user_younger) { User.create!(email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789', birthday_month:  12, birthday_day: 1) }
   let!(:user_older) { User.create!(email: 'hodor3@example.com', name: 'hodor3', sso_id: '34567890', birthday_month: 2, birthday_day: 12) }
   let!(:user_without_birthday) { User.create!(email: 'hodor4@example.com', name: 'hodor4', sso_id: '45678901') }
@@ -47,6 +46,7 @@ describe Api::UsersController do
   end
 
   describe "PUT #update" do
+    let!(:invalid_user) {{ "id" => nil, "email" => "hodor", "sso_id" => "12345678" }}
     context "with valid attributes" do
 
       it "updates current_user data" do
