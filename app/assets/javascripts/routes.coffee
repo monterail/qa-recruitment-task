@@ -15,5 +15,5 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       controller: 'UserCtrl'
       resolve:
         user: ($stateParams, User) ->
-          User.show($stateParams.id)
+          User.edit($stateParams.id)
       templateUrl: '/assets/user.html'

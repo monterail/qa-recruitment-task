@@ -12,7 +12,7 @@ module Api
       render json: user
     end
 
-    def show
+    def edit
       render json: User.find_by(sso_id: current_user_data['uid'])
     end
 

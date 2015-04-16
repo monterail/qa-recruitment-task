@@ -56,6 +56,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1)
+    database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -215,9 +216,10 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  database_cleaner (~> 1.4.1)
   dotenv-rails
   envied (~> 0.8.1)
-  ngannotate-rails
+  ngannotate-rails (~> 0.15.4)
   omniauth-hussars (= 0.1.1)!
   pg
   pry-rails (~> 0.3.2)
