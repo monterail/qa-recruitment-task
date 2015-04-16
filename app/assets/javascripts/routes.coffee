@@ -7,7 +7,7 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       abstract: true,
       resolve:
         current_user: (User) ->
-          User.edit()
+          User.me()
       template: '<ui-view/>'
 
     .state 'auth.index',
