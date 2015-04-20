@@ -29,7 +29,7 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       resolve:
         propositions: ($stateParams, Proposition) ->
           Proposition.index($stateParams.id)
-        user: ($stateParams, User) ->
+        jubilat: ($stateParams, User) ->
           User.show($stateParams.id)
       templateUrl: '/assets/birthday.html'
 

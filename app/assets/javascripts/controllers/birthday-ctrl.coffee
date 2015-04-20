@@ -1,4 +1,5 @@
-angular.module('BornApp').controller 'BirthdayCtrl', ($scope, $stateParams, User, Proposition, propositions, Comment) ->
+angular.module('BornApp').controller 'BirthdayCtrl', ($scope, $stateParams, User, Proposition, propositions, Comment, jubilat) ->
+  $scope.jubilat = jubilat.data
   $scope.propositions = propositions.data
   $scope.newProposition = {}
   $scope.newProposition.jubilat_id = $stateParams.id
