@@ -6,7 +6,12 @@ module Api
     end
 
     def show
-      render json: User.find(params[:id])
+      user = User.find(params[:id])
+      unless user['sso_id'] == current_user_data['uid']
+        render json: User.find(params[:id])
+      else
+        head :unauthorized
+      end
     end
 
     def update
