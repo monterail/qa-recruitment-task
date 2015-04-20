@@ -2,7 +2,7 @@ module Api
   class PropositionsController < ApplicationController
 
     def index
-      render json: Proposition.where(jubilat_id: params[:user_id])
+      render json: Proposition.where(jubilat_id: params[:user_id]).order(updated_at: :asc)
     end
 
     def create
