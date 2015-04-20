@@ -3,6 +3,8 @@ angular.module('BornApp').service 'User', ($http, Rails) ->
 
   index: ->
     $http.get(base)
+  show: (id) ->
+    $http.get("#{base}/#{id}")
   update: (user) ->
     $http.put("#{base}/me", user: user)
   me: ->

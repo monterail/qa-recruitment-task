@@ -5,6 +5,10 @@ module Api
       render json: User.sooners(current_user_data['uid'])
     end
 
+    def show
+      render json: User.find(params[:id])
+    end
+
     def update
       user = User.find_by(sso_id: current_user_data['uid'])
       user.update(user_params)
