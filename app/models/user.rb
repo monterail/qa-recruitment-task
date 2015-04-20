@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :propositions, foreign_key: :owner_id, dependent: :destroy
+  has_many :propositions, foreign_key: :jubilat, dependent: :destroy
+
   validates :name, presence: true
   validates :email, presence: true
   validates :birthday_month, allow_nil: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 12 }
