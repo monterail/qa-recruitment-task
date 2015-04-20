@@ -1,0 +1,49 @@
+
+
+
+div ng-repeat="proposition in propositions"
+  div ng-if="editPropositionId != proposition.id"
+    h3
+      | {{proposition.title}}
+    p
+      | {{proposition.description}} | {{proposition.value | currency :"PLN "}}
+    button type="button" ng-click="editProposition(proposition.id)" Edit
+  form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id"
+    label Title
+    input type="text" ng-model="proposition.title"
+    br
+    label Description
+    input type="text" ng-model="proposition.description"
+    br
+    label Value
+    input type="number" ng-model="proposition.value"
+    br
+    input type="submit" value="Save"
+    button type="button" ng-click="cancelEditProposition()" x
+
+  div style="margin-left: 50px;"
+    div ng-repeat="comment in proposition.comments"
+      p ng-if="editCommentId != comment.id" ng-click="editComment(comment)"
+          | {{comment.body}}
+      form ng-submit="updateComment(comment, proposition)" ng-if="editCommentId == comment.id"
+        input type="text" ng-model="comment.body"
+        input type="submit" value="edit"
+        button type="button" ng-click="cancelEditComment()" x
+    form ng-submit="comment(newComment, proposition)"
+      input type="text" ng-model="newComment.body"
+      input type="submit" value="Comment"
+
+hr
+form ng-submit="create()"
+  legend New Proposition
+
+  label Title
+  input type="text" ng-model="newProposition.title"
+  br
+  label Description
+  input type="text" ng-model="newProposition.description"
+  br
+  label Value
+  input type="number" ng-model="newProposition.value"
+  br
+  input type="submit" value="Save"
