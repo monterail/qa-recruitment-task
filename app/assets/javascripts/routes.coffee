@@ -22,3 +22,14 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       url: '/user/:id'
       controller: 'UserCtrl'
       templateUrl: '/assets/user.html'
+
+    .state 'birthday',
+      url: '/users/:id'
+      controller: 'BirthdayCtrl'
+      resolve:
+        propositions: ($stateParams, Proposition) ->
+          Proposition.index($stateParams.id)
+        user: ($stateParams, User) ->
+          User.show($stateParams.id)
+      templateUrl: '/assets/birthday.html'
+

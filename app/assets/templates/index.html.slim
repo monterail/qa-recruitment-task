@@ -1,5 +1,5 @@
 a ui-sref="auth.user"
   | {{current_user.name}}
 div ng-repeat="user in users"
-  h4
+  h4 ui-sref="birthday({id: user.id})"
     | {{user.name}} | {{user.birthday_day}}.{{user.birthday_month}}
