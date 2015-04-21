@@ -1,9 +1,10 @@
 h1 ng-bind="jubilat.name"
 h2
   | {{jubilat.birthday_day}}.{{jubilat.birthday_month}}
+h3
+  | Person responsible: {{ personResponsible.name }}
 
-
-div ng-repeat="proposition in propositions"
+div ng-repeat="proposition in propositions" style="border: 1px solid #dddddd; margin: 10px; padding: 10px;"
   div ng-if="editPropositionId != proposition.id"
     h3
       | {{proposition.title}}

@@ -6,6 +6,10 @@ angular.module('BornApp').controller 'BirthdayCtrl', ($scope, $stateParams, User
   $scope.newComment = {}
   $scope.editCommentId = null
   $scope.editPropositionId = null
+  $scope.personResponsible = null
+
+  User.show($scope.jubilat.person_responsible_id).success (user) ->
+    $scope.personResponsible = user
 
   $scope.editComment = (comment) ->
     $scope.editCommentId = comment.id
