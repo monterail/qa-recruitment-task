@@ -14,10 +14,10 @@ describe Api::UsersController do
 
   after(:each) { expect(response).to be_success }
 
-  describe "GET #edit" do
+  describe "GET #me" do
     it "returns current_user data" do
       request.accept = "application/json"
-      get :edit, format: :json
+      get :me, format: :json
       user_shown = JSON.parse(response.body)
       expect(user_shown["email"]).to eq(current_user["email"])
     end

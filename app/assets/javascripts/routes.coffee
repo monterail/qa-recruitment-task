@@ -2,7 +2,15 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
   $urlRouterProvider.otherwise '/'
 
   $stateProvider
-    .state 'index',
+    .state 'auth',
+      url: '',
+      abstract: true,
+      resolve:
+        current_user: (User) ->
+          User.me()
+      template: '<ui-view/>'
+
+    .state 'auth.index',
       url: '/',
       controller: 'BirthdaysCtrl'
       resolve:
@@ -10,10 +18,7 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
           User.index()
       templateUrl: '/assets/index.html'
 
-    .state 'user',
+    .state 'auth.user',
       url: '/user/:id'
       controller: 'UserCtrl'
-      resolve:
-        user: ($stateParams, User) ->
-          User.edit($stateParams.id)
       templateUrl: '/assets/user.html'

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'users', to: 'users#index'
-    get 'users/me', to: 'users#edit'
+    get 'users/me', to: 'users#me'
     put 'users/me', to: 'users#update'
   end
 
