@@ -12,24 +12,22 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
 
     .state 'auth.index',
       url: '/',
-      controller: 'BirthdaysCtrl'
+      controller: 'IndexCtrl'
       resolve:
         users: (User) ->
           User.index()
       templateUrl: '/assets/index.html'
 
-    .state 'auth.user',
-      url: '/user/:id'
-      controller: 'UserCtrl'
-      templateUrl: '/assets/user.html'
+    .state 'auth.me',
+      url: '/user/me'
+      controller: 'MeCtrl'
+      templateUrl: '/assets/me.html'
 
-    .state 'birthday',
+    .state 'auth.user',
       url: '/users/:id'
-      controller: 'BirthdayCtrl'
+      controller: 'UserCtrl'
       resolve:
-        propositions: ($stateParams, Proposition) ->
-          Proposition.index($stateParams.id)
         jubilat: ($stateParams, User) ->
           User.show($stateParams.id)
-      templateUrl: '/assets/birthday.html'
+      templateUrl: '/assets/user.html'
 
