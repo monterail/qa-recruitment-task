@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420180250) do
+ActiveRecord::Schema.define(version: 20150425172529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,25 +28,26 @@ ActiveRecord::Schema.define(version: 20150420180250) do
   add_index "comments", ["proposition_id"], name: "index_comments_on_proposition_id", using: :btree
 
   create_table "propositions", force: :cascade do |t|
-    t.string   "title",       null: false
+    t.string   "title",          null: false
     t.text     "description"
     t.decimal  "value"
-    t.boolean  "chosen"
     t.integer  "owner_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "jubilat_id"
+    t.integer  "year_chosen_in"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "email",                              null: false
-    t.string  "name",                               null: false
-    t.string  "sso_id",                             null: false
+    t.string  "email",                                 null: false
+    t.string  "name",                                  null: false
+    t.string  "sso_id",                                null: false
     t.boolean "szama"
-    t.text    "hobbies",               default: [],              array: true
     t.integer "birthday_month"
     t.integer "birthday_day"
     t.integer "person_responsible_id"
+    t.text    "about"
+    t.boolean "done",                  default: false
   end
 
   add_index "users", ["sso_id"], name: "index_users_on_sso_id", using: :btree
