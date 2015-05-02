@@ -1,14 +1,74 @@
-form ng-submit="update()"
-  legend Edit user
-  span ng-bind="user.email"
+h1 ng-bind="jubilat.name"
+h2
+  | {{jubilat.birthday_day}}.{{jubilat.birthday_month}}
+h3
+  | Person responsible: {{ jubilat.person_responsible.name }}
+div ng-if="jubilat.person_responsible.id == current_user.id"
+  span
+    | ogarniete:
+  input type="checkbox" ng-model="jubilat.done" ng-click="updateIfDone()"
+
+p ng-bind="jubilat.about" ng-if="!editingAbout"
+button type="button" ng-click="editAbout()" ng-if="!editingAbout" Edit
+form ng-submit="updateAbout()" ng-if="editingAbout"
+  input type="text" ng-model="jubilat.about"
+  input type="submit" value="Save"
+  button type="button" ng-click="cancelEditingAbout()" x
+
+h2 Chosen before
+div ng-repeat="proposition in jubilat.propositions.chosen"
+  span ng-bind="proposition.title"
+  span style="color: #999999;"
+    |  chosen in {{proposition.year_chosen_in}}
   br
-  label Birthday day
-  input type="number" ng-model="user.birthday_day" min="1" max="31"
+
+h2 Propositions
+div ng-repeat="proposition in jubilat.propositions.current" style="border: 1px solid #dddddd; margin: 10px; padding: 10px;"
+  div ng-if="editPropositionId != proposition.id"
+    button type="button" ng-if="jubilat.person_responsible.id == current_user.id" ng-click="chooseProposition(proposition)" Choose!
+    h3
+      | {{proposition.title}} by {{proposition.owner.name}}
+    p
+      | {{proposition.description}} | {{proposition.value | currency :"PLN "}}
+    button type="button" ng-if="current_user.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
+  form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id"
+    label Title
+    input type="text" ng-model="proposition.title"
+    br
+    label Description
+    input type="text" ng-model="proposition.description"
+    br
+    label Value
+    input type="number" ng-model="proposition.value"
+    br
+    input type="submit" value="Save"
+    button type="button" ng-click="cancelEditProposition()" x
+
+  div style="margin-left: 50px;"
+    div ng-repeat="comment in proposition.comments"
+      span ng-if="editCommentId != comment.id" ng-click="editComment(comment)"
+        | {{comment.body}}
+      span style="color: #888888; margin-left: 5px;" ng-if="editCommentId != comment.id"
+        | by {{comment.owner.name}}
+      form ng-submit="updateComment(comment, proposition)" ng-if="editCommentId == comment.id"
+        input type="text" ng-model="comment.body"
+        input type="submit" value="edit"
+        button type="button" ng-click="cancelEditComment()" x
+    form ng-submit="comment(proposition)"
+      input type="text" ng-model="proposition.newComment.body"
+      input type="submit" value="Comment"
+
+hr
+form ng-submit="create()"
+  legend New Proposition
+
+  label Title
+  input type="text" ng-model="newProposition.title"
   br
-  label Birthday month
-  input type="number" ng-model="user.birthday_month" min="1" max="12"
+  label Description
+  input type="text" ng-model="newProposition.description"
   br
-  label Szama
-  input type="checkbox" ng-model="user.szama"
+  label Value
+  input type="number" ng-model="newProposition.value"
   br
-  input type="submit" vaule="update me!"
+  input type="submit" value="Save"
