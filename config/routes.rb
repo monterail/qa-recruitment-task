@@ -5,11 +5,11 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get '', to: 'users#index'
-        get '/me', to: 'users#edit'
-        put '/me', to: 'users#update'
+        get '/me', to: 'users#me'
+        put '/me', to: 'users#update_me'
       end
-      resources :propositions, only: [:index, :update, :create] do
-        resources :comments, only: [:index, :update, :create]
+      resources :propositions, only: [:update, :create] do
+        resources :comments, only: [:update, :create]
       end
     end
   end
