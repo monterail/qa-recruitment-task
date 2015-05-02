@@ -1,21 +1,20 @@
 module Api
   class CommentsController < ApplicationController
 
-    def index
-      proposition = Proposition.find(params[:proposition_id])
-      render json: proposition.comments
-    end
-
     def create
       proposition = Proposition.find(params[:proposition_id])
-      render json: proposition.comments.create(comment_params)
+      render json: CommentRepresenter.new(proposition.comments.create(comment_params)).basic
     end
 
     def update
       comment = Comment.find(params[:id])
-      comment.update!(comment_params)
-
-      render json: comment
+      current_user = User.find_by(sso_id: current_user_data['uid'])
+      unless current_user['id'] != comment.owner_id
+        comment.update!(comment_params)
+        render json: CommentRepresenter.new(comment).basic
+      else
+        head :unauthorized
+      end
     end
 
   private
