@@ -1,5 +1,5 @@
-angular.module('BornApp').controller 'UserCtrl', ($scope, User, Proposition, Comment, jubilat, current_user) ->
-  $scope.current_user = current_user.data
+angular.module('BornApp').controller 'UserCtrl', ($scope, jubilat, currentUser, User, Proposition, Comment) ->
+  $scope.currentUser = currentUser.data
   $scope.jubilat = jubilat.data
   $scope.newProposition = {}
   $scope.newProposition.jubilat_id = $scope.jubilat.id
@@ -23,7 +23,7 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, User, Proposition, Com
     $scope.editingAbout = false
 
   $scope.editComment = (comment) ->
-    $scope.editCommentId = comment.id if $scope.current_user.id == comment.owner.id
+    $scope.editCommentId = comment.id if $scope.currentUser.id == comment.owner.id
 
   $scope.cancelEditComment = ->
     $scope.editCommentId = null
