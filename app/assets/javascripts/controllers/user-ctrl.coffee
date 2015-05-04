@@ -1,11 +1,12 @@
 angular.module('BornApp').controller 'UserCtrl', ($scope, jubilat, currentUser, User, Proposition, Comment) ->
   $scope.currentUser = currentUser.data
   $scope.jubilat = jubilat.data
-  $scope.newProposition = {}
-  $scope.newProposition.jubilat_id = $scope.jubilat.id
-  $scope.editCommentId = null
-  $scope.editPropositionId = null
-  $scope.editingAbout = null
+  $scope.newProposition = {
+    jubilat_id: $scope.jubilat.id
+  }
+  $scope.editCommentId = false
+  $scope.editPropositionId = false
+  $scope.isEditingAbout = false
 
   $scope.editAbout = ->
     $scope.editingAbout = true
