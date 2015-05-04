@@ -1,3 +1,3 @@
-angular.module('BornApp').controller 'IndexCtrl', ($scope, users, current_user) ->
-  $scope.current_user = current_user.data
+angular.module('BornApp').controller 'IndexCtrl', ($scope, users, currentUser) ->
+  $scope.currentUser = currentUser.data
   $scope.users = users.data

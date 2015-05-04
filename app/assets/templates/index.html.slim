@@ -1,5 +1,5 @@
 a ui-sref="auth.me"
-  | {{current_user.name}}
+  | {{currentUser.name}}
 div ng-repeat="user in users"
   a ui-sref="auth.user({id: user.id})"
     | {{user.name}} | {{user.birthday_day}}.{{user.birthday_month}}

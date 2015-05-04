@@ -6,7 +6,7 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       url: '',
       abstract: true,
       resolve:
-        current_user: (User) ->
+        currentUser: (User) ->
           User.me()
       template: '<ui-view/>'
 
