@@ -4,4 +4,7 @@ class Proposition < ActiveRecord::Base
   has_many :comments
 
   validates :title, presence: true
+
+  scope :chosen, -> { where.not(year_chosen_in: nil) }
+  scope :current, -> { where(year_chosen_in: nil) }
 end
