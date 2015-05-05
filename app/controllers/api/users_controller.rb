@@ -7,7 +7,7 @@ module Api
 
     def show
       user = User.find(params[:id])
-      unless user['sso_id'] == current_user_data['uid']
+      if user['sso_id'] != current_user_data['uid']
        render json: OneUserRepresenter.new(User.find(params[:id])).basic
       else
         head :unauthorized
