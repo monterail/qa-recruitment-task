@@ -3,7 +3,8 @@ module Api
 
     def create
       proposition = Proposition.find(params[:proposition_id])
-      render json: CommentRepresenter.new(proposition.comments.create(comment_params)).basic
+      new_comment = proposition.comments.create(comment_params)
+      render json: CommentRepresenter.new(new_comment).basic
     end
 
     def update
