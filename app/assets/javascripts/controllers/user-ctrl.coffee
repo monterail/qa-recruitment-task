@@ -60,7 +60,6 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, jubilat, currentUser, 
 
   $scope.chooseProposition = (proposition) ->
     proposition.year_chosen_in = new Date().getFullYear()
-    console.log(new Date().getFullYear())
     Proposition.update(proposition).success (updatedProposition) ->
       index = $scope.jubilat.propositions.current.indexOf(proposition)
       $scope.jubilat.propositions.current.splice(index, 1)
