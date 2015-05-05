@@ -8,7 +8,7 @@ module Api
     def update
       proposition = Proposition.find(params[:id])
       current_user = User.find_by(sso_id: current_user_data['uid'])
-      unless current_user['id'] != proposition.owner_id
+      if current_user['id'] == proposition.owner_id
         proposition.update(proposition_params)
         render json: PropositionRepresenter.new(proposition).basic
       else
