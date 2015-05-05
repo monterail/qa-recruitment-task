@@ -1,7 +1,7 @@
 angular.module('BornApp').service 'Proposition', ($http, Rails) ->
-  base = "/api/users"
+  base = "/api"
 
   create: (proposition) ->
-    $http.post("#{base}/#{proposition.jubilat_id}/propositions", proposition: proposition)
+    $http.post("#{base}/propositions", proposition: proposition)
   update: (proposition) ->
-    $http.put("#{base}/#{proposition.jubilat_id}/propositions/#{proposition.id}", proposition: proposition)
+    $http.put("#{base}/propositions/#{proposition.id}", proposition: proposition)

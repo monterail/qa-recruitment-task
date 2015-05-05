@@ -8,9 +8,9 @@ Rails.application.routes.draw do
         get '/me', to: 'users#me'
         put '/me', to: 'users#update_me'
       end
-      resources :propositions, only: [:update, :create] do
-        resources :comments, only: [:update, :create]
-      end
+    end
+    resources :propositions, only: [:update, :create] do
+      resources :comments, only: [:update, :create]
     end
   end
 
