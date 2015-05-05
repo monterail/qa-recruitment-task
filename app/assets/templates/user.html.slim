@@ -3,10 +3,9 @@ h2
   | {{jubilat.birthday_day}}.{{jubilat.birthday_month}}
 h3
   | Person responsible: {{ jubilat.person_responsible.name }}
-div ng-if="jubilat.person_responsible.id == current_user.id"
-  span
-    | ogarniete:
-  input type="checkbox" ng-model="jubilat.done" ng-click="updateIfDone()"
+span
+  | ogarniete:
+input type="checkbox" ng-model="jubilat.done" ng-click="updateIfDone()"
 
 p ng-bind="jubilat.about" ng-if="!isEditingAbout"
 button type="button" ng-click="toggleEditingAbout()" ng-if="!isEditingAbout" Edit
