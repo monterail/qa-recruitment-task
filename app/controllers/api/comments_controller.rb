@@ -9,7 +9,6 @@ module Api
 
     def update
       comment = Comment.find(params[:id])
-      current_user = User.find_by(sso_id: current_user_data['uid'])
       if current_user['id'] == comment.owner_id
         comment.update!(comment_params)
         render json: CommentRepresenter.new(comment).basic

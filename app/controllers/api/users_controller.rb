@@ -2,12 +2,12 @@ module Api
   class UsersController < ApplicationController
 
     def index
-      render json: UsersRepresenter.new(User.sooners(current_user_data['uid'])).basic
+      render json: UsersRepresenter.new(User.sooners(current_user['sso_id'])).basic
     end
 
     def show
       user = User.find(params[:id])
-      if user['sso_id'] != current_user_data['uid']
+      if user['sso_id'] != current_user['uid']
        render json: OneUserRepresenter.new(User.find(params[:id])).basic
       else
         head :unauthorized
@@ -22,14 +22,13 @@ module Api
     end
 
     def update_me
-      user = User.find_by(sso_id: current_user_data['uid'])
-      user.update(user_params)
+      current_user.update(user_params)
 
-      render json: CurrentUserRepresenter.new(user).basic
+      render json: CurrentUserRepresenter.new(current_user).basic
     end
 
     def me
-      render json: CurrentUserRepresenter.new(User.find_by(sso_id: current_user_data['uid'])).basic
+      render json: CurrentUserRepresenter.new(current_user).basic
     end
 
     private
