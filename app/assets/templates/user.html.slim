@@ -7,8 +7,9 @@ span
   | ogarniete:
 input type="checkbox" ng-model="jubilat.done" ng-click="updateIfDone()"
 
-p ng-bind="jubilat.about" ng-if="!isEditingAbout"
-button type="button" ng-click="toggleEditingAbout()" ng-if="!isEditingAbout" Edit
+div ng-if="!isEditingAbout"
+  p ng-bind="jubilat.about"
+  button type="button" ng-click="toggleEditingAbout()" Edit
 form ng-submit="updateAbout()" ng-if="isEditingAbout"
   input type="text" ng-model="jubilat.about"
   input type="submit" value="Save"
