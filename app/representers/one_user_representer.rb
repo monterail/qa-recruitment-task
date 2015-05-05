@@ -11,8 +11,8 @@ class OneUserRepresenter < Struct.new(:user)
       szama: user.szama,
       propositions:
         {
-          chosen: user.propositions.chosen.map { |proposition| PropositionRepresenter.new(proposition).basic },
-          current: user.propositions.current.map { |proposition| PropositionRepresenter.new(proposition).basic },
+          chosen: user.propositions_as_jubilat.chosen.map { |proposition| PropositionRepresenter.new(proposition).basic },
+          current: user.propositions_as_jubilat.current.map { |proposition| PropositionRepresenter.new(proposition).basic },
         },
         person_responsible: (user.person_responsible.attributes.slice("id", "name", "email") if user.person_responsible)
     }

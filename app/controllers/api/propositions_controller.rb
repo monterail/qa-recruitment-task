@@ -2,11 +2,11 @@ module Api
   class PropositionsController < ApplicationController
 
     def create
-      render json: PropositionRepresenter.new(Proposition.create(proposition_params)).basic
+      render json: PropositionRepresenter.new(current_user.propositions_as_owner.create(proposition_params)).basic
     end
 
     def update
-      proposition = Proposition.find(params[:id])
+      proposition = current_user.propositions_as_owner.find(params[:id])
       if current_user['id'] == proposition.owner_id
         proposition.update(proposition_params)
         render json: PropositionRepresenter.new(proposition).basic
@@ -17,7 +17,7 @@ module Api
 
   private
     def proposition_params
-      params.require(:proposition).permit(:jubilat_id, :description, :title, :value, :year_chosen_in).merge(owner_id: User.find_by(sso_id: current_user_data['uid']).id) #tu jest problem, nie przypisuje current usera do nowej propozycji
+      params.require(:proposition).permit(:jubilat_id, :description, :title, :value, :year_chosen_in)
     end
   end
 end
