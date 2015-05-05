@@ -8,12 +8,12 @@ div ng-if="jubilat.person_responsible.id == current_user.id"
     | ogarniete:
   input type="checkbox" ng-model="jubilat.done" ng-click="updateIfDone()"
 
-p ng-bind="jubilat.about" ng-if="!editingAbout"
-button type="button" ng-click="editAbout()" ng-if="!editingAbout" Edit
-form ng-submit="updateAbout()" ng-if="editingAbout"
+p ng-bind="jubilat.about" ng-if="!isEditingAbout"
+button type="button" ng-click="toggleEditingAbout()" ng-if="!isEditingAbout" Edit
+form ng-submit="updateAbout()" ng-if="isEditingAbout"
   input type="text" ng-model="jubilat.about"
   input type="submit" value="Save"
-  button type="button" ng-click="cancelEditingAbout()" x
+  button type="button" ng-click="toggleEditingAbout()" x
 
 h2 Chosen before
 div ng-repeat="proposition in jubilat.propositions.chosen"

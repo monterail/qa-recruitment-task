@@ -8,20 +8,17 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, jubilat, currentUser, 
   $scope.editPropositionId = false
   $scope.isEditingAbout = false
 
-  $scope.editAbout = ->
-    $scope.editingAbout = true
+  $scope.toggleEditingAbout = ->
+    $scope.isEditingAbout = !$scope.isEditingAbout
 
   $scope.updateAbout = ->
     User.update($scope.jubilat).success (user) ->
       $scope.jubilat.about = user.about
-      $scope.editingAbout = false
+      $scope.isEditingAbout = false
 
   $scope.updateIfDone = ->
     User.update($scope.jubilat).success (user) ->
       $scope.jubilat.done = user.done
-
-  $scope.cancelEditingAbout = ->
-    $scope.editingAbout = false
 
   $scope.editComment = (comment) ->
     $scope.editCommentId = comment.id if $scope.currentUser.id == comment.owner.id
