@@ -6,7 +6,7 @@ module Api
     end
 
     def update
-      proposition = current_user.propositions_as_owner.find(params[:id])
+      proposition = Proposition.find(params[:id])
       if current_user['id'] == proposition.owner_id
         proposition.update(proposition_params)
         render json: PropositionRepresenter.new(proposition).basic
