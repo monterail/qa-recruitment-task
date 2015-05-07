@@ -43,6 +43,7 @@ describe Api::PropositionsController do
         expect(updated_proposition['value']).not_to eq('string')
       end
     end
+
     context "if owner isn't current_user" do
       it "return unauthorized" do
         auth(User.create!(name: 'baduser', email: 'bad@user.eu', sso_id: '87654321'))
