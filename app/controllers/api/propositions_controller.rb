@@ -12,7 +12,7 @@ module Api
       if proposition.update(proposition_params)
         render json: PropositionRepresenter.new(proposition).basic
       else
-        render json: { errors: comment.errors.messages }, status: 422
+        render json: { errors: proposition.errors.messages }, status: 422
       end
     end
 
