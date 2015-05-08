@@ -37,10 +37,9 @@ describe Api::PropositionsController do
       end
 
       it "doesn't update proposition with invalid data" do
-        proposition_attributes['value'] = 'string'
+        proposition_attributes['title'] = nil
         put :update, id: proposition_attributes['id'], proposition: proposition_attributes
-        updated_proposition = JSON.parse(response.body)
-        expect(updated_proposition['value']).not_to eq('string')
+        expect(response.status).to eq(422)
       end
     end
 

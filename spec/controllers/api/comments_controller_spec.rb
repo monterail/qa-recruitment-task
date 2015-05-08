@@ -38,12 +38,9 @@ describe Api::CommentsController do
       end
 
       it "doesn't update comment with invalid data" do
-        comment_attributes['value'] = 'stringInsteadOfNumber'
+        comment_attributes['body'] = nil
         put :update, proposition_id: comment_attributes['proposition_id'], id: comment_attributes['id'], comment: comment_attributes
-        updated_comment = JSON.parse(response.body)
-        expect(updated_comment['body']).not_to eq('stringInsteadOfNumber')
-        updated_comment = Comment.find(comment_attributes['id'])
-        expect(updated_comment['body']).not_to eq('stringInsteadOfNumber')
+        expect(response.status).to eq(422)
       end
     end
     context "if owner isn't current_user" do
