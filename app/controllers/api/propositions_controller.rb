@@ -8,8 +8,11 @@ module Api
     def update
       proposition = Proposition.find(params[:id])
       if current_user['id'] == proposition.owner_id
-        proposition.update(proposition_params)
-        render json: PropositionRepresenter.new(proposition).basic
+        if proposition.update(proposition_params)
+          render json: PropositionRepresenter.new(proposition).basic
+        else
+          render json: { errors: comment.errors.messages }, status: 422
+        end
       else
         head :unauthorized
       end

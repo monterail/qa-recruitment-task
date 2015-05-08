@@ -10,8 +10,11 @@ module Api
     def update
       comment = Comment.find(params[:id])
       if current_user['id'] == comment.owner_id
-        comment.update(comment_params)
-        render json: CommentRepresenter.new(comment).basic
+        if comment.update(comment_params)
+          render json: CommentRepresenter.new(comment).basic
+        else
+          render json: { errors: comment.errors.messages }, status: 422
+        end
       else
         head :unauthorized
       end
