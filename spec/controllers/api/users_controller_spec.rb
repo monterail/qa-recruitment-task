@@ -64,12 +64,11 @@ describe Api::UsersController do
 
     context "with invalid attributes" do
       it "doesn't update current_user data" do
-        current_user_attributes['birthday_day'] = 'hodor'
+        current_user_attributes['birthday_day'] = 48
         put :update_me, user: current_user_attributes
-        updated_user = JSON.parse(response.body)
-        expect(updated_user['birthday_day']).not_to eq('hodor')
+        expect(response.status).to eq(422)
         updated_user = User.find_by_id(current_user_attributes['id'])
-        expect(updated_user['birthday_day']).not_to eq('hodor')
+        expect(updated_user['birthday_day']).not_to eq(48)
       end
 
       it "doesn't let update email" do
@@ -96,9 +95,11 @@ describe Api::UsersController do
 
       it "doesn't update current_user_attributes data" do
         User.create(user_younger_attributes)
+        user_younger_attributes['birthday_day'] = 100
         put :update, id: user_younger_attributes['id'], user: user_younger_attributes
-        updated_user = JSON.parse(response.body)
-        expect(updated_user['email']).not_to eq('hodor')
+        expect(response.status).to eq(422)
+        updated_user = User.find_by_id(user_younger_attributes['id'])
+        expect(updated_user.birthday_day).not_to eq(100)
       end
 
       it "doesn't let update email" do
