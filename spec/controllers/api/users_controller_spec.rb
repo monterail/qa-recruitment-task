@@ -12,12 +12,6 @@ describe Api::UsersController do
     auth(User.create(current_user_attributes))
   end
 
-  after(:each) do |it|
-    unless it.metadata[:skip_after]
-      expect(response).to be_success
-    end
-  end
-
   describe "GET #me" do
     it "returns current_user_attributes data" do
       get :me
