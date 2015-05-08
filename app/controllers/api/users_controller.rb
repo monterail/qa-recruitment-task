@@ -13,15 +13,19 @@ module Api
 
     def update
       user = User.find(params[:id])
-      user.update(user_params)
-
-      render json: OneUserRepresenter.new(user).basic
+      if user.update(user_params)
+        render json: OneUserRepresenter.new(user).basic
+      else
+        render json: { errors: user.errors.messages }, status: 422
+      end
     end
 
     def update_me
-      current_user.update(user_params)
-
-      render json: CurrentUserRepresenter.new(current_user).basic
+      if current_user.update(user_params)
+        render json: CurrentUserRepresenter.new(current_user).basic
+      else
+        render json: { errors: current_user.errors.messages }, status: 422
+      end
     end
 
     def me
