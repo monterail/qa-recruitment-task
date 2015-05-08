@@ -9,8 +9,8 @@ angular.module('BornApp').controller 'CommentCtrl', ($scope, Comment) ->
 
   $scope.comment = (proposition) ->
     Comment.create(proposition.newComment, proposition).success (comment) ->
-    proposition.comments.push comment
-    proposition.newComment = {}
+      proposition.comments.push comment
+      proposition.newComment = {}
 
   $scope.updateComment = (comment, proposition) ->
     Comment.update(comment, proposition).success (updatedComment) ->
