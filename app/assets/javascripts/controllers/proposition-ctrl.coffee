@@ -11,9 +11,6 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
       $scope.jubilat.propositions.current.push response
       $scope.newProposition = {}
 
-  for proposition in $scope.jubilat.propositions.current
-    proposition.newComment = null
-
   $scope.updateProposition = (proposition) ->
     Proposition.update(proposition).success (updatedProposition) ->
       index = $scope.jubilat.propositions.current.indexOf(proposition)
