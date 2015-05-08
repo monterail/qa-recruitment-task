@@ -96,7 +96,7 @@ describe Api::UsersController do
 
       it "doesn't update current_user_attributes data" do
         User.create(user_younger_attributes)
-        put :update, id: user_younger_attributes['id'], user: invalid_user
+        put :update, id: user_younger_attributes['id'], user: user_younger_attributes
         updated_user = JSON.parse(response.body)
         expect(updated_user['email']).not_to eq('hodor')
       end
