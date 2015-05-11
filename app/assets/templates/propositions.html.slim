@@ -1,12 +1,12 @@
 div.crs-grid__row ng-controller="PropositionCtrl"
   div.crs-grid__column
     h1 Chosen before
-    ul ng-repeat="proposition in jubilat.propositions.chosen"
+    ul ng-repeat="proposition in celebrant.propositions.chosen"
       li
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
 
     h1 Propositions
-    div ng-repeat="proposition in jubilat.propositions.current"
+    div ng-repeat="proposition in celebrant.propositions.current"
       div ng-if="editPropositionId != proposition.id"
         h3
           | {{proposition.title}} by {{proposition.owner.name}}
