@@ -5,10 +5,11 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
     .state 'auth',
       url: '',
       abstract: true,
+      controller: 'TopBarCtrl'
       resolve:
         currentUser: (User) ->
           User.me()
-      template: '<ui-view/>'
+      templateUrl: '/assets/topbar.html'
 
     .state 'auth.index',
       url: '/',
