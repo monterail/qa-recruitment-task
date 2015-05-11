@@ -1,12 +1,20 @@
 div ng-controller="CommentCtrl"
+<<<<<<< HEAD
   .crs-comment ng-repeat="comment in proposition.comments"
+=======
+ .crs-comment ng-repeat="comment in proposition.comments"
+>>>>>>> Apply cuirass in current views
     div ng-if="editCommentId != comment.id"
       a.crs-comment__author href="#" ng-bind="comment.owner.name"
       small.crs-comment__date ng-bind="comment.updated_at"
       p.crs-typo__p ng-bind="comment.body"
       .crs-comment__options
         span.crs-comment__option ng-click="editComment(comment)" Edit
+<<<<<<< HEAD
    form ng-submit="updateComment(comment, proposition)" ng-if="editCommentId == comment.id"
+=======
+    form ng-submit="updateComment(comment, proposition)" ng-if="editCommentId == comment.id"
+>>>>>>> Apply cuirass in current views
       .crs-grid__row.crs-grid__row--middle
         .crs-grid__column.crs-grid__unit--sm-8
           .crs-input__group
@@ -14,7 +22,11 @@ div ng-controller="CommentCtrl"
         .crs-grid__column.crs-grid__unit--sm-4
           button.crs-button.crs-button--success type="submit" Save
           button.crs-button.crs-button--secondary type="button" ng-click="cancelEditComment()" x
+<<<<<<< HEAD
   form ng-submit="createComment(proposition)"
+=======
+  form ng-submit="comment(proposition)"
+>>>>>>> Apply cuirass in current views
     .crs-grid__row.crs-grid__row--middle
       .crs-grid__column.crs-grid__unit--sm-4
         .crs-input__group
