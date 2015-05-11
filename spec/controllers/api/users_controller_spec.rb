@@ -107,8 +107,8 @@ describe Api::UsersController do
   end
 
   describe "GET #show" do
-    let!(:chosen_proposition) { Proposition.create!(title: 'title', owner_id: user_younger_attributes['id'], jubilat_id: user_older_attributes['id'], year_chosen_in: 2015) }
-    let!(:current_proposition) { Proposition.create!(title: 'title', owner_id: user_younger_attributes['id'], jubilat_id: user_older_attributes['id']) }
+    let!(:chosen_proposition) { Proposition.create!(title: 'title', owner_id: user_younger_attributes['id'], celebrant_id: user_older_attributes['id'], year_chosen_in: 2015) }
+    let!(:current_proposition) { Proposition.create!(title: 'title', owner_id: user_younger_attributes['id'], celebrant_id: user_older_attributes['id']) }
     let!(:comment) { Comment.create!(body: 'body', owner_id: user_younger_attributes['id'], proposition_id: current_proposition['id']) }
 
     context "shows user's data" do

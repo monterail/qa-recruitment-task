@@ -23,7 +23,7 @@ module Api
     end
 
     def proposition_params
-      params.require(:proposition).permit(:jubilat_id, :description, :title, :value, :year_chosen_in)
+      params.require(:proposition).permit(:celebrant_id, :description, :title, :value, :year_chosen_in)
     end
   end
 end

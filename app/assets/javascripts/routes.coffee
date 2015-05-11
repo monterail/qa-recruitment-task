@@ -27,7 +27,7 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       url: '/user/:id'
       controller: 'UserCtrl'
       resolve:
-        jubilat: ($stateParams, User) ->
+        celebrant: ($stateParams, User) ->
           User.show($stateParams.id)
       templateUrl: '/assets/user.html'
 

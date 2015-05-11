@@ -1,8 +1,8 @@
-angular.module('BornApp').controller 'UserCtrl', ($scope, jubilat, currentUser, User) ->
+angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser, User) ->
   $scope.currentUser = currentUser.data
-  $scope.jubilat = jubilat.data
+  $scope.celebrant = celebrant.data
   $scope.newProposition = {
-    jubilat_id: $scope.jubilat.id
+    celebrant_id: $scope.celebrant.id
   }
   $scope.isEditingAbout = false
 
@@ -10,12 +10,12 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, jubilat, currentUser, 
     $scope.isEditingAbout = !$scope.isEditingAbout
 
   $scope.updateAbout = ->
-    User.update($scope.jubilat).success (user) ->
-      $scope.jubilat.about = user.about
+    User.update($scope.celebrant).success (user) ->
+      $scope.celebrant.about = user.about
       $scope.isEditingAbout = false
 
   $scope.updateIfDone = ->
-    User.update($scope.jubilat).success (user) ->
-      $scope.jubilat.done = user.done
+    User.update($scope.celebrant).success (user) ->
+      $scope.celebrant.done = user.done
 
 

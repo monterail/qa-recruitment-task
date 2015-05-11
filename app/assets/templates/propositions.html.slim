@@ -1,13 +1,13 @@
 div ng-controller="PropositionCtrl"
   h2 Chosen before
-  div ng-repeat="proposition in jubilat.propositions.chosen"
+  div ng-repeat="proposition in celebrant.propositions.chosen"
     span ng-bind="proposition.title"
     span
       |  chosen in {{proposition.year_chosen_in}}
     br
 
   h2 Propositions
-  div ng-repeat="proposition in jubilat.propositions.current"
+  div ng-repeat="proposition in celebrant.propositions.current"
     div ng-if="editPropositionId != proposition.id"
       button type="button" ng-click="chooseProposition(proposition)" Mark as bought
       h3

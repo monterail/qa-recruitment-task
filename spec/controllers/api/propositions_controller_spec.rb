@@ -4,8 +4,8 @@ describe Api::PropositionsController do
   include AuthHelper
 
   let(:current_user) { User.create!(name: 'hodor', email: 'hodor@example.com', sso_id: '12345678') }
-  let(:jubilat) { User.create!(name: 'jubilat', email: 'jubilat@ju.la', sso_id: '12343241') }
-  let(:proposition_attributes) {{ 'id' => 222, 'title' => 'title', 'jubilat_id' => jubilat['id'], 'owner_id' => current_user.id }}
+  let(:celebrant) { User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241') }
+  let(:proposition_attributes) {{ 'id' => 222, 'title' => 'title', 'celebrant_id' => celebrant['id'], 'owner_id' => current_user.id }}
 
   before(:each) do
     auth(current_user)

@@ -1,17 +1,17 @@
-h1 ng-bind="jubilat.name"
+h1 ng-bind="celebrant.name"
 h2
-  | {{jubilat.birthday_day}}.{{jubilat.birthday_month}}
+  | {{celebrant.birthday_day}}.{{celebrant.birthday_month}}
 h3
-  | Person responsible: {{ jubilat.person_responsible.name }}
+  | Person responsible: {{ celebrant.person_responsible.name }}
 span
   | Is the gift ready?:
-input type="checkbox" ng-model="jubilat.done" ng-click="updateIfDone()"
+input type="checkbox" ng-model="celebrant.done" ng-click="updateIfDone()"
 
 div ng-if="!isEditingAbout"
-  p ng-bind="jubilat.about"
+  p ng-bind="celebrant.about"
   button type="button" ng-click="toggleEditingAbout()" Edit
 form ng-submit="updateAbout()" ng-if="isEditingAbout"
-  textarea ng-model="jubilat.about"
+  textarea ng-model="celebrant.about"
   input type="submit" value="Save"
   button type="button" ng-click="toggleEditingAbout()" x
 
