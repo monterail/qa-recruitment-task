@@ -1,0 +1,93 @@
+@import ../base/global
+
+// config
+$crs-button-padding: 11px 25px
+$crs-button-padding-small: 7px 14px 6px
+$crs-button-size: 14px
+$crs-button-background: $crs-primary-color
+$crs-button-color: $crs-global-font-inverted
+$crs-button-font-weight: $crs-global-font-weight-bold
+$crs-button-border-radius: $crs-global-radius
+
+
+.crs-button
+  padding: rem($crs-button-padding)
+  font-size: rem($crs-button-size)
+  position: relative
+  font-weight: $crs-global-font-weight-bold
+  font-family: $crs-global-font
+  background: $crs-button-background
+  color: $crs-button-color
+  border: none
+  display: inline-block
+  transition: .2s all ease-in-out
+  text-transform: uppercase
+  z-index: 1
+  line-height: 1
+  margin-bottom: rem($crs-grid-gutter-width / 2)
+  border: 3px solid $crs-button-background
+  overflow: hidden
+  outline: none
+  border-radius: $crs-button-border-radius
+
+  &:hover
+    border: 3px solid darken($crs-button-background, 10%)
+    background: darken($crs-button-background, 10%)
+    cursor: pointer
+
+  &:focus
+    outline: none
+    box-shadow: 0 2px 3px rgba(#000, .25)
+
+.crs-button--small
+  padding: rem($crs-button-padding-small)
+  font-size: rem($crs-button-size * .7)
+
+.crs-button--hollow
+  background: none
+  border: 3px solid $crs-secondary-color
+  color: $crs-secondary-color
+
+  &:hover
+    background: none
+    border: 3px solid darken($crs-secondary-color, 30%)
+    cursor: pointer
+
+.crs-button--success
+  background: $crs-success-color
+  border: 3px solid $crs-success-color
+
+  &:hover
+    background: darken($crs-success-color, 10%)
+    border: 3px solid darken($crs-success-color, 10%)
+    cursor: pointer
+
+.crs-button--error
+  background: $crs-alert-color
+  border: 3px solid $crs-alert-color
+
+  &:hover
+    background: darken($crs-alert-color, 10%)
+    border: 3px solid darken($crs-alert-color, 10%)
+    cursor: pointer
+
+
+.crs-button--info
+  background: $crs-info-color
+  border: 3px solid $crs-info-color
+
+  &:hover
+    background: darken($crs-info-color, 10%)
+    border: 3px solid darken($crs-info-color, 10%)
+    cursor: pointer
+
+
+.crs-button--secondary
+  background: $crs-secondary-color
+  border: 3px solid $crs-secondary-color
+
+  &:hover
+    background: darken($crs-secondary-color, 10%)
+    cursor: pointer
+    border: 3px solid darken($crs-secondary-color, 10%)
+
