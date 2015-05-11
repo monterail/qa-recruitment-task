@@ -1,8 +1,9 @@
 div ng-controller="CommentCtrl"
   div ng-repeat="comment in proposition.comments"
-    span ng-if="editCommentId != comment.id" ng-click="editComment(comment)" ng-bind="comment.body"
-    span ng-if="editCommentId != comment.id"
-      |  by {{ comment.owner.name }}
+    div ng-if="editCommentId != comment.id"
+      span ng-click="editComment(comment)" ng-bind="comment.body"
+      span
+        |  by {{ comment.owner.name }}
     form ng-submit="updateComment(comment, proposition)" ng-if="editCommentId == comment.id"
       textarea ng-model="comment.body"
       input type="submit" value="edit"
