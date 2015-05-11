@@ -57,7 +57,7 @@ describe Api::UsersController do
     end
 
     context "with invalid attributes" do
-      it "doesn't update current_user data" do
+      it "doesn't update current_user data when birthday_day is over scale" do
         current_user_attributes['birthday_day'] = 48
         put :update_me, user: current_user_attributes
         expect(response.status).to eq(422)
