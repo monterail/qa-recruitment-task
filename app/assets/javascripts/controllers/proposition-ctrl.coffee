@@ -6,7 +6,7 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
   $scope.cancelEditProposition = ->
     $scope.editPropositionId = null
 
-  $scope.create = ->
+  $scope.createProposition = ->
     Proposition.create($scope.newProposition).success (response) ->
       $scope.jubilat.propositions.current.push response
       $scope.newProposition = {}
