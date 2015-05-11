@@ -7,7 +7,7 @@ angular.module('BornApp').controller 'CommentCtrl', ($scope, Comment) ->
   $scope.cancelEditComment = ->
     $scope.editCommentId = null
 
-  $scope.comment = (proposition) ->
+  $scope.createComment = (proposition) ->
     Comment.create(proposition.newComment, proposition).success (comment) ->
       proposition.comments.push comment
       proposition.newComment = {}

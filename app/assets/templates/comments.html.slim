@@ -7,7 +7,7 @@ div ng-controller="CommentCtrl"
       textarea ng-model="comment.body"
       input type="submit" value="edit"
       button type="button" ng-click="cancelEditComment()" x
-  form ng-submit="comment(proposition)"
+  form ng-submit="createComment(proposition)"
     input type="text" ng-model="proposition.newComment.body"
     input type="submit" value="Comment"
 
