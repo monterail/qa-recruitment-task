@@ -3,7 +3,7 @@ div ng-controller="CommentCtrl"
     div ng-if="editCommentId != comment.id"
       a.crs-comment__author href="#" ng-bind="comment.owner.name"
       small.crs-comment__date
-        | {{ comment.created_at | date:'medium' }}
+        | {{ comment.updated_at | date:'medium' }}
       p.crs-typo__p ng-bind="comment.body"
       .crs-comment__options
         span.crs-comment__option ng-click="editComment(comment)" Edit
