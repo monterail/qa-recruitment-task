@@ -16,7 +16,7 @@ describe Api::CommentsController do
     it "new comment has owner" do
       post :create, proposition_id: comment_attributes['proposition_id'], comment: comment_attributes
       created_comment = JSON.parse(response.body)
-      expect(created_comment['owner']).to eq(current_user.attributes.slice('id', 'name'))
+      expect(created_comment['owner']['id']).to eq(current_user.id)
     end
 
     it "creates new comment" do
