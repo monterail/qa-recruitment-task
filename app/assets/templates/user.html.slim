@@ -1,18 +1,26 @@
-h1 ng-bind="celebrant.name"
-h2
-  | {{celebrant.birthday_day}}.{{celebrant.birthday_month}}
-h3
-  | Person responsible: {{ celebrant.person_responsible.name }}
-span
-  | Is the gift ready?:
-input type="checkbox" ng-model="celebrant.done" ng-click="updateIfDone()"
+div
+  .crs-grid__row
+    .crs-grid__column.crs-utils--center
+      h1 ng-bind="celebrant.name"
+      h2
+        | {{celebrant.birthday_day}}.{{celebrant.birthday_month}}
+  .crs-subbar.crs-form--colorful
+    .crs-grid__row
+      .crs-grid__column.crs-utils--center
+        h3
+          | Person responsible: {{ celebrant.person_responsible.name }}
+        label.crs-form__label Is the gift ready?
+        .crs-toggle ng-click="updateIfDone()"
+          input#checkbox type="checkbox" ng-model="celebrant.done"
+          label for="checkbox"
+            .crs-toggle__switch
 
-div ng-if="!isEditingAbout"
-  p ng-bind="celebrant.about"
-  button type="button" ng-click="toggleEditingAbout()" Edit
-form ng-submit="updateAbout()" ng-if="isEditingAbout"
-  textarea ng-model="celebrant.about"
-  input type="submit" value="Save"
-  button type="button" ng-click="toggleEditingAbout()" x
+        div ng-if="!isEditingAbout"
+          p ng-bind="celebrant.about"
+          button.crs-button type="button" ng-click="toggleEditingAbout()" Edit
+        form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout"
+          textarea ng-model="celebrant.about"
+          button.crs-button type="submit" Save
+          button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
 
 div ng-include="'/assets/propositions.html'"
