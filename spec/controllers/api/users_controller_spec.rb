@@ -144,7 +144,7 @@ describe Api::UsersController do
       end
     end
 
-    it "doesn't show user's data if it's current_user_attributes", skip_after: true do
+    it "doesn't show user's data if it's current_user_attributes" do
       get :show, id: current_user_attributes['id']
       expect(response.status).to eq(401)
     end
