@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
     end
     resources :propositions, only: [:update, :create] do
+      put 'choose', to: 'propositions#choose'
       resources :comments, only: [:update, :create]
     end
   end

@@ -16,6 +16,12 @@ module Api
       end
     end
 
+    def choose
+      proposition = Proposition.find(params[:proposition_id])
+      proposition.update_attributes(year_chosen_in: Time.now.year)
+      render json: PropositionRepresenter.new(proposition).basic
+    end
+
   private
     def restrict_wrong_owner
       proposition = Proposition.find(params[:id])

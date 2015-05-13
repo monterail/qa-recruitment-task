@@ -18,8 +18,7 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
       $scope.editPropositionId = null
 
   $scope.chooseProposition = (proposition) ->
-    proposition.year_chosen_in = new Date().getFullYear()
-    Proposition.update(proposition).success (updatedProposition) ->
+    Proposition.choose(proposition).success (updatedProposition) ->
       index = $scope.celebrant.propositions.current.indexOf(proposition)
       $scope.celebrant.propositions.current.splice(index, 1)
       $scope.celebrant.propositions.chosen.push updatedProposition
