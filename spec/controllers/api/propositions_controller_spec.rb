@@ -52,4 +52,13 @@ describe Api::PropositionsController do
       end
     end
   end
+
+  describe "put #choose" do
+    it "assigns current year to proposition" do
+      Proposition.create(proposition_attributes)
+      put :choose, proposition_id: proposition_attributes['id'], proposition: proposition_attributes
+      chosen_proposition = JSON.parse(response.body)
+      expect(chosen_proposition['year_chosen_in']).to eq(Time.now.year)
+    end
+  end
 end
