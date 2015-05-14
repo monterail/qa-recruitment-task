@@ -10,22 +10,22 @@ module Api
     end
 
     def update
-      comment_from_params
-      if @comment.update(comment_params)
-        render json: CommentRepresenter.new(@comment).basic
+      comment = comment_from_params
+      if comment.update(comment_params)
+        render json: CommentRepresenter.new(comment).basic
       else
-        render json: { errors: @comment.errors.messages }, status: 422
+        render json: { errors: comment.errors.messages }, status: 422
       end
     end
 
   private
     def comment_from_params
-      @comment ||= Comment.find(params[:id])
+      comment ||= Comment.find(params[:id])
     end
     
     def restrict_wrong_owner
-      comment_from_params
-      head :unauthorized if current_user.id != @comment.owner_id
+      comment = comment_from_params
+      head :unauthorized if current_user.id != comment.owner_id
     end
 
     def comment_params
