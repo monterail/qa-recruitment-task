@@ -8,11 +8,11 @@ module Api
     end
 
     def update
-      proposition_from_params
-      if @proposition.update(proposition_params)
-        render json: PropositionRepresenter.new(@proposition).basic
+      proposition = proposition_from_params
+      if proposition.update(proposition_params)
+        render json: PropositionRepresenter.new(proposition).basic
       else
-        render json: { errors: @proposition.errors.messages }, status: 422
+        render json: { errors: proposition.errors.messages }, status: 422
       end
     end
 
@@ -24,12 +24,12 @@ module Api
 
   private
     def proposition_from_params
-      @proposition ||= Proposition.find(params[:id])
+      proposition ||= Proposition.find(params[:id])
     end
 
     def restrict_wrong_owner
-      proposition_from_params
-      head :unauthorized if current_user.id != @proposition.owner_id
+      proposition = proposition_from_params
+      head :unauthorized if current_user.id != proposition.owner_id
     end
 
     def proposition_params
