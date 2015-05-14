@@ -6,19 +6,28 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       url: '',
       abstract: true,
       resolve:
-        current_user: (User) ->
+        currentUser: (User) ->
           User.me()
       template: '<ui-view/>'
 
     .state 'auth.index',
       url: '/',
-      controller: 'BirthdaysCtrl'
+      controller: 'IndexCtrl'
       resolve:
         users: (User) ->
           User.index()
       templateUrl: '/assets/index.html'
 
+    .state 'auth.me',
+      url: '/user/me'
+      controller: 'MeCtrl'
+      templateUrl: '/assets/me.html'
+
     .state 'auth.user',
       url: '/user/:id'
       controller: 'UserCtrl'
+      resolve:
+        celebrant: ($stateParams, User) ->
+          User.show($stateParams.id)
       templateUrl: '/assets/user.html'
+
