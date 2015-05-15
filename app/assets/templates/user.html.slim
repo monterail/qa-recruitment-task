@@ -1,14 +1,18 @@
-form ng-submit="update()"
-  legend Edit user
-  span ng-bind="user.email"
-  br
-  label Birthday day
-  input type="number" ng-model="user.birthday_day" min="1" max="31"
-  br
-  label Birthday month
-  input type="number" ng-model="user.birthday_month" min="1" max="12"
-  br
-  label Szama
-  input type="checkbox" ng-model="user.szama"
-  br
-  input type="submit" vaule="update me!"
+h1 ng-bind="celebrant.name"
+h2
+  | {{celebrant.birthday_day}}.{{celebrant.birthday_month}}
+h3
+  | Person responsible: {{ celebrant.person_responsible.name }}
+span
+  | Is the gift ready?:
+input type="checkbox" ng-model="celebrant.done" ng-click="updateIfDone()"
+
+div ng-if="!isEditingAbout"
+  p ng-bind="celebrant.about"
+  button type="button" ng-click="toggleEditingAbout()" Edit
+form ng-submit="updateAbout()" ng-if="isEditingAbout"
+  textarea ng-model="celebrant.about"
+  input type="submit" value="Save"
+  button type="button" ng-click="toggleEditingAbout()" x
+
+div ng-include="'/assets/propositions.html'"

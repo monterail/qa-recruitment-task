@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
   include JsEnv
   before_action :authenticate_user!
 
+  def current_user
+    @current_user ||= User.find_by(sso_id: current_user_data['uid'])
+  end
 end

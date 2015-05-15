@@ -1,0 +1,43 @@
+div ng-controller="PropositionCtrl"
+  h2 Chosen before
+  div ng-repeat="proposition in celebrant.propositions.chosen"
+    span ng-bind="proposition.title"
+    span
+      |  chosen in {{proposition.year_chosen_in}}
+    br
+
+  h2 Propositions
+  div ng-repeat="proposition in celebrant.propositions.current"
+    div ng-if="editPropositionId != proposition.id"
+      button type="button" ng-click="chooseProposition(proposition)" Mark as bought
+      h3
+        | {{proposition.title}} by {{proposition.owner.name}}
+      p
+        | {{proposition.description}} | {{proposition.value | currency :"PLN "}}
+      button type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
+    form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id"
+      label Title
+      input type="text" ng-model="proposition.title"
+      br
+      label Description
+      textarea ng-model="proposition.description"
+      br
+      label Value
+      input type="number" ng-model="proposition.value"
+      br
+      input type="submit" value="Save"
+      button type="button" ng-click="cancelEditProposition()" x
+    div ng-include="'assets/comments.html'"
+
+  form ng-submit="createProposition()"
+    legend New Proposition
+    label Title
+    input type="text" ng-model="newProposition.title"
+    br
+    label Description
+    textarea ng-model="newProposition.description"
+    br
+    label Value
+    input type="number" ng-model="newProposition.value"
+    br
+    input type="submit" value="Save"
