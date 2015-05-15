@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'cuirass-icons';
-  src:url('../fonts/cuirass-icons.eot?8klmqb');
-  src:url('../fonts/cuirass-icons.eot?#iefix8klmqb') format('embedded-opentype'),
-    url('../fonts/cuirass-icons.woff?8klmqb') format('woff'),
-    url('../fonts/cuirass-icons.ttf?8klmqb') format('truetype'),
-    url('../fonts/cuirass-icons.svg?8klmqb#cuirass-icons') format('svg');
+  src:font-url('cuirass-icons.eot?8klmqb');
+  src:font-url('cuirass-icons.eot?#iefix8klmqb') format('embedded-opentype'),
+    font-url('cuirass-icons.woff?8klmqb') format('woff'),
+    font-url('cuirass-icons.ttf?8klmqb') format('truetype'),
+    font-url('cuirass-icons.svg?8klmqb#cuirass-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
