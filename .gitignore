@@ -18,3 +18,5 @@
 # Ignore personal setup
 /config/database.yml
 
+# Ignore ruby version locally
+.ruby-version

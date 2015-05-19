@@ -1,14 +1,20 @@
-form ng-submit="update()"
-  h2 Edit user
-  span ng-bind="user.name"
-  br
-  label Birthday day
-  input type="number" ng-model="user.birthday_day" min="1" max="31"
-  br
-  label Birthday month
-  input type="number" ng-model="user.birthday_month" min="1" max="12"
-  br
-  label Do you want to use eating.hussa.rs in order to calculate your participation in birthday gifts?
-  input type="checkbox" ng-model="user.szama"
-  br
-  input type="submit" vaule="update me!"
+.crs-grid__row
+  .crs-grid__column
+    h1.crs-typo__h1 Edit profile
+    form ng-submit="update()"
+      h2.crs-typo__h2 ng-bind="user.name"
+      .crs-grid__row.crs-grid__row--middle
+        .crs-grid__column.crs-grid__unit--sm-2
+          .crs-input__group
+            input type="number" ng-model="user.birthday_day" min="1" max="31"
+            label Birthday day
+        .crs-grid__column.crs-grid__unit--sm-2
+          .crs-input__group
+            input type="number" ng-model="user.birthday_month" min="1" max="12"
+            label Birthday month
+      label.crs-form__label Do you want to use eating.hussa.rs in order to calculate your participation in birthday gifts?
+      .crs-toggle
+        input#checkbox type="checkbox" ng-model="user.szama"
+        label for="checkbox"
+          .crs-toggle__switch
+      button.crs-button type="submit" Save

@@ -1,0 +1,36 @@
+@import ../base/global
+
+// config
+$crs-subbar-bg: $crs-secondary-color
+$crs-subbar-bg-hover: darken($crs-secondary-color, 5%)
+$crs-subbar-color: $crs-global-font-inverted
+$crs-subbar-font: $crs-global-font
+$crs-subbar-font-size: 14px
+$crs-subbar-font-weight: $crs-global-font-weight
+
+.crs-subbar
+  background: $crs-subbar-bg
+  width: 100%
+  display: block
+  color: $crs-subbar-color
+  font-family: $crs-subbar-font
+  padding: rem(32px) 0
+  box-sizing: border-box
+  border-bottom: 1px solid $crs-tertiary-color
+
+
+  p, .crs-typo__p,
+  h2,
+  .crs-typo__h2
+    margin-bottom: 0
+
+  h2,
+  .crs-typo__h2
+    margin-bottom: 0
+
+  .crs-button--hollow
+    color: $crs-subbar-color
+    border: rem(3px) solid $crs-subbar-color
+
+    &:hover
+      border: rem(3px) solid darken($crs-subbar-color, 30%)

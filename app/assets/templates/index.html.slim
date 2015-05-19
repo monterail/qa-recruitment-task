@@ -1,4 +1,10 @@
-a ui-sref="auth.me" ng-bind="currentUser.name"
-div ng-repeat="user in users"
-  a ui-sref="auth.user({id: user.id})"
-    | {{user.name}} | {{user.birthday_day}}.{{user.birthday_month}}
+section.crs-grid__row
+  .crs-grid__column.crs-utils--center
+    h1.crs-typo__h1.born-header Born
+.crs-subbar.crs-form--colorful
+  .crs-grid__row.
+    .crs-grid__column.crs-grid__column--centered.crs-grid__unit--sm-2
+      ul.crs-typo__ul.crs-utils--left ng-repeat="user in users"
+        li ui-sref="auth.user({id: user.id})"
+          img.crs-user__avatar ng-src="{{ user.profile_photo}}.jpg?s=200"
+          | {{user.name}} | {{user.birthday_day}}.{{user.birthday_month}}

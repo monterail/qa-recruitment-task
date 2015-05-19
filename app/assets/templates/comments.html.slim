@@ -1,15 +1,26 @@
 div ng-controller="CommentCtrl"
-  div ng-repeat="comment in proposition.comments"
+  .crs-comment ng-repeat="comment in proposition.comments"
     div ng-if="editCommentId != comment.id"
-      span ng-click="editComment(comment)" ng-bind="comment.body"
-      span
-        |  by {{ comment.owner.name }}
+      a.crs-comment__author href="#" ng-bind="comment.owner.name"
+      small.crs-comment__date
+        | {{ comment.created_at | date:'medium' }}
+      p.crs-typo__p ng-bind="comment.body"
+      .crs-comment__options
+        span.crs-comment__option ng-click="editComment(comment)" Edit
     form ng-submit="updateComment(comment, proposition)" ng-if="editCommentId == comment.id"
-      textarea ng-model="comment.body"
-      input type="submit" value="edit"
-      button type="button" ng-click="cancelEditComment()" x
+      .crs-grid__row.crs-grid__row--middle
+        .crs-grid__column.crs-grid__unit--sm-8
+          .crs-input__group
+            textarea ng-model="comment.body"
+        .crs-grid__column.crs-grid__unit--sm-4
+          button.crs-button.crs-button--success type="submit" Save
+          button.crs-button.crs-button--secondary type="button" ng-click="cancelEditComment()" x
   form ng-submit="createComment(proposition)"
-    textarea ng-model="proposition.newComment.body"
-    input type="submit" value="Comment"
-
+    .crs-grid__row.crs-grid__row--middle
+      .crs-grid__column.crs-grid__unit--sm-4
+        .crs-input__group
+          input type="text" ng-model="proposition.newComment.body"
+          label Your comment
+      .crs-grid__column.crs-grid__unit--sm-4
+        button.crs-button type="submit" Comment
 

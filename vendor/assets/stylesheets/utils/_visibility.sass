@@ -1,0 +1,32 @@
+.crs-small--visible
+  display: block
+
+.crs-medium--visible
+  display: none
+
+.crs-large--visible
+  display: none
+
+
+@media #{$small-only}
+  .crs-small--hidden
+    display: none !important
+
+@media #{$medium-up}
+  .crs-small--visible
+    display: none !important
+
+@media #{$medium-only}
+  .crs-medium--hidden
+    display: none !important
+
+  .crs-medium--visible
+    display: block !important
+
+@media #{$large-up}
+  .crs-large--hidden
+    display: none !important
+
+@media #{$large-up}
+  .crs-large--visible
+    display: block
