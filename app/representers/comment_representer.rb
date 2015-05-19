@@ -4,7 +4,7 @@ class CommentRepresenter < Struct.new(:comment)
       id: comment.id,
       body: comment.body,
       owner: User.find(comment.owner_id).attributes.slice("id", "name"),
-      updated_at: comment.updated_at
+      created_at: comment.created_at
     }
   end
 end
