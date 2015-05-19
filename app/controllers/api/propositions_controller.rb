@@ -22,6 +22,21 @@ module Api
       render json: PropositionRepresenter.new(proposition).basic
     end
 
+    def vote
+      proposition = Proposition.find(params[:proposition_id])
+      vote = proposition.votes.create user: current_user
+
+      render json: vote
+    end
+
+    def unvote
+      proposition = Proposition.find(params[:proposition_id])
+      vote = proposition.votes.find_by_user_id(current_user.id)
+      vote.destroy
+
+      head 200
+    end
+
   private
     def proposition_from_params
       proposition ||= Proposition.find(params[:id])
