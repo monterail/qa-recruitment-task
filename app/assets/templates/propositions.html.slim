@@ -12,6 +12,10 @@ div.crs-grid__row ng-controller="PropositionCtrl"
           | {{proposition.title}} by {{proposition.owner.name}}
         p.crs-typo__p
           | {{proposition.description}} | {{proposition.value | currency :"PLN "}}
+        p.crs-typo__p
+          | {{proposition.rating}}
+        button.crs-button type="button" ng-show="hasVoted(proposition)" ng-click="unvote(proposition)" unvote
+        button.crs-button type="button" ng-show="!hasVoted(proposition)" ng-click="vote(proposition" vote
         button.crs-button type="button" ng-click="chooseProposition(proposition)" Mark as bought
         button.crs-button.crs-button--secondary type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
       form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id"
