@@ -1,13 +1,13 @@
 div
   .crs-grid__row
     .crs-grid__column.crs-utils--center
-      h1 ng-bind="celebrant.name"
-      h2
+      h1.crs-typo__h1 ng-bind="celebrant.name"
+      h2.crs-typo__h2
         | {{celebrant.birthday_day}}.{{celebrant.birthday_month}}
   .crs-subbar.crs-form--colorful
     .crs-grid__row
       .crs-grid__column.crs-utils--center
-        h3
+        h3.crs-typo__h3
           | Person responsible: {{ celebrant.person_responsible.name }}
         label.crs-form__label Is the gift ready?
         .crs-toggle ng-click="updateIfDone()"
@@ -15,7 +15,7 @@ div
           label for="checkbox"
             .crs-toggle__switch
         div ng-if="!isEditingAbout"
-          p ng-bind="celebrant.about"
+          p.crs-typo__p ng-bind="celebrant.about"
           button.crs-button type="button" ng-click="toggleEditingAbout()" Edit
         form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout"
           textarea ng-model="celebrant.about"

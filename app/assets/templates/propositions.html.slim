@@ -5,12 +5,12 @@ div.crs-grid__row ng-controller="PropositionCtrl"
       li
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
 
-    h1 Propositions
+    h1.crs-typo__h1 Propositions
     div ng-repeat="proposition in celebrant.propositions.current"
       div ng-if="editPropositionId != proposition.id"
-        h3
+        h3.crs-typo__h3
           | {{proposition.title}} by {{proposition.owner.name}}
-        p
+        p.crs-typo__p
           | {{proposition.description}} | {{proposition.value | currency :"PLN "}}
         button.crs-button type="button" ng-click="chooseProposition(proposition)" Mark as bought
         button.crs-button.crs-button--secondary type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
