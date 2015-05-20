@@ -24,9 +24,12 @@ module Api
 
     def vote
       proposition = Proposition.find(params[:proposition_id])
-      vote = proposition.votes.create user: current_user
-
-      render json: vote
+      if proposition.votes.find_by_user_id(current_user.id)
+        head :forbidden
+      else
+        vote = proposition.votes.create user: current_user
+        render json: vote
+      end
     end
 
     def unvote
