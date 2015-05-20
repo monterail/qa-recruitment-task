@@ -7,8 +7,9 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       abstract: true,
       controller: 'TopBarCtrl'
       resolve:
-        currentUser: (User) ->
-          User.me()
+        currentUser: (User, CurrentUser) ->
+          User.me().then (response) ->
+            CurrentUser.set(response)
       templateUrl: '/assets/topbar.html'
 
     .state 'auth.index',
