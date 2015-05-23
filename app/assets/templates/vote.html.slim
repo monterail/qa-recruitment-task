@@ -1,4 +1,4 @@
 p.crs-typo__p
-  | {{proposition.rating}}
-button.crs-button type="button" ng-show="hasVoted" ng-click="unvote(proposition)" unvote
-button.crs-button type="button" ng-hide="hasVoted" ng-click="vote(proposition)" vote
+  | {{ proposition.rating }}
+button.crs-button type="button" ng-show="hasCurrentUserVoted" ng-click="unvote(proposition)" unvote
+button.crs-button type="button" ng-hide="hasCurrentUserVoted" ng-click="vote(proposition)" vote
