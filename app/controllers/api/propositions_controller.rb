@@ -17,30 +17,9 @@ module Api
     end
 
     def choose
-      proposition = Proposition.find(params[:proposition_id])
+      proposition = Proposition.find(params[:id])
       proposition.update_attributes(year_chosen_in: Time.now.year)
       render json: PropositionRepresenter.new(proposition).basic
-    end
-
-    def vote
-      proposition = Proposition.find(params[:proposition_id])
-      if proposition.votes.find_by_user_id(current_user.id)
-        head :forbidden
-      else
-        vote = proposition.votes.create user: current_user
-        render json: vote
-      end
-    end
-
-    def unvote
-      vote = Vote.find(params[:vote_id])
-      if vote.user_id == current_user.id
-        vote.destroy
-
-        head 200
-      else
-        head :unauthorized
-      end
     end
 
   private

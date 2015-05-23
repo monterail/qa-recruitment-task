@@ -10,9 +10,11 @@ Rails.application.routes.draw do
       end
     end
     resources :propositions, only: [:update, :create] do
-      put 'choose', to: 'propositions#choose'
-      post 'vote', to: 'propositions#vote'
-      delete 'vote/:vote_id', to: 'propositions#unvote'  
+      member do
+        put 'choose', to: 'propositions#choose'
+        post 'vote', to: 'votes#vote'
+        delete 'vote/:vote_id', to: 'votes#unvote'
+      end
       resources :comments, only: [:update, :create]
     end
   end
