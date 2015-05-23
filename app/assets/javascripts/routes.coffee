@@ -10,6 +10,7 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
         currentUser: (User, CurrentUser) ->
           User.me().then (response) ->
             CurrentUser.set(response)
+            response
       templateUrl: '/assets/topbar.html'
 
     .state 'auth.index',
