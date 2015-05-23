@@ -33,11 +33,14 @@ module Api
     end
 
     def unvote
-      proposition = Proposition.find(params[:proposition_id])
-      vote = proposition.votes.find_by_user_id(current_user.id)
-      vote.destroy
+      vote = Vote.find(params[:vote_id])
+      if vote.user_id == current_user.id
+        vote.destroy
 
-      head 200
+        head 200
+      else
+        head :unauthorized
+      end
     end
 
   private
