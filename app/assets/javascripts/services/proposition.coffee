@@ -9,5 +9,5 @@ angular.module('BornApp').service 'Proposition', ($http, Rails) ->
     $http.put("#{base}/#{proposition.id}/choose", proposition: proposition)
   vote: (proposition) ->
     $http.post("#{base}/#{proposition.id}/vote")
-  unvote: (proposition, vote_id) ->
-    $http.delete("#{base}/#{proposition.id}/vote/#{vote_id}")
+  unvote: (proposition, vote) ->
+    $http.delete("#{base}/#{proposition.id}/vote/#{vote.id}")
