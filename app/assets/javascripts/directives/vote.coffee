@@ -1,25 +1,24 @@
 angular.module('BornApp').directive 'vote', (CurrentUser, Proposition)->
   restrict: 'A'
   templateUrl: 'vote.html'
-  $scope: {
+  scope:
     proposition: '=vote'
-  }
   controller: ($scope) ->
     currentUser = CurrentUser.get()
-   
+
     $scope.vote = (proposition) ->
       Proposition.vote(proposition).success (response) ->
         proposition.rating += 1
-        $scope.hasVoted = true
+        $scope.hasCurrentUserVoted = true
 
     $scope.unvote = (proposition) ->
-      Proposition.unvote(proposition, $scope.getVote(proposition)).success (response) ->
+      Proposition.unvote(proposition, $scope.getCurrentUserVote(proposition)).success (response) ->
         proposition.rating -= 1
-        $scope.hasVoted = false
+        $scope.hasCurrentUserVoted = false
 
-    $scope.getVote = (proposition) ->
-      for vote in proposition.votes
-        return vote.id if vote.user_id == currentUser.id
+    $scope.getCurrentUserVote = (proposition) ->
+      for vote in proposition?.votes
+        return vote if vote.user_id == currentUser.id
       null
 
-    $scope.hasVoted = $scope.getVote($scope.proposition) != null ? true : false
+    $scope.hasCurrentUserVoted = $scope.getCurrentUserVote($scope.proposition)?
