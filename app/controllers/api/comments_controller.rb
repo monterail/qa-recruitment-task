@@ -22,7 +22,7 @@ module Api
     def comment_from_params
       comment ||= Comment.find(params[:id])
     end
-    
+
     def restrict_wrong_owner
       comment = comment_from_params
       head :unauthorized if current_user.id != comment.owner_id

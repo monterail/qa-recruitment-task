@@ -1,5 +1,6 @@
 angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
   $scope.editPropositionId = null
+
   $scope.editProposition = (id) ->
     $scope.editPropositionId = id
 

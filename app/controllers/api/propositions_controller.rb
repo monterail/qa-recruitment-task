@@ -17,7 +17,7 @@ module Api
     end
 
     def choose
-      proposition = Proposition.find(params[:proposition_id])
+      proposition = Proposition.find(params[:id])
       proposition.update_attributes(year_chosen_in: Time.now.year)
       render json: PropositionRepresenter.new(proposition).basic
     end

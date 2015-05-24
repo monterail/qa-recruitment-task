@@ -12,6 +12,7 @@ div.crs-grid__row ng-controller="PropositionCtrl"
           | {{proposition.title}} by {{proposition.owner.name}}
         p.crs-typo__p
           | {{proposition.description}} | {{proposition.value | currency :"PLN "}}
+        div vote="proposition"
         button.crs-button type="button" ng-click="chooseProposition(proposition)" Mark as bought
         button.crs-button.crs-button--secondary type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
       form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id"
@@ -27,6 +28,7 @@ div.crs-grid__row ng-controller="PropositionCtrl"
         input.crs-button.crs-button--success type="submit" value="Save"
         button.crs-button.crs-button--secondary type="button" ng-click="cancelEditProposition()" x
       div ng-include="'assets/comments.html'"
+
     form ng-submit="createProposition()"
       .crs-input__group
         input type="text" ng-model="newProposition.title"
