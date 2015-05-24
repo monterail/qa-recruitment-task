@@ -103,6 +103,11 @@ describe Api::UsersController do
         updated_user = JSON.parse(response.body)
         expect(updated_user['email']).to eq('hodor2@example.com')
       end
+
+      it "heads 404 when user not found" do
+        put :update, id: 9999, user: user_younger_attributes
+        expect(response.status).to eq(404)
+      end
     end
   end
 
@@ -147,6 +152,11 @@ describe Api::UsersController do
     it "doesn't show user's data if it's current_user_attributes" do
       get :show, id: current_user_attributes['id']
       expect(response.status).to eq(401)
+    end
+
+    it "heads 404 when user not found" do
+      get :show, id: 9999
+      expect(response.status).to eq(404)
     end
   end
 end

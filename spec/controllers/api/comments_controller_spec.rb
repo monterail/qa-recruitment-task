@@ -22,6 +22,11 @@ describe Api::CommentsController do
     it "creates new comment" do
       expect{ post :create, proposition_id: comment_attributes['proposition_id'], comment: comment_attributes }.to change{ Comment.count }.by(1)
     end
+
+    it "heads 404 when proposition not found" do
+      post :create, proposition_id: 9999, comment: comment_attributes
+      expect(response.status).to eq(404)
+    end
   end
 
   describe "put #update" do
@@ -50,6 +55,11 @@ describe Api::CommentsController do
         put :update, proposition_id: comment_attributes['proposition_id'], id: comment_attributes['id'], comment: comment_attributes
         expect(response.status).to eq(401)
       end
+    end
+
+    it "heads 404 when comment not found" do
+      put :update, proposition_id: comment_attributes['proposition_id'], id: 9999, comment: comment_attributes
+      expect(response.status).to eq(404)
     end
   end
 end
