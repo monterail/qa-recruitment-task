@@ -4,8 +4,8 @@ describe Api::UsersController do
   include AuthHelper
 
   let(:current_user_attributes) {{ 'id' => 123, 'name' => 'hodor', 'email' => 'hodor@example.com', 'sso_id' => '12345678' }}
-  let(:user_younger_attributes) {{ 'id' => 124, 'email' => 'hodor2@example.com', 'name' => 'hodor2', 'sso_id' => '23456789', 'birthday_month' => 12, 'birthday_day' => 1 }}
-  let(:user_older_attributes) {{ 'id' => 125, 'email' => 'hodor3@example.com', 'name' => 'hodor3', 'sso_id' => '34567890', 'birthday_month' => 2, 'birthday_day' => 12 }}
+  let(:user_younger_attributes) {{ 'id' => 124, 'email' => 'hodor2@example.com', 'name' => 'hodor2', 'sso_id' => '23456789', 'birthday_month' => 2.month.from_now.month, 'birthday_day' => 1 }}
+  let(:user_older_attributes) {{ 'id' => 125, 'email' => 'hodor3@example.com', 'name' => 'hodor3', 'sso_id' => '34567890', 'birthday_month' => 1.month.from_now.month, 'birthday_day' => 12 }}
   let(:user_without_birthday_attributes) {{ 'email' => 'hodor4@example.com', 'name' => 'hodor4', 'sso_id' => '45678901' }}
 
   before(:each) do
