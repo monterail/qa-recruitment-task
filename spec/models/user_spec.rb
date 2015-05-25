@@ -141,9 +141,9 @@ describe User do
         birthday_month: 1, birthday_day: 1)
       user_april = User.create(email: 'april@example.com', name: 'april', sso_id: 'april123',
         birthday_month: 4, birthday_day: 15)
-      time_may = Time.local(2015, 5, 1, 16, 37, 0) #it doesn't work here, as we can't mock postgres NOW() method
-      Timecop.freeze(time_may)
-      is_expected.to eq([user_december, user_january, user_april])
+      time_febraury = Time.local(2015, 2, 1, 16, 37, 0)
+      Timecop.freeze(time_febraury)
+      is_expected.to eq([user_april, user_december, user_january])
     end
   end
 end

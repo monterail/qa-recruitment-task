@@ -13,10 +13,10 @@ class User < ActiveRecord::Base
     where.not(sso_id: uid, birthday_month: nil, birthday_day: nil)
     .order(
       "CASE
-        WHEN EXTRACT(MONTH FROM NOW()) < birthday_month THEN birthday_month
-        WHEN EXTRACT(MONTH FROM NOW()) = birthday_month THEN
+        WHEN #{Date.today.month} < birthday_month THEN birthday_month
+        WHEN #{Date.today.month} = birthday_month THEN
           CASE
-            WHEN EXTRACT(DAY FROM NOW()) <= birthday_day THEN birthday_month
+            WHEN #{Date.today.day} <= birthday_day THEN birthday_month
             ELSE birthday_month+12
           END
         ELSE birthday_month+12
