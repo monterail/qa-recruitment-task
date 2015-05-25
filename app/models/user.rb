@@ -9,7 +9,20 @@ class User < ActiveRecord::Base
   validates :birthday_month, allow_nil: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 12 }
   validates :birthday_day, allow_nil: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 31 }
 
-  scope :sooners, -> (uid) { where.not(sso_id: uid, birthday_month: nil, birthday_day: nil).order(birthday_month: :asc) }
+  scope :sooners, -> (uid) {
+    where.not(sso_id: uid, birthday_month: nil, birthday_day: nil)
+    .order(
+      "CASE
+        WHEN EXTRACT(MONTH FROM NOW()) < birthday_month THEN birthday_month
+        WHEN EXTRACT(MONTH FROM NOW()) = birthday_month THEN
+          CASE
+            WHEN EXTRACT(DAY FROM NOW()) <= birthday_day THEN birthday_month
+            ELSE birthday_month+12
+          END
+        ELSE birthday_month+12
+      END")
+    .order(birthday_day: :asc)
+  }
 
   def self.auth!(auth_hash)
     attrs = {
