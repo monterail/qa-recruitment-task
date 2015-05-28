@@ -145,15 +145,15 @@ describe User do
       end
     end
 
-    it "excludes current user" do
-      is_expected.not_to include(current_user_data.slice('name', 'id', 'birthday_day', 'birthday_month'))
+    describe "excluding users" do
+      it "excludes current user" do
+        is_expected.not_to include(current_user_data.slice('name', 'id', 'birthday_day', 'birthday_month'))
+      end
+
+      it "excludes users without birthday date" do
+        user_without_birthday = User.create(email: 'without@example.com', name: 'without', sso_id:'without1234')
+        is_expected.not_to include(user_without_birthday.slice('name', 'id', 'birthday_day', 'birthday_month'))
+      end
     end
-
-    it "excludes users without birthday date" do
-      user_without_birthday = User.create(email: 'without@example.com', name: 'without', sso_id:'without1234')
-      is_expected.not_to include(user_without_birthday.slice('name', 'id', 'birthday_day', 'birthday_month'))
-    end
-
-
   end
 end
