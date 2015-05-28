@@ -141,8 +141,11 @@ describe Api::UsersController do
       end
 
       it "shows person_responsible for current birthday" do
-        user_younger = User.find_by_id(user_younger_attributes['id'])
-        user_younger.update_attributes(person_responsible_id: user_older_attributes['id'])
+        birthday = Birthday.create(
+          person_responsible: User.find_by_id(user_older_attributes['id']),
+          celebrant: User.find_by_id(user_younger_attributes['id']),
+          year: Date.today.year
+        )
         get :show, id: user_younger_attributes['id']
         user_shown = JSON.parse(response.body)
         expect(user_shown['person_responsible']['id']).to eq(user_older_attributes['id'])
