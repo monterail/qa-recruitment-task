@@ -14,7 +14,7 @@ class OneUserRepresenter < Struct.new(:user)
           chosen: user.propositions_as_celebrant.chosen.map { |proposition| PropositionRepresenter.new(proposition).basic },
           current: user.propositions_as_celebrant.current.map { |proposition| PropositionRepresenter.new(proposition).basic },
         },
-        person_responsible: (user.person_responsible.attributes.slice("id", "name", "email") if user.person_responsible)
+        person_responsible: (user.birthdays_as_celebrant.find_by_year(Date.today.year).person_responsible.attributes.slice("id", "name", "email") if user.birthdays_as_celebrant.find_by_year(2015))
     }
   end
 end
