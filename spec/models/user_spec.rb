@@ -99,29 +99,49 @@ describe User do
 
     it { expect{ User.sooners(current_user_data['sso_id']).to_a }.to query_limit_eq(1) }
 
-    context "is properly ordered" do
-      it "regarding yesterday/today/tomorrow" do
-        user_yesterday = User.create(id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789', birthday_month: Date.yesterday.month, birthday_day: Date.yesterday.day )
-        user_today = User.create(id: 127, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789', birthday_month: Date.today.month, birthday_day: Date.today.day )
-        user_tomorrow = User.create(id: 128, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789', birthday_month: Date.tomorrow.month, birthday_day: Date.tomorrow.day )
+    describe "order" do
+      context "regarding yesterday/today/tomorrow" do
+        it "is today, tomorrow, yesterday" do
+          user_yesterday = User.create(id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789', birthday_month: Date.yesterday.month, birthday_day: Date.yesterday.day )
+          user_today = User.create(id: 127, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789', birthday_month: Date.today.month, birthday_day: Date.today.day )
+          user_tomorrow = User.create(id: 128, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789', birthday_month: Date.tomorrow.month, birthday_day: Date.tomorrow.day )
 
-        is_expected.to eq([user_today, user_tomorrow, user_yesterday])
+          is_expected.to eq([user_today, user_tomorrow, user_yesterday])
+        end
       end
 
-      it "regarding months" do
-        user_earlier = User.create(email: 'febraury@example.com', name: 'earlier', sso_id: 'earlier456',
-          birthday_month: 1.month.from_now.month, birthday_day: 1)
-        user_later = User.create(email: 'later@example.com', name: 'later', sso_id: 'later789',
-          birthday_month: 2.month.from_now.month, birthday_day: 1)
-        is_expected.to eq([user_earlier, user_later])
+      context "regarding months" do
+        it "is earlier, later" do
+          user_earlier = User.create(email: 'febraury@example.com', name: 'earlier', sso_id: 'earlier456',
+            birthday_month: 1.month.from_now.month, birthday_day: 1)
+          user_later = User.create(email: 'later@example.com', name: 'later', sso_id: 'later789',
+            birthday_month: 2.month.from_now.month, birthday_day: 1)
+          is_expected.to eq([user_earlier, user_later])
+        end
       end
 
-      it "regarding days" do
-        user_12 = User.create(email: 'younger@example.com', name: 'younger', sso_id: 'younger1234',
-          birthday_month: 1.month.from_now.month, birthday_day: 12)
-        user_14 = User.create(email: 'older@example.com', name: 'older', sso_id: 'older5678',
-          birthday_month: 1.month.from_now.month, birthday_day: 14)
-        is_expected.to eq([user_12, user_14])
+      context "regarding days" do
+        it "is earlier, later" do
+          user_12 = User.create(email: 'younger@example.com', name: 'younger', sso_id: 'younger1234',
+            birthday_month: 1.month.from_now.month, birthday_day: 12)
+          user_14 = User.create(email: 'older@example.com', name: 'older', sso_id: 'older5678',
+            birthday_month: 1.month.from_now.month, birthday_day: 14)
+          is_expected.to eq([user_12, user_14])
+        end
+      end
+
+      context "regarding end of the year" do
+        it "is by earliest date" do
+          user_december = User.create(email: 'december@example.com', name: 'december', sso_id: 'december123',
+            birthday_month: 12, birthday_day: 31)
+          user_january = User.create(email: 'january@example.com', name: 'january', sso_id: 'january123',
+            birthday_month: 1, birthday_day: 1)
+          user_april = User.create(email: 'april@example.com', name: 'april', sso_id: 'april123',
+            birthday_month: 4, birthday_day: 15)
+          time_febraury = Time.local(2015, 2, 1, 16, 37, 0)
+          Timecop.freeze(time_febraury)
+          is_expected.to eq([user_april, user_december, user_january])
+        end
       end
     end
 
@@ -134,16 +154,6 @@ describe User do
       is_expected.not_to include(user_without_birthday.slice('name', 'id', 'birthday_day', 'birthday_month'))
     end
 
-    it "accepts @hodak's requirements" do
-      user_december = User.create(email: 'december@example.com', name: 'december', sso_id: 'december123',
-        birthday_month: 12, birthday_day: 31)
-      user_january = User.create(email: 'january@example.com', name: 'january', sso_id: 'january123',
-        birthday_month: 1, birthday_day: 1)
-      user_april = User.create(email: 'april@example.com', name: 'april', sso_id: 'april123',
-        birthday_month: 4, birthday_day: 15)
-      time_febraury = Time.local(2015, 2, 1, 16, 37, 0)
-      Timecop.freeze(time_febraury)
-      is_expected.to eq([user_april, user_december, user_january])
-    end
+
   end
 end
