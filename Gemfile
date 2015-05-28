@@ -20,6 +20,7 @@ end
 
 gem 'rails_sso'
 gem 'envied', '~> 0.8.1'
+gem 'whenever', '~> 0.9.4', :require => false
 
 group :test do
   gem 'rspec-query-limit', '~> 0.1.2'
