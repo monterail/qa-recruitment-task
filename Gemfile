@@ -21,6 +21,11 @@ end
 gem 'rails_sso'
 gem 'envied', '~> 0.8.1'
 
+group :test do
+  gem 'rspec-query-limit', '~> 0.1.2'
+  gem 'timecop', '~> 0.7.3'
+end
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-rails', '~> 0.3.2'

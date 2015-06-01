@@ -15,7 +15,5 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser
       $scope.isEditingAbout = false
 
   $scope.updateIfDone = ->
-    User.update($scope.celebrant).success (user) ->
-      $scope.celebrant.done = user.done
-
+    User.update($scope.celebrant)
 
