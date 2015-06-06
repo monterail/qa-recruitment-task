@@ -16,19 +16,15 @@ class BirthdayGenerator
 
   private
     def next_birthday_date(user)
-      Date.new(
-        if Date.today.month >= user.birthday_month
-          if Date.today.day > user.birthday_day
-            Date.today.year + 1
-          else
-            Date.today.year
-          end
-        else
-          Date.today.year
-        end,
-        user.birthday_month,
-        user.birthday_day
-      )
+      Date.new(next_birthday_year(user), user.birthday_month, user.birthday_day)
+    end
+
+    def next_birthday_year(user)
+      birthday_in_next_year?(user) ? Date.today.year.next : Date.today.year
+    end
+
+    def birthday_in_next_year?(user)
+      Date.today.month >= user.birthday_month && Date.today.day > user.birthday_day
     end
 
     def pick_a_person_responsible(user)
