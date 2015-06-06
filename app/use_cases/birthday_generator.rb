@@ -36,8 +36,8 @@ class BirthdayGenerator
         .where.not(id: user.id)
         .where.not(id: previous_person_responsible)
       possible_users.sort_by do |user|
-        if !user.birthdays_as_person_responsible.where(year: next_birthday_date(user).year).blank?
-          user.birthdays_as_person_responsible.where(year: next_birthday_date(user).year).last.created_at
+        if !user.birthdays_as_person_responsible.where(year: [ Date.today.year, Date.today.year-1 ]).blank?
+          user.birthdays_as_person_responsible.where(year: [ Date.today.year, Date.today.year-1 ]).last.created_at
         else
           DateTime.now
         end
