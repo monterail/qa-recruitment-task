@@ -4,11 +4,11 @@ class BirthdayGenerator
       .where(birthday_month: [Date.today.month, 1.month.from_now, 2.months.from_now, 3.months.from_now])
       .where.not("birthday_month = :month AND birthday_day < :day", { month: Date.today.month, day: Date.today.day } )
       .each do |user|
-        unless user.birthdays_as_celebrant.find_by_year!(next_birthday_date(user).year)
+        unless user.birthdays_as_celebrant.find_by_year(next_birthday_year(user))
           Birthday.create(
-            person_responsible: pick_a_person_responsible(user),
+            person_responsible: get_next_person_responsible(user),
             celebrant: user,
-            year: next_birthday_date(user).year
+            year: next_birthday_year(user)
           )
       end
     end
@@ -27,15 +27,17 @@ class BirthdayGenerator
       Date.today.month >= user.birthday_month && Date.today.day > user.birthday_day
     end
 
-    def pick_a_person_responsible(user)
-      previous_people_responsible = user.birthdays_as_celebrant.map do |birthday|
-        birthday.person_responsible_id
-      end
+    def get_next_person_responsible(user)
+      previous_person_responsible =
+        !user.birthdays_as_celebrant.empty? ?
+        user.birthdays_as_celebrant.last.person_responsible_id : nil
 
-      possible_users = User.where.not(id: previous_people_responsible).where.not(id: user.id)
+      possible_users = User
+        .where.not(id: user.id)
+        .where.not(id: previous_person_responsible)
       possible_users.sort_by do |user|
-        if !user.birthdays_as_person_responsible.blank?
-          user.birthdays_as_person_responsible.last.created_at
+        if !user.birthdays_as_person_responsible.where(year: next_birthday_date(user).year).blank?
+          user.birthdays_as_person_responsible.where(year: next_birthday_date(user).year).last.created_at
         else
           DateTime.now
         end
