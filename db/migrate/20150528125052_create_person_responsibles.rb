@@ -1,6 +1,6 @@
 class CreatePersonResponsibles < ActiveRecord::Migration
   def change
-    create_table :person_responsibles do |t|
+    create_table :birthdays do |t|
       t.references :celebrant, index: true
       t.references :person_responsible, index: true
       t.integer :year
