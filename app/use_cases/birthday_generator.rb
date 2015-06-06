@@ -4,12 +4,12 @@ class BirthdayGenerator
       .where(birthday_month: [Date.today.month, 1.month.from_now, 2.months.from_now, 3.months.from_now])
       .where.not("birthday_month = :month AND birthday_day < :day", { month: Date.today.month, day: Date.today.day } )
       .each do |user|
-      unless user.birthdays_as_celebrant.find_by_year(Date.today.year)
-        Birthday.create(
-          person_responsible: pick_a_person_responsible(user),
-          celebrant: user,
-          year: Date.today.year
-        )
+        unless user.birthdays_as_celebrant.find_by_year!(next_birthday_date(user).year)
+          Birthday.create(
+            person_responsible: pick_a_person_responsible(user),
+            celebrant: user,
+            year: next_birthday_date(user).year
+          )
       end
     end
   end
