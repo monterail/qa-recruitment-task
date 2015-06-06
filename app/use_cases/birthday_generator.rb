@@ -1,19 +1,9 @@
 class BirthdayGenerator
   def call
-    users = User.all.order(
-      "CASE
-        WHEN #{Date.today.month} < birthday_month THEN birthday_month
-        WHEN #{Date.today.month} = birthday_month THEN
-          CASE
-            WHEN #{Date.today.day} <= birthday_day THEN birthday_month
-            ELSE birthday_month+12
-          END
-        ELSE birthday_month+12
-      END")
-    .order(birthday_day: :asc)
-
-    users.each do |user|
-      break if next_birthday_date(user) > 3.months.from_now
+    User.ordered_by_soonest_birthday
+      .where(birthday_month: [Date.today.month, 1.month.from_now, 2.months.from_now, 3.months.from_now])
+      .where.not("birthday_month = :month AND birthday_day < :day", { month: Date.today.month, day: Date.today.day } )
+      .each do |user|
       unless user.birthdays_as_celebrant.find_by_year(Date.today.year)
         Birthday.create(
           person_responsible: pick_a_person_responsible(user),
