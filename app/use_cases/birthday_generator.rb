@@ -1,20 +1,32 @@
 class BirthdayGenerator
   def call
-    User.ordered_by_soonest_birthday
-      .where(birthday_month: [Date.today.month, 1.month.from_now, 2.months.from_now, 3.months.from_now])
-      .where.not("birthday_month = :month AND birthday_day < :day", { month: Date.today.month, day: Date.today.day } )
-      .each do |user|
-        unless user.birthdays_as_celebrant.find_by_year(next_birthday_year(user))
-          Birthday.create(
-            person_responsible: get_next_person_responsible(user),
-            celebrant: user,
-            year: next_birthday_year(user)
-          )
-      end
-    end
+    celebrants = soon_to_be_celebrants
+    assign_people_responsible_to_celebrants(celebrants)
   end
 
   private
+    def soon_to_be_celebrants
+      User.ordered_by_soonest_birthday
+        .where(birthday_month: [Date.today.month, 1.month.from_now.month, 2.months.from_now.month, 3.months.from_now.month])
+        .where.not("birthday_month = :month AND birthday_day < :day", { month: Date.today.month, day: Date.today.day } )
+    end
+
+    def assign_people_responsible_to_celebrants(celebrants)
+      celebrants.each do |celebrant|
+        unless celebrant.birthdays_as_celebrant.find_by_year(next_birthday_year(celebrant))
+          assign_person_responsible_to_celebrant(celebrant)
+        end
+      end
+    end
+
+    def assign_person_responsible_to_celebrant(celebrant)
+      Birthday.create(
+        person_responsible: get_next_person_responsible(celebrant),
+        celebrant: celebrant,
+        year: next_birthday_year(celebrant)
+      )
+    end
+
     def next_birthday_date(user)
       Date.new(next_birthday_year(user), user.birthday_month, user.birthday_day)
     end
