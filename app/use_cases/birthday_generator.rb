@@ -40,19 +40,12 @@ class BirthdayGenerator
     end
 
     def get_next_person_responsible(user)
-      previous_person_responsible =
-        !user.birthdays_as_celebrant.empty? ?
-        user.birthdays_as_celebrant.last.person_responsible_id : nil
-
-      possible_users = User
-        .where.not(id: user.id)
-        .where.not(id: previous_person_responsible)
-      possible_users.sort_by do |user|
-        if !user.birthdays_as_person_responsible.where(year: [ Date.today.year, Date.today.year-1 ]).blank?
-          user.birthdays_as_person_responsible.where(year: [ Date.today.year, Date.today.year-1 ]).last.created_at
-        else
-          DateTime.now
-        end
-      end.last
+      User
+        .joins('LEFT JOIN birthdays ON birthdays.person_responsible_id = users.id')
+        .where('birthdays.person_responsible_id IS NULL OR birthdays.created_at > :year_ago', year_ago: 1.year.ago)
+        .group('users.id')
+        .order("COUNT(birthdays.id) ASC")
+        .limit(1)
+        .first
     end
 end
