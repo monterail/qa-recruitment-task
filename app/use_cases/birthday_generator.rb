@@ -7,7 +7,9 @@ class BirthdayGenerator
   private
     def soon_to_be_celebrants
       User.ordered_by_soonest_birthday
-        .where(birthday_month: [Date.today.month, 1.month.from_now.month, 2.months.from_now.month, 3.months.from_now.month])
+        .where(
+          birthday_month: 4.times.map{ |i| i.months.from_now.month }
+        )
         .where.not("birthday_month = :month AND birthday_day < :day", { month: Date.today.month, day: Date.today.day } )
     end
 
