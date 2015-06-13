@@ -48,6 +48,7 @@ describe BirthdayGenerator do
     context "invalid celebrants" do
       after(:each) do
         expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+        Timecop.return
       end
 
       it "1 month ago" do
