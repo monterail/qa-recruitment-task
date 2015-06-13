@@ -48,7 +48,6 @@ class BirthdayGenerator
         .where('birthdays.person_responsible_id IS NULL OR birthdays.created_at < :year_ago', year_ago: 1.year.ago)
         .group('users.id')
         .order("COUNT(birthdays.id) ASC")
-        .limit(1)
         .first
     end
 end
