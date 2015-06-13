@@ -43,8 +43,9 @@ class BirthdayGenerator
 
     def get_next_person_responsible(user)
       User
+        .where.not(id: user.id)
         .joins('LEFT JOIN birthdays ON birthdays.person_responsible_id = users.id')
-        .where('birthdays.person_responsible_id IS NULL OR birthdays.created_at > :year_ago', year_ago: 1.year.ago)
+        .where('birthdays.person_responsible_id IS NULL OR birthdays.created_at < :year_ago', year_ago: 1.year.ago)
         .group('users.id')
         .order("COUNT(birthdays.id) ASC")
         .limit(1)
