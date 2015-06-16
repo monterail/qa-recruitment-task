@@ -4,4 +4,5 @@ class Birthday < ActiveRecord::Base
 
   validates :celebrant, presence: true
   validates :person_responsible, presence: true
+  validates :celebrant, uniqueness: { scope: :year }
 end
