@@ -3,87 +3,98 @@ require 'rails_helper'
 describe BirthdayGenerator do
 
   describe "celebrants are chosen from next 3 months" do
-    context "valid celebrants" do
-      after(:each) do
-        expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
-        Timecop.return
-      end
-
-      it "current month but after today" do
-        celebrant = User.create(
-          id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
-          birthday_month: 2,
-          birthday_day: 20
-        )
-        person_responsible = User.create(
-          id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
-        )
-        time_febraury = Time.local(2015, 2, 1, 16, 37, 0)
-        Timecop.freeze(time_febraury)
-      end
-
-      it "1 month from now" do
-        celebrant = User.create(
-          id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
-          birthday_month: 1.month.from_now.month,
-          birthday_day: 1
-        )
-        person_responsible = User.create(
-          id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
-        )
-      end
-
-      it "3 month from now" do
-        celebrant = User.create(
-          id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
-          birthday_month: 3.month.from_now.month,
-          birthday_day: 1
-        )
-        person_responsible = User.create(
-          id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
-        )
-      end
+    after(:each) do
+      Timecop.return
     end
 
-    context "invalid celebrants" do
-      after(:each) do
-        expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
-        Timecop.return
-      end
+    it "current month but after today" do
+      celebrant = User.create(
+        id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+        birthday_month: 2,
+        birthday_day: 20
+      )
+      person_responsible = User.create(
+        id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
+      )
+      time_febraury = Time.local(Date.today.year, 2, 1, 16, 37, 0)
+      Timecop.freeze(time_febraury)
+      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
+    end
 
-      it "1 month ago" do
-        celebrant = User.create(
-          id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
-          birthday_month: 1.month.ago.month,
-          birthday_day: 1
-        )
-        person_responsible = User.create(
-          id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
-        )
-      end
-      it "current month but before today" do
-        celebrant = User.create(
-          id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
-          birthday_month: 2,
-          birthday_day: 2
-        )
-        person_responsible = User.create(
-          id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
-        )
-        time_febraury = Time.local(2015, 2, 4, 16, 37, 0)
-        Timecop.freeze(time_febraury)
-      end
+    it "1 month from now" do
+      celebrant = User.create(
+        id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+        birthday_month: 1.month.from_now.month,
+        birthday_day: 1
+      )
+      person_responsible = User.create(
+        id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
+      )
+      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
+    end
 
-      it "4 months from now" do
-        celebrant = User.create(
-          id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
-          birthday_month: 4.month.from_now.month,
-          birthday_day: 1
-        )
-        person_responsible = User.create(
-          id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
-        )
-      end
+    it "3 month from now" do
+      celebrant = User.create(
+        id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+        birthday_month: 3.month.from_now.month,
+        birthday_day: 1
+      )
+      person_responsible = User.create(
+        id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
+      )
+      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
+    end
+
+    it "1 month ago" do
+      celebrant = User.create(
+        id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+        birthday_month: 1.month.ago.month,
+        birthday_day: 1
+      )
+      person_responsible = User.create(
+        id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
+      )
+      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+    end
+
+    it "current month but before today" do
+      celebrant = User.create(
+        id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+        birthday_month: 2,
+        birthday_day: 2
+      )
+      person_responsible = User.create(
+        id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
+      )
+      time_febraury = Time.local(Date.today.year, 2, 4, 16, 37, 0)
+      Timecop.freeze(time_febraury)
+      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+    end
+
+    it "4 months from now" do
+      celebrant = User.create(
+        id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+        birthday_month: 4.month.from_now.month,
+        birthday_day: 1
+      )
+      person_responsible = User.create(
+        id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
+      )
+      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+    end
+
+    it "2 months from now, but next year" do
+      celebrant = User.create(
+        id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+        birthday_month: 1,
+        birthday_day: 2
+      )
+      person_responsible = User.create(
+        id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790'
+      )
+      time_november = Time.local(Date.today.year, 11, 4, 16, 37, 0)
+      Timecop.freeze(time_november)
+      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
     end
   end
 
@@ -98,6 +109,51 @@ describe BirthdayGenerator do
     )
     expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
     expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+  end
+
+  it "creates 2 Birthdays when there are 2 free celebrants" do
+    first_celebrant = User.create(
+      id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+      birthday_month: 1.month.from_now.month,
+      birthday_day: 1
+    )
+    second_celebrant = User.create(
+      id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790',
+      birthday_month: 2.month.from_now.month,
+      birthday_day: 1
+    )
+    expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(2)
+  end
+
+  it "assigns a person responsible even when every possible person responsible took care of some birthday already" do
+    first = User.create(
+      id: 126, email: 'hodor2@example.com', name: 'hodor2', sso_id: '23456789',
+      birthday_month: 1.month.from_now.month,
+      birthday_day: 1
+    )
+    second = User.create(
+      id: 127, email: 'hodor3@example.com', name: 'hodor3', sso_id: '23456790',
+      birthday_month: 2.month.from_now.month,
+      birthday_day: 1
+    )
+    third = User.create(
+      id: 128, email: 'hodor4@example.com', name: 'hodor4', sso_id: '23456791',
+      birthday_month: 2.month.from_now.month,
+      birthday_day: 14
+    )
+    Birthday.create(
+      celebrant: first,
+      person_responsible: second,
+      year: Date.today.year
+    )
+    Birthday.create(
+      celebrant: second,
+      person_responsible: first,
+      year: Date.today.year
+    )
+    BirthdayGenerator.new.call
+    birthday = Birthday.find_by!(celebrant_id: third.id, year: Date.today.year)
+    expect(birthday.year).to eq(Date.today.year)
   end
 
   describe "person responsible when choosing has the least birhtdays as person responsible in the last year" do
