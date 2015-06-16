@@ -27,6 +27,18 @@ class User < ActiveRecord::Base
     User.ordered_by_soonest_birthday.where.not(sso_id: uid, birthday_month: nil, birthday_day: nil)
   }
 
+  def next_birthday_date
+    Date.new(self.next_birthday_year, self.birthday_month, self.birthday_day)
+  end
+
+  def next_birthday_year
+    self.birthday_in_next_year? ? Date.today.year.next : Date.today.year
+  end
+
+  def birthday_in_next_year?
+    Date.today.month >= self.birthday_month && Date.today.day > self.birthday_day
+  end
+
   def self.auth!(auth_hash)
     attrs = {
       sso_id: auth_hash['uid'],
