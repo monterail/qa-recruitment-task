@@ -27,13 +27,17 @@ class BirthdayGenerator
       )
     end
 
-    def get_next_person_responsible(user)
+    def get_next_person_responsible(celebrant)
+      # Here we want to select first person responsible fitting those criteria:
+      # - celebrant can't be his own person responsible
+      # - don't have birthdays created as person responsible
+      # - or had, but we care only about one
+      # - prefer the person with the least birthdays as person resposible
       User
-        .where.not(id: user.id)
-        .joins('LEFT JOIN birthdays ON birthdays.person_responsible_id = users.id')
-        .where('birthdays.person_responsible_id IS NULL OR birthdays.created_at < :year_ago', year_ago: 1.year.ago)
+        .where.not(id: celebrant.id)
+        .joins('LEFT JOIN (SELECT DISTINCT ON(person_responsible_id) * FROM birthdays) as bd ON bd.person_responsible_id = users.id')
         .group('users.id')
-        .order("COUNT(birthdays.id) ASC")
+        .order('COUNT(bd.id) ASC')
         .first
     end
 end
