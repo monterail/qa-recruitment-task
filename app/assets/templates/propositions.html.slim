@@ -1,20 +1,21 @@
-div.crs-grid__row ng-controller="PropositionCtrl"
-  div.crs-grid__column
-    h1 Chosen before
+div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
+  div.crs-grid__column.crs-grid__unit--sm-8
+    h1.crs-utils--center Chosen before
     ul ng-repeat="proposition in celebrant.propositions.chosen"
       li
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
 
-    h1.crs-typo__h1 Propositions
-    div ng-repeat="proposition in celebrant.propositions.current"
+    h1.crs-typo__h1.crs-utils--center Propositions
+    div.born-proposition ng-repeat="proposition in celebrant.propositions.current"
       div ng-if="editPropositionId != proposition.id"
+        div vote="proposition"
         h3.crs-typo__h3
           | {{proposition.title}} by {{proposition.owner.name}}
         p.crs-typo__p
           | {{proposition.description}} | {{proposition.value | currency :"PLN "}}
-        div vote="proposition"
-        button.crs-button type="button" ng-click="chooseProposition(proposition)" Mark as bought
-        button.crs-button.crs-button--secondary type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
+        div align="right"
+          button.crs-button.crs-button--small type="button" ng-click="chooseProposition(proposition)" Mark as bought
+          button.crs-button.crs-button--secondary.crs-button--small type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
       form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id"
         .crs-input__group
           input type="text" ng-model="proposition.title"
@@ -25,11 +26,14 @@ div.crs-grid__row ng-controller="PropositionCtrl"
         .crs-input__group
           input type="number" ng-model="proposition.value"
           label Value
-        input.crs-button.crs-button--success type="submit" value="Save"
-        button.crs-button.crs-button--secondary type="button" ng-click="cancelEditProposition()" x
+        div align="right"
+          input.crs-button.crs-button--success.crs-button--small type="submit" value="Save"
+          button.crs-button.crs-button--secondary.crs-button--small type="button" ng-click="cancelEditProposition()" x
       div ng-include="'assets/comments.html'"
 
     form ng-submit="createProposition()"
+      h2.crs-typo__h2
+        | Add your own proposition!
       .crs-input__group
         input type="text" ng-model="newProposition.title"
         label Title

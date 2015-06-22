@@ -1,10 +1,20 @@
 div
-  .crs-grid__row
-    .crs-grid__column.crs-utils--center
-      h1.crs-typo__h1 ng-bind="celebrant.name"
-      h2.crs-typo__h2
-        | {{celebrant.birthday_day}}.{{celebrant.birthday_month}}
-  .crs-subbar.crs-form--colorful
+  .crs-subbar.crs-form--colorful.born-user-fixed
+    .crs-grid__row.crs-grid__row--centered
+      .crs-grid__column.crs-grid__unit--sm-8.crs-utils--center
+        h1.crs-typo__h1
+          | {{ celebrant.name }} {{ celebrant.birthday_day }}.{{ celebrant.birthday_month }}
+  .crs-subbar.crs-form--colorful.born-user-relative
+    .crs-grid__row.crs-grid__row--centered
+      .crs-grid__column.crs-grid__unit--sm-8
+        div ng-if="!isEditingAbout"
+          p.crs-typo__p ng-bind="celebrant.about"
+          .crs-utils--center
+            button.crs-button type="button" ng-click="toggleEditingAbout()" Edit
+        form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout"
+          textarea ng-model="celebrant.about"
+          button.crs-button type="submit" Save
+          button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
     .crs-grid__row
       .crs-grid__column.crs-utils--center
         h3.crs-typo__h3
@@ -14,11 +24,4 @@ div
           input#checkbox type="checkbox" ng-model="celebrant.done"
           label for="checkbox"
             .crs-toggle__switch
-        div ng-if="!isEditingAbout"
-          p.crs-typo__p ng-bind="celebrant.about"
-          button.crs-button type="button" ng-click="toggleEditingAbout()" Edit
-        form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout"
-          textarea ng-model="celebrant.about"
-          button.crs-button type="submit" Save
-          button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
 div ng-include="'/assets/propositions.html'"
