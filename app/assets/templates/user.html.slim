@@ -10,7 +10,7 @@ div
         div ng-if="!isEditingAbout"
           p.crs-typo__p ng-bind="celebrant.about"
           .crs-utils--center
-            button.crs-button type="button" ng-click="toggleEditingAbout()" Edit
+            button.crs-button.crs-button--small type="button" ng-click="toggleEditingAbout()" Edit description
         form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout"
           textarea ng-model="celebrant.about"
           button.crs-button type="submit" Save

@@ -12,7 +12,9 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
         h3.crs-typo__h3
           | {{proposition.title}} by {{proposition.owner.name}}
         p.crs-typo__p
-          | {{proposition.description}} | {{proposition.value | currency :"PLN "}}
+          | {{proposition.description}}
+        h4.crs-typo__h4
+          | Price: {{ proposition.value | currency :'PLN ' }}
         div align="right"
           button.crs-button.crs-button--small type="button" ng-click="chooseProposition(proposition)" Mark as bought
           button.crs-button.crs-button--secondary.crs-button--small type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
