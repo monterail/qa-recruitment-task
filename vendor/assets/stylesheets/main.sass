@@ -64,20 +64,36 @@
 .crs-typo__p
   word-wrap: break-word
 
-.born-user-fixed
-  background-color: $crs-secondary-color
-  border-bottom: 0
-  position: fixed
-  z-index: 1000
-  padding-top: 1rem
-  padding-bottom: 1rem
+.born-user
+  position: absolute
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: cover
+  -webkit-filter: blur(10px)
+  opacity: .2
 
-  .crs-typo__h1
-    margin-bottom: 0rem
-    margin-top: 0rem
+.born-user__background
+  background-color: rgba(0, 0, 0, 0.8)
 
-.born-user-relative
-  padding-top: 5rem
 
 .born-input__textarea
   margin: rem(5px) 0
+
+.born-celebrant__avatar
+  border-radius: 100%
+  font-size: 2em
+  max-height: rem(175px)
+  display: inline-block
+  vertical-align: middle
+  box-shadow: 0 1px 0px #333
+
+.born-celebrant__about
+  margin-left: 3em
+
+.born-celebrant__description--edit
+  margin-top: 1em
+
+.born-user__container
+  position: relative

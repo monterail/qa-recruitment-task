@@ -20,7 +20,8 @@ class OneUserRepresenter < Struct.new(:user)
           else
             { name: 'Not chosen yet'}
           end
-          )
+          ),
+      profile_photo: "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}"
     }
   end
 end
