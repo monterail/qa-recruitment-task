@@ -133,20 +133,17 @@ describe BirthdayGenerator do
       end
 
       it "assigns person_responsible_that_had_birthday_long_time_ago" do
-        time_2_years_ago = Time.local(2.years.ago.year, 1, 1, 16, 37, 0)
-        Timecop.freeze(time_2_years_ago)
         Birthday.create(
           celebrant: dawid,
           person_responsible: hodak,
-          year: Date.today.year
+          year: Date.today.year,
+          created_at: 2.years.ago
         )
-        Timecop.return
-        time_3_years_ago = Time.local(3.years.ago.year, 1, 1, 16, 37, 0)
-        Timecop.freeze(time_3_years_ago)
         Birthday.create(
           celebrant: dawid,
           person_responsible: hodak,
-          year: Date.today.year
+          year: Date.today.year,
+          created_at: 3.years.ago
         )
         Timecop.return
         Birthday.create(
