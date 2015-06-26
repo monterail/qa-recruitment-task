@@ -14,7 +14,12 @@ class OneUserRepresenter < Struct.new(:user)
           chosen: user.propositions_as_celebrant.chosen.map { |proposition| PropositionRepresenter.new(proposition).basic },
           current: user.propositions_as_celebrant.current.map { |proposition| PropositionRepresenter.new(proposition).basic },
         },
-        person_responsible: (user.person_responsible.attributes.slice("id", "name", "email") if user.person_responsible)
+        person_responsible: (
+          if user.birthdays_as_celebrant.find_by_year(user.next_birthday_year)
+            user.birthdays_as_celebrant.find_by_year(user.next_birthday_year).person_responsible.attributes.slice("id", "name", "email")
+          end
+          ),
+      profile_photo: "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}"
     }
   end
 end

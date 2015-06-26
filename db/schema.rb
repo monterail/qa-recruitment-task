@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150516070521) do
+ActiveRecord::Schema.define(version: 20150529124359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "birthdays", force: :cascade do |t|
+    t.integer  "celebrant_id"
+    t.integer  "person_responsible_id"
+    t.integer  "year"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "birthdays", ["celebrant_id"], name: "index_birthdays_on_celebrant_id", using: :btree
+  add_index "birthdays", ["person_responsible_id"], name: "index_birthdays_on_person_responsible_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -39,15 +50,14 @@ ActiveRecord::Schema.define(version: 20150516070521) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "email",                                 null: false
-    t.string  "name",                                  null: false
-    t.string  "sso_id",                                null: false
+    t.string  "email",                          null: false
+    t.string  "name",                           null: false
+    t.string  "sso_id",                         null: false
     t.boolean "szama"
     t.integer "birthday_month"
     t.integer "birthday_day"
-    t.integer "person_responsible_id"
     t.text    "about"
-    t.boolean "done",                  default: false
+    t.boolean "done",           default: false
   end
 
   add_index "users", ["sso_id"], name: "index_users_on_sso_id", using: :btree

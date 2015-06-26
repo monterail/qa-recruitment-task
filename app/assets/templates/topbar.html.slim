@@ -1,39 +1,40 @@
-.crs-topbar
-  .crs-topbar__left
-    a.crs-topbar__logo ui-sref="auth.index"
-      = image_tag 'monterail-white.png'
-      | Born
-      small by Monterail
-  .crs-topbar__right.text-right
-    .crs-mobile__trigger.crs-large--hidden
-      span#mobileTrigger
-    ul.crs-topbar__nav.crs-utils--right.crs-large--visible
-      li.crs-topbar__option.crs-topbar__separator
-      li.crs-topbar__option
-        a.crs-topbar__link ui-sref="auth.index" Home
-      li.crs-topbar__option.crs-topbar__separator
-      li.crs-topbar__option
-        a.crs-topbar__link href="http://authentic.hussa.rs/" Authentic
-      li.crs-topbar__option.crs-topbar__separator
-      li.crs-topbar__option
-        a.crs-topbar__link href="http://eating.hussa.rs/" Szama
-      li.crs-topbar__option.crs-topbar__separator
-      li.crs-topbar__option
-        a.crs-topbar__link href="http://vacations.hussa.rs/" Vacations
-      li.crs-topbar__option.crs-topbar__separator
-      li.crs-topbar__option
-        .crs-dropdown
-          a.crs-user href="#"
-            .crs-user__name ng-bind="currentUser.name"
-            img.crs-user__avatar ng-src="{{ currentUser.profile_photo }}.jpg?s=200"
-          ul.crs-dropdown__list.crs-utils--center
-            li
-              a.crs-dropdown__option ui-sref="auth.me"
-                i.crs-icon-user
-                | Edit Profile
-            /li
-              a.crs-dropdown__option
-              = link_to 'asda', sso.sign_out_path
-                i.crs-icon-power-button
-                | Logout
-ui-view
+.crs-topbar--sticky
+  .crs-topbar
+    .crs-topbar__left
+      a.crs-topbar__logo ui-sref="auth.index"
+        = image_tag 'monterail-white.png'
+        | Born
+        small by Monterail
+    .crs-topbar__right.text-right
+      .crs-mobile__trigger.crs-large--hidden
+        span#mobileTrigger
+      ul.crs-topbar__nav.crs-utils--right.crs-large--visible
+        li.crs-topbar__option.crs-topbar__separator
+        li.crs-topbar__option
+          a.crs-topbar__link ui-sref="auth.index" Home
+        li.crs-topbar__option.crs-topbar__separator
+        li.crs-topbar__option
+          a.crs-topbar__link href="http://authentic.hussa.rs/" Authentic
+        li.crs-topbar__option.crs-topbar__separator
+        li.crs-topbar__option
+          a.crs-topbar__link href="http://eating.hussa.rs/" Szama
+        li.crs-topbar__option.crs-topbar__separator
+        li.crs-topbar__option
+          a.crs-topbar__link href="http://vacations.hussa.rs/" Vacations
+        li.crs-topbar__option.crs-topbar__separator
+        li.crs-topbar__option
+          .crs-dropdown
+            a.crs-user href="#"
+              .crs-user__name ng-bind="currentUser.name"
+              img.crs-user__avatar ng-src="{{ currentUser.profile_photo }}.jpg?s=200"
+            ul.crs-dropdown__list.crs-utils--center
+              li
+                a.crs-dropdown__option ui-sref="auth.me"
+                  i.crs-icon-user
+                  | Edit Profile
+              /li
+                a.crs-dropdown__option
+                = link_to 'asda', sso.sign_out_path
+                  i.crs-icon-power-button
+                  | Logout
+  ui-view
