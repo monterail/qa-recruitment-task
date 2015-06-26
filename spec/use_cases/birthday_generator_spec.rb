@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe BirthdayGenerator do
   # We always need at least 2 people so we have an option to create a birthday
-  let!(:dawid) { User.create(id: 127, email: 'dawid@example.com', name: 'dawid', sso_id: '23456789') }
-  let!(:hodak) { User.create(id: 128, email: 'hodak@example.com', name: 'hodak', sso_id: '23456790') }
-  let(:jakub) { User.create(id: 129, email: 'jakub@example.com', name: 'jakub', sso_id: '23456791') }
+  let!(:dawid) { User.create(email: 'dawid@example.com', name: 'dawid', sso_id: '23456789') }
+  let!(:hodak) { User.create(email: 'hodak@example.com', name: 'hodak', sso_id: '23456790') }
+  let(:jakub) { User.create(email: 'jakub@example.com', name: 'jakub', sso_id: '23456791') }
 
   describe "celebrants are chosen from next 3 months" do
     after(:each) do
