@@ -21,6 +21,11 @@ end
 gem 'rails_sso'
 gem 'envied', '~> 0.8.1'
 
+group :development do
+  gem 'spring', '~> 1.3.6'
+  gem 'letter_opener'
+end
+
 group :test do
   gem 'rspec-query-limit', '~> 0.1.2'
   gem 'timecop', '~> 0.7.3'
