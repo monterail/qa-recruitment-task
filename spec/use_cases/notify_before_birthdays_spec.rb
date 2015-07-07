@@ -22,8 +22,7 @@ describe NotifyBeforeBirthdays do
     end
 
     it "sends email" do
-      expect { NotifyBeforeBirthdays.new.call }
-        .to deliver_emails(1)
+      expect { NotifyBeforeBirthdays.new.call }.to deliver_emails(1)
     end
 
     it "doesn't send email to celebrant" do
@@ -41,8 +40,7 @@ describe NotifyBeforeBirthdays do
 
     it "doesn't send email if birthday is done" do
       dawid.update_attributes(done: true)
-      expect{ NotifyBeforeBirthdays.new.call }
-        .to deliver_emails(0)
+      expect{ NotifyBeforeBirthdays.new.call }.to deliver_emails(0)
     end
   end
 
@@ -54,8 +52,7 @@ describe NotifyBeforeBirthdays do
       birthday_month: notify_date.month,
       birthday_day: notify_date.day
     )
-    expect{ NotifyBeforeBirthdays.new.call }
-      .to deliver_emails(1)
+    expect{ NotifyBeforeBirthdays.new.call }.to deliver_emails(1)
     Timecop.return
   end
 end
