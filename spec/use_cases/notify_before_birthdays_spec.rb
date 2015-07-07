@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe NotifyBeforeBirthdays do
+  include DeliveryHelper
+
   let(:dawid) { User.create(email: 'dawid@example.com', name: 'dawid', sso_id: '23456789') }
   let!(:hodak) { User.create(email: 'hodak@example.com', name: 'hodak', sso_id: '23456790') }
   let!(:jakub) { User.create(email: 'jakub@example.com', name: 'jakub', sso_id: '23456791') }
@@ -21,7 +23,7 @@ describe NotifyBeforeBirthdays do
 
     it "sends email" do
       expect { NotifyBeforeBirthdays.new.call }
-        .to change { ActionMailer::Base.deliveries.count }.by(1)
+        .to deliver_emails(1)
     end
 
     it "doesn't send email to celebrant" do
@@ -40,7 +42,7 @@ describe NotifyBeforeBirthdays do
     it "doesn't send email if birthday is done" do
       dawid.update_attributes(done: true)
       expect{ NotifyBeforeBirthdays.new.call }
-        .to change{ ActionMailer::Base.deliveries.count }.by(0)
+        .to deliver_emails(0)
     end
   end
 
@@ -53,7 +55,7 @@ describe NotifyBeforeBirthdays do
       birthday_day: notify_date.day
     )
     expect{ NotifyBeforeBirthdays.new.call }
-      .to change{ ActionMailer::Base.deliveries.count }.by(1)
+      .to deliver_emails(1)
     Timecop.return
   end
 end
