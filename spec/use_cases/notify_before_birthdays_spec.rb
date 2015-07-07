@@ -45,14 +45,14 @@ describe NotifyBeforeBirthdays do
   end
 
   it "sends emails when birthday is in the next year" do
-    time_december = Time.local(2015, 12, 15, 16, 37, 0)
-    Timecop.freeze(time_december)
-    notify_date = time_december + 30.days
-    dawid.update_attributes(
-      birthday_month: notify_date.month,
-      birthday_day: notify_date.day
-    )
-    expect{ NotifyBeforeBirthdays.new.call }.to deliver_emails(1)
-    Timecop.return
+    time_december = Time.local(2015, 12, 15)
+    Timecop.freeze(time_december) do
+      notify_date = time_december + 30.days
+      dawid.update_attributes(
+        birthday_month: notify_date.month,
+        birthday_day: notify_date.day
+      )
+      expect{ NotifyBeforeBirthdays.new.call }.to deliver_emails(1)
+    end
   end
 end
