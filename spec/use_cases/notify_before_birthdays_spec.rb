@@ -3,7 +3,9 @@ require 'rails_helper'
 describe NotifyBeforeBirthdays do
   include DeliveryHelper
 
-  let(:dawid) { User.create(email: 'dawid@example.com', name: 'dawid', sso_id: '23456789') }
+  # We need those bangs here, because we always need our e-mail to be sent to someone
+  # and we don't do anything with those users before sending
+  let!(:dawid) { User.create(email: 'dawid@example.com', name: 'dawid', sso_id: '23456789') }
   let!(:hodak) { User.create(email: 'hodak@example.com', name: 'hodak', sso_id: '23456790') }
   let!(:jakub) { User.create(email: 'jakub@example.com', name: 'jakub', sso_id: '23456791') }
 
