@@ -21,7 +21,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-angular-ui-router', '0.2.13'
 end
 
-gem 'rails_sso'
+gem 'rails_sso', '~> 0.3.0'
 gem 'envied', '~> 0.8.1'
 
 group :development do
