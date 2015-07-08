@@ -3,6 +3,7 @@ enable_defaults!
 variable :ID_HUSSARS_HOST, :string
 variable :HUSSARS_KEY, :string
 variable :HUSSARS_SECRET, :string
+variable :MAILER_SENDER, :string, default: 'no-reply@hussa.rs'
 
 %i{ staging production }.each do |stage|
   group stage do
