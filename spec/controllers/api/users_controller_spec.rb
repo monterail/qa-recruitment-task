@@ -6,7 +6,7 @@ describe Api::UsersController do
   let(:current_user_attributes) {{ 'id' => 123, 'name' => 'hodor', 'email' => 'hodor@example.com', 'sso_id' => '12345678' }}
   let(:user_younger_attributes) {{ 'id' => 124, 'email' => 'hodor2@example.com', 'name' => 'hodor2', 'sso_id' => '23456789', 'birthday_month' => 2.month.from_now.month, 'birthday_day' => 1 }}
   let(:user_older_attributes) {{ 'id' => 125, 'email' => 'hodor3@example.com', 'name' => 'hodor3', 'sso_id' => '34567890', 'birthday_month' => 1.month.from_now.month, 'birthday_day' => 12 }}
-  let(:user_without_birthday_attributes) {{ 'email' => 'hodor4@example.com', 'name' => 'hodor4', 'sso_id' => '45678901' }}
+  let(:user_without_birthday_attributes) {{ 'id' => 126, 'email' => 'hodor4@example.com', 'name' => 'hodor4', 'sso_id' => '45678901' }}
 
   before(:each) do
     auth(User.create(current_user_attributes))
@@ -41,6 +41,28 @@ describe Api::UsersController do
 
     it "doesn't include users without birthday date" do
       is_expected.not_to include(user_without_birthday_attributes.slice('name', 'id', 'birthday_day', 'birthday_month'))
+    end
+  end
+
+  describe "GET #users_without_birthday" do
+    before(:each) do
+      User.create(user_older_attributes)
+      User.create(user_without_birthday_attributes)
+      get :users_without_birthday
+    end
+
+    subject { JSON.parse(response.body) }
+
+    it "returns users wihout current_user_attributes" do
+      is_expected.not_to include(current_user_attributes.slice('name', 'id'))
+    end
+
+    it "returns users that have no birthday date set up" do
+      expect(subject[0]['id']).to eq(user_without_birthday_attributes['id'])
+    end
+
+    it "doesn't include users with birthday date" do
+      is_expected.not_to include(user_older_attributes.slice('name', 'id'))
     end
   end
 
