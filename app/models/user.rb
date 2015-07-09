@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     User.ordered_by_soonest_birthday.where.not(sso_id: uid, birthday_month: nil, birthday_day: nil)
   }
 
+  scope :without_birthday, -> (uid) {
+    User.where.not(sso_id: uid).where("birthday_day IS NULL OR birthday_month IS NULL")
+  }
+
   def next_birthday_date
     Date.new(self.next_birthday_year, self.birthday_month, self.birthday_day)
   end
