@@ -16,6 +16,6 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser
 
   $scope.updateIfDone = ->
     if $scope.celebrant.done
-      Birthday.mark_as_done($scope.celebrant.id)
+      Birthday.markAsDone($scope.celebrant.id)
     else
-      Birthday.mark_as_undone($scope.celebrant.id)
+      Birthday.markAsUndone($scope.celebrant.id)
