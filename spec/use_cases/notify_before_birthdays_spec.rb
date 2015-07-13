@@ -41,7 +41,9 @@ describe NotifyBeforeBirthdays do
     end
 
     it "doesn't send email if birthday is done" do
-      dawid.update_attributes(done: true)
+      BirthdayGenerator.new.call
+      birthday = Birthday.find_by(celebrant: dawid, year: dawid.next_birthday_year)
+      birthday.update_attributes(done: true)
       expect{ NotifyBeforeBirthdays.new.call }.to deliver_emails(0)
     end
   end
