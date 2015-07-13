@@ -18,7 +18,7 @@ div.born-user__container
               button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
             h3.crs-typo__h3
               | Person responsible: {{ celebrant.person_responsible.name || 'not chosen yet'}}
-            div ng-if="celebrant.done!=null"
+            div ng-if="celebrant.done != null"
               label.crs-form__label Is the gift ready?
               .crs-toggle
                 input#checkbox type="checkbox" ng-click="updateIfDone()" ng-model="celebrant.done"
