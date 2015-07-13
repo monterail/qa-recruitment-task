@@ -38,7 +38,7 @@ module Api
       end
 
       def user_params
-        params.require(:user).permit(:birthday_day, :birthday_month, :szama, :about, :done)
+        params.require(:user).permit(:birthday_day, :birthday_month, :szama, :about)
       end
   end
 end
