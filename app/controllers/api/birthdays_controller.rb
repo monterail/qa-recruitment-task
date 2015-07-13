@@ -28,12 +28,7 @@ module Api
       end
 
       def restrict_celebrant
-        birthday = birthday_from_params
-        head :unauthorized if current_user.id == birthday.celebrant_id
-      end
-
-      def birthday_params
-        params.require(:birthday).permit(:celebrant_id, :done)
+        head :unauthorized if current_user.id == params[:celebrant_id]
       end
   end
 end
