@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529124359) do
+ActiveRecord::Schema.define(version: 20150713111911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20150529124359) do
     t.integer  "celebrant_id"
     t.integer  "person_responsible_id"
     t.integer  "year"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "done",                  default: false
   end
 
   add_index "birthdays", ["celebrant_id"], name: "index_birthdays_on_celebrant_id", using: :btree
@@ -50,14 +51,13 @@ ActiveRecord::Schema.define(version: 20150529124359) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "email",                          null: false
-    t.string  "name",                           null: false
-    t.string  "sso_id",                         null: false
+    t.string  "email",          null: false
+    t.string  "name",           null: false
+    t.string  "sso_id",         null: false
     t.boolean "szama"
     t.integer "birthday_month"
     t.integer "birthday_day"
     t.text    "about"
-    t.boolean "done",           default: false
   end
 
   add_index "users", ["sso_id"], name: "index_users_on_sso_id", using: :btree
