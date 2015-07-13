@@ -4,7 +4,6 @@ module Api
     before_action :restrict_celebrant
 
     def mark_as_done
-      birthday = birthday_from_params
       if birthday.update_attributes(done: true)
         head :ok
       else
@@ -13,7 +12,6 @@ module Api
     end
 
     def mark_as_undone
-      birthday = birthday_from_params
       if birthday.update_attributes(done: false)
         head :ok
       else
@@ -22,8 +20,11 @@ module Api
     end
 
     private
-      def birthday_from_params
-        birthday ||= Birthday.find_by(celebrant_id: params[:celebrant_id], year: User.find(params[:celebrant_id]).next_birthday_year)
+      def birthday
+        @birthday ||= begin
+          next_birthday_year = User.find(params[:celebrant_id]).next_birthday_year
+          Birthday.find_by(celebrant_id: params[:celebrant_id], year: next_birthday_year)
+        end
       end
 
       def restrict_celebrant
