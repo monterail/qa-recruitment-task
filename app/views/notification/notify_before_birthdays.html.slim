@@ -10,5 +10,5 @@ img src="http://www.dpesca.com/media/cache/142/94/n/w/nwm-kp142x94-233229226img-
 h3 style="padding: 20px; text-align: center;"
   = @celebrant.name
   ' 's page on born
-a href="http://localhost:3000/#/user/#{@celebrant.id}"
+= link_to celebrant_url(@celebrant.id)
   img src="http://www.inletfitness.com/wp-content/uploads/right-arrow2.gif" style="position:absolute; width:100px; right:60px; bottom:10px;"
