@@ -7,7 +7,7 @@ class NotifyBeforeBirthdays
       .where.not(birthday_month: nil, birthday_day: nil)
       .each do |user|
         if DAYS_BEFORE_NOTIFICATIONS.include? days_till_birthday(user)
-          unless birthday(user) && birthday(user).done
+          unless birthday_exist_and_done? user
             NotifyAboutBirthdaysWorker.perform_async(user.id)
           end
         end
@@ -19,7 +19,8 @@ class NotifyBeforeBirthdays
       (user.next_birthday_date - Date.today).to_i
     end
 
-    def birthday(user)
-      Birthday.find_by(celebrant_id: user.id, year: user.next_birthday_year)
+    def birthday_exist_and_done?(user)
+      birthday = Birthday.find_by(celebrant_id: user.id, year: user.next_birthday_year)
+      birthday && birthday.done
     end
 end
