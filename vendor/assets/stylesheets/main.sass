@@ -25,7 +25,7 @@
 @import components/validate
 
 // LAYOUT
-@import layout/sidebar
+// @import layout/sidebar
 @import layout/topbar
 @import layout/user
 @import layout/mainpage
@@ -36,68 +36,3 @@
 // OVERRIDING UTILS (which has to be loaded last to reduce the use of !important)
 @import utils/visibility
 @import utils/utils
-
-.example-box
-  background: #f0f0f0
-  padding: .5rem
-  font-size: 13px
-  border: 1px solid #ddd
-
-.cuirass-hero-logo
-  max-height: 300px
-  margin: 10% 0
-  max-width: 100%
-
-.cuirass-hero
-  min-height: 100%
-
-.cuirass-section__header,
-.cuirass-subsection-header
-  padding-top: rem(70px)
-
-.born-index-person
-  margin-left: 1rem
-  &:hover
-    cursor: pointer
-
-.born-proposition
-  border: 1px solid $crs-tertiary-color
-  padding: 2rem
-  margin-bottom: 2rem
-
-.crs-typo__p
-  word-wrap: break-word
-
-.born-user
-  position: absolute
-  width: 100%
-  height: 100%
-  background-repeat: no-repeat
-  background-position: center center
-  background-size: cover
-  -webkit-filter: blur(10px)
-  opacity: .2
-
-.born-user__background
-  background-color: rgba(0, 0, 0, 0.8)
-
-
-.born-input__textarea
-  margin: rem(5px) 0
-
-.born-celebrant__avatar
-  border-radius: 100%
-  font-size: 2em
-  max-height: rem(175px)
-  display: inline-block
-  vertical-align: middle
-  box-shadow: 0 1px 0px #333
-
-.born-celebrant__about
-  margin-left: 3em
-
-.born-celebrant__description--edit
-  margin-top: 1em
-
-.born-user__container
-  position: relative

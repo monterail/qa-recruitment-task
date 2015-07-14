@@ -15,18 +15,19 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
           | {{proposition.description}}
         h4.crs-typo__h4
           | Price: {{ proposition.value | currency: 'PLN' }}
-        div
+        div.propositions__container
           button.crs-button.crs-button--small type="button" ng-click="chooseProposition(proposition)" Mark as bought
-          button.crs-button.crs-button--secondary.crs-button--small type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
+          button.crs-button.crs-button--secondary.crs-button--small.propositions__edit type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
+          button.crs-button.crs-button--small.propositions__delete type="button" Delete
       form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id"
+        / .crs-input__group
+          label.crs-form__label Title
+          input.crs-form__input type="text" ng-model="proposition.title" class="form__validate" ng-model-options="{ updateOn: 'blur' }" minlength="2"
         .crs-input__group
-          input type="text" ng-model="proposition.title"
-          label Title
-        .crs-input__group
-          textarea ng-model="proposition.description"
+          textarea ng-model="proposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" minlength="2"
           label Description
         .crs-input__group
-          input type="number" ng-model="proposition.value"
+          input type="number" ng-model="proposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }"
           label Value
         div align="right"
           input.crs-button.crs-button--success.crs-button--small type="submit" value="Save"
@@ -37,13 +38,13 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
       h2.crs-typo__h2
         | Add your own proposition!
       .crs-input__group
-        input type="text" ng-model="newProposition.title"
+        input type="text" class="form__validate" ng-model="newProposition.title" ng-model-options="{ updateOn: 'blur' }" minlength="2"
         label Title
       .crs-input__group
-        textarea ng-model="newProposition.description"
+        textarea ng-model="newProposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" minlength="2"
         label Description
       .crs-input__group
-        input type="number" ng-model="newProposition.value"
+        input type="number" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }"
         label Value
       input.crs-button.crs-button--success type="submit" value="Save"
 
