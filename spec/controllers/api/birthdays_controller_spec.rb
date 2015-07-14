@@ -1,0 +1,35 @@
+require 'rails_helper'
+
+describe Api::BirthdaysController do
+  include AuthHelper
+
+  let(:current_user) { User.create!(name: 'hodor', email: 'hodor@example.com', sso_id: '12345678') }
+  let(:celebrant) do
+    User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241',
+                 birthday_day: 14, birthday_month: 1.month.from_now.month)
+  end
+
+  before(:each) do
+    auth(current_user)
+    Birthday.create!(
+      celebrant: celebrant, person_responsible: current_user,
+      year: celebrant.next_birthday_year
+    )
+  end
+
+  describe "patch #mark_as_covered" do
+    it "marks birthday as covered" do
+      patch :mark_as_covered, celebrant_id: celebrant.id
+      birthday = celebrant.next_birthday
+      expect(birthday.covered).to eq(true)
+    end
+  end
+
+  describe "patch #mark_as_uncovered" do
+    it "marks birthday as uncovered" do
+      patch :mark_as_uncovered, celebrant_id: celebrant.id
+      birthday = celebrant.next_birthday
+      expect(birthday.covered).to eq(false)
+    end
+  end
+end

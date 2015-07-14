@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   mount RailsSso::Engine => '/sso', as: 'sso'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
   namespace :api do
     resources :users do
@@ -17,7 +20,9 @@ Rails.application.routes.draw do
       end
       resources :comments, only: [:update, :create]
     end
-  end
+   patch 'birthdays/:celebrant_id/cover', to: 'birthdays#mark_as_covered'
+   patch 'birthdays/:celebrant_id/uncover', to: 'birthdays#mark_as_uncovered'
+ end
 
   root 'home#index'
 

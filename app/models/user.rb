@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
     Date.today.month >= self.birthday_month && Date.today.day > self.birthday_day
   end
 
+  def next_birthday
+    self.birthdays_as_celebrant.find_by(year: self.next_birthday_year)
+  end
+
   def self.auth!(auth_hash)
     attrs = {
       sso_id: auth_hash['uid'],

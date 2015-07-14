@@ -1,4 +1,4 @@
-angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser, User) ->
+angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser, User, Birthday) ->
   $scope.currentUser = currentUser.data
   $scope.celebrant = celebrant.data
   $scope.newProposition = {
@@ -14,6 +14,8 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser
       $scope.celebrant.about = user.about
       $scope.isEditingAbout = false
 
-  $scope.updateIfDone = ->
-    User.update($scope.celebrant)
-
+  $scope.updateIfCovered = ->
+    if $scope.celebrant.covered
+      Birthday.markAsCovered($scope.celebrant.id)
+    else
+      Birthday.markAsUncovered($scope.celebrant.id)

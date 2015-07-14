@@ -1,0 +1,12 @@
+h1 style="font-size:24px; text-align:center; padding:20px 50px; background-color:lightgrey; margin:0;"
+  ' It's only
+  = @days
+  '  days until
+  = @celebrant.name
+  '  birthday!
+p style="padding: 20px 50px; font-family= Arial, Helvetica, sans-serif; font-size:18px;"
+  | Remember to help the person responsible with your suggestions for the birthday present!
+= link_to celebrant_url(@celebrant.id)
+  h3 style="padding: 20px; text-align: center;"
+    = @celebrant.name
+    ' 's page on born
