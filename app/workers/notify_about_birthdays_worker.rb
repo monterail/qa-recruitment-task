@@ -13,6 +13,7 @@ class NotifyAboutBirthdaysWorker
   end
 
   private
+
     def days_till_birthday(user)
       (user.next_birthday_date - Date.today).to_i
     end

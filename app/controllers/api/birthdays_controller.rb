@@ -20,6 +20,7 @@ module Api
     end
 
     private
+
       def birthday
         @birthday ||= begin
           next_birthday_year = User.find(params[:celebrant_id]).next_birthday_year

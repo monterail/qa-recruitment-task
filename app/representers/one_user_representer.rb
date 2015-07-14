@@ -24,9 +24,10 @@ class OneUserRepresenter < Struct.new(:user)
   end
 
   private
-  def done?
-    if user.birthdays_as_celebrant.find_by_year(user.next_birthday_year)
-      user.birthdays_as_celebrant.find_by_year(user.next_birthday_year).done
+
+    def done?
+      if user.birthdays_as_celebrant.find_by_year(user.next_birthday_year)
+        user.birthdays_as_celebrant.find_by_year(user.next_birthday_year).done
+      end
     end
-  end
 end
