@@ -20,8 +20,8 @@ Rails.application.routes.draw do
       end
       resources :comments, only: [:update, :create]
     end
-   patch 'birthdays/:celebrant_id/covered', to: 'birthdays#mark_as_covered'
-   patch 'birthdays/:celebrant_id/uncovered', to: 'birthdays#mark_as_uncovered'
+   patch 'birthdays/:celebrant_id/cover', to: 'birthdays#mark_as_covered'
+   patch 'birthdays/:celebrant_id/uncover', to: 'birthdays#mark_as_uncovered'
  end
 
   root 'home#index'
