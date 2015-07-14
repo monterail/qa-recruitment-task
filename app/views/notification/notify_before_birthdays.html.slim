@@ -6,9 +6,7 @@ h1 style="font-size:24px; text-align:center; padding:20px 50px; background-color
   '  birthday!
 p style="padding: 20px 50px; font-family= Arial, Helvetica, sans-serif; font-size:18px;"
   | Remember to help the person responsible with your suggestions for the birthday present!
-img src="http://www.dpesca.com/media/cache/142/94/n/w/nwm-kp142x94-233229226img-221-Christmas-Present-2.jpg.jpg" style="width:200px; display:block; margin: 0 auto;"
-h3 style="padding: 20px; text-align: center;"
-  = @celebrant.name
-  ' 's page on born
 = link_to celebrant_url(@celebrant.id)
-  img src="http://www.inletfitness.com/wp-content/uploads/right-arrow2.gif" style="position:absolute; width:100px; right:60px; bottom:10px;"
+  h3 style="padding: 20px; text-align: center;"
+    = @celebrant.name
+    ' 's page on born
