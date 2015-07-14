@@ -4,8 +4,10 @@ describe Api::BirthdaysController do
   include AuthHelper
 
   let(:current_user) { User.create!(name: 'hodor', email: 'hodor@example.com', sso_id: '12345678') }
-  let(:celebrant) { User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241',
-    birthday_day: 14, birthday_month: 1.month.from_now.month) }
+  let(:celebrant) do
+    User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241',
+                 birthday_day: 14, birthday_month: 1.month.from_now.month)
+  end
 
   before(:each) do
     auth(current_user)
