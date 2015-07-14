@@ -26,9 +26,6 @@ class OneUserRepresenter < Struct.new(:user)
   private
 
     def covered?
-      next_birthday ||= user.next_birthday
-      if next_birthday
-        next_birthday.covered
-      end
+      user.next_birthday.try(:covered)
     end
 end
