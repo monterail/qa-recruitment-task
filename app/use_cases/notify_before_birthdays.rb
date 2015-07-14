@@ -21,7 +21,7 @@ class NotifyBeforeBirthdays
     end
 
     def birthday_exist_and_done?(user)
-      birthday = Birthday.find_by(celebrant_id: user.id, year: user.next_birthday_year)
+      birthday = user.next_birthday
       birthday && birthday.done
     end
 end

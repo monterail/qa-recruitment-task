@@ -20,7 +20,7 @@ describe Api::BirthdaysController do
   describe "patch #mark_as_done" do
     it "marks birthday as done" do
       patch :mark_as_done, celebrant_id: celebrant.id
-      birthday = celebrant.birthdays_as_celebrant.find_by(year: celebrant.next_birthday_year)
+      birthday = celebrant.next_birthday
       expect(birthday.done).to eq(true)
     end
   end
@@ -28,7 +28,7 @@ describe Api::BirthdaysController do
   describe "patch #mark_as_undone" do
     it "marks birthday as undone" do
       patch :mark_as_undone, celebrant_id: celebrant.id
-      birthday = celebrant.birthdays_as_celebrant.find_by(year: celebrant.next_birthday_year)
+      birthday = celebrant.next_birthday
       expect(birthday.done).to eq(false)
     end
   end
