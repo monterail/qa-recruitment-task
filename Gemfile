@@ -25,7 +25,7 @@ gem 'envied', '~> 0.8.1'
 
 group :development do
   gem 'spring', '~> 1.3.3'
-  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.2.0'
 end
 
 group :test do

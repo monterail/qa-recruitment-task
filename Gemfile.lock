@@ -90,6 +90,9 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.4.1)
       launchy (~> 2.2)
+    letter_opener_web (1.2.3)
+      letter_opener (~> 1.0)
+      rails (>= 3.2)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -237,7 +240,7 @@ DEPENDENCIES
   database_cleaner (~> 1.4.1)
   dotenv-rails
   envied (~> 0.8.1)
-  letter_opener
+  letter_opener_web (~> 1.2.0)
   ngannotate-rails (~> 0.15.4)
   omniauth-hussars (= 0.1.1)!
   pg
