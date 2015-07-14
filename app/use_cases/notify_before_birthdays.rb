@@ -1,11 +1,12 @@
 class NotifyBeforeBirthdays
+  DAYS_BEFORE_NOTIFICATIONS = [1, 5, 15, 30]
+
   def call
-    when_to_notify = [1, 5, 15, 30]
     User
       .ordered_by_soonest_birthday
       .where.not(birthday_month: nil, birthday_day: nil)
       .each do |user|
-        if when_to_notify.include? days_till_birthday(user)
+        if DAYS_BEFORE_NOTIFICATIONS.include? days_till_birthday(user)
           unless birthday(user) && birthday(user).done
             NotifyAboutBirthdaysWorker.perform_async(user.id)
           end
