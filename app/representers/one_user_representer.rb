@@ -7,11 +7,7 @@ class OneUserRepresenter < Struct.new(:user)
       birthday_day: user.birthday_day,
       birthday_month: user.birthday_month,
       about: user.about,
-      done: (
-        if user.birthdays_as_celebrant.find_by_year(user.next_birthday_year)
-          user.birthdays_as_celebrant.find_by_year(user.next_birthday_year).done
-        end
-        ),
+      done: done?,
       szama: user.szama,
       propositions:
         {
@@ -25,5 +21,12 @@ class OneUserRepresenter < Struct.new(:user)
         ),
       profile_photo: "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}"
     }
+  end
+
+  private
+  def done?
+    if user.birthdays_as_celebrant.find_by_year(user.next_birthday_year)
+      user.birthdays_as_celebrant.find_by_year(user.next_birthday_year).done
+    end
   end
 end
