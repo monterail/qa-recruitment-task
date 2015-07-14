@@ -14,8 +14,8 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser
       $scope.celebrant.about = user.about
       $scope.isEditingAbout = false
 
-  $scope.updateIfDone = ->
-    if $scope.celebrant.done
-      Birthday.markAsDone($scope.celebrant.id)
+  $scope.updateIfCovered = ->
+    if $scope.celebrant.covered
+      Birthday.markAsCovered($scope.celebrant.id)
     else
-      Birthday.markAsUndone($scope.celebrant.id)
+      Birthday.markAsUncovered($scope.celebrant.id)

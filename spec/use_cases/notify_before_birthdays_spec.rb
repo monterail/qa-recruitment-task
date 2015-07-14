@@ -40,10 +40,10 @@ describe NotifyBeforeBirthdays do
       expect(notification.to).to include(jakub.email)
     end
 
-    it "doesn't send email if birthday is done" do
+    it "doesn't send email if birthday is covered" do
       BirthdayGenerator.new.call
       birthday = dawid.next_birthday
-      birthday.update_attributes(done: true)
+      birthday.update_attributes(covered: true)
       expect{ NotifyBeforeBirthdays.new.call }.to deliver_emails(0)
     end
   end

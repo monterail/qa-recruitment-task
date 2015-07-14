@@ -3,16 +3,16 @@ module Api
 
     before_action :restrict_celebrant
 
-    def mark_as_done
-      if birthday.update_attributes(done: true)
+    def mark_as_covered
+      if birthday.update_attributes(covered: true)
         head :ok
       else
         render json: { errors: birthday.errors.messages }, status: 405
       end
     end
 
-    def mark_as_undone
-      if birthday.update_attributes(done: false)
+    def mark_as_uncovered
+      if birthday.update_attributes(covered: false)
         head :ok
       else
         render json: { errors: birthday.errors.messages }, status: 405

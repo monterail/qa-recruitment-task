@@ -17,19 +17,19 @@ describe Api::BirthdaysController do
     )
   end
 
-  describe "patch #mark_as_done" do
-    it "marks birthday as done" do
-      patch :mark_as_done, celebrant_id: celebrant.id
+  describe "patch #mark_as_covered" do
+    it "marks birthday as covered" do
+      patch :mark_as_covered, celebrant_id: celebrant.id
       birthday = celebrant.next_birthday
-      expect(birthday.done).to eq(true)
+      expect(birthday.covered).to eq(true)
     end
   end
 
-  describe "patch #mark_as_undone" do
-    it "marks birthday as undone" do
-      patch :mark_as_undone, celebrant_id: celebrant.id
+  describe "patch #mark_as_uncovered" do
+    it "marks birthday as uncovered" do
+      patch :mark_as_uncovered, celebrant_id: celebrant.id
       birthday = celebrant.next_birthday
-      expect(birthday.done).to eq(false)
+      expect(birthday.covered).to eq(false)
     end
   end
 end

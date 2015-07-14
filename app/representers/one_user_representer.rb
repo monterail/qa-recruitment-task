@@ -7,7 +7,7 @@ class OneUserRepresenter < Struct.new(:user)
       birthday_day: user.birthday_day,
       birthday_month: user.birthday_month,
       about: user.about,
-      done: done?,
+      covered: covered?,
       szama: user.szama,
       propositions:
         {
@@ -25,10 +25,10 @@ class OneUserRepresenter < Struct.new(:user)
 
   private
 
-    def done?
+    def covered?
       next_birthday ||= user.next_birthday
       if next_birthday
-        next_birthday.done
+        next_birthday.covered
       end
     end
 end
