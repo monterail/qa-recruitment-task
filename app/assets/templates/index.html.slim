@@ -1,14 +1,3 @@
-section.crs-grid__row
-  .crs-grid__column.crs-utils--center
-    h1.crs-typo__h1.born-header Born
-.crs-subbar.crs-form--colorful
-  .crs-grid__row.
-    .crs-grid__column.crs-grid__column--centered.crs-grid__unit--sm-3
-      ul.crs-typo__ul.crs-utils--left ng-repeat="user in users"
-        li ui-sref="auth.user({id: user.id})"
-          img.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
-          span.born-index-person
-            | {{ user.name }} | {{ user.birthday_day }}.{{ user.birthday_month }}
 .mainpage__container
   img.mainpage__background src="/assets/main-background-image.jpg"
     section.crs-grid__row.crs-grid__row--centered
@@ -18,7 +7,7 @@ section.crs-grid__row
           .crs-grid__column.crs-grid__unit--sm-10
             ul.crs-typo__ul.crs-utils--left
               li ui-sref="auth.user({id: user.id})"
-                img.person__today--avatar.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
+                img.crs-user__avatar.person__today--avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
                   img.person__today--hat src="/assets/hat.png"
                 span.person__index
                   | {{ user.name }}
