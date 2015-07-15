@@ -1,7 +1,7 @@
 module Api
   class CommentsController < ApplicationController
 
-    before_action :restrict_wrong_owner, only: [:update, :delete]
+    before_action :restrict_wrong_owner, only: [:update, :destroy]
 
     def create
       proposition = Proposition.find(params[:proposition_id])
