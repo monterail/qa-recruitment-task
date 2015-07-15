@@ -1,0 +1,29 @@
+<div class="crs-grid__row">
+  <div class="crs-grid__column">
+    <h1 class="crs-typo__h1">
+      Edit profile
+    </h1>
+    <form ng-submit="update()">
+      <h2 class="crs-typo__h2" ng-bind="user.name"></h2>
+      <div class="crs-grid__row crs-grid__row--middle">
+        <div class="crs-grid__column crs-grid__unit--sm-2">
+          <div class="crs-input__group">
+            <input max="31" min="1" ng-model="user.birthday_day" type="number" /><label>Birthday day</label>
+          </div>
+        </div>
+        <div class="crs-grid__column crs-grid__unit--sm-2">
+          <div class="crs-input__group">
+            <input max="12" min="1" ng-model="user.birthday_month" type="number" /><label>Birthday month</label>
+          </div>
+        </div>
+      </div>
+      <label class="crs-form__label">Do you want to use eating.hussa.rs in order to calculate your participation in birthday gifts?</label>
+      <div class="crs-toggle">
+        <input id="checkbox" ng-model="user.szama" type="checkbox" /><label for="checkbox">
+          <div class="crs-toggle__switch"></div>
+        </label>
+      </div>
+      <button class="crs-button" type="submit">Save</button>
+    </form>
+  </div>
+</div>

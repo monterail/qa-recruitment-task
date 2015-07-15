@@ -1,0 +1,38 @@
+<div class="user__container">
+  <div class="user__image" ng-style="{ &#39;background-image&#39;:&#39;url({{ celebrant.profile_photo }})&#39; }"></div>
+  <div class="crs-subbar crs-form--colorful user__background">
+    <div class="crs-grid__row">
+      <div class="crs-grid__column">
+        <h1 class="crs-typo__h1 crs-utils--center">
+          {{ celebrant.name }} {{ celebrant.birthday_day }}.{{ celebrant.birthday_month }}
+        </h1>
+      </div>
+    </div>
+    <div class="crs-grid__row crs-grid__row--centered">
+      <div class="crs-grid__column crs-grid__unit--sm-2">
+        <img class="celebrant__avatar" ng-src="{{ celebrant.profile_photo }}.jpg?s=400" />
+      </div>
+      <div class="crs-grid__column crs-grid__unit--sm-8 celebrant__about">
+        <div ng-if="!isEditingAbout">
+          <p class="crs-typo__p" ng-bind="celebrant.about"></p>
+          <button class="crs-button crs-button--small celebrant__description--edit" ng-click="toggleEditingAbout()" type="button">Edit description</button>
+        </div>
+        <form class="crs-input__group" ng-if="isEditingAbout" ng-submit="updateAbout()">
+          <textarea ng-model="celebrant.about"></textarea><button class="crs-button" type="submit">Save</button><button class="crs-button crs-button--secondary" ng-click="toggleEditingAbout()" type="button">x</button>
+        </form>
+        <h3 class="crs-typo__h3">
+          Person responsible: {{ celebrant.person_responsible.name || 'not chosen yet'}}
+        </h3>
+        <div ng-if="celebrant.person_responsible">
+          <label class="crs-form__label">Is the gift ready?</label>
+          <div class="crs-toggle">
+            <input id="checkbox" ng-change="updateIfCovered()" ng-model="celebrant.covered" type="checkbox" /><label for="checkbox">
+              <div class="crs-toggle__switch"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-include="&#39;/assets/propositions.html&#39;"></div>

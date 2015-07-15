@@ -1,5 +1,7 @@
 .mainpage__container
-  img.mainpage__background src="/assets/main-background-image.jpg"
+  /img.mainpage__background src="/assets/main-background-image.jpg"
+  = image_tag 'main-background-image.jpg', class: 'mainpage__background'
+  div
     section.crs-grid__row.crs-grid__row--centered
       .crs-grid__column.crs-grid__unit--sm-5
         h1.crs-typo__h1.born-header.header__today Happy birthday!
@@ -8,7 +10,8 @@
             ul.crs-typo__ul.crs-utils--left
               li ui-sref="auth.user({id: user.id})"
                 img.crs-user__avatar.person__today--avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
-                  img.person__today--hat src="/assets/hat.png"
+                  /img.person__today--hat src="/assets/hperson__today--hat"
+                  = image_tag 'hat.png', class: 'person__today--hat'
                 span.person__index
                   | {{ user.name }}
 

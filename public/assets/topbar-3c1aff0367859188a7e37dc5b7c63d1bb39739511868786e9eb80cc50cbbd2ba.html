@@ -1,0 +1,44 @@
+<div class="crs-topbar--sticky">
+  <div class="crs-topbar">
+    <div class="crs-topbar__left">
+      <a class="crs-topbar__logo" ui-sref="auth.index"><img src="/assets/monterail-white.png" alt="Monterail white" />Born<small>by Monterail</small></a>
+    </div>
+    <div class="crs-topbar__right text-right">
+      <div class="crs-mobile__trigger crs-large--hidden">
+        <span id="mobileTrigger"></span>
+      </div>
+      <ul class="crs-topbar__nav crs-utils--right crs-large--visible">
+        <li class="crs-topbar__option crs-topbar__separator"></li>
+        <li class="crs-topbar__option">
+          <a class="crs-topbar__link" ui-sref="auth.index">Home</a>
+        </li>
+        <li class="crs-topbar__option crs-topbar__separator"></li>
+        <li class="crs-topbar__option">
+          <a class="crs-topbar__link" href="http://authentic.hussa.rs/">Authentic</a>
+        </li>
+        <li class="crs-topbar__option crs-topbar__separator"></li>
+        <li class="crs-topbar__option">
+          <a class="crs-topbar__link" href="http://eating.hussa.rs/">Szama</a>
+        </li>
+        <li class="crs-topbar__option crs-topbar__separator"></li>
+        <li class="crs-topbar__option">
+          <a class="crs-topbar__link" href="http://vacations.hussa.rs/">Vacations</a>
+        </li>
+        <li class="crs-topbar__option crs-topbar__separator"></li>
+        <li class="crs-topbar__option">
+          <div class="crs-dropdown">
+            <a class="crs-user" href="#">
+              <div class="crs-user__name" ng-bind="currentUser.name"></div>
+              <img class="crs-user__avatar" ng-src="{{ currentUser.profile_photo }}.jpg?s=200" /></a>
+            <ul class="crs-dropdown__list crs-utils--center">
+              <li>
+                <a class="crs-dropdown__option" ui-sref="auth.me"><i class="crs-icon-user"></i>Edit Profile</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ui-view></ui-view>
+</div>

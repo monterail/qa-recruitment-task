@@ -1,0 +1,4173 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+@charset "UTF-8";
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 9, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+/* line 19, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+/* line 33, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+/* line 54, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 67, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+/* line 77, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+/* line 89, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 97, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+/* line 109, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+/* line 117, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+/* line 126, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+/* line 135, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 144, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 153, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 161, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 169, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 173, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+/* line 184, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+/* line 192, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+/* line 203, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 211, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+/* line 221, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+/* line 229, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+/* line 252, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+/* line 266, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+/* line 277, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 290, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 302, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 311, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 322, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+/* line 334, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+/* line 346, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 357, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+/* line 370, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 379, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 390, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+/* line 399, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+/* line 408, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 419, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 424, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/normalize.scss */
+td,
+th {
+  padding: 0;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  src: local("Roboto Thin"), local("Roboto-Thin"), url(http://fonts.gstatic.com/s/roboto/v15/2tsd397wLxj96qwHyNIkxHYhjbSpvc47ee6xR_80Hnw.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url(http://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfZBw1xU1rKptJj_0jans920.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url(http://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOJBw1xU1rKptJj_0jans920.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 49, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+*::selection {
+  background: #4681B5;
+  color: #fff;
+}
+
+/* line 53, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+h1, h2, h3, h4, h5,
+.crs-typo__h1,
+.crs-typo__h2,
+.crs-typo__h3,
+.crs-typo__h4,
+.crs-typo__h5 {
+  margin-top: 20;
+  margin-bottom: rem(16px);
+}
+
+/* line 62, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+h1,
+.crs-typo__h1 {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: rem(40px);
+  color: #eee;
+}
+
+/* line 69, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+h2,
+.crs-typo__h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: rem(36px);
+  margin-bottom: rem(16px);
+}
+
+/* line 76, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+h3,
+.crs-typo__h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: rem(24px);
+}
+
+/* line 82, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+h4,
+.crs-typo__h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: rem(18px);
+}
+
+/* line 88, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+h5,
+.crs-typo__h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: rem(14px);
+}
+
+/* line 94, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+h6,
+.crs-typo__h6 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: rem(12px);
+  text-transform: uppercase;
+}
+
+/* line 101, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+p,
+.crs-typo__p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  margin-top: 0;
+  margin-bottom: rem(15px);
+  font-size: rem(16px);
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* line 115, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+dl dt,
+.crs-typo__dl dt {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  margin-bottom: 5px;
+  font-size: rem(16px);
+}
+/* line 121, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+dl dd,
+.crs-typo__dl dd {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: rem(14px);
+  margin-left: 0;
+  margin-bottom: rem(10px);
+  line-height: 1.4;
+}
+
+/* line 130, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+blockquote,
+.crs-typo__blockquote {
+  font-size: rem(14px);
+  font-family: "Roboto", sans-serif;
+  margin-left: 0px;
+  border-left: 1px solid #ddd;
+  padding: rem(5px) rem(20px);
+  line-height: 1.6;
+}
+/* line 139, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+blockquote cite,
+.crs-typo__blockquote cite {
+  display: block;
+  font-size: rem(12px);
+  color: #555;
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+/* line 147, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+blockquote cite:before,
+.crs-typo__blockquote cite:before {
+  content: "— ";
+}
+
+/* line 151, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+.crs-typo__ul {
+  margin-left: 0;
+  margin-bottom: rem(16px);
+  padding: 0;
+  list-style: none;
+  line-height: 1.4;
+  font-weight: 100;
+}
+
+/* line 160, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+.crs-typo__ol {
+  margin-left: rem(30px);
+  margin-bottom: rem(16px);
+  padding: 0;
+  line-height: 1.4;
+  font-weight: 100;
+}
+
+/* line 167, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+a,
+.crs-typo__a {
+  text-decoration: none;
+  color: #4681B5;
+  position: relative;
+}
+/* line 173, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+a:hover, a:focus,
+.crs-typo__a:hover,
+.crs-typo__a:focus {
+  outline: none;
+}
+
+/* line 176, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+.crs-content {
+  height: 100%;
+}
+/* line 181, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+.crs-content .crs-typo__a:after {
+  content: "";
+  position: absolute;
+  bottom: rem(-1px);
+  left: 0;
+  width: 0;
+  height: rem(2px);
+  background: #4681B5;
+  transition: width 0.15s ease;
+}
+/* line 193, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+.crs-content .crs-typo__a:hover:after {
+  width: 100%;
+}
+/* line 198, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+.crs-content .crs-typo__a.crs-dropdown__option:after {
+  content: none;
+}
+
+/* line 201, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+code {
+  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-size: 0.9em;
+  background-color: #272822;
+  color: #f8f8f2;
+  padding: 0.2em 0.6em;
+  border-radius: 0.2rem;
+  white-space: nowrap;
+}
+
+/* line 210, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+pre {
+  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-size: 0.9em;
+  overflow: auto;
+  background-color: #272822;
+  border-radius: 0.2rem;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  white-space: pre-wrap;
+  color: #f8f8f2;
+  padding: 1em;
+  line-height: 1.5;
+}
+/* line 223, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+pre code {
+  font-size: 1em;
+  display: block;
+  padding: 0;
+  white-space: normal;
+}
+
+/* line 229, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+.crs-typo__no-wrap {
+  white-space: nowrap;
+}
+
+/* line 232, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+kbd code {
+  color: #4681B5;
+}
+
+/* line 236, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_typo.sass */
+hr {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: rem(20px) 0;
+  outline: none;
+}
+
+@font-face {
+  font-family: 'cuirass-icons';
+  src: url(/assets/cuirass-icons.eot?8klmqb);
+  src: url(/assets/cuirass-icons.eot?#iefix8klmqb) format("embedded-opentype"), url(/assets/cuirass-icons.woff?8klmqb) format("woff"), url(/assets/cuirass-icons.ttf?8klmqb) format("truetype"), url(/assets/cuirass-icons.svg?8klmqb#cuirass-icons) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 12, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+i {
+  font-family: 'cuirass-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 26, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-user:before {
+  content: "\e600";
+}
+
+/* line 30, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-envelope-closed-02:before {
+  content: "\e601";
+}
+
+/* line 34, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-envelope-open-empty:before {
+  content: "\e602";
+}
+
+/* line 38, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-circle-info-02:before {
+  content: "\e603";
+}
+
+/* line 42, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-circle-exclamation-mark-02:before {
+  content: "\e604";
+}
+
+/* line 46, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-minus:before {
+  content: "\e605";
+}
+
+/* line 50, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-plus:before {
+  content: "\e606";
+}
+
+/* line 54, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-cross-mark:before {
+  content: "\e607";
+}
+
+/* line 58, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-circle-check-mark-02:before {
+  content: "\e608";
+}
+
+/* line 62, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-circle-minus-02:before {
+  content: "\e609";
+}
+
+/* line 66, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-circle-plus-02:before {
+  content: "\e60a";
+}
+
+/* line 70, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-circle-cross-mark-02:before {
+  content: "\e60b";
+}
+
+/* line 74, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-house:before {
+  content: "\e60c";
+}
+
+/* line 78, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-pencil:before {
+  content: "\e60d";
+}
+
+/* line 82, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-wrench:before {
+  content: "\e60e";
+}
+
+/* line 86, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-power-button:before {
+  content: "\e60f";
+}
+
+/* line 90, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-list:before {
+  content: "\e610";
+}
+
+/* line 94, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-nine-squares:before {
+  content: "\e611";
+}
+
+/* line 98, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-phone-receiver-02:before {
+  content: "\e612";
+}
+
+/* line 102, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-chain:before {
+  content: "\e613";
+}
+
+/* line 106, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-two-arrows-refresh:before {
+  content: "\e614";
+}
+
+/* line 110, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-shield:before {
+  content: "\e615";
+}
+
+/* line 114, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-arrow-left-07:before {
+  content: "\e616";
+}
+
+/* line 118, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-arrow-right-07:before {
+  content: "\e617";
+}
+
+/* line 122, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-arrow-down-07:before {
+  content: "\e618";
+}
+
+/* line 126, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-arrow-up-07:before {
+  content: "\e619";
+}
+
+/* line 130, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-magnifying-glass:before {
+  content: "\e61a";
+}
+
+/* line 134, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-pencil-02:before {
+  content: "\e61b";
+}
+
+/* line 138, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-square-social-02:before {
+  content: "\e61c";
+}
+
+/* line 142, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-square-social-01:before {
+  content: "\e61d";
+}
+
+/* line 146, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-circle-question-mark-02:before {
+  content: "\e61e";
+}
+
+/* line 150, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-location-02:before {
+  content: "\e61f";
+}
+
+/* line 154, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-arrows-four-directions-04:before {
+  content: "\e620";
+}
+
+/* line 158, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-two-arrows-refresh-03:before {
+  content: "\e621";
+}
+
+/* line 162, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-eye-02:before {
+  content: "\e622";
+}
+
+/* line 166, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-document-blank:before {
+  content: "\e623";
+}
+
+/* line 170, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-speech-bubble:before {
+  content: "\e624";
+}
+
+/* line 174, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_icons.scss */
+.crs-icon-cog:before {
+  content: "\e994";
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 29, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+html, body {
+  font-size: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* line 34, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+html {
+  overflow-y: auto;
+}
+
+/* line 37, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__column,
+.crs-grid__columns {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0;
+  text-align: left;
+  vertical-align: top;
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+}
+
+/* line 49, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__column--centered {
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 54, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__row--middle .crs-grid__column,
+.crs-grid__row--middle .crs-grid__columns {
+  vertical-align: middle;
+}
+
+/* line 59, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__row--bottom .crs-grid__column,
+.crs-grid__row--bottom .crs-grid__columns {
+  vertical-align: bottom;
+}
+
+/* line 63, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__row {
+  display: block;
+  font-size: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: left;
+  max-width: 1200px;
+}
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_mixins.sass */
+.crs-grid__row:before, .crs-grid__row:after {
+  content: "";
+  display: table;
+}
+/* line 6, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_mixins.sass */
+.crs-grid__row:after {
+  clear: both;
+}
+/* line 74, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__row .crs-grid__row {
+  margin: 0 -20px;
+}
+/* line 80, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__row.crs-grid__row--collapse > .crs-grid__column {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* line 84, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__row--centered {
+  text-align: center;
+}
+
+/* line 87, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--small-reset {
+  left: auto !important;
+  right: auto !important;
+}
+
+/* line 91, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks {
+  margin: 0 -10px;
+}
+/* line 94, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks .crs-blocks__element {
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+  transition: background 0.2s ease;
+  margin: 10px;
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-1 {
+  width: 8.33333%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-1 {
+  left: 8.33333%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-1 {
+  right: 8.33333%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-1 {
+  margin-left: 8.33333%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-1 .crs-blocks__element {
+  width: calc(100% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-2 {
+  width: 16.66667%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-2 {
+  left: 16.66667%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-2 {
+  right: 16.66667%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-2 {
+  margin-left: 16.66667%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-2 .crs-blocks__element {
+  width: calc(50% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-3 {
+  width: 25%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-3 {
+  left: 25%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-3 {
+  right: 25%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-3 {
+  margin-left: 25%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-3 .crs-blocks__element {
+  width: calc(33.33333% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-4 {
+  width: 33.33333%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-4 {
+  left: 33.33333%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-4 {
+  right: 33.33333%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-4 {
+  margin-left: 33.33333%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-4 .crs-blocks__element {
+  width: calc(25% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-5 {
+  width: 41.66667%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-5 {
+  left: 41.66667%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-5 {
+  right: 41.66667%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-5 {
+  margin-left: 41.66667%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-5 .crs-blocks__element {
+  width: calc(20% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-6 {
+  width: 50%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-6 {
+  left: 50%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-6 {
+  right: 50%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-6 {
+  margin-left: 50%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-6 .crs-blocks__element {
+  width: calc(16.66667% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-7 {
+  width: 58.33333%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-7 {
+  left: 58.33333%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-7 {
+  right: 58.33333%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-7 {
+  margin-left: 58.33333%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-7 .crs-blocks__element {
+  width: calc(14.28571% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-8 {
+  width: 66.66667%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-8 {
+  left: 66.66667%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-8 {
+  right: 66.66667%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-8 {
+  margin-left: 66.66667%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-8 .crs-blocks__element {
+  width: calc(12.5% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-9 {
+  width: 75%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-9 {
+  left: 75%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-9 {
+  right: 75%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-9 {
+  margin-left: 75%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-9 .crs-blocks__element {
+  width: calc(11.11111% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-10 {
+  width: 83.33333%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-10 {
+  left: 83.33333%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-10 {
+  right: 83.33333%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-10 {
+  margin-left: 83.33333%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-10 .crs-blocks__element {
+  width: calc(10% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-11 {
+  width: 91.66667%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-11 {
+  left: 91.66667%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-11 {
+  right: 91.66667%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-11 {
+  margin-left: 91.66667%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-11 .crs-blocks__element {
+  width: calc(9.09091% - 20px);
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__unit--sm-12 {
+  width: 100%;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__push--sm-12 {
+  left: 100%;
+  right: auto;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__pull--sm-12 {
+  right: 100%;
+  left: auto;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-grid__offset--sm-12 {
+  margin-left: 100%;
+}
+
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+.crs-blocks--sm-12 .crs-blocks__element {
+  width: calc(8.33333% - 20px);
+}
+
+@media only screen and (min-width: 640px) {
+  /* line 106, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  html, body {
+    overflow-x: initial;
+  }
+
+  /* line 109, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-reset {
+    left: auto;
+    right: auto;
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-1 {
+    width: 8.33333%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-1 {
+    left: 8.33333%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-1 {
+    right: 8.33333%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-1 {
+    margin-left: 8.33333%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-1 .crs-blocks__element {
+    width: calc(100% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-2 {
+    width: 16.66667%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-2 {
+    left: 16.66667%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-2 {
+    right: 16.66667%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-2 {
+    margin-left: 16.66667%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-2 .crs-blocks__element {
+    width: calc(50% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-3 {
+    width: 25%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-3 {
+    left: 25%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-3 {
+    right: 25%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-3 {
+    margin-left: 25%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-3 .crs-blocks__element {
+    width: calc(33.33333% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-4 {
+    width: 33.33333%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-4 {
+    left: 33.33333%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-4 {
+    right: 33.33333%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-4 {
+    margin-left: 33.33333%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-4 .crs-blocks__element {
+    width: calc(25% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-5 {
+    width: 41.66667%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-5 {
+    left: 41.66667%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-5 {
+    right: 41.66667%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-5 {
+    margin-left: 41.66667%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-5 .crs-blocks__element {
+    width: calc(20% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-6 {
+    width: 50%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-6 {
+    left: 50%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-6 {
+    right: 50%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-6 {
+    margin-left: 50%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-6 .crs-blocks__element {
+    width: calc(16.66667% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-7 {
+    width: 58.33333%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-7 {
+    left: 58.33333%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-7 {
+    right: 58.33333%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-7 {
+    margin-left: 58.33333%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-7 .crs-blocks__element {
+    width: calc(14.28571% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-8 {
+    width: 66.66667%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-8 {
+    left: 66.66667%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-8 {
+    right: 66.66667%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-8 {
+    margin-left: 66.66667%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-8 .crs-blocks__element {
+    width: calc(12.5% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-9 {
+    width: 75%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-9 {
+    left: 75%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-9 {
+    right: 75%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-9 {
+    margin-left: 75%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-9 .crs-blocks__element {
+    width: calc(11.11111% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-10 {
+    width: 83.33333%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-10 {
+    left: 83.33333%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-10 {
+    right: 83.33333%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-10 {
+    margin-left: 83.33333%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-10 .crs-blocks__element {
+    width: calc(10% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-11 {
+    width: 91.66667%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-11 {
+    left: 91.66667%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-11 {
+    right: 91.66667%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-11 {
+    margin-left: 91.66667%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-11 .crs-blocks__element {
+    width: calc(9.09091% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--md-12 {
+    width: 100%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--md-12 {
+    left: 100%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--md-12 {
+    right: 100%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--md-12 {
+    margin-left: 100%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--md-12 .crs-blocks__element {
+    width: calc(8.33333% - 20px);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 118, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-reset {
+    left: auto;
+    right: auto;
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-1 {
+    width: 8.33333%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-1 {
+    left: 8.33333%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-1 {
+    right: 8.33333%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-1 {
+    margin-left: 8.33333%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-1 .crs-blocks__element {
+    width: calc(100% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-2 {
+    width: 16.66667%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-2 {
+    left: 16.66667%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-2 {
+    right: 16.66667%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-2 {
+    margin-left: 16.66667%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-2 .crs-blocks__element {
+    width: calc(50% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-3 {
+    width: 25%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-3 {
+    left: 25%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-3 {
+    right: 25%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-3 {
+    margin-left: 25%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-3 .crs-blocks__element {
+    width: calc(33.33333% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-4 {
+    width: 33.33333%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-4 {
+    left: 33.33333%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-4 {
+    right: 33.33333%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-4 {
+    margin-left: 33.33333%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-4 .crs-blocks__element {
+    width: calc(25% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-5 {
+    width: 41.66667%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-5 {
+    left: 41.66667%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-5 {
+    right: 41.66667%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-5 {
+    margin-left: 41.66667%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-5 .crs-blocks__element {
+    width: calc(20% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-6 {
+    width: 50%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-6 {
+    left: 50%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-6 {
+    right: 50%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-6 {
+    margin-left: 50%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-6 .crs-blocks__element {
+    width: calc(16.66667% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-7 {
+    width: 58.33333%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-7 {
+    left: 58.33333%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-7 {
+    right: 58.33333%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-7 {
+    margin-left: 58.33333%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-7 .crs-blocks__element {
+    width: calc(14.28571% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-8 {
+    width: 66.66667%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-8 {
+    left: 66.66667%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-8 {
+    right: 66.66667%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-8 {
+    margin-left: 66.66667%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-8 .crs-blocks__element {
+    width: calc(12.5% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-9 {
+    width: 75%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-9 {
+    left: 75%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-9 {
+    right: 75%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-9 {
+    margin-left: 75%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-9 .crs-blocks__element {
+    width: calc(11.11111% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-10 {
+    width: 83.33333%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-10 {
+    left: 83.33333%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-10 {
+    right: 83.33333%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-10 {
+    margin-left: 83.33333%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-10 .crs-blocks__element {
+    width: calc(10% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-11 {
+    width: 91.66667%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-11 {
+    left: 91.66667%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-11 {
+    right: 91.66667%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-11 {
+    margin-left: 91.66667%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-11 .crs-blocks__element {
+    width: calc(9.09091% - 20px);
+  }
+
+  /* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__unit--lg-12 {
+    width: 100%;
+  }
+
+  /* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__push--lg-12 {
+    left: 100%;
+    right: auto;
+  }
+
+  /* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__pull--lg-12 {
+    right: 100%;
+    left: auto;
+  }
+
+  /* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-grid__offset--lg-12 {
+    margin-left: 100%;
+  }
+
+  /* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_grid.sass */
+  .crs-blocks--lg-12 .crs-blocks__element {
+    width: calc(8.33333% - 20px);
+  }
+}
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 11, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_subbar.sass */
+.crs-subbar {
+  background: #333739;
+  width: 100%;
+  display: block;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  padding: 2rem 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+/* line 22, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_subbar.sass */
+.crs-subbar p, .crs-subbar .crs-typo__p,
+.crs-subbar h2,
+.crs-subbar .crs-typo__h2 {
+  margin-bottom: 0;
+}
+/* line 27, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_subbar.sass */
+.crs-subbar h2,
+.crs-subbar .crs-typo__h2 {
+  margin-bottom: 0;
+}
+/* line 31, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_subbar.sass */
+.crs-subbar .crs-button--hollow {
+  color: #fff;
+  border: 0.1875rem solid #fff;
+}
+/* line 35, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_subbar.sass */
+.crs-subbar .crs-button--hollow:hover {
+  border: 0.1875rem solid #b3b3b3;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 13, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button {
+  padding: 0.6875rem 1.5625rem;
+  font-size: 0.875rem;
+  position: relative;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  background: #4681B5;
+  color: #fff;
+  border: none;
+  display: inline-block;
+  transition: 0.2s all ease-in-out;
+  text-transform: uppercase;
+  z-index: 1;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  border: 3px solid #4681B5;
+  overflow: hidden;
+  outline: none;
+  border-radius: 0px;
+}
+/* line 33, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button:hover {
+  border: 3px solid #386790;
+  background: #386790;
+  cursor: pointer;
+}
+/* line 38, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button:focus {
+  outline: none;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* line 42, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--small {
+  padding: 0.4375rem 0.875rem 0.375rem;
+  font-size: 0.7rem;
+}
+
+/* line 46, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--hollow {
+  background: none;
+  border: 3px solid #333739;
+  color: #333739;
+}
+/* line 51, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--hollow:hover {
+  background: none;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+/* line 56, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--success {
+  background: #43AC6A;
+  border: 3px solid #43AC6A;
+}
+/* line 60, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--success:hover {
+  background: #358753;
+  border: 3px solid #358753;
+  cursor: pointer;
+}
+
+/* line 65, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--error {
+  background: #f08a24;
+  border: 3px solid #f08a24;
+}
+/* line 69, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--error:hover {
+  background: #d3710e;
+  border: 3px solid #d3710e;
+  cursor: pointer;
+}
+
+/* line 75, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--info {
+  background: #5fadd6;
+  border: 3px solid #5fadd6;
+}
+/* line 79, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--info:hover {
+  background: #3698cc;
+  border: 3px solid #3698cc;
+  cursor: pointer;
+}
+
+/* line 85, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--secondary {
+  background: #333739;
+  border: 3px solid #333739;
+}
+/* line 89, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_buttons.sass */
+.crs-button--secondary:hover {
+  background: #1b1d1e;
+  cursor: pointer;
+  border: 3px solid #1b1d1e;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 6, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table {
+  font-weight: 100;
+  font-size: 0.875rem;
+  font-family: "Roboto", sans-serif;
+}
+/* line 11, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr {
+  border-bottom: 1px solid #d5d5d5;
+  box-sizing: border-box;
+  border-left: 0.25rem solid transparent;
+}
+/* line 16, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr:hover {
+  background: #fafafa;
+}
+/* line 19, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr.crs-table__tr--success {
+  border-left: 0.25rem solid #43AC6A;
+}
+/* line 22, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr.crs-table__tr--success:hover {
+  background: #ecf8f0;
+}
+/* line 25, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr.crs-table__tr--error {
+  border-left: 0.25rem solid #f04124;
+}
+/* line 28, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr.crs-table__tr--error:hover {
+  background: #fef3f1;
+}
+/* line 31, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr.crs-table__tr--alert {
+  border-left: 0.25rem solid #f08a24;
+}
+/* line 34, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr.crs-table__tr--alert:hover {
+  background: #fef5ec;
+}
+/* line 37, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr.crs-table__tr--info {
+  border-left: 0.25rem solid #5fadd6;
+}
+/* line 40, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table tr.crs-table__tr--info:hover {
+  background: #edf6fa;
+}
+/* line 43, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table td, .crs-table th {
+  padding: 0.5rem 1rem;
+}
+/* line 46, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table td a, .crs-table td .crs-typo__a, .crs-table th a, .crs-table th .crs-typo__a {
+  font-weight: 300;
+}
+/* line 49, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table th {
+  border-bottom: 1px solid #ccc;
+}
+/* line 52, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table .crs-table--has-button {
+  padding: 0;
+  text-align: center;
+}
+/* line 56, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table button,
+.crs-table .crs-button {
+  padding: 0.375rem 0.875rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+
+/* line 62, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_table.sass */
+.crs-table__container {
+  overflow-x: auto;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 28, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group {
+  position: relative;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+/* line 33, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group input,
+.crs-input__group textarea {
+  font-size: 0.875rem;
+  font-weight: 100;
+  line-height: 2.375rem;
+  border: 1px solid #fafafa;
+  background: #fafafa;
+  border-radius: 0px;
+  width: 100%;
+  padding: 0 0.625rem;
+  color: #333739;
+  position: relative;
+  transition: border 0.2s ease;
+}
+/* line 47, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group input:hover,
+.crs-input__group textarea:hover {
+  border-color: #e1e1e1;
+}
+/* line 50, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group input:focus,
+.crs-input__group textarea:focus {
+  border-color: #c8c8c8;
+  outline: none;
+}
+
+/* line 54, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group textarea {
+  background: #fafafa;
+  max-width: 100%;
+  min-height: 5.125rem;
+  resize: none;
+  line-height: 1.4;
+  padding-top: 9.5px;
+}
+
+/* line 63, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group textarea:focus {
+  resize: vertical;
+}
+
+/* line 66, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group label {
+  color: #636b6f;
+  font-size: 0.875rem;
+  font-weight: 100;
+  position: absolute;
+  line-height: 2.5rem;
+  pointer-events: none;
+  left: 0.6875rem;
+  top: 0;
+  transition: 0.2s ease all;
+  font-weight: 100;
+}
+
+/* line 78, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group input:focus ~ label, .crs-input__group input:valid ~ label,
+.crs-input__group input.ng-valid ~ label, .crs-input__group input.ng-invalid ~ label,
+.crs-input__group textarea:focus ~ label, .crs-input__group textarea:valid ~ label,
+.crs-input__group--filled {
+  transform: translateY(-1.8125rem);
+  font-size: 0.75rem;
+}
+
+/* line 86, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group input:focus ~ .crs-dropdown__list {
+  display: block;
+}
+
+/* line 91, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-form--colorful .crs-input__group input, .crs-form--colorful .crs-input__group textarea {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+/* line 96, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-form--colorful .crs-input__group label {
+  color: #fff;
+}
+
+/* line 99, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-form__label, .crs-form__label--inline {
+  font-size: 0.75rem;
+  color: #636b6f;
+  margin-bottom: 0.3125rem;
+  display: block;
+  font-family: "Roboto", sans-serif;
+}
+
+/* line 106, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-form__label--inline {
+  display: inline-block;
+  margin-right: 1.25rem;
+  margin-left: 0.5rem;
+}
+
+/* line 113, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-form__select {
+  transition: border-color 0.1s ease;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 1.875rem;
+  padding: 0.375rem 1.875rem 0.375rem 0.5rem;
+  border-radius: 0px;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 100;
+  background: #fff;
+  border: 1px solid #eee;
+  color: #333739;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA4CAYAAACsc+sjAAAMF2lDQ1BJQ0MgUHJvZmlsZQAASImVlwdUU8kax+eWFEISSiACUkJvgvQqvUuVDjZCEiCUGAJBxY4sKrgWVFSwoqsgCq4FkEVFxM4i2PuCiMrKuliwofImCaDP9/a88+acufd3v/m+7/5n7sw9MwAo2LGFwkxUEYAsQa4oMsCbFZ+QyCL9AVBAA3TAAEw2J0foFRERAv6xvLsFEMn9uoUk1z/7/deixOXlcABAIiAnc3M4WZCPAYBrcISiXAAIndCuPzdXKOG3kFVEUCAARLKEU2WsKeFkGVtJfaIjfSD7AkCmstmiVADokvysPE4qzEMXQrYScPkCyLsgu3PS2FzI3ZAnZWXNgaxAhWyS/F2e1H/LmTyek81OHWdZX6SF7MvPEWay5/+fw/G/S1ameOwderBS00SBkZI+w3GrypgTLGGoHWkWJIeFQ1aGfJHPlfpL+F6aODBm1H+Ak+MDxwwwAfzcXLZvMGQ4lihTnBHjNco2bJE0FvqjYfzcoOhRThbNiRzNj+bxcvyixjiNFxQymnOlIDNsjHek8P2DIMOZhh7LT4uOk+lE2/L4sWGQ6ZA7czKigkf9H+Wn+YSN+YjEkRLNBpDfpoj8I2U+mFpWzli/MEsOW6pBDbJnblp0oCwWi+flxIeMaePyfP1kGjAuTxAzqhmDs8s7cjS2SJgZMeqP7eBlBkTKxhk7nJMXNRZ7LRdOMNk4YI/T2VMjZPqxd8LciGiZNhwHIcAH+AIWEMOaDOaAdMDvGGgYgE+yFn/ABiKQCnjAYtQyFhEnbRHAaxTIB39B4oGc8ThvaSsP5EH7l3Gr7GoBUqStedKIDPAUchaugbvjrngIvHrCaoM74c5jcSyFsbcS/Yi+xECiP9F0XAcHqs6EVQT4/2n7Fkl4SugiPCbcJHQT7oJg2MqDfZYoFIz3LBY8kWYZfZ7NLxD9oJwFQkE3jPMf7V0yjO4f88GNoGp73Bt3g/qhdpyJawAL3A72xAv3gH2zh9bvFYrHVXwbyx/fJ9H3fR9H7XQzuv2oiuRx/T7jXj9m8flujLjwHvyjJ7YSO4pdwM5gl7BmrAGwsNNYI9aOnZTw+Ex4Ip0JY2+LlGrLgHn4Yz5WNVb9Vp//4+3sUQUi6fcGubx5uZIF4TNHOF/ET03LZXnBPzKPFSTgWE5i2VhZ2wMg+b/Lfh9vmNL/NsK8/M2W3QKAczE0pn6zsfUBOPEUAMa7bzb913B5rQPgZCdHLMqT2XDJhQAoQAGuDHWgDfSBCeyTDXAArsAT+IGpIBxEgwQwC456GsiCqueChWAZKAIlYB3YBMrBTrAHVIFD4AhoAM3gDDgProBOcBPch3OjD7wAg+AdGEYQhITQEAaijugghog5YoM4Ie6IHxKCRCIJSBKSiggQMbIQWY6UIKVIObIbqUZ+RU4gZ5BLSBdyF+lB+pHXyCcUQ6moCqqFGqGTUSfUCw1Go9GZaCqajeajhegadAtaiR5E69Ez6BX0JtqNvkCHMIDJY0xMF7PAnDAfLBxLxFIwEbYYK8bKsEqsFmuC3/o61o0NYB9xIs7AWbgFnJ+BeAzOwbPxxfhqvByvwuvxNvw63oMP4l8JNIImwZzgQggixBNSCXMJRYQywj7CccI5uKL6CO+IRCKTaEx0hGszgZhOXEBcTdxOrCO2ELuIvcQhEomkTjInuZHCSWxSLqmItJV0kHSadI3UR/pAlifrkG3I/uREsoBcQC4jHyCfIl8jPyMPyynKGcq5yIXLceXmy62V2yvXJHdVrk9umKJEMaa4UaIp6ZRllC2UWso5ygPKG3l5eT15Z/lp8nz5pfJb5A/LX5Tvkf9IVaaaUX2oM6hi6hrqfmoL9S71DY1GM6J50hJpubQ1tGraWdoj2gc6g25JD6Jz6UvoFfR6+jX6SwU5BUMFL4VZCvkKZQpHFa4qDCjKKRop+iiyFRcrViieULytOKTEULJWClfKUlqtdEDpktJzZZKykbKfMle5UHmP8lnlXgbG0Gf4MDiM5Yy9jHOMPhWiirFKkEq6SonKIZUOlUFVZVU71VjVeaoVqidVu5kY04gZxMxkrmUeYd5ifpqgNcFrAm/Cqgm1E65NeK82Uc1TjadWrFandlPtkzpL3U89Q329eoP6Qw1cw0xjmsZcjR0a5zQGJqpMdJ3ImVg88cjEe5qopplmpOYCzT2a7ZpDWtpaAVpCra1aZ7UGtJnantrp2hu1T2n36zB03HX4Oht1Tuv8yVJlebEyWVtYbaxBXU3dQF2x7m7dDt1hPWO9GL0CvTq9h/oUfSf9FP2N+q36gwY6BqEGCw1qDO4Zyhk6GaYZbja8YPjeyNgozmiFUYPRc2M14yDjfOMa4wcmNBMPk2yTSpMbpkRTJ9MM0+2mnWaomb1ZmlmF2VVz1NzBnG++3bxrEmGS8yTBpMpJty2oFl4WeRY1Fj2WTMsQywLLBsuXkw0mJ05eP/nC5K9W9laZVnut7lsrW0+1LrBusn5tY2bDsamwuWFLs/W3XWLbaPvKztyOZ7fD7o49wz7UfoV9q/0XB0cHkUOtQ7+jgWOS4zbH204qThFOq50uOhOcvZ2XODc7f3RxcMl1OeLyt6uFa4brAdfnU4yn8KbsndLrpufGdtvt1u3Ock9y3+Xe7aHrwfao9Hjsqe/J9dzn+czL1Cvd66DXS28rb5H3ce/3Pi4+i3xafDHfAN9i3w4/Zb8Yv3K/R/56/qn+Nf6DAfYBCwJaAgmBwYHrA28HaQVxgqqDBqc6Tl00tS2YGhwVXB78OMQsRBTSFIqGTg3dEPogzDBMENYQDsKDwjeEP4wwjsiO+G0acVrEtIppTyOtIxdGXohiRM2OOhD1Lto7em30/RiTGHFMa6xC7IzY6tj3cb5xpXHd8ZPjF8VfSdBI4Cc0JpISYxP3JQ5N95u+aXrfDPsZRTNuzTSeOW/mpVkaszJnnZytMJs9+2gSISku6UDSZ3Y4u5I9lByUvC15kOPD2cx5wfXkbuT289x4pbxnKW4ppSnPU91SN6T2p3mklaUN8H345fxX6YHpO9PfZ4Rn7M8YyYzLrMsiZyVlnRAoCzIEbXO058yb0yU0FxYJu7NdsjdlD4qCRftykJyZOY25KnCr0y42Ef8k7slzz6vI+zA3du7ReUrzBPPa55vNXzX/Wb5//i8L8AWcBa0LdRcuW9izyGvR7sXI4uTFrUv0lxQu6VsasLRqGWVZxrLfC6wKSgveLo9b3lSoVbi0sPengJ9qiuhFoqLbK1xX7FyJr+Sv7Fhlu2rrqq/F3OLLJVYlZSWfV3NWX/7Z+uctP4+sSVnTsdZh7Y51xHWCdbfWe6yvKlUqzS/t3RC6oX4ja2PxxrebZm+6VGZXtnMzZbN4c/eWkC2NWw22rtv6uTyt/GaFd0XdNs1tq7a9387dfm2H547anVo7S3Z+2sXfdWd3wO76SqPKsj3EPXl7nu6N3XvhF6dfqvdp7CvZ92W/YH93VWRVW7VjdfUBzQNra9AacU3/wRkHOw/5HmqstajdXcesKzkMDosP//lr0q+3jgQfaT3qdLT2mOGxbccZx4vrkfr59YMNaQ3djQmNXSemnmhtcm06/pvlb/ubdZsrTqqeXHuKcqrw1Mjp/NNDLcKWgTOpZ3pbZ7fePxt/9kbbtLaOc8HnLp73P3/2gteF0xfdLjZfcrl04rLT5YYrDlfq2+3bj/9u//vxDoeO+quOVxs7nTubuqZ0nbrmce3Mdd/r528E3bhyM+xm162YW3duz7jdfYd75/ndzLuv7uXdG76/9AHhQfFDxYdljzQfVf5h+kddt0P3yR7fnvbHUY/v93J6XzzJefK5r/Ap7WnZM51n1c9tnjf3+/d3/jn9z74XwhfDA0V/Kf217aXJy2N/e/7dPhg/2PdK9Grk9eo36m/2v7V72zoUMfToXda74ffFH9Q/VH10+njhU9ynZ8NzP5M+b/li+qXpa/DXByNZIyNCtogt3QpgsKIpKQC83g8ALQHuHeA5jkKXnb+kBZGdGaUE/ollZzRpcQBgvycAMUsBCIF7lB2wGkKmwrtk+x3tCVBb2/E6WnJSbG1kuajwFEP4MDLyRgsAUhMAX0QjI8PbR0a+7IVi7wLQki0790kKEe7xd6lJqP226i7wQ/kXf99ryOOHz0gAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAGbaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA1LjQuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjU4PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjU2PC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Ch7n9+YAAAFeSURBVGgF7ZkxboNAEEXHIQhEyQWQaCgRFQdBQuLENNwAiXNQkWTcRWLXYTWLZuK/khsPO/vfPHtd+PH1s+gN1scbMD4RAfrfTMMojBqdAD66RsU5Y8OoczRGCzBqVJwzNow6R2O0AKNGxTljw6hzNEYLMGpUnDM2jDpHY7TwKZ1733ea55mO4whqXZYldV0XtNe3SRyUIdd19Z3prW3bRk3TUFEU3ueuFsW/o1VVXc3w6/ksy4hf0ksctK5r6vs+KGeapjSOIyVJErTft0kclA9r2/YyLENO00R5nvvyBteigF6FjQ3JeaKB/hX2DsjooK9g74K8BdQFeyckZxD/HeWmZ4svKF7LsjwvnGEYol08Z+c/8Efw2VgMvxf11tU0F4BqsiGRBUYlpqipB4xqsiGRBUYlpqipB4xqsiGRBUYlpqipB4xqsiGRBUYlpqipB4xqsiGRBUYlpqipxzfIvyw6cH7lbQAAAABJRU5ErkJggg==);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+/* line 136, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-form__select:hover {
+  border-color: #c8c8c8;
+}
+/* line 139, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-form__select:focus {
+  outline: none;
+  border-color: #959595;
+}
+
+/* line 145, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+input[type="radio"],
+input[type="checkbox"],
+.crs-form__checkbox,
+.crs-form__radio,
+.crs-toggle__switch {
+  margin-bottom: 1rem;
+}
+
+/* line 152, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__alert-message {
+  display: none;
+  font-weight: 100;
+  font-size: 0.6875rem;
+  margin-top: 0.3125rem;
+}
+
+/* line 158, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__alert--error {
+  animation-name: shakeError;
+  animation-fill-mode: forward;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in-out;
+}
+/* line 165, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__alert--error label {
+  color: #f04124;
+}
+/* line 168, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__alert--error input,
+.crs-input__alert--error input:focus,
+.crs-input__alert--error input:hover {
+  border-color: #f04124;
+}
+/* line 174, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__alert--error .crs-input__alert-message {
+  display: block;
+  color: #f57f6c;
+}
+
+/* line 181, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__alert--success label {
+  color: #43AC6A;
+}
+/* line 184, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__alert--success input {
+  border-color: #43AC6A;
+}
+/* line 187, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__alert--success .crs-input__alert-message {
+  display: block;
+  color: #73c893;
+}
+
+/* line 267, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group--with-button {
+  margin-bottom: 0.9375rem;
+}
+/* line 270, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group--with-button input {
+  border: 1px solid #eee;
+  display: inline-block;
+  font-size: 0.875rem;
+  height: 1.875rem;
+  box-sizing: border-box;
+  vertical-align: top;
+  padding: 0.375rem 1.875rem 0.375rem 0.5rem;
+}
+/* line 280, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group--with-button input:hover {
+  border-color: #c8c8c8;
+}
+/* line 284, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group--with-button input:focus {
+  outline: none;
+  border-color: #959595;
+}
+/* line 289, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-input__group--with-button .crs-button {
+  vertical-align: top;
+  padding: 7px 14px 6px;
+  font-size: 11.2px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* line 296, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle {
+  position: relative;
+}
+/* line 298, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle *, .crs-toggle *:before, .crs-toggle *:after {
+  box-sizing: border-box;
+}
+/* line 301, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 307, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"][disabled] ~ label {
+  pointer-events: none;
+}
+/* line 309, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"][disabled] ~ label .crs-toggle__switch {
+  opacity: 0.4;
+}
+/* line 312, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label {
+  position: relative;
+}
+/* line 315, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label .crs-toggle__switch {
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 320, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label .crs-toggle__switch:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 2.125rem;
+  width: 2.125rem;
+  z-index: 5;
+  background: white;
+  transform: translate3d(0, 0, 0);
+}
+/* line 196, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"][disabled] ~ label {
+  color: rgba(204, 204, 204, 0.5);
+}
+/* line 201, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"]:focus ~ label .crs-toggle__switch, .crs-toggle input[type="checkbox"]:hover ~ label .crs-toggle__switch {
+  background-color: #ccc;
+}
+/* line 207, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"]:checked ~ label .crs-toggle__switch {
+  background-color: #578ebe;
+}
+/* line 212, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"]:checked:focus ~ label .crs-toggle__switch, .crs-toggle input[type="checkbox"]:checked:hover ~ label .crs-toggle__switch {
+  background-color: #4681B5;
+}
+/* line 217, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label .crs-toggle__switch {
+  transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
+  background: #d9d9d9;
+}
+/* line 221, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label .crs-toggle__switch:after {
+  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+}
+/* line 231, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"]:focus ~ label .crs-toggle__switch:after, .crs-toggle input[type="checkbox"]:hover ~ label .crs-toggle__switch:after {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+/* line 237, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle input[type="checkbox"]:checked ~ label .crs-toggle__switch:after {
+  transform: translate3d(36px, 0, 0);
+}
+/* line 242, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle__switch .crs-toggle input[type="checkbox"]:checked:focus ~ label:after, .crs-toggle__switch .crs-toggle input[type="checkbox"]:checked:hover ~ label:after {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+/* line 245, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label {
+  position: relative;
+  margin-bottom: 1rem;
+}
+/* line 249, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label .crs-toggle__switch {
+  height: 24px;
+  width: 60px;
+  border-radius: 100px;
+}
+/* line 254, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label .crs-toggle__switch:after {
+  content: "";
+  top: 3px;
+  left: 3px;
+  border-radius: 50px;
+  width: 18px;
+  height: 18px;
+  z-index: 5;
+}
+/* line 264, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_form.sass */
+.crs-toggle label .crs-toggle__switch:hover:after {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shakeError {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(0.625rem);
+  }
+  30% {
+    transform: translateX(-0.625rem);
+  }
+  45% {
+    transform: translateX(0.625rem);
+  }
+  60% {
+    transform: translateX(-0.625rem);
+  }
+  75% {
+    transform: translateX(0.625rem);
+  }
+  90% {
+    transform: translateX(-0.625rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 9, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify__container {
+  z-index: 300;
+  position: fixed;
+  white-space: pre-line;
+  text-align: right;
+  font-size: 0;
+  bottom: 40px;
+  right: 40px;
+}
+/* line 41, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify__container .crs-notify {
+  transform: translateY(12.5rem);
+}
+
+/* line 45, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify {
+  border-radius: 12.5rem;
+  font-size: 16px;
+  text-align: left;
+  white-space: normal;
+  margin-top: 0;
+  max-height: 0;
+  cursor: pointer;
+  max-width: 4.375rem;
+  display: inline-block;
+  background: #fff;
+  transition: transform 0.3s ease, max-width 0.8s ease 0.6s, max-height 0.6s ease, margin-top 0.6s ease;
+  overflow: hidden;
+  height: 70px;
+  border: 1px solid #eee;
+  font-weight: 700;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 68, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--success {
+  color: #43AC6A;
+}
+/* line 71, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--success .crs-notify__close {
+  color: #85d0a1;
+}
+/* line 74, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--success .crs-notify__close:hover {
+  color: #61c185;
+}
+/* line 77, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--alert {
+  color: #f08a24;
+}
+/* line 80, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--alert .crs-notify__close {
+  color: #f7bd83;
+}
+/* line 83, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--alert .crs-notify__close:hover {
+  color: #f3a454;
+}
+/* line 86, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--error {
+  color: #f04124;
+}
+/* line 89, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--error .crs-notify__close {
+  color: #f79483;
+}
+/* line 92, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--error .crs-notify__close:hover {
+  color: #f36a54;
+}
+/* line 95, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--info {
+  color: #5fadd6;
+}
+/* line 98, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--info .crs-notify__close {
+  color: #b0d7eb;
+}
+/* line 101, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify.crs-notify--info .crs-notify__close:hover {
+  color: #88c2e0;
+}
+
+/* line 104, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify__image {
+  border-radius: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0.4375rem;
+  height: 3.5rem;
+}
+
+/* line 113, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify__message {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  max-width: calc(100% - 5.25rem);
+  padding-right: 3.75rem;
+}
+
+/* line 120, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify__close {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 0;
+  line-height: 4.125rem;
+}
+/* line 130, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify__close:before {
+  content: "×";
+  position: relative;
+  display: block;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  padding: 0.125rem 0.3125rem;
+  margin-right: 1.25rem;
+  cursor: pointer;
+}
+/* line 140, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify__close:after {
+  content: none !important;
+}
+
+/* line 143, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify--compact {
+  max-width: 70px;
+}
+
+/* line 146, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_notify.sass */
+.crs-notify--show {
+  transform: translateY(0px) !important;
+  opacity: 1;
+  max-width: 62.5rem;
+  max-height: 6.25rem;
+  margin-top: 15px;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 12, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown {
+  box-sizing: content-box;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 1.875rem;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 100;
+  background: #fff;
+}
+/* line 15, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown * {
+  box-sizing: border-box;
+}
+/* line 28, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown:hover {
+  z-index: 100;
+}
+/* line 31, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown input {
+  margin-bottom: 0;
+}
+
+/* line 35, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown--active,
+.crs-dropdown:hover {
+  z-index: 10;
+}
+/* line 39, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown--active .crs-dropdown__list,
+.crs-dropdown:hover .crs-dropdown__list {
+  display: block;
+}
+
+/* line 43, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown--disabled {
+  background: #ededed;
+  pointer-events: none;
+}
+/* line 47, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown--disabled .crs-dropdown__current,
+.crs-dropdown--disabled .crs-dropdown__select {
+  background: #ededed;
+  color: #a6a6a6;
+}
+
+/* line 53, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__list {
+  display: none;
+  position: relative;
+  z-index: 20;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-top: none;
+}
+
+/* line 64, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__option {
+  display: block;
+  padding: 0.375rem 0.5rem;
+  line-height: 1rem;
+  color: #333739;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: none;
+  vertical-align: middle;
+}
+/* line 74, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__option i {
+  margin-right: 0.5rem;
+}
+/* line 77, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__option:hover {
+  background: #fafafa;
+}
+/* line 80, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__option img {
+  display: inline-block;
+  margin-right: 0.375rem;
+  vertical-align: middle;
+  max-height: 1.125rem;
+  max-width: 1.875rem;
+}
+
+/* line 87, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__option--disabled {
+  background: #ededed;
+  color: #a6a6a6;
+  cursor: text;
+  pointer-events: none;
+}
+/* line 93, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__option--disabled:visited {
+  color: #a6a6a6;
+}
+/* line 96, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__option--disabled:hover {
+  background: #f2f2f2;
+}
+
+/* line 99, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__current {
+  line-height: 1rem;
+  height: 1.875rem;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  padding: 0.375rem 1.875rem 0.375rem 0.5rem;
+  white-space: nowrap;
+  margin: 0;
+  color: #333739;
+  text-decoration: none;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+/* line 113, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__select {
+  line-height: 1rem;
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 1.875rem;
+  height: 1.75rem;
+  right: 0.0625rem;
+  top: 0.0625rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0;
+  color: #333739;
+  text-decoration: none;
+  border-left: 1px solid #eee;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+}
+/* line 131, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_dropdown.sass */
+.crs-dropdown__select:before {
+  display: block;
+  color: #999;
+  padding-top: 0.1875rem;
+  font: normal normal normal 0.875rem FontAwesome;
+  content: "";
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 12, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__nav {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  min-height: 3.75rem;
+}
+
+/* line 20, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__separator {
+  border-left: 1px solid #eee;
+}
+
+/* line 23, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__link {
+  display: block;
+  background: #fff;
+  position: relative;
+  height: 3.75rem;
+  line-height: 3.75rem;
+  text-decoration: none;
+  color: #4681B5;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.2s ease;
+}
+/* line 38, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__link:hover, .crs-tabs__link:focus {
+  background: white;
+  color: #333739;
+}
+
+/* line 46, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--horizontal .crs-tabs__item {
+  display: block;
+}
+@media only screen and (min-width: 640px) {
+  /* line 46, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+  .crs-tabs--horizontal .crs-tabs__item {
+    display: inline-block;
+  }
+}
+/* line 52, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--horizontal .crs-tabs__link {
+  padding: 0 2.5rem;
+}
+/* line 57, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--horizontal .crs-tabs__link:hover:after, .crs-tabs--horizontal .crs-tabs__link:focus:after {
+  height: 10%;
+}
+/* line 60, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--horizontal .crs-tabs__link:after {
+  content: "";
+  transition: height 0.2s ease;
+  height: 0;
+  background: #4681B5;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  right: 0;
+  z-index: -1;
+}
+/* line 72, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--horizontal .crs-tabs__link--active {
+  background: #fff;
+  color: #fff;
+}
+/* line 76, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--horizontal .crs-tabs__link--active:after {
+  height: 100% !important;
+}
+/* line 79, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--horizontal .crs-tabs__separator {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+}
+
+/* line 87, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--vertical .crs-tabs__nav {
+  display: block;
+  height: auto;
+  margin-right: -1.25rem;
+}
+/* line 92, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--vertical .crs-tabs__link {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 0.625rem;
+}
+/* line 100, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--vertical .crs-tabs__link:hover:after, .crs-tabs--vertical .crs-tabs__link:focus:after {
+  width: 0.625rem;
+}
+/* line 103, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--vertical .crs-tabs__link:after {
+  content: "";
+  transition: width 0.3s ease;
+  background: #4681B5;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  right: 0;
+  left: auto;
+  z-index: -1;
+}
+/* line 116, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--vertical .crs-tabs__item {
+  width: 100%;
+  display: block;
+}
+/* line 120, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--vertical .crs-tabs__separator {
+  display: block;
+  width: 100%;
+}
+/* line 124, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--vertical .crs-tabs__wrapper {
+  margin-left: -1.25rem;
+}
+/* line 129, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs--vertical .crs-tabs__link--active:after {
+  width: 100% !important;
+}
+
+/* line 132, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__link--active {
+  background: #fff;
+  color: #fff;
+}
+/* line 136, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__link--active:hover {
+  color: #fff;
+}
+/* line 139, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__link--active:visited {
+  color: #fff;
+}
+
+/* line 142, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 146, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__tab {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  opacity: 0;
+  float: left;
+  transition: transform 0.3s cubic-bezier(0.51, -0.15, 0.48, 1.24), opacity 0.2s ease-in-out;
+  transform: translateX(100%);
+}
+
+/* line 158, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_tabs.sass */
+.crs-tabs__tab--active {
+  opacity: 1;
+  z-index: 1;
+  display: block;
+  float: none;
+  transform: translateX(0);
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+.crs-modal__system {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+/* line 23, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+.crs-modal__bg {
+  z-index: 799;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+/* line 35, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+.crs-modal {
+  z-index: 800;
+  color: #333739;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background: #fff;
+  transform: translateY(calc(-100% - 4.375rem));
+  transition: transform 0.5s cubic-bezier(0.47, 0.23, 0.25, 1.45);
+  margin: 0 auto;
+}
+
+/* line 50, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+.crs-modal__content {
+  padding: 1.25rem 0 0;
+}
+
+/* line 53, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+.crs-modal--show {
+  transform: translate3d(0, 0, 0);
+}
+/* line 56, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+.crs-modal--show ~ .crs-modal__bg {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media only screen and (min-width: 640px) {
+  /* line 60, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+  .crs-modal--small {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 60, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+  .crs-modal--small {
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  /* line 69, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+  .crs-modal--medium {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 69, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+  .crs-modal--medium {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* line 77, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_modal.sass */
+  .crs-modal--large {
+    width: 75%;
+  }
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 8, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment {
+  border: 1px dashed #ccc;
+  padding: 0.875rem 0.875rem 1.75rem;
+  position: relative;
+  margin-bottom: 0.875rem;
+}
+/* line 14, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment .crs-typo__p {
+  font-size: 0.875rem;
+}
+
+/* line 17, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+/* line 27, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__delete span {
+  position: absolute;
+  top: 1rem;
+  opacity: 0.4;
+  left: 0.875rem;
+  right: 0.875rem;
+  display: block;
+  height: 0.1875rem;
+  background: transparent;
+  transition: transform 0.1s ease, top 0.1s ease;
+}
+/* line 38, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__delete span:before, .crs-comment__delete span:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #333739;
+  height: 100%;
+  transition: transform 0.1s ease, top 0.2s ease;
+  transform-origin: 50% 50%;
+}
+/* line 51, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__delete span:before {
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+/* line 54, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__delete span:after {
+  transform: rotate3d(0, 0, 1, -45deg);
+}
+/* line 59, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__delete:hover span {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+/* line 63, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__author {
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 0.21875rem;
+}
+
+/* line 69, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__votes {
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 0.3125rem;
+  color: #333739;
+  opacity: 0.7;
+}
+
+/* line 77, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__votes--positive {
+  color: #43AC6A;
+}
+
+/* line 80, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__votes--negative {
+  color: #f04124;
+}
+
+/* line 83, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__votes--up,
+.crs-comment__votes--down {
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.4;
+  padding: 0.125rem 0.5rem;
+  color: white;
+  position: relative;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+/* line 94, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__votes--up:hover, .crs-comment__votes--up:focus,
+.crs-comment__votes--down:hover,
+.crs-comment__votes--down:focus {
+  opacity: 1;
+}
+
+/* line 97, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__votes--up {
+  background: #43AC6A;
+}
+
+/* line 100, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__votes--down {
+  background: #f04124;
+}
+
+/* line 103, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__votes-message {
+  margin-left: 0.3125rem;
+  display: inline-block;
+}
+
+/* line 107, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__date,
+.crs-comment__votes-message {
+  font-size: 0.75rem;
+  font-weight: 100;
+  color: #333739;
+  opacity: 0.6;
+}
+
+/* line 114, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__date {
+  display: block;
+  margin-bottom: 0.4375rem;
+}
+/* line 118, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__date:before {
+  content: "—";
+  margin-right: 0.375rem;
+}
+@media only screen and (min-width: 640px) {
+  /* line 114, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+  .crs-comment__date {
+    display: inline-block;
+  }
+  /* line 126, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+  .crs-comment__date:before {
+    margin: 0 0.375rem;
+  }
+}
+
+/* line 130, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__options {
+  line-height: 1.25rem;
+  font-size: 0.75rem;
+  color: #333739;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 640px) {
+  /* line 130, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+  .crs-comment__options {
+    line-height: 1.25rem;
+    float: right;
+  }
+}
+
+/* line 140, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__option {
+  padding: 0.875rem 0.875rem 0 0;
+  display: inline-block;
+  opacity: 0.4;
+  line-height: 1;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+/* line 148, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__option:last-child {
+  float: right;
+  padding-right: 0;
+}
+/* line 152, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comment__option:hover {
+  opacity: 1;
+}
+@media only screen and (min-width: 640px) {
+  /* line 140, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+  .crs-comment__option {
+    padding: 0 0 0 0.875rem;
+  }
+  /* line 158, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+  .crs-comment__option:last-child {
+    float: none;
+  }
+}
+
+/* line 161, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comments-replies {
+  padding-left: 1.75rem;
+  margin-top: 1.25rem;
+}
+/* line 165, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comments-replies .crs-comment {
+  border: none;
+  padding: 0.875rem 0;
+  margin-bottom: 0;
+  border-top: 1px dashed #ccc;
+}
+/* line 171, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_comments.sass */
+.crs-comments-replies .crs-comment__delete span {
+  right: 0;
+  left: 1.75rem;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+@media only screen and (max-width: 640px) {
+  /* line 23, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+  .crs-mobile__block-overflow {
+    overflow: hidden;
+  }
+}
+/* line 26, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile {
+  z-index: 400;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(27, 29, 30, 0.95);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+@media only screen and (min-width: 1024px) {
+  /* line 26, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+  .crs-mobile {
+    display: none;
+  }
+}
+
+/* line 40, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__trigger {
+  z-index: 600;
+  display: block;
+  border: none;
+  width: 3.4375rem;
+  height: 3.125rem;
+  cursor: pointer;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+/* line 51, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__trigger span {
+  position: absolute;
+  top: 1.4375rem;
+  left: 0.9375rem;
+  right: 0.9375rem;
+  display: block;
+  height: 0.1875rem;
+  background: #fff;
+  transition: transform 0.3s ease, top 0.1s ease;
+}
+/* line 61, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__trigger span:before, .crs-mobile__trigger span:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  height: 100%;
+  transition: transform 0.3s ease, top 0.2s ease;
+  transform-origin: 50% 50%;
+}
+/* line 73, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__trigger span:before {
+  top: -0.4375rem;
+}
+/* line 76, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__trigger span:after {
+  top: 0.4375rem;
+}
+/* line 81, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__trigger:hover span:before {
+  top: -0.5625rem;
+}
+/* line 84, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__trigger:hover span:after {
+  top: 0.5625rem;
+}
+
+/* line 92, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile--show .crs-mobile__trigger span {
+  background: transparent;
+}
+/* line 95, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile--show .crs-mobile__trigger span:before, .crs-mobile--show .crs-mobile__trigger span:after {
+  top: 0;
+}
+/* line 99, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile--show .crs-mobile__trigger span:before {
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+/* line 102, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile--show .crs-mobile__trigger span:after {
+  transform: rotate3d(0, 0, 1, -45deg);
+}
+/* line 105, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile--show .crs-mobile {
+  transform: translateY(0);
+}
+/* line 108, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile--show .crs-mobile li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* line 112, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__panel {
+  position: relative;
+  display: block;
+  height: 100%;
+}
+
+/* line 117, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__tabs {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4.375rem;
+  border-top: 1px solid #386790;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__tabs--3 .crs-mobile__tab {
+  width: 33.33333%;
+}
+
+/* line 129, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__tab {
+  box-sizing: border-box;
+  font-size: 1.25rem;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  background: #4681B5;
+  height: 100%;
+  vertical-align: middle;
+  padding: 1rem;
+  border-right: 1px solid #386790;
+}
+/* line 142, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__tab:last-child {
+  border-right: none;
+}
+/* line 145, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__tab:hover {
+  color: #fff;
+  background: #386790;
+}
+/* line 149, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__tab small {
+  display: block;
+  font-size: 60%;
+  margin-top: 0.3125rem;
+}
+/* line 154, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__tab i {
+  top: -0.625rem;
+}
+
+/* line 157, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__nav {
+  position: absolute;
+  height: calc(100% - 4.375rem - 1.25rem - 3.125rem);
+  width: 100%;
+  top: 3.125rem;
+  overflow-y: scroll;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+/* line 169, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__option {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 177, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_mobile_nav.sass */
+.crs-mobile__link {
+  display: block;
+  width: 100%;
+  line-height: 4.375rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* line 4, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_validate.sass */
+.form__validate.ng-invaild, .form__validate.ng-dirty {
+  border: 1px solid #FA787E;
+}
+/* line 8, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/components/_validate.sass */
+.form__validate.ng-valid.ng-dirty {
+  border: 1px solid green;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar--sticky {
+  padding-top: 3.125rem;
+}
+/* line 21, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar--sticky .crs-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+}
+
+/* line 29, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar {
+  background: #4681B5;
+  width: 100%;
+  display: block;
+  box-sizing: content-box;
+  height: 3.125rem;
+  color: #fff;
+  line-height: 3.125rem;
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  border-bottom: 1px solid #3c6f9b;
+}
+
+/* line 44, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__logo:after,
+.crs-topbar__link:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.0625rem;
+  width: 0;
+  height: 0.125rem;
+  transition: width 0.15s ease;
+  background: #fff !important;
+  top: 0;
+  bottom: auto !important;
+}
+/* line 58, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__logo:hover:after,
+.crs-topbar__link:hover:after {
+  width: 100%;
+}
+
+/* line 62, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__logo {
+  padding: 0 1.25rem;
+  float: left;
+  font-weight: 700;
+  font-size: 1rem;
+  height: 3.125rem;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #fff;
+}
+/* line 72, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__logo:visited {
+  color: #fff;
+}
+/* line 75, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__logo small {
+  font-weight: 100;
+  margin-left: 5px;
+}
+/* line 79, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__logo img, .crs-topbar__logo svg {
+  max-height: 2.1875rem;
+  padding: 0 5px 5px 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* line 85, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__nav {
+  list-style: none;
+  float: left;
+  font-size: 0.875rem;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+  height: 3.125rem;
+  font-size: 0;
+}
+
+/* line 95, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__option {
+  display: inline-block;
+  font-size: 0.875rem;
+  height: 100%;
+  vertical-align: top;
+  text-transform: uppercase;
+}
+
+/* line 105, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__option--has-dropdown .crs-topbar__link:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.3125rem 0.3125rem 0 0.3125rem;
+  border-color: #fff transparent transparent transparent;
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding-bottom: 0.125rem;
+}
+
+/* line 117, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__separator {
+  display: inline-block;
+  border-left: 1px solid #3c6f9b;
+  height: 100%;
+  vertical-align: top;
+}
+
+/* line 123, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__link {
+  display: block;
+  font-size: 0.875rem;
+  padding: 0 1.3125rem;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.1s ease;
+}
+/* line 131, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__link:hover, .crs-topbar__link:visited {
+  color: #fff;
+}
+/* line 135, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__link:hover, .crs-topbar__link:focus {
+  outline: none;
+  background: #3f74a3;
+}
+
+/* line 139, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__right {
+  float: right;
+}
+
+/* line 142, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__left {
+  float: left;
+}
+
+/* line 148, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__option .crs-dropdown {
+  height: 100%;
+  width: auto;
+  background: none;
+}
+/* line 153, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__option .crs-dropdown .crs-topbar__link:after,
+.crs-topbar__option .crs-dropdown .crs-user:after {
+  content: "";
+  position: absolute;
+  bottom: -0.0625rem;
+  left: 0;
+  width: 0;
+  height: 0.125rem;
+  background: #4681B5;
+  transition: width 0.15s ease;
+}
+/* line 165, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__option .crs-dropdown:hover .crs-topbar__link:after,
+.crs-topbar__option .crs-dropdown:hover .crs-user:after {
+  width: 100%;
+}
+/* line 170, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__option .crs-dropdown__current {
+  height: 100%;
+}
+/* line 173, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__option .crs-dropdown__list {
+  position: absolute;
+  margin-left: -0.0625rem;
+  margin-top: 0.0625rem;
+  min-width: 100%;
+  white-space: nowrap;
+}
+/* line 180, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_topbar.sass */
+.crs-topbar__option .crs-dropdown__option {
+  line-height: 1.5625rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.875rem;
+  padding-left: 1.3125rem;
+  padding-right: 1.3125rem;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 6, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_user.sass */
+.crs-user {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  max-height: 3.125rem;
+  display: block;
+  text-align: left;
+}
+/* line 13, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_user.sass */
+.crs-user:hover, .crs-user:focus {
+  background: #3f74a3;
+  outline: none;
+}
+/* line 17, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_user.sass */
+.crs-user:after {
+  background: #fff !important;
+  top: 0;
+  bottom: auto !important;
+}
+
+/* line 24, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_user.sass */
+.crs-user__avatar {
+  border-radius: 100%;
+  max-height: 3rem;
+  margin-top: -0.1875rem;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 1px 0px #333;
+}
+
+/* line 34, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_user.sass */
+.crs-user__name {
+  display: inline-block;
+  height: 100%;
+  color: #fff;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-bottom: 1px;
+}
+/* line 45, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_user.sass */
+.crs-user__name:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.3125rem 0.3125rem 0 0.3125rem;
+  border-color: #fff transparent transparent transparent;
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding-bottom: 0.1875rem;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+* {
+  box-sizing: border-box;
+}
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/base/_global.sass */
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 3, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.mainpage__container {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* line 6, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.mainpage__background {
+  height: auto;
+  width: auto;
+  overflow: hidden;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* line 13, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.person__index {
+  color: #eee;
+  margin-left: 1rem;
+}
+/* line 17, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.person__index:hover {
+  cursor: pointer;
+}
+
+/* line 20, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.header__today {
+  padding-bottom: 40px;
+  font-size: 40px;
+}
+
+/* line 24, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.header__upcoming {
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+}
+
+/* line 28, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.header__birthdaylist,
+.header__withoutbirthday {
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+/* line 33, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.person__today--avatar {
+  max-height: 7.5rem;
+  position: relative;
+}
+
+/* line 37, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.person__today--hat {
+  transform: rotate(-17deg);
+  width: 100px;
+  position: absolute;
+  left: 0;
+  top: -40px;
+}
+
+/* line 44, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.person__index {
+  color: #eee;
+  margin-left: 1rem;
+}
+/* line 47, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.person__index:hover {
+  cursor: pointer;
+}
+
+/* line 50, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.person__today--avatar {
+  max-height: 7.5rem;
+  position: relative;
+}
+
+/* line 54, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_mainpage.sass */
+.person__today--hat {
+  transform: rotate(-17deg);
+  width: 100px;
+  position: absolute;
+  left: 0;
+  top: -40px;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_userpage.sass */
+.user__container {
+  position: relative;
+}
+
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_userpage.sass */
+.user__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  -webkit-filter: blur(10px);
+  opacity: 0.2;
+}
+
+/* line 15, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_userpage.sass */
+.user__background {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* line 18, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_userpage.sass */
+.celebrant__avatar {
+  border-radius: 100%;
+  font-size: 2em;
+  max-height: 10.9375rem;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 1px 0px #333;
+}
+
+/* line 26, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_userpage.sass */
+.celebrant__about {
+  margin-left: 3em;
+}
+
+/* line 29, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_userpage.sass */
+.celebrant__description--edit {
+  margin-top: 1em;
+}
+
+/* line 32, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_userpage.sass */
+.propositions__edit {
+  margin-left: 20px;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_propositions.sass */
+.propositions__container {
+  border: 1px solid #eee;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_propositions.sass */
+.propositions__delete {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+/* line 12, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_propositions.sass */
+.propositions__container {
+  position: relative;
+}
+
+/* line 2, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_comments.sass */
+.comments__container {
+  position: relative;
+}
+
+/* line 5, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_comments.sass */
+.comments__delete {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/layout/_comments.sass */
+.comments__textarea--change {
+  margin: 0.3125rem 0;
+}
+
+/* line 1, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+.crs-small--visible {
+  display: block;
+}
+
+/* line 4, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+.crs-medium--visible {
+  display: none;
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+.crs-large--visible {
+  display: none;
+}
+
+@media only screen and (max-width: 640px) {
+  /* line 12, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+  .crs-small--hidden {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 640px) {
+  /* line 16, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+  .crs-small--visible {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 640px) and (max-width: 1024px) {
+  /* line 20, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+  .crs-medium--hidden {
+    display: none !important;
+  }
+
+  /* line 23, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+  .crs-medium--visible {
+    display: block !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 27, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+  .crs-large--hidden {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 31, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_visibility.sass */
+  .crs-large--visible {
+    display: block;
+  }
+}
+/* line 1, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_utils.sass */
+.crs-utils--center {
+  text-align: center;
+}
+
+/* line 4, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_utils.sass */
+.crs-utils--right {
+  text-align: right;
+}
+
+/* line 7, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_utils.sass */
+.crs-utils--left {
+  text-align: left;
+}
+
+/* line 10, /Users/monteadmin/Desktop/born.hussa.rs/born.hussa.rs/app/assets/stylesheets/utils/_utils.sass */
+.crs-utils--no-margin {
+  margin: 0;
+}

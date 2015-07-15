@@ -1,0 +1,185 @@
+@import ../base/global
+
+// config
+$crs-topbar-colorful: true
+
+$crs-topbar-bg: $crs-primary-color
+$crs-topbar-bg-hover: darken($crs-primary-color, 5%)
+$crs-topbar-color: $crs-global-font-inverted
+$crs-topbar-border: darken($crs-primary-color, 7%)
+$crs-topbar-link-underline: $crs-global-font-inverted
+
+$crs-topbar-font-weight: $crs-global-font-weight
+$crs-topbar-font: $crs-global-font
+$crs-topbar-font-size: 14px
+$crs-topbar-height: $crs-global-topbar-height
+$crs-topbar-dropdown-font-size: 14px
+
+.crs-topbar--sticky
+  padding-top: rem($crs-topbar-height)
+
+  .crs-topbar
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: z-calc($z-index-list, topbar)
+
+
+.crs-topbar
+  background: $crs-topbar-bg
+  width: 100%
+  display: block
+  box-sizing: content-box
+  height: rem($crs-topbar-height)
+  color: $crs-topbar-color
+  line-height: rem($crs-topbar-height)
+  font-family: $crs-topbar-font
+  padding: 0
+  border-bottom: 1px solid $crs-topbar-border
+
+.crs-topbar__logo,
+.crs-topbar__link
+
+  &:after
+    content: ""
+    position: absolute
+    left: 0
+    bottom: rem(-1px)
+    width: 0
+    height: rem(2px)
+    transition: width .15s ease
+    background: $crs-topbar-link-underline !important
+
+    @if $crs-topbar-colorful
+      top: 0
+      bottom: auto !important
+
+  &:hover:after
+    width: 100%
+
+
+.crs-topbar__logo
+  padding: 0 rem($crs-grid-gutter-width) / 2
+  float: left
+  font-weight: 700
+  font-size: rem(16px)
+  height: rem($crs-topbar-height)
+  vertical-align: middle
+  text-decoration: none
+  color: $crs-topbar-color
+
+  &:visited
+    color: $crs-topbar-color
+
+  small
+    font-weight: $crs-global-font-weight
+    margin-left: 5px
+
+  img, svg
+    max-height: rem($crs-topbar-height - 15px)
+    padding: 0 5px 5px 0
+    display: inline-block
+    vertical-align: middle
+
+.crs-topbar__nav
+  list-style: none
+  float: left
+  font-size: rem($crs-topbar-font-size)
+  font-weight: $crs-topbar-font-weight
+  margin: 0
+  padding: 0
+  height: rem($crs-topbar-height)
+  font-size: rem(0)
+
+.crs-topbar__option
+  display: inline-block
+  font-size: rem($crs-topbar-font-size)
+  height: 100%
+  vertical-align: top
+  text-transform: uppercase
+
+
+.crs-topbar__option--has-dropdown
+
+  .crs-topbar__link:before
+    content: ""
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: rem(5px 5px 0 5px)
+    border-color: $crs-topbar-color transparent transparent transparent
+    display: inline-block
+    margin-right: rem($crs-grid-gutter-width / 5)
+    padding-bottom: rem(2px)
+
+
+.crs-topbar__separator
+  display: inline-block
+  border-left: 1px solid $crs-topbar-border
+  height: 100%
+  vertical-align: top
+
+.crs-topbar__link
+  display: block
+  font-size: rem($crs-topbar-font-size)
+  padding: 0 rem($crs-topbar-font-size * 1.5)
+  color: $crs-topbar-color
+  text-decoration: none
+  transition: background .1s ease
+
+  &:hover,
+  &:visited
+    color: $crs-topbar-color
+
+  &:hover, &:focus
+    outline: none
+    background: $crs-topbar-bg-hover
+
+.crs-topbar__right
+  float: right
+
+.crs-topbar__left
+  float: left
+
+
+// dropdown extension
+.crs-topbar__option
+  .crs-dropdown
+    height: 100%
+    width: auto
+    background: none
+
+    .crs-topbar__link:after,
+    .crs-user:after
+      content: ""
+      position: absolute
+      bottom:  rem(-1px)
+      left: 0
+      width: 0
+      height: rem(2px)
+      background: $crs-primary-color
+      transition: width .15s ease
+
+    &:hover
+      .crs-topbar__link:after,
+      .crs-user:after
+        width: 100%
+
+
+  .crs-dropdown__current
+    height: 100%
+
+  .crs-dropdown__list
+    position: absolute
+    margin-left: rem(-1px)
+    margin-top: rem(1px)
+    min-width: 100%
+    white-space: nowrap
+
+  .crs-dropdown__option
+    line-height: rem($crs-topbar-height / 2)
+    border-bottom: 1px solid $crs-tertiary-color
+    font-size: rem($crs-topbar-dropdown-font-size)
+    padding-left: rem($crs-topbar-font-size * 1.5)
+    padding-right: rem($crs-topbar-font-size * 1.5)
