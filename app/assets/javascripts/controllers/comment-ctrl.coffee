@@ -18,3 +18,7 @@ angular.module('BornApp').controller 'CommentCtrl', ($scope, Comment) ->
       proposition.comments.splice(index, 1, updatedComment)
       $scope.editCommentId = null
 
+  $scope.deleteComment = (comment, proposition) ->
+    Comment.destroy(comment, proposition).success (response) ->
+      index = proposition.comments.indexOf(comment)
+      proposition.comments.splice(index, 1)
