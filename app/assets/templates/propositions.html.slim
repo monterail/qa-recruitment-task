@@ -1,12 +1,12 @@
 div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
   div.crs-grid__column.crs-grid__unit--sm-8
-    h1.crs-utils--center Chosen before
+    h2.crs-utils--center Chosen before
     ul ng-repeat="proposition in celebrant.propositions.chosen"
       li
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
 
-    h1.crs-typo__h1.crs-utils--center Propositions
-    div.born-proposition ng-repeat="proposition in celebrant.propositions.current"
+    h2.crs-typo__h2.crs-utils--center Propositions
+    div.propositions__container ng-repeat="proposition in celebrant.propositions.current"
       div ng-if="editPropositionId != proposition.id"
         div vote="proposition"
         h3.crs-typo__h3
