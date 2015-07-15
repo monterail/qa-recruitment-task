@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         post 'vote', to: 'votes#vote'
         delete 'vote/:vote_id', to: 'votes#unvote'
       end
-      resources :comments, only: [:update, :create]
+      resources :comments, only: [:update, :create, :destroy]
     end
    patch 'birthdays/:celebrant_id/cover', to: 'birthdays#mark_as_covered'
    patch 'birthdays/:celebrant_id/uncover', to: 'birthdays#mark_as_uncovered'

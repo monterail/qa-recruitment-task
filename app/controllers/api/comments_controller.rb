@@ -1,7 +1,7 @@
 module Api
   class CommentsController < ApplicationController
 
-    before_action :restrict_wrong_owner, only: [:update]
+    before_action :restrict_wrong_owner, only: [:update, :delete]
 
     def create
       proposition = Proposition.find(params[:proposition_id])
@@ -18,6 +18,15 @@ module Api
       end
     end
 
+    def destroy
+      comment = comment_from_params
+      if comment.destroy!
+        head :ok
+      else
+        render json: { errors: comment.errors.messages }, status: 422
+      end
+    end
+
   private
     def comment_from_params
       comment ||= Comment.find(params[:id])
@@ -29,7 +38,7 @@ module Api
     end
 
     def comment_params
-      params.require(:comment).permit(:proposition_id, :body).merge(owner_id: User.find_by(sso_id: current_user_data['uid']).id)
+      params.require(:comment).permit(:proposition_id, :body).merge(owner_id: current_user.id)
     end
   end
 end
