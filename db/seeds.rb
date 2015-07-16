@@ -45,3 +45,7 @@ User.create!(name: "Adam Hodowany", email: "adam.hodowany@monterail.com",
 	sso_id: "hodak", birthday_month: 12, birthday_day: 24)
 User.create!(name: "Damian Dulisz", email: "damian.dulisz@monterail.com",
 	sso_id: "damian", birthday_month: 12, birthday_day: 30)
+User.create!(name: "Test User", email: "test.user@monterail.com",
+	sso_id: "test", birthday_month: nil, birthday_day: nil)
+User.create!(name: "Test User2", email: "test.user2@monterail.com",
+	sso_id: "test2", birthday_month: nil, birthday_day: nil)

@@ -5,7 +5,7 @@
     section.crs-grid__row.crs-grid__row--centered
       .crs-grid__column.crs-grid__unit--sm-5
         h1.crs-typo__h1.header__today Happy birthday!
-        .crs-grid__row ng-repeat="user in users"
+        .crs-grid__row ng-repeat="user in users | limitTo: 3"
           .crs-grid__column.crs-grid__unit--sm-10
             ul.crs-typo__ul.crs-utils--left
               li ui-sref="auth.user({id: user.id})"
@@ -16,7 +16,7 @@
 
       section.crs-grid__column.crs-grid__unit--sm-7
         h1.crs-typo__h1.header__upcoming Upcoming birthdays
-        .crs-grid__row ng-repeat="user in users"
+        .crs-grid__row ng-repeat="user in users | limitTo: 6"
           .crs-grid__column.crs-grid__unit--sm-6
             ul.crs-typo__ul.crs-utils--left
               li ui-sref="auth.user({id: user.id })"
@@ -42,8 +42,8 @@
 
       .crs-grid__column.crs-grid__unit--sm-6
         h1.crs-typo__h1.header__withoutbirthday Who didn't set birthday
-        ul.crs-typo__ul ng-repeat="user in users"
-          li ui-sref="auth.user({id: user.id})"
+        ul.crs-typo__ul ng-disabled="true" ng-repeat="user in usersWithoutBirthday"
+          li
             img.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
             span.person__index
                 | {{ user.name }}
