@@ -9,15 +9,23 @@ div ng-controller="CommentCtrl"
       p.crs-typo__p ng-bind="comment.body"
       .crs-comment__options
         span.crs-comment__option ng-click="editComment(comment)" Edit
-    form ng-submit="updateComment(comment, proposition)" ng-if="editCommentId == comment.id"
+        span.crs-comment__option Delete
+
+    form ng-submit="updateComment(comment, proposition)" ng-if="editCommentId == comment.id" name="updateCommentForm"
       .crs-input__group.crs-utils--no-margin
-        textarea.born-input__textarea ng-model="comment.body"
+        textarea.comments__textarea--change ng-model="comment.body" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="commentUpdate" ng-required="true"
+        span.error__message ng-show="updateCommentForm.commentUpdate.$touched && updateCommentForm.commentUpdate.$invalid" This field is required
       button.crs-button.crs-button--success.crs-button--small.crs-utils--no-margin type="submit" Save
       button.crs-button.crs-button--secondary.crs-button--small.crs-utils--no-margin type="button" ng-click="cancelEditComment()" Cancel
-  form ng-submit="createComment(proposition)"
+
+  form ng-submit="createComment(proposition)" name="createCommentForm"
     .crs-grid__row.crs-grid__row--middle
       .crs-grid__column
         .crs-input__group
-          textarea ng-model="proposition.newComment.body"
-          label Your comment
-        button.crs-button.crs-button--small type="submit" Submit comment
+          textarea ng-model="proposition.newComment.body" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="commentNew" ng-required="true"
+          label.crs-form__label Your comment*
+          span.error__message ng-show="createCommentForm.commentNew.$touched && createCommentForm.commentNew.$invalid" This field is required
+        div.comments__container
+          button.crs-button.crs-button--small.comments__submit type="submit" Submit comment
+
+

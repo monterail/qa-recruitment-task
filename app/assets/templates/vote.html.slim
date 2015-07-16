@@ -1,4 +1,5 @@
 span.crs-comment__votes
   | {{ proposition.rating }}
-.crs-comment__votes--down ng-show="hasCurrentUserVoted" ng-click="unvote(proposition)" -1
-.crs-comment__votes--up ng-hide="hasCurrentUserVoted" ng-click="vote(proposition)" +1
+.crs-comment__votes--up ng-click="vote(proposition)" +1
+.crs-comment__votes--down ng-click="unvote(proposition)" -1
+

@@ -1,12 +1,12 @@
 div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
   div.crs-grid__column.crs-grid__unit--sm-8
-    h1.crs-utils--center Chosen before
+    h2.crs-utils--center Chosen before
     ul ng-repeat="proposition in celebrant.propositions.chosen"
       li
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
 
-    h1.crs-typo__h1.crs-utils--center Propositions
-    div.born-proposition ng-repeat="proposition in celebrant.propositions.current"
+    h2.crs-typo__h2.crs-utils--center Propositions
+    div.propositions__container ng-repeat="proposition in celebrant.propositions.current"
       div ng-if="editPropositionId != proposition.id"
         div vote="proposition"
         h3.crs-typo__h3
@@ -15,35 +15,43 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
           | {{proposition.description}}
         h4.crs-typo__h4
           | Price: {{ proposition.value | currency: 'PLN' }}
-        div
+        div.propositions__container
           button.crs-button.crs-button--small type="button" ng-click="chooseProposition(proposition)" Mark as bought
-          button.crs-button.crs-button--secondary.crs-button--small type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
+          button.crs-button.crs-button--secondary.crs-button--small.propositions__edit type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
+          button.crs-button.crs-button--small.propositions__delete type="button" Delete
+
       form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id"
-        .crs-input__group
-          input type="text" ng-model="proposition.title"
-          label Title
-        .crs-input__group
-          textarea ng-model="proposition.description"
-          label Description
-        .crs-input__group
-          input type="number" ng-model="proposition.value"
-          label Value
+      .crs-input__group
+        input type="text" class="form__validate" ng-model="proposition.title" ng-model-options="{ updateOn: 'blur' }" name="propositionTitle" ng-required="true"
+        label.crs-form__label Title*
+        span.error__message ng-show="newPropositionForm.propositionTitle.$touched && newPropositionForm.propositionTitle.$invalid" This field is required
+      .crs-input__group
+        input ng-model="proposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionDescription" ng-required="true"
+        label Description*
+        span.error__message ng-show="newPropositionForm.propositionDescription.$touched && newPropositionForm.propositionDescription.$invalid" This field is required
+      .crs-input__group
+        input type="number" ng-model="proposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
+        label Value*
+        span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid" This field is required and need only numbers
         div align="right"
           input.crs-button.crs-button--success.crs-button--small type="submit" value="Save"
           button.crs-button.crs-button--secondary.crs-button--small type="button" ng-click="cancelEditProposition()" x
       div ng-include="'assets/comments.html'"
 
-    form ng-submit="createProposition()"
+    form ng-submit="createProposition()" name="newPropositionForm"
       h2.crs-typo__h2
         | Add your own proposition!
       .crs-input__group
-        input type="text" ng-model="newProposition.title"
-        label Title
+        input type="text" class="form__validate" ng-model="newProposition.title" ng-model-options="{ updateOn: 'blur' }" name="propositionTitle" ng-required="true"
+        label.crs-form__label Title*
+        span.error__message ng-show="newPropositionForm.propositionTitle.$touched && newPropositionForm.propositionTitle.$invalid" This field is required
       .crs-input__group
-        textarea ng-model="newProposition.description"
-        label Description
+        input ng-model="newProposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionDescription" ng-required="true"
+        label Description*
+        span.error__message ng-show="newPropositionForm.propositionDescription.$touched && newPropositionForm.propositionDescription.$invalid" This field is required
       .crs-input__group
-        input type="number" ng-model="newProposition.value"
-        label Value
+        input type="number" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
+        label Value*
+        span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid" This field is required and need only numbers
       input.crs-button.crs-button--success type="submit" value="Save"
 

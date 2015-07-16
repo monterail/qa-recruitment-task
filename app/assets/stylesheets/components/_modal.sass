@@ -1,0 +1,80 @@
+@import ../base/global
+
+// config
+$crs-modal-top: 70px
+$crs-modal-large-width: 75%
+$crs-modal-medium-width: 50%
+$crs-modal-small-width: 35%
+$crs-modal-padding: $crs-grid-gutter-width / 2
+$crs-modal-bg: $crs-global-background
+$crs-modal-font-color: $crs-global-font-color
+$crs-modal-border-radius: $crs-global-radius
+$crs-modal-overlay-bg: rbga($crs-secondary-color, .8)
+
+.crs-modal__system
+  height: 100%
+  width: 100%
+  position: fixed
+  left: 0
+  right: 0
+  bottom: 0
+  top: 0
+
+.crs-modal__bg
+  z-index: z-calc($z-index-list, modal) - 1
+  background: rgba(0,0,0,.6)
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  position: fixed
+  visibility: hidden
+  opacity: 0
+  transition: all .2s ease
+
+.crs-modal
+  z-index: z-calc($z-index-list, modal)
+  color: $crs-modal-font-color
+  height: auto
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  overflow-y: auto
+  box-shadow: 0 1px 3px rgba(0,0,0,.3)
+  background: $crs-modal-bg
+  transform: translateY(calc(-100% - #{rem($crs-modal-top)}))
+  transition: transform .5s cubic-bezier(.47,.23,.25,1.45)
+  margin: 0 auto
+
+.crs-modal__content
+  padding: rem($crs-modal-padding) 0 0
+
+.crs-modal--show
+  transform: translate3d(0,0,0)
+
+  & ~ .crs-modal__bg
+    visibility: visible
+    opacity: 1
+
+.crs-modal--small
+
+
+  @media #{$medium-up}
+    width: $crs-modal-medium-width
+
+  @media #{$large-up}
+    width: $crs-modal-small-width
+
+.crs-modal--medium
+
+  @media #{$medium-up}
+    width: $crs-modal-large-width
+
+  @media #{$large-up}
+    width: $crs-modal-medium-width
+
+.crs-modal--large
+
+  @media #{$large-up}
+    width: $crs-modal-large-width

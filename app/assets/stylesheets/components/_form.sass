@@ -1,0 +1,362 @@
+@import ../base/global
+
+// config
+// it's 40px with borders
+$crs-input-font: $crs-global-font
+$crs-input-font-color: $crs-secondary-color
+$crs-input-font-weight: $crs-global-font-weight
+$crs-input-font-size: 14px
+$crs-input-height: 38px
+$crs-input-padding: 0 10px
+$crs-input-label-color: lighten($crs-input-font-color, 20%)
+$crs-input-label-left: 11px
+$crs-input-label-size: 12px
+$crs-input-background: $crs-global-support-background
+$crs-input-radius: $crs-global-radius
+$crs-input-border: $crs-tertiary-color
+$crs-input-select-font-size: 12px
+$crs-input-select-background: $crs-global-background
+
+$crs-toggle-off-color: $crs-quaternary-color
+$crs-toggle-on-color: $crs-primary-color
+$crs-toggle-width: 60px
+$crs-toggle-height: 24px
+$crs-toggle-offset: 3px
+$crs-toggle-border-radius: 100px
+
+
+.crs-input__group
+  position: relative
+  margin-bottom: rem($crs-global-font-size * 2)
+  margin-top: rem($crs-global-font-size * 2)
+
+.crs-input__group input,
+.crs-input__group textarea
+  font-size: rem($crs-input-font-size)
+  font-weight: $crs-input-font-weight
+  line-height: rem($crs-input-height)
+  border: 1px solid $crs-input-background
+  background: $crs-input-background
+  border-radius: $crs-input-radius
+  width: 100%
+  padding: rem($crs-input-padding)
+  color: $crs-global-font-color
+  position: relative
+  transition: border .2s ease
+  margin-bottom: 10px
+
+  &:hover
+    border-color: darken($crs-tertiary-color, 5%)
+
+  &:focus
+    border-color: darken($crs-tertiary-color, 15%)
+    outline: none
+
+.crs-input__group textarea
+  background: $crs-global-support-background
+  max-width: 100%
+  min-height: rem(82px)
+  resize: none
+  line-height: 1.4
+  padding-top: $crs-input-height / 4
+  // border-bottom: 1px solid $crs-input-border
+
+.crs-input__group textarea:focus
+  resize: vertical
+
+.crs-input__group label
+  color: $crs-input-label-color
+  font-size: rem($crs-input-font-size)
+  font-weight: $crs-input-font-weight
+  position: absolute
+  line-height: rem($crs-input-height + 2px)
+  pointer-events: none
+  left: rem($crs-input-label-left)
+  top: 0
+  transition: 0.2s ease all
+  font-weight: $crs-input-font-weight
+
+.crs-input__group input:focus ~ label, .crs-input__group input:valid ~ label,
+.crs-input__group input.ng-valid ~ label, .crs-input__group input.ng-invalid ~ label,
+.crs-input__group textarea:focus ~ label, .crs-input__group textarea:valid ~ label,
+.crs-input__group--filled
+  transform: translateY(rem($crs-input-font-size * -2 - 1px))
+  font-size: rem($crs-input-label-size)
+  // left: 0
+
+.crs-input__group input:focus ~ .crs-dropdown__list
+  display: block
+
+.crs-form--colorful
+  .crs-input__group
+    input, textarea
+      background: rgba(#fff, .2)
+      border-color: rgba(#fff, .2)
+      color: #fff
+
+    label
+      color: #fff
+
+.crs-form__label
+  font-size: rem($crs-input-label-size)
+  color: $crs-input-label-color
+  margin-bottom: rem(5px)
+  display: block
+  font-family: $crs-global-font
+
+.crs-form__label--inline
+  @extend .crs-form__label
+
+  display: inline-block
+  margin-right: rem($crs-grid-gutter-width / 2)
+  margin-left: rem($crs-grid-gutter-width / 5)
+
+.crs-form__select
+  transition: border-color .1s ease
+  margin-bottom: rem($crs-global-font-size)
+  width: 100%
+  height: rem(30px)
+  padding: rem(6px 30px 6px 8px)
+  border-radius: $crs-input-radius
+  text-align: left
+  font-family: $crs-input-font
+  font-size: rem($crs-input-select-font-size)
+  font-weight: $crs-input-font-weight
+  background: $crs-input-select-background
+  border: 1px solid $crs-input-border
+  color: $crs-global-font-color
+
+  -webkit-appearance: none
+  -moz-appearance: none
+
+  background-image: url(data:image/png;base64,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)
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: top right
+
+  &:hover
+    border-color: darken($crs-tertiary-color, 15%)
+
+  &:focus
+    outline: none
+    border-color: darken($crs-tertiary-color, 35%)
+
+
+
+input[type="radio"],
+input[type="checkbox"],
+.crs-form__checkbox,
+.crs-form__radio,
+.crs-toggle__switch
+  margin-bottom: rem($crs-global-font-size)
+
+.crs-input__alert-message
+  display: none
+  font-weight: $crs-global-font-weight
+  font-size: rem(11px)
+  margin-top: rem(5px)
+
+.crs-input__alert--error
+
+  animation-name: shakeError
+  animation-fill-mode: forward
+  animation-duration: .6s
+  animation-timing-function: ease-in-out
+
+  label
+    color: $crs-error-color
+
+  input,
+  input:focus,
+  input:hover
+    border-color: $crs-error-color
+
+
+  .crs-input__alert-message
+    display: block
+    color: lighten($crs-error-color, 15%)
+
+
+.crs-input__alert--success
+
+  label
+    color: $crs-success-color
+
+  input
+    border-color: $crs-success-color
+
+  .crs-input__alert-message
+    display: block
+    color: lighten($crs-success-color, 15%)
+
+
+@mixin crs-toggle-colors($crs-toggle-off-color: $crs-toggle-off-color, $crs-toggle-on-color: $crs-toggle-on-color, $crs-toggle-transition: cubic-bezier(0,1,0.5,1))
+
+  input[type="checkbox"]
+
+    &[disabled] ~ label
+      color: rgba($crs-toggle-off-color, 0.5)
+
+
+    &:focus ~ label, &:hover ~ label
+      .crs-toggle__switch
+        background-color: $crs-toggle-off-color
+
+    &:checked
+      ~ label
+
+        .crs-toggle__switch
+          background-color: lighten($crs-toggle-on-color, 5%)
+
+      &:focus, &:hover
+        ~ label
+          .crs-toggle__switch
+            background-color: $crs-toggle-on-color
+
+  label
+
+    .crs-toggle__switch
+      transition: background-color 0.3s $crs-toggle-transition
+      background: lighten($crs-toggle-off-color, 5%)
+
+      &:after
+        transition: transform 0.3s $crs-toggle-transition
+
+@mixin crs-toggle-appearance($crs-toggle-width: $crs-toggle-width, $crs-toggle-height: $crs-toggle-height, $crs-toggle-border-radius: $crs-toggle-border-radius, $crs-toggle-offset: $crs-toggle-offset, $crs-toggle-shadow: 0 3px 3px rgba(black, 0.3))
+  $crs-toggle-switch-width: $crs-toggle-width / 2
+
+  input[type="checkbox"]
+
+    &:focus ~ label, &:hover ~ label
+      .crs-toggle__switch
+        &:after
+          box-shadow: $crs-toggle-shadow
+
+    &:checked
+      ~ label
+        .crs-toggle__switch
+          &:after
+            transform: translate3d($crs-toggle-width - ($crs-toggle-height),0,0)
+
+      &:focus, &:hover
+        ~ label
+          .crs-toggle__switch &:after
+            box-shadow: $crs-toggle-shadow
+
+  label
+    position: relative
+    margin-bottom: rem($crs-global-font-size)
+
+    .crs-toggle__switch
+      height: $crs-toggle-height
+      width: $crs-toggle-width
+      border-radius: $crs-toggle-border-radius
+
+      &:after
+        content: ""
+        top: $crs-toggle-offset
+        left: $crs-toggle-offset
+        border-radius: $crs-toggle-border-radius/2
+        width: $crs-toggle-height - ($crs-toggle-offset*2)
+        height: $crs-toggle-height - ($crs-toggle-offset*2)
+        z-index: 5
+
+      &:hover
+        &:after
+          box-shadow: $crs-toggle-shadow
+
+.crs-input__group--with-button
+  margin-bottom: rem(15px)
+
+  input
+    border: 1px solid $crs-input-border
+    display: inline-block
+    font-size: rem(14px)
+    height: rem(30px)
+    box-sizing: border-box
+    vertical-align: top
+    padding: rem(6px 30px 6px 8px)
+
+
+    &:hover
+      border-color: darken($crs-tertiary-color, 15%)
+
+
+    &:focus
+      outline: none
+      border-color: darken($crs-tertiary-color, 35%)
+
+
+  .crs-button
+    vertical-align: top
+    padding: $crs-button-padding-small
+    font-size: $crs-button-size * .8
+    box-sizing: border-box
+    margin: 0
+
+.crs-toggle
+  position: relative
+  *, *:before, *:after
+    box-sizing: border-box
+
+  input[type="checkbox"]
+    opacity: 0
+    position: absolute
+    top: 0
+    left: 0
+
+    &[disabled] ~ label
+      pointer-events: none
+      .crs-toggle__switch
+        opacity: 0.4
+
+  label
+    position: relative
+
+    .crs-toggle__switch
+      position: relative
+      display: inline-block
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.1)
+
+      &:after
+        content: ""
+        position: absolute
+        display: inline-block
+        height: rem(34px)
+        width: rem(34px)
+        z-index: 5
+        background: white
+        transform: translate3d(0,0,0)
+
+  // Default values for .crs-toggle class
+  @include crs-toggle-colors
+  @include crs-toggle-appearance
+
+@keyframes shakeError
+  $shake-distance: rem(10px)
+  0%
+    transform: translateX(0)
+
+  15%
+    transform: translateX($shake-distance)
+
+  30%
+    transform: translateX(-$shake-distance)
+
+  45%
+    transform: translateX($shake-distance)
+
+  60%
+    transform: translateX(-$shake-distance)
+
+  75%
+    transform: translateX($shake-distance)
+
+  90%
+    transform: translateX(-$shake-distance)
+
+  100%
+    transform: translateX(0)
+
+
+

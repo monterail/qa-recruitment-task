@@ -1,21 +1,23 @@
-div.born-user__container
-  .born-user ng-style="{ 'background-image':'url({{ celebrant.profile_photo }})' }"
-  .crs-subbar.crs-form--colorful.born-user__background
+div.user__container
+  .user__image ng-style="{ 'background-image':'url({{ celebrant.profile_photo }})' }"
+  .crs-subbar.crs-form--colorful.user__background
     .crs-grid__row
       .crs-grid__column
         h1.crs-typo__h1.crs-utils--center
           | {{ celebrant.name }} {{ celebrant.birthday_day }}.{{ celebrant.birthday_month }}
     .crs-grid__row.crs-grid__row--centered
       .crs-grid__column.crs-grid__unit--sm-2
-        img.born-celebrant__avatar ng-src="{{ celebrant.profile_photo }}.jpg?s=400"
-      .crs-grid__column.crs-grid__unit--sm-8.born-celebrant__about
+        img.celebrant__avatar ng-src="{{ celebrant.profile_photo }}.jpg?s=400"
+      .crs-grid__column.crs-grid__unit--sm-8.celebrant__about
             div ng-if="!isEditingAbout"
                 p.crs-typo__p ng-bind="celebrant.about"
-                button.crs-button.crs-button--small.born-celebrant__description--edit type="button" ng-click="toggleEditingAbout()" Edit description
-            form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout"
-              textarea ng-model="celebrant.about"
-              button.crs-button type="submit" Save
-              button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
+                button.crs-button.crs-button--small.celebrant__description--edit type="button" ng-click="toggleEditingAbout()" Edit description
+            form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout" name="aboutMeUpdate"
+              .crs-input__group
+                textarea ng-model="celebrant.about" ng-model-options="{ updateOn: 'blur' }" class="form__validate" name="aboutMeInput" ng-required="true"
+                button.crs-button type="submit" Save
+                button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
+                span.error__message< ng-show="aboutMeUpdate.aboutMeInput.$touched && aboutMeUpdate.aboutMeInput.$invalid" This field is required
             h3.crs-typo__h3
               | Person responsible: {{ celebrant.person_responsible.name || 'not chosen yet'}}
             div ng-if="celebrant.person_responsible"
