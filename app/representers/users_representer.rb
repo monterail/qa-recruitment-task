@@ -10,4 +10,14 @@ class UsersRepresenter < Struct.new(:users)
       }
     end
   end
+
+  def without_birthday
+    users.map do |user|
+      {
+        name: user.name,
+        id: user.id,
+        profile_photo: "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}"
+      }
+    end
+  end
 end

@@ -3,6 +3,8 @@ angular.module('BornApp').service 'User', ($http, Rails) ->
 
   index: ->
     $http.get(base)
+  withoutBirthday: ->
+    $http.get("#{base}/unset")
   show: (id) ->
     $http.get("#{base}/#{id}")
   updateMe: (user) ->

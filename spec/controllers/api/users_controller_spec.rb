@@ -44,6 +44,29 @@ describe Api::UsersController do
     end
   end
 
+  describe "GET #users_without_birthday" do
+    before(:each) do
+      User.create(user_older_attributes)
+      User.create(user_without_birthday_attributes)
+      get :users_without_birthday
+    end
+
+    subject { JSON.parse(response.body) }
+
+    it "returns users wihout current_user_attributes" do
+      is_expected.not_to include(current_user_attributes.slice('name', 'id'))
+    end
+
+    it "returns users that have no birthday date set up" do
+      user_without_birthday = User.find_by(sso_id: user_without_birthday_attributes['sso_id'])
+      expect(subject[0]['id']).to eq(user_without_birthday.id)
+    end
+
+    it "doesn't include users with birthday date" do
+      is_expected.not_to include(user_older_attributes.slice('name', 'id'))
+    end
+  end
+
   describe "PUT #update_me" do
     context "with valid attributes" do
       it "updates current_user_attributes data" do

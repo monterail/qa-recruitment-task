@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get '', to: 'users#index'
+        get '/unset', to: 'users#users_without_birthday'
         get '/me', to: 'users#me'
         put '/me', to: 'users#update_me'
       end
