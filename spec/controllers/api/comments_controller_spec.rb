@@ -73,7 +73,7 @@ describe Api::CommentsController do
         delete :destroy, proposition_id: comment_attributes['proposition_id'],
                          id: comment_attributes['id']
         expect(response.status).to eq(200)
-        expect(Comment.find_by(id: comment_attributes['id'])).not_to eq(true)
+        expect(Comment.find_by(id: comment_attributes['id'])).to eq(nil)
       end
     end
 
