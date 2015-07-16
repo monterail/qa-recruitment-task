@@ -65,7 +65,7 @@ describe Api::CommentsController do
 
   describe "delete #destroy" do
     before(:each) do
-      Comment.create(comment_attributes)
+      Comment.create!(comment_attributes)
     end
 
     context "if owner is current_user" do
