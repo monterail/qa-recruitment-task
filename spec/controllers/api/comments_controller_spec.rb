@@ -87,7 +87,7 @@ describe Api::CommentsController do
     end
 
     it "heads 404 when comment not found" do
-      delete :destroy, proposition_id: comment_attributes['proposition_id'], id: 9999
+      delete :destroy, proposition_id: comment_attributes['proposition_id'], id: 'xyz'
       expect(response.status).to eq(404)
     end
   end
