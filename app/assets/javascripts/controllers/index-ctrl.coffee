@@ -2,5 +2,5 @@ angular.module('BornApp').controller 'IndexCtrl', ($scope, users, currentUser, U
   $scope.currentUser = currentUser.data
   $scope.users = users.data
 
-  User.usersWithoutBirthday().then (users) ->
-    $scope.usersWithoutBirthdays = users.data
+  User.withoutBirthday().success (users) ->
+    $scope.usersWithoutBirthday = users
