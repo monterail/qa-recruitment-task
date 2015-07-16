@@ -1,15 +1,25 @@
 @import ../base/global
 
-.mainpage__container
-  background: rgba(black, 0.2)
-
 .mainpage__background
   height: auto
   width: auto
   overflow: hidden
   position: fixed
-  &:after
-    background: rgba(black, 0.6)
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    background: rgba(#7878AA, 0.4)
+
+.mainpage__foreground
+  position: relative
+  z-index: 2
 
 .person__index
   color: $crs-tertiary-color

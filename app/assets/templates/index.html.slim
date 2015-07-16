@@ -1,9 +1,10 @@
 .mainpage__container
-  = image_tag 'main-background-image.jpg', class: 'mainpage__background'
-  div
+  .mainpage__background
+    = image_tag 'main-background-image.jpg'
+  .mainpage__foreground
     section.crs-grid__row.crs-grid__row--centered
       .crs-grid__column.crs-grid__unit--sm-5
-        h1.crs-typo__h1.born-header.header__today Happy birthday!
+        h1.crs-typo__h1.header__today Happy birthday!
         .crs-grid__row ng-repeat="user in users"
           .crs-grid__column.crs-grid__unit--sm-10
             ul.crs-typo__ul.crs-utils--left
@@ -14,7 +15,7 @@
                   | {{ user.name }}
 
       section.crs-grid__column.crs-grid__unit--sm-7
-        h1.crs-typo__h1.born-header.header__upcoming Upcoming birthdays
+        h1.crs-typo__h1.header__upcoming Upcoming birthdays
         .crs-grid__row ng-repeat="user in users"
           .crs-grid__column.crs-grid__unit--sm-6
             ul.crs-typo__ul.crs-utils--left

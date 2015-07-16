@@ -15,9 +15,9 @@ div.user__container
             form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout" name="aboutMeUpdate"
               .crs-input__group
                 textarea ng-model="celebrant.about" ng-model-options="{ updateOn: 'blur' }" class="form__validate" name="aboutMeInput" ng-required="true"
-                span.error__message ng-show="aboutMeUpdate.aboutMeInput.$touched && aboutMeUpdate.aboutMeInput.$invalid" This field is required
                 button.crs-button type="submit" Save
                 button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
+                span.error__message< ng-show="aboutMeUpdate.aboutMeInput.$touched && aboutMeUpdate.aboutMeInput.$invalid" This field is required
             h3.crs-typo__h3
               | Person responsible: {{ celebrant.person_responsible.name || 'not chosen yet'}}
             div ng-if="celebrant.person_responsible"
