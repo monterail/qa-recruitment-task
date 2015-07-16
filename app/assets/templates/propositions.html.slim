@@ -41,7 +41,7 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
         input type="text" class="form__validate" ng-model="newProposition.title" ng-model-options="{ updateOn: 'blur' }" minlength="2"
         label Title
       .crs-input__group
-        textarea ng-model="newProposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" minlength="2"
+        input ng-model="newProposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" minlength="2"
         label Description
       .crs-input__group
         input type="number" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }"
