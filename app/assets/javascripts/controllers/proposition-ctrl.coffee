@@ -32,3 +32,9 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
       $scope.celebrant.propositions.chosen.push updatedProposition
     .error (err) ->
       $rootScope.$broadcast("userUpdateError", { message: "Server Error. Please try again" })
+
+  $scope.backProposition = (proposition) ->
+    Proposition.choose(proposition).success (updatedProposition) ->
+      index = $scope.celebrant.propositions.current.indexOf(proposition)
+      $scope.celebrant.propositions.current.push updatedProposition
+      $scope.celebrant.propositions.chosen.splice(index, 1)
