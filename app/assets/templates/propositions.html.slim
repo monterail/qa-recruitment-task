@@ -2,8 +2,9 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
   div.crs-grid__column.crs-grid__unit--sm-8
     h2.crs-utils--center Chosen before
     ul ng-repeat="proposition in celebrant.propositions.chosen"
-      li
+      li.chosen__item
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
+      span.delete__icon ng-click="backProposition(proposition)" X
 
     h2.crs-typo__h2.crs-utils--center Propositions
     div.propositions__container ng-repeat="proposition in celebrant.propositions.current"
