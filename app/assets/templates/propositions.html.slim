@@ -5,7 +5,7 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
     h2.crs-utils--center ng-if="isPropositionEmpty()"
       | No propositions yet!
     ul ng-repeat="proposition in celebrant.propositions.chosen"
-      li
+      li.chosen__item
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
         button.delete-button__icon.crs-icon.crs-icon-circle-cross-mark-02 type="button" ng-click="unchooseProposition(proposition)"
 
