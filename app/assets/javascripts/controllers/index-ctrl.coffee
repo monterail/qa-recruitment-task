@@ -1,6 +1,7 @@
-angular.module('BornApp').controller 'IndexCtrl', ($scope, users, currentUser, User) ->
+angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, currentUser) ->
   $scope.currentUser = currentUser.data
   $scope.users = users.data
 
-  User.withoutBirthday().success (users) ->
-    $scope.usersWithoutBirthday = users
+  usersGroups = UsersList.todayBirthdays($scope.users)
+  $scope.todayBirthdays = usersGroups[0]
+  $scope.nextBirthdays = usersGroups[1]

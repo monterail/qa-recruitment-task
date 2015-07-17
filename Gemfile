@@ -18,6 +18,8 @@ end
 source 'http://rails-assets.org' do
   gem 'rails-assets-angular', '1.3.6'
   gem 'rails-assets-angular-ui-router', '0.2.13'
+  gem 'rails-assets-lodash', '~> 3.5.0'
+
 end
 
 gem 'rails_sso', '~> 0.3.0'

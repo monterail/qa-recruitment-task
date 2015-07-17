@@ -3,5 +3,6 @@
 #
 #= require ./init
 #= require ./routes
+#= require lodash
 #
 #= require_tree .
