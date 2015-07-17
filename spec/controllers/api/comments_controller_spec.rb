@@ -31,7 +31,7 @@ describe Api::CommentsController do
 
   describe "put #update" do
     before(:each) do
-      Comment.create(comment_attributes)
+      Comment.create!(comment_attributes)
     end
 
     context "if owner is current_user" do
@@ -59,6 +59,35 @@ describe Api::CommentsController do
 
     it "heads 404 when comment not found" do
       put :update, proposition_id: comment_attributes['proposition_id'], id: 9999, comment: comment_attributes
+      expect(response.status).to eq(404)
+    end
+  end
+
+  describe "delete #destroy" do
+    before(:each) do
+      Comment.create!(comment_attributes)
+    end
+
+    context "if owner is current_user" do
+      it "deletes comment" do
+        delete :destroy, proposition_id: comment_attributes['proposition_id'],
+                         id: comment_attributes['id']
+        expect(response.status).to eq(200)
+        expect(Comment.find_by(id: comment_attributes['id'])).to be_nil
+      end
+    end
+
+    context "if owner isn't current_user" do
+      it "return unauthorized" do
+        auth(User.create!(name: 'baduser', email: 'bad@user.eu', sso_id: '87654321'))
+        delete :destroy, proposition_id: comment_attributes['proposition_id'],
+                         id: comment_attributes['id']
+        expect(response.status).to eq(401)
+      end
+    end
+
+    it "heads 404 when comment not found" do
+      delete :destroy, proposition_id: comment_attributes['proposition_id'], id: 'xyz'
       expect(response.status).to eq(404)
     end
   end
