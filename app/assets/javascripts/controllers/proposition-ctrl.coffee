@@ -24,7 +24,7 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
       $scope.celebrant.propositions.current.splice(index, 1)
       $scope.celebrant.propositions.chosen.push updatedProposition
 
-  $scope.backProposition = (proposition) ->
+  $scope.undoProposition = (proposition) ->
     Proposition.choose(proposition).success (updatedProposition) ->
       index = $scope.celebrant.propositions.current.indexOf(proposition)
       $scope.celebrant.propositions.current.push updatedProposition
