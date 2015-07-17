@@ -1,10 +1,11 @@
 div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
   div.crs-grid__column.crs-grid__unit--sm-8
-    h2.crs-utils--center Chosen before
+    h2.crs-utils--center
+      | Chosen before
     ul ng-repeat="proposition in celebrant.propositions.chosen"
-      li.chosen__item
+      li.chosen-proposition__item
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
-      span.delete__icon ng-click="backProposition(proposition)" X
+      button.delete-button__icon.crs-icon-circle-cross-mark-02 ng-click="undoProposition(proposition)"
 
     h2.crs-typo__h2.crs-utils--center Propositions
     div.propositions__container ng-repeat="proposition in celebrant.propositions.current"
