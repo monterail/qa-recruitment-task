@@ -46,18 +46,4 @@ class User < ActiveRecord::Base
   def next_birthday
     self.birthdays_as_celebrant.find_by(year: self.next_birthday_year)
   end
-
-  def self.auth!(auth_hash)
-    attrs = {
-      sso_id: auth_hash['uid'],
-      name: auth_hash['name'],
-      email: auth_hash['email']
-    }
-    if user = find_by(sso_id: auth_hash['uid'])
-      user.update_attributes!(attrs)
-      user
-    else
-      create!(attrs)
-    end
-  end
 end

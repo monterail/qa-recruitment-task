@@ -64,31 +64,11 @@ describe User do
     end
   end
 
-  describe "User.auth!" do
-    let!(:current_user_data) {{ "id" => 1, "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }}
-
-    context "if current user exists in born" do
-      before(:each) do
-        User.auth!(current_user_data)
-      end
-      it "updates born user" do
-        current_user_data["email"] = "new_changed@ema.il"
-        User.auth!(current_user_data)
-        expect(current_user_data["email"]).to eq("new_changed@ema.il")
-      end
-    end
-    context "if current user doesn't exist in born" do
-      it "creates new user" do
-        expect{ User.auth!(current_user_data) }.to change{ User.count }.by(1)
-      end
-    end
-  end
-
   describe "User.sooners scope" do
     let(:current_user_data) {{ "id" => 1, "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }}
 
     before(:each) do
-      User.auth!(current_user_data)
+      FindOrCreateUser.new.call(current_user_data)
     end
 
     after(:each) do
