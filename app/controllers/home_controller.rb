@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
 
   def authenticate
-    FindOrCreateUser.new.call(current_user_data)
+    FindOrCreateUser.new(current_user_data).call
   end
 end

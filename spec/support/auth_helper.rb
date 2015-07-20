@@ -3,6 +3,6 @@ module AuthHelper
     RailsSso.profile_mock = user
     warden = double(authenticate!: true, user: RailsSso.profile_mock.as_json)
     request.env['warden'] = warden
-    FindOrCreateUser.new.call(RailsSso.profile_mock.as_json)
+    FindOrCreateUser.new(RailsSso.profile_mock.as_json).call
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::BirthdaysController, type: :controller do
+describe Api::BirthdaysController do
   include AuthHelper
 
   let(:celebrant) do

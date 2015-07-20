@@ -68,7 +68,7 @@ describe User do
     let(:current_user_data) {{ "id" => 1, "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }}
 
     before(:each) do
-      FindOrCreateUser.new.call(current_user_data)
+      FindOrCreateUser.new(current_user_data).call
     end
 
     after(:each) do
