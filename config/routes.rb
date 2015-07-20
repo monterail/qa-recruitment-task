@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :propositions, only: [:update, :create] do
       member do
         put 'choose', to: 'propositions#choose'
+        put 'unchoose', to: 'propositions#unchoose'
         post 'vote', to: 'votes#vote'
         delete 'vote/:vote_id', to: 'votes#unvote'
       end
