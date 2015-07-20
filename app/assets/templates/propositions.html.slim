@@ -5,7 +5,7 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
     ul ng-repeat="proposition in celebrant.propositions.chosen"
       li.chosen-proposition__item
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
-      button.delete-button__icon.crs-icon-circle-cross-mark-02 ng-click="undoProposition(proposition)"
+      button.delete-button__icon.crs-icon-circle-cross-mark-02 ng-click="unchooseProposition(proposition)"
 
     h2.crs-typo__h2.crs-utils--center Propositions
     div.propositions__container ng-repeat="proposition in celebrant.propositions.current"
