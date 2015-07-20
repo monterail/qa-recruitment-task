@@ -58,9 +58,15 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
         span.error__message ng-show="newPropositionForm.propositionDescription.$touched && newPropositionForm.propositionDescription.$invalid"
           | This field is required
       .crs-input__group
+<<<<<<< HEAD
         input type="number" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
         label
           | Value*
         span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid"
           | This field is required and need only numbers
+=======
+        input type="number" string-to-number="" step="any" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
+        label Value*
+        span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid" This field is required and need only numbers
+>>>>>>> [BORN-57] Solved problem with console errors
       input.crs-button.crs-button--success type="submit" value="Save"
