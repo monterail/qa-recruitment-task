@@ -9,17 +9,17 @@ describe BirthdayGenerator do
 
   context "if current user exists in born" do
     before(:each) do
-      FindOrCreateUser.new.call(current_user_data)
+      FindOrCreateUser.new(current_user_data).call
     end
     it "updates born user" do
       current_user_data["email"] = "new_changed@ema.il"
-      FindOrCreateUser.new.call(current_user_data)
+      FindOrCreateUser.new(current_user_data).call
       expect(current_user_data["email"]).to eq("new_changed@ema.il")
     end
   end
   context "if current user doesn't exist in born" do
     it "creates new user" do
-      expect{ FindOrCreateUser.new.call(current_user_data) }.to change{ User.count }.by(1)
+      expect{ FindOrCreateUser.new(current_user_data).call }.to change{ User.count }.by(1)
     end
   end
 end
