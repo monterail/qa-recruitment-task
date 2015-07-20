@@ -3,14 +3,11 @@ require 'rails_helper'
 describe Api::CommentsController do
   include AuthHelper
 
-  let(:current_user) { User.create!(name: 'hodor', email: 'hodor@example.com', sso_id: '12345678') }
+  let(:current_user) { User.find_by(sso_id: controller.current_user_data['uid']) }
   let(:celebrant) { User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241') }
   let(:proposition) { Proposition.create!(title: 'title', celebrant_id: celebrant['id'], owner_id: current_user.id) }
   let(:comment_attributes) {{ 'id' => 123, 'body' => 'body', 'proposition_id' => proposition['id'], 'owner_id' => current_user.id }}
-
-  before(:each) do
-    auth(current_user)
-  end
+  let(:not_me_user) {{ name: 'baduser', email: 'bad@user.eu', uid: '87654321' }}
 
   describe "post #create" do
     it "new comment has owner" do
@@ -48,11 +45,13 @@ describe Api::CommentsController do
         expect(response.status).to eq(422)
       end
     end
+
     context "if owner isn't current_user" do
       it "return unauthorized" do
-        auth(User.create!(name: 'baduser', email: 'bad@user.eu', sso_id: '87654321'))
+        auth_as(not_me_user)
         comment_attributes['body'] = 'new body'
-        put :update, proposition_id: comment_attributes['proposition_id'], id: comment_attributes['id'], comment: comment_attributes
+        put :update, proposition_id: comment_attributes['proposition_id'],
+                     id: comment_attributes['id'], comment: comment_attributes
         expect(response.status).to eq(401)
       end
     end
@@ -79,7 +78,7 @@ describe Api::CommentsController do
 
     context "if owner isn't current_user" do
       it "return unauthorized" do
-        auth(User.create!(name: 'baduser', email: 'bad@user.eu', sso_id: '87654321'))
+        auth_as(not_me_user)
         delete :destroy, proposition_id: comment_attributes['proposition_id'],
                          id: comment_attributes['id']
         expect(response.status).to eq(401)
