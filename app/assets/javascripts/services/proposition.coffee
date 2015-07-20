@@ -7,3 +7,5 @@ angular.module('BornApp').service 'Proposition', ($http, Rails) ->
     $http.put("#{base}/#{proposition.id}", proposition: proposition)
   choose: (proposition) ->
     $http.put("#{base}/#{proposition.id}/choose", proposition: proposition)
+  unchoose: (proposition) ->
+    $http.put("#{base}/#{proposition.id}/unchoose", proposition: proposition)
