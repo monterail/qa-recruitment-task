@@ -3,13 +3,9 @@ require 'rails_helper'
 describe Api::PropositionsController do
   include AuthHelper
 
-  let(:current_user) { User.create!(name: 'hodor', email: 'hodor@example.com', sso_id: '12345678') }
+  let(:current_user) { User.find_by(sso_id: controller.current_user_data['uid']) }
   let(:celebrant) { User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241') }
   let(:proposition_attributes) {{ 'id' => 222, 'title' => 'title', 'celebrant_id' => celebrant['id'], 'owner_id' => current_user.id }}
-
-  before(:each) do
-    auth(current_user)
-  end
 
   describe "post #create" do
     it "new proposition has owner" do
@@ -45,7 +41,7 @@ describe Api::PropositionsController do
 
     context "if owner isn't current_user" do
       it "return unauthorized" do
-        auth(User.create!(name: 'baduser', email: 'bad@user.eu', sso_id: '87654321'))
+        auth_as({ name: 'baduser', email: 'bad@user.eu', uid: '87654321' })
         proposition_attributes['description'] = 'newDescription'
         put :update, id: proposition_attributes['id'], proposition: proposition_attributes
         expect(response.status).to eq(401)

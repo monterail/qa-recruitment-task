@@ -3,13 +3,14 @@ require 'rails_helper'
 describe Api::UsersController do
   include AuthHelper
 
-  let(:current_user_attributes) {{ 'id' => 123, 'name' => 'hodor', 'email' => 'hodor@example.com', 'sso_id' => '12345678' }}
+  let(:current_user_attributes) {{ 'name' => 'hodor', 'email' => 'hodor@example.com', 'uid' => '12345678' }}
+  let(:current_user) { User.find_by(sso_id: controller.current_user_data['uid']) }
   let(:user_younger_attributes) {{ 'id' => 124, 'email' => 'hodor2@example.com', 'name' => 'hodor2', 'sso_id' => '23456789', 'birthday_month' => 2.month.from_now.month, 'birthday_day' => 1 }}
   let(:user_older_attributes) {{ 'id' => 125, 'email' => 'hodor3@example.com', 'name' => 'hodor3', 'sso_id' => '34567890', 'birthday_month' => 1.month.from_now.month, 'birthday_day' => 12 }}
   let(:user_without_birthday_attributes) {{ 'email' => 'hodor4@example.com', 'name' => 'hodor4', 'sso_id' => '45678901' }}
 
   before(:each) do
-    auth(User.create(current_user_attributes))
+    auth_as(current_user_attributes)
   end
 
   describe "GET #me" do
@@ -46,8 +47,8 @@ describe Api::UsersController do
 
   describe "GET #users_without_birthday" do
     before(:each) do
-      User.create(user_older_attributes)
-      User.create(user_without_birthday_attributes)
+      User.create!(user_older_attributes)
+      User.create!(user_without_birthday_attributes)
       get :users_without_birthday
     end
 
@@ -59,7 +60,7 @@ describe Api::UsersController do
 
     it "returns users that have no birthday date set up" do
       user_without_birthday = User.find_by(sso_id: user_without_birthday_attributes['sso_id'])
-      expect(subject[0]['id']).to eq(user_without_birthday.id)
+      expect(subject.map{ |h| h['id'] }).to include(user_without_birthday.id)
     end
 
     it "doesn't include users with birthday date" do
@@ -74,7 +75,7 @@ describe Api::UsersController do
         put :update_me, user: current_user_attributes
         updated_user = JSON.parse(response.body)
         expect(updated_user['birthday_day']).to eq(12)
-        updated_user = User.find_by_id(current_user_attributes['id'])
+        updated_user = User.find_by(sso_id: current_user_attributes['uid'])
         expect(updated_user['birthday_day']).to eq(12)
       end
     end
@@ -84,7 +85,7 @@ describe Api::UsersController do
         current_user_attributes['birthday_day'] = 48
         put :update_me, user: current_user_attributes
         expect(response.status).to eq(422)
-        updated_user = User.find_by_id(current_user_attributes['id'])
+        updated_user = User.find_by(sso_id: current_user_attributes['uid'])
         expect(updated_user['birthday_day']).not_to eq(48)
       end
 
@@ -176,7 +177,7 @@ describe Api::UsersController do
     end
 
     it "doesn't show user's data if it's current_user_attributes" do
-      get :show, id: current_user_attributes['id']
+      get :show, id: current_user.id
       expect(response.status).to eq(401)
     end
 

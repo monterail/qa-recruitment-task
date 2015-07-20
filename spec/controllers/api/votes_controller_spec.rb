@@ -3,13 +3,9 @@ require 'rails_helper'
 describe Api::VotesController do
   include AuthHelper
 
-  let(:current_user) { User.create!(name: 'hodor', email: 'hodor@example.com', sso_id: '12345678') }
+  let(:current_user) { User.find_by(sso_id: controller.current_user_data['uid']) }
   let(:celebrant) { User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241') }
   let(:proposition) { Proposition.create!(id: 222, title: 'title', celebrant_id: celebrant.id, owner_id: current_user.id) }
-
-  before(:each) do
-    auth(current_user)
-  end
 
   describe "post #vote" do
     it "adds vote to proposition" do
@@ -33,11 +29,11 @@ describe Api::VotesController do
     end
 
     it "forbids celebrant to vote" do
-      auth(celebrant)
+      auth_as(celebrant.attributes.merge(:uid => celebrant.sso_id))
       post :vote, id: proposition.id
       expect {
         post :vote, id: proposition.id
-      }.to_not change{ proposition.votes.count }
+      }.not_to change{ proposition.votes.count }
       expect(response.status).to eq(403)
     end
 
