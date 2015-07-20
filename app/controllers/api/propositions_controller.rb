@@ -8,7 +8,6 @@ module Api
     end
 
     def update
-      proposition = proposition_from_params
       if proposition.update(proposition_params)
         render json: PropositionRepresenter.new(proposition).basic
       else
@@ -17,18 +16,22 @@ module Api
     end
 
     def choose
-      proposition = Proposition.find(params[:id])
       proposition.update_attributes(year_chosen_in: Time.now.year)
       render json: PropositionRepresenter.new(proposition).basic
     end
 
+    def unchoose
+      proposition.update_attributes(year_chosen_in: nil)
+      render json: PropositionRepresenter.new(proposition).basic
+    end
+
   private
-    def proposition_from_params
-      proposition ||= Proposition.find(params[:id])
+
+    def proposition
+      @proposition ||= Proposition.find(params[:id])
     end
 
     def restrict_wrong_owner
-      proposition = proposition_from_params
       head :unauthorized if current_user.id != proposition.owner_id
     end
 

@@ -67,4 +67,19 @@ describe Api::PropositionsController do
       expect(response.status).to eq(404)
     end
   end
+
+  describe "put #unchoose" do
+    it "assigns nil to proposition" do
+      Proposition.create(proposition_attributes)
+      put :choose, id: proposition_attributes['id'], proposition: proposition_attributes
+      put :unchoose, id: proposition_attributes['id'], proposition: proposition_attributes
+      chosen_proposition = JSON.parse(response.body)
+      expect(chosen_proposition['year_chosen_in']).to eq(nil)
+    end
+
+    it "heads 404 when proposition not found" do
+      put :unchoose, id: 9999, proposition: proposition_attributes
+      expect(response.status).to eq(404)
+    end
+  end
 end
