@@ -2,10 +2,10 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
   div.crs-grid__column.crs-grid__unit--sm-8
     h2.crs-utils--center
       | Chosen before
-    ul ng-repeat="proposition in celebrant.propositions.chosen"
-      li.chosen-proposition__item
+    ul
+      li.chosen-proposition__item ng-repeat="proposition in celebrant.propositions.chosen"
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
-      button.delete-button__icon.crs-icon.crs-icon-circle-cross-mark-02 ng-click="unchooseProposition(proposition)"
+        button.delete-button__icon.crs-icon.crs-icon-circle-cross-mark-02 type="button" ng-click="unchooseProposition(proposition)"
 
     h2.crs-typo__h2.crs-utils--center Propositions
     div.propositions__container ng-repeat="proposition in celebrant.propositions.current"
@@ -20,7 +20,7 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
         div.propositions__container
           button.crs-button.crs-button--small type="button" ng-click="chooseProposition(proposition)" Mark as bought
           button.crs-button.crs-button--secondary.crs-button--small.propositions__edit type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
-          button.crs-button.crs-button--small.propositions__delete type="button" Delete
+          button.crs-button.crs-button--small.propositions__delete type="button" ng-click="cancelEditProposition()" Delete
       form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id" name="editPropositionForm" novalidate="true"
         .crs-input__group
           input type="text" class="form__validate" ng-model="proposition.title" ng-model-options="{ updateOn: 'blur' }" name="propositionTitle" ng-required="true"
