@@ -3,8 +3,8 @@ class HomeController < ApplicationController
 
   def index
   end
-  
+
   def authenticate
-    User.auth!(current_user_data)
+    FindOrCreateUser.new.call(current_user_data)
   end
 end
