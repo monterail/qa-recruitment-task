@@ -4,7 +4,8 @@
   .mainpage__foreground
     section.crs-grid__row.crs-grid__row--centered
       .crs-grid__column.crs-grid__unit--sm-6
-        h1.crs-typo__h1.mainpage__header Happy birthday!
+        h1.crs-typo__h1.mainpage__header
+          | Happy birthday!
         .crs-grid__row.crs-grid__row--centered ng-repeat="user in users | limitTo: 3"
           .crs-grid__column.crs-grid__unit--sm-10
             ul.crs-typo__ul
@@ -16,7 +17,8 @@
                     | {{ user.name }}
 
       section.crs-grid__column.crs-grid__unit--sm-6
-        h1.crs-typo__h1.mainpage__header Upcoming birthdays
+        h1.crs-typo__h1.mainpage__header
+          | Upcoming birthdays
         .crs-grid__row ng-repeat="user in users | limitTo: 6"
           .crs-grid__column.crs-grid__unit--sm-6
             ul.crs-typo__ul.crs-utils--left
@@ -39,24 +41,28 @@
 
     section.crs-grid__row.crs-grid__row--centered
       .crs-grid__column.crs-grid__unit--sm-6
-        h1.crs-typo__h1.mainpage__header List of Birthdays
+        h1.crs-typo__h1.mainpage__header
+          | List of Birthdays
         .crs-grid__row.crs-grid__row--centered
           .crs-grid__column.crs-grid__unit--sm-10
-            ul.crs-typo__ul ng-repeat="user in users"
-              li ui-sref="auth.user({id: user.id})"
-                img.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
-                span.person__index
-                  strong
-                    | {{ user.name }}
-                  br
-                    | {{ user.birthday_day }}.{{ user.birthday_month }}
+            .birthday-list__container ng-repeat="user in users"
+              ul.crs-typo__ul
+                li ui-sref="auth.user({id: user.id})"
+                  img.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
+                  span.person__index
+                    strong
+                      | {{ user.name }}
+                    br
+                      | {{ user.birthday_day }}.{{ user.birthday_month }}
 
 
       .crs-grid__column.crs-grid__unit--sm-6
-        h1.crs-typo__h1.mainpage__header Who didn't set birthday
-        ul.crs-typo__ul ng-disabled="true" ng-repeat="user in usersWithoutBirthday"
-          li
-            img.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
-            span.person__index
-              strong
-                | {{ user.name }}
+        .without-birthday-list__container ng-repeat="user in usersWithoutBirthday"
+          h1.crs-typo__h1.mainpage__header
+            | Who didn't set birthday
+          ul.crs-typo__ul ng-disabled="true"
+            li
+              img.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
+              span.person__index
+                strong
+                  | {{ user.name }}
