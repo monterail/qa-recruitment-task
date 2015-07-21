@@ -26,6 +26,12 @@
   height: 100%
   min-width: 1300px
 
+.list__item
+  padding-bottom: $crs-global-list-item-space
+
+.today-birthday-list__item
+  padding-bottom: $crs-global-list-item-space * (4/3)
+
 .person__index
   color: $crs-tertiary-color
   margin-left: 1rem
@@ -40,7 +46,7 @@
     cursor: pointer
 
 .mainpage__header
-  padding-bottom: rem(40px)
+  padding-bottom: $crs-global-list-item-space * (4/3)
   font-size: $crs-header-h1-size
   text-shadow: $crs-global-shadow
   letter-spacing: $crs-global-letter-spacing
