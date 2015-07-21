@@ -17,10 +17,14 @@ module Api
       render json: OneUserRepresenter.new(User.find(params[:id])).basic
     end
 
+
+###ADD STATUS TO METHOD UPDATE###
+
+
     def update
       user = User.find(params[:id])
       if user.update(user_params)
-        render json: OneUserRepresenter.new(user).basic
+        render json: OneUserRepresenter.new(user).basic, status: 422
       else
         render json: { errors: user.errors.messages }, status: 422
       end

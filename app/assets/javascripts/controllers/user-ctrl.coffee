@@ -10,9 +10,13 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser
     $scope.isEditingAbout = !$scope.isEditingAbout
 
   $scope.updateAbout = ->
-    User.update($scope.celebrant).success (user) ->
+    User.update($scope.celebrant)
+    .success (user) ->
       $scope.celebrant.about = user.about
       $scope.isEditingAbout = false
+    .error (err) ->
+      console.log('dupa')
+      alert('Something went wrong. Please try again!')
 
   $scope.updateIfCovered = ->
     if $scope.celebrant.covered
