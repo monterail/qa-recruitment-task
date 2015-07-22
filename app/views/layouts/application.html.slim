@@ -5,7 +5,7 @@ html ng-app="BornApp"
     title Born Hussars!
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
-  body
+  body modal-body-lock="true"
     = yield
     .crs-notify__container#notifyContainer error-notify=""
     = javascript_include_tag 'application'
