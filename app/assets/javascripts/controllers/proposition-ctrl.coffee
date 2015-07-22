@@ -4,6 +4,10 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
   $scope.editProposition = (id) ->
     $scope.editPropositionId = id
 
+
+  $scope.isPropositionEmpty = ->
+    $scope.celebrant.propositions.chosen.length <= 0
+
   $scope.cancelEditProposition = ->
     $scope.editPropositionId = null
 
