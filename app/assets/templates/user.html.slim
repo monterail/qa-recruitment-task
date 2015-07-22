@@ -9,10 +9,8 @@ div.user__container
       .crs-grid__column.crs-grid__unit--sm-2
         img.celebrant__avatar ng-src="{{ celebrant.profile_photo }}.jpg?s=400"
       .crs-grid__column.crs-grid__unit--sm-8.celebrant__about
-        h2 ng-if="celebrant.about"
-          | Description
-        h2 ng-if="!celebrant.about"
-          | Any Description yet!
+        h2
+          | {{ celebrant.about ? 'Description' : 'No description yet!'  }}
         div ng-if="!isEditingAbout"
             p.crs-typo__p ng-bind="celebrant.about"
             button.crs-button.crs-button--small.celebrant__description--edit type="button" ng-click="toggleEditingAbout()" Edit description
