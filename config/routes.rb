@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         put '/me', to: 'users#update_me'
       end
     end
-    resources :propositions, only: [:update, :create] do
+    resources :propositions, only: [:update, :create, :destroy] do
       member do
         put 'choose', to: 'propositions#choose'
         put 'unchoose', to: 'propositions#unchoose'

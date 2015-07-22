@@ -15,6 +15,14 @@ module Api
       end
     end
 
+    def destroy
+      if proposition.destroy!
+        head :ok
+      else
+        render json: { errors: proposition.errors.messages }, status: 422
+      end
+    end
+
     def choose
       proposition.update_attributes(year_chosen_in: Time.now.year)
       render json: PropositionRepresenter.new(proposition).basic
