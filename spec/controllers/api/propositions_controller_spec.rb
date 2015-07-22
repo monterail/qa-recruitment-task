@@ -53,7 +53,7 @@ describe Api::PropositionsController do
     end
 
     it "heads 404 when proposition not found" do
-      put :update, id: 9999, proposition: proposition_attributes
+      put :update, id: 'xyz', proposition: proposition_attributes
       expect(response.status).to eq(404)
     end
   end
@@ -67,7 +67,7 @@ describe Api::PropositionsController do
     end
 
     it "heads 404 when proposition not found" do
-      put :choose, id: 9999, proposition: proposition_attributes
+      put :choose, id: 'xyz', proposition: proposition_attributes
       expect(response.status).to eq(404)
     end
   end
@@ -82,7 +82,7 @@ describe Api::PropositionsController do
     end
 
     it "heads 404 when proposition not found" do
-      put :unchoose, id: 9999, proposition: proposition_attributes
+      put :unchoose, id: 'xyz', proposition: proposition_attributes
       expect(response.status).to eq(404)
     end
   end
