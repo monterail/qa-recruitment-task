@@ -3,7 +3,9 @@ require 'rails_helper'
 describe Api::CommentsController do
   include AuthHelper
 
-  let(:current_user) { User.find_by(sso_id: controller.current_user_data['uid']) }
+  let(:current_user) { controller.current_user }
+  let(:another_user) { User.create!(name: 'another_user', email: 'another@example.com',
+                                    sso_id: '049523498') }
   let(:celebrant) { User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241') }
   let(:proposition) { Proposition.create!(title: 'title', celebrant_id: celebrant['id'], owner_id: current_user.id) }
   let(:comment_attributes) {{ 'id' => 123, 'body' => 'body', 'proposition_id' => proposition['id'], 'owner_id' => current_user.id }}
@@ -48,10 +50,12 @@ describe Api::CommentsController do
 
     context "if owner isn't current_user" do
       it "return unauthorized" do
-        auth_as(not_me_user)
+        other_comment_attributes = { 'body' => 'body', 'proposition_id' => proposition['id'],
+                                     'owner_id' => another_user.id }
+        other_comment = Comment.create!(other_comment_attributes)
         comment_attributes['body'] = 'new body'
-        put :update, proposition_id: comment_attributes['proposition_id'],
-                     id: comment_attributes['id'], comment: comment_attributes
+        put :update, proposition_id: other_comment.proposition_id,
+                     id: other_comment.id, comment: other_comment_attributes
         expect(response.status).to eq(401)
       end
     end
@@ -78,9 +82,10 @@ describe Api::CommentsController do
 
     context "if owner isn't current_user" do
       it "return unauthorized" do
-        auth_as(not_me_user)
-        delete :destroy, proposition_id: comment_attributes['proposition_id'],
-                         id: comment_attributes['id']
+        other_comment = Comment.create!(body: 'body', proposition_id: proposition['id'],
+                                        owner_id: another_user.id)
+        delete :destroy, proposition_id: other_comment.proposition_id,
+                         id: other_comment.id
         expect(response.status).to eq(401)
       end
     end
