@@ -129,7 +129,7 @@ describe Api::UsersController do
       end
 
       it "heads 404 when user not found" do
-        put :update, id: 9999, user: user_younger_attributes
+        put :update, id: 'xyz', user: user_younger_attributes
         expect(response.status).to eq(404)
       end
     end
@@ -182,7 +182,7 @@ describe Api::UsersController do
     end
 
     it "heads 404 when user not found" do
-      get :show, id: 9999
+      get :show, id: 'xyz'
       expect(response.status).to eq(404)
     end
   end
