@@ -4,7 +4,7 @@ describe Api::UsersController do
   include AuthHelper
 
   let(:current_user_attributes) {{ 'name' => 'hodor', 'email' => 'hodor@example.com', 'uid' => '12345678' }}
-  let(:current_user) { User.find_by(sso_id: controller.current_user_data['uid']) }
+  let(:current_user) { controller.current_user }
   let(:user_younger_attributes) {{ 'id' => 124, 'email' => 'hodor2@example.com', 'name' => 'hodor2', 'sso_id' => '23456789', 'birthday_month' => 2.month.from_now.month, 'birthday_day' => 1 }}
   let(:user_older_attributes) {{ 'id' => 125, 'email' => 'hodor3@example.com', 'name' => 'hodor3', 'sso_id' => '34567890', 'birthday_month' => 1.month.from_now.month, 'birthday_day' => 12 }}
   let(:user_without_birthday_attributes) {{ 'email' => 'hodor4@example.com', 'name' => 'hodor4', 'sso_id' => '45678901' }}

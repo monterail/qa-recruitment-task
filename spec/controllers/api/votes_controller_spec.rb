@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::VotesController do
   include AuthHelper
 
-  let(:current_user) { User.find_by(sso_id: controller.current_user_data['uid']) }
+  let(:current_user) { controller.current_user }
   let(:celebrant) { User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241') }
   let(:proposition) { Proposition.create!(id: 222, title: 'title', celebrant_id: celebrant.id, owner_id: current_user.id) }
 
