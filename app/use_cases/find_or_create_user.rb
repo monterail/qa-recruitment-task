@@ -1,6 +1,8 @@
 class FindOrCreateUser < Struct.new(:auth_hash)
   def call
-    User.find_or_create_by!(attrs)
+    User.find_or_initialize_by!(sso_id: attrs[:sso_id]).tap do |user|
+      user.update_attributes!(attrs)
+    end
   end
 
   private
