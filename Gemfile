@@ -22,7 +22,7 @@ source 'http://rails-assets.org' do
 
 end
 
-gem 'rails_sso', '~> 0.3.0'
+gem 'rails_sso', '~> 0.6.1'
 gem 'envied', '~> 0.8.1'
 
 group :development do
