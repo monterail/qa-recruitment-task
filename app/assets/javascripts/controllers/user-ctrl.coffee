@@ -1,4 +1,4 @@
-angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser, User, Birthday) ->
+angular.module('BornApp').controller 'UserCtrl', ($scope, $rootScope, celebrant, currentUser, User, Birthday) ->
   $scope.currentUser = currentUser.data
   $scope.celebrant = celebrant.data
   $scope.newProposition = {
@@ -15,8 +15,9 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, celebrant, currentUser
       $scope.celebrant.about = user.about
       $scope.isEditingAbout = false
     .error (err) ->
-      console.log('dupa')
-      alert('Something went wrong. Please try again!')
+      console.log('mamy error')
+      $rootScope.$broadcast("userUpdateError", { message: "Cannot update!" })
+      #alert('Something went wrong. Please try again!')
 
   $scope.updateIfCovered = ->
     if $scope.celebrant.covered

@@ -1,7 +1,7 @@
 @import ../base/global
 
 // config
-$crs-notify-position: bottom-right
+$crs-notify-position: top-right
 $crs-notify-round: true
 $crs-notify-height: 70px
 $crs-notify-font-size: 16px
@@ -14,7 +14,7 @@ $crs-notify-font-size: 16px
   font-size: 0
 
   @if $crs-notify-position == top-right
-    top: $crs-grid-gutter-width
+    top: $crs-grid-gutter-width * 3
     right: $crs-grid-gutter-width
 
     .crs-notify
