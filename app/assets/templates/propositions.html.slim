@@ -21,7 +21,7 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
         div.propositions__container
           button.crs-button.crs-button--small type="button" ng-click="chooseProposition(proposition)" Mark as bought
           button.crs-button.crs-button--secondary.crs-button--small.propositions__edit type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
-          button.crs-button.crs-button--small.propositions__delete type="button" ng-click="cancelEditProposition()" Delete
+          button.crs-button.crs-button--small.propositions__delete type="button" ng-click="deleteProposition(proposition)" Delete
       form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id" name="editPropositionForm" novalidate="true"
         .crs-input__group
           input type="text" class="form__validate" ng-model="proposition.title" ng-model-options="{ updateOn: 'blur' }" name="propositionTitle" ng-required="true"
