@@ -25,7 +25,7 @@ describe Api::PropositionsController do
   describe "put #update" do
 
     before(:each) do
-      Proposition.create(proposition_attributes)
+      Proposition.create!(proposition_attributes)
     end
 
     context "if owner is current_user" do
@@ -83,6 +83,33 @@ describe Api::PropositionsController do
 
     it "heads 404 when proposition not found" do
       put :unchoose, id: 'xyz', proposition: proposition_attributes
+      expect(response.status).to eq(404)
+    end
+  end
+
+  describe "delete #destroy" do
+    before(:each) do
+      Proposition.create!(proposition_attributes)
+    end
+
+    context "if owner is current_user" do
+      it "deletes proposition" do
+        delete :destroy, id: proposition_attributes['id'], proposition: proposition_attributes
+        expect(response.status).to eq(200)
+        expect(Proposition.find_by(id: proposition_attributes['id'])).to be_nil
+      end
+    end
+
+    context "if owner isn't current_user" do
+      it "return unauthorized" do
+        auth(User.create!(name: 'baduser', email: 'bad@user.eu', sso_id: '87654321'))
+        delete :destroy, id: proposition_attributes['id'], proposition: proposition_attributes
+        expect(response.status).to eq(401)
+      end
+    end
+
+    it "heads 404 when comment not found" do
+      delete :destroy, id: 'xyz', proposition: proposition_attributes
       expect(response.status).to eq(404)
     end
   end
