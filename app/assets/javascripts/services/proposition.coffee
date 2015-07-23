@@ -5,6 +5,8 @@ angular.module('BornApp').service 'Proposition', ($http, Rails) ->
     $http.post(base, proposition: proposition)
   update: (proposition) ->
     $http.put("#{base}/#{proposition.id}", proposition: proposition)
+  destroy: (proposition) ->
+    $http.delete("#{base}/#{proposition.id}")
   choose: (proposition) ->
     $http.put("#{base}/#{proposition.id}/choose", proposition: proposition)
   unchoose: (proposition) ->

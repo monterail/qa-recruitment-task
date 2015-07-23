@@ -1,7 +1,7 @@
 module Api
   class PropositionsController < ApplicationController
 
-    before_action :restrict_wrong_owner, only: [:update]
+    before_action :restrict_wrong_owner, only: [:update, :destroy]
 
     def create
       render json: PropositionRepresenter.new(current_user.propositions_as_owner.create(proposition_params)).basic
@@ -10,6 +10,14 @@ module Api
     def update
       if proposition.update(proposition_params)
         render json: PropositionRepresenter.new(proposition).basic
+      else
+        render json: { errors: proposition.errors.messages }, status: 422
+      end
+    end
+
+    def destroy
+      if proposition.destroy!
+        head :ok
       else
         render json: { errors: proposition.errors.messages }, status: 422
       end
