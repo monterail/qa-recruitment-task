@@ -6,28 +6,25 @@
   position: absolute
   width: 100%
   height: 100%
-  background-repeat: no-repeat
   background-position: center center
   background-size: cover
-  -webkit-filter: blur(10px)
-  opacity: .2
+  opacity: 0.2
 
 .user__background
-  background-color: rgba(0, 0, 0, 0.8)
+  background-color: rgba($crs-secondary-color, 0.8)
 
 .celebrant__avatar
   border-radius: 100%
-  font-size: 2em
   max-height: rem(175px)
   display: inline-block
   vertical-align: middle
-  box-shadow: 0 1px 0px #333
+  box-shadow: $crs-global-shadow
 
 .celebrant__about
-  margin-left: 3em
+  margin-left: $crs-userpage-celebrant-padding * 1.5
 
 .celebrant__description--edit
-  margin-top: 1em
+  margin-top: $crs-userpage-celebrant-padding
 
 .propositions__edit
   margin-left: 20px

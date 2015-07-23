@@ -9,21 +9,23 @@ div.user__container
       .crs-grid__column.crs-grid__unit--sm-2
         img.celebrant__avatar ng-src="{{ celebrant.profile_photo }}.jpg?s=400"
       .crs-grid__column.crs-grid__unit--sm-8.celebrant__about
-            div ng-if="!isEditingAbout"
-                p.crs-typo__p ng-bind="celebrant.about"
-                button.crs-button.crs-button--small.celebrant__description--edit type="button" ng-click="toggleEditingAbout()" Edit description
-            form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout" name="aboutMeUpdate"
-              .crs-input__group
-                textarea ng-model="celebrant.about" ng-model-options="{ updateOn: 'blur' }" class="form__validate" name="aboutMeInput" ng-required="true"
-                button.crs-button type="submit" Save
-                button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
-                span.error__message< ng-show="aboutMeUpdate.aboutMeInput.$touched && aboutMeUpdate.aboutMeInput.$invalid" This field is required
-            h3.crs-typo__h3
-              | Person responsible: {{ celebrant.person_responsible.name || 'not chosen yet'}}
-            div ng-if="celebrant.person_responsible"
-              label.crs-form__label Is the gift ready?
-              .crs-toggle
-                input#checkbox type="checkbox" ng-change="updateIfCovered()" ng-model="celebrant.covered"
-                label for="checkbox"
-                  .crs-toggle__switch
+        h2
+          | {{ celebrant.about ? 'Description' : 'No description yet!'  }}
+        div ng-if="!isEditingAbout"
+            p.crs-typo__p ng-bind="celebrant.about"
+            button.crs-button.crs-button--small.celebrant__description--edit type="button" ng-click="toggleEditingAbout()" Edit description
+        form.crs-input__group ng-submit="updateAbout()" ng-if="isEditingAbout" name="aboutMeUpdate"
+          .crs-input__group
+            textarea ng-model="celebrant.about" type="text" ng-model-options="{ updateOn: 'blur' }" class="form__validate" name="aboutMeInput" ng-required="true"
+            button.crs-button type="submit" Save
+            button.crs-button.crs-button--secondary type="button" ng-click="toggleEditingAbout()" x
+            span.error__message< ng-show="aboutMeUpdate.aboutMeInput.$touched && aboutMeUpdate.aboutMeInput.$invalid" This field is required
+        h3.crs-typo__h3
+          | Person responsible: {{ celebrant.person_responsible.name || 'not chosen yet'}}
+        div ng-if="celebrant.person_responsible"
+          label.crs-form__label Is the gift ready?
+          .crs-toggle
+            input#checkbox type="checkbox" ng-change="updateIfCovered()" ng-model="celebrant.covered"
+            label for="checkbox"
+              .crs-toggle__switch
 div ng-include="'/assets/propositions.html'"

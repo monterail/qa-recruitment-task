@@ -1,13 +1,14 @@
 div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
   div.crs-grid__column.crs-grid__unit--sm-8
-    h2.crs-utils--center
-      | Chosen before
-    ul
-      li.chosen-proposition__item ng-repeat="proposition in celebrant.propositions.chosen"
+    h2.crs-utils--center ng-if="!isPropositionEmpty()"
+      | Choosen before
+    h2.crs-utils--center ng-if="isPropositionEmpty()"
+      | No propositions yet!
+    ul ng-repeat="proposition in celebrant.propositions.chosen"
+      li
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
-        button.delete-button__icon.crs-icon.crs-icon-circle-cross-mark-02 type="button" ng-click="unchooseProposition(proposition)"
-
-    h2.crs-typo__h2.crs-utils--center Propositions
+    h2.crs-typo__h2.crs-utils--center ng-if="!isPropositionEmpty()"
+      | Propositions
     div.propositions__container ng-repeat="proposition in celebrant.propositions.current"
       div ng-if="editPropositionId != proposition.id"
         div vote="proposition"
@@ -44,14 +45,20 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
         | Add your own proposition!
       .crs-input__group
         input type="text" class="form__validate" ng-model="newProposition.title" ng-model-options="{ updateOn: 'blur' }" name="propositionTitle" ng-required="true"
-        label.crs-form__label Title*
-        span.error__message ng-show="newPropositionForm.propositionTitle.$touched && newPropositionForm.propositionTitle.$invalid" This field is required
+        label.crs-form__label
+          | Title*
+        span.error__message ng-show="newPropositionForm.propositionTitle.$touched && newPropositionForm.propositionTitle.$invalid"
+          | This field is required
       .crs-input__group
         input ng-model="newProposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionDescription" ng-required="true"
-        label Description*
-        span.error__message ng-show="newPropositionForm.propositionDescription.$touched && newPropositionForm.propositionDescription.$invalid" This field is required
+        label
+          | Description*
+        span.error__message ng-show="newPropositionForm.propositionDescription.$touched && newPropositionForm.propositionDescription.$invalid"
+          | This field is required
       .crs-input__group
-        input type="number" string-to-number="" step="any" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
-        label Value*
-        span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid" This field is required and need only numbers
+        input type="number" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
+        label
+          | Value*
+        span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid"
+          | This field is required and need only numbers
       input.crs-button.crs-button--success type="submit" value="Save"
