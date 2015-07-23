@@ -77,8 +77,12 @@ i,
   content: "\e60c";
 }
 
-.crs-icon-pencil:before {
-  content: "\e60d";
+.crs-icon-pencil{
+  transform: rotate(90deg);
+
+  &:before {
+    content: "\e60d";
+  }
 }
 
 .crs-icon-wrench:before {
