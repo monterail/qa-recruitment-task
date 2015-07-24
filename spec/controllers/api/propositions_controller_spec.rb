@@ -93,7 +93,7 @@ describe Api::PropositionsController do
 
     context "if owner is current_user" do
       it "deletes proposition" do
-        delete :destroy, id: proposition_attributes['id'], proposition: proposition_attributes
+        delete :destroy, id: proposition_attributes['id'],proposition: proposition_attributes
         expect(response.status).to eq(200)
         expect(Proposition.find_by(id: proposition_attributes['id'])).to be_nil
       end
@@ -101,8 +101,9 @@ describe Api::PropositionsController do
 
     context "if owner isn't current_user" do
       it "return unauthorized" do
-        auth(User.create!(name: 'baduser', email: 'bad@user.eu', sso_id: '87654321'))
-        delete :destroy, id: proposition_attributes['id'], proposition: proposition_attributes
+        other_propo = Proposition.create!(title: 'title', celebrant_id: celebrant['id'],
+                                          owner_id: another_user.id)
+        delete :destroy, id: other_propo.id, proposition: other_propo.attributes
         expect(response.status).to eq(401)
       end
     end
