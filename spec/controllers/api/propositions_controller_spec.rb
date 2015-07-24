@@ -101,8 +101,9 @@ describe Api::PropositionsController do
 
     context "if owner isn't current_user" do
       it "return unauthorized" do
-        other_propo = Proposition.create!(title: 'title', celebrant_id: celebrant['id'], owner_id: another_user.id)
-        delete :destroy, id: other_propo.id,proposition: other_propo
+        other_propo = Proposition.create!(title: 'title', celebrant_id: celebrant['id'],
+                                          owner_id: another_user.id)
+        delete :destroy, id: other_propo.id, proposition: other_propo.attributes
         expect(response.status).to eq(401)
       end
     end
