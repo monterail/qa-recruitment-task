@@ -6,7 +6,7 @@ angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, cur
   $scope.todayBirthdays = usersGroups[0]
   $scope.nextBirthdays = usersGroups[1]
 
-  $scope.MONTHNAMES = [
+  MONTHNAMES = [
     ""
     "January"
     "February"
@@ -24,6 +24,6 @@ angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, cur
 
   $scope.groupedUsers = _.chain($scope.users)
     .sortBy((user) -> user.birthday_month)
-    .groupBy((user) -> $scope.MONTHNAMES[user.birthday_month])
+    .groupBy((user) -> MONTHNAMES[user.birthday_month])
     .pairs()
     .value()
