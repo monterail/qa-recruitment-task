@@ -35,9 +35,11 @@
         h1.crs-typo__h1.mainpage__header
           | List of Birthdays
         .crs-grid__row.crs-grid__row--centered
-          .crs-grid__column.crs-grid__unit--sm-10
-            ul.crs-typo__ul
-              li.list__item ui-sref="auth.user({id: user.id})" ng-repeat="user in users"
+          .crs-grid__column.crs-grid__unit--sm-10 ng-repeat="users in groupedUsers"
+            h1.crs-typo__h1.mainpage__header.birthdaylist__month
+              | {{users[0]}} {{key}}
+            ul.crs-typo__ul.mainpage__birthdaylist ng-repeat="user in users[1]"
+              li.list__item ui-sref="auth.user({id: user.id})"
                 img.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
                 span.person__index
                   strong
