@@ -1,4 +1,4 @@
-app = angular.module 'BornApp', ['ui.router']
+app = angular.module 'BornApp', ['ui.router', 'ngAnimate']
 
 app.config ($locationProvider) ->
   $locationProvider.html5Mode false

@@ -15,7 +15,7 @@ div ng-controller="CommentCtrl"
         textarea.comments__textarea--change ng-model="comment.body" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="commentUpdate" ng-required="true"
         span.error__message ng-show="updateCommentForm.commentUpdate.$touched && updateCommentForm.commentUpdate.$invalid" This field is required
       button.crs-button.crs-button--success.crs-button--small.crs-utils--no-margin type="submit" Save
-      button.crs-button.crs-button--secondary.crs-button--small.crs-utils--no-margin type="button" ng-click="cancelEditComment()" Cancel
+      button.crs-button.crs-button--small.crs-utils--no-margin.crs-utils--pull-right type="button" ng-click="cancelEditComment()" Cancel
 
   form ng-submit="createComment(proposition)" name="createCommentForm"
     .crs-grid__row.crs-grid__row--middle

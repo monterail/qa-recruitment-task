@@ -3,6 +3,16 @@
   border: 1px solid $crs-tertiary-color
   padding: 2rem
   margin-bottom: 2rem
+  transition: all 0.3s ease
+
+  &.ng-enter,
+  &.ng-leave.ng-leave-active
+    opacity: 0
+    transform: translateY(100%)
+
+  &.ng-enter.ng-enter-active,
+  &.ng-leave
+    opacity: 1
 
 .propositions__delete
   float: right
