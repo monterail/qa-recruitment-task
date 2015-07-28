@@ -33,6 +33,11 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
       index = $scope.celebrant.propositions.current.indexOf(proposition)
       $scope.celebrant.propositions.current.splice(index, 1)
 
+  $scope.deleteProposition = (proposition) ->
+    Proposition.destroy(proposition).success (response) ->
+      index = $scope.celebrant.propositions.current.indexOf(proposition)
+      $scope.celebrant.propositions.current.splice(index, 1)
+
   $scope.chooseProposition = (proposition) ->
     Proposition.choose(proposition)
     .success (updatedProposition) ->
