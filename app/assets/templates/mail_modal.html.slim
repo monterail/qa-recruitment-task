@@ -1,0 +1,20 @@
+.modal__background
+  .modal__foreground
+    .modal__container
+      a ui-sref="^"
+        i.crs-icon-circle-cross-mark-02.crs-utils--pull-right
+      h2.crs-typo__h2.crs-utils--center.modal__header
+        | Send email to the team
+      form.crs-form__group name="mailForm"
+        .crs-input__group
+          input.modal__subject type="text" name="emailSubject" ng-model-options="{ updateOn: 'blur' }" ng-required="true"
+          label.crs-form__label
+            | Subject
+        .crs-input__group
+          textarea.modal__message type="text" name="emailMessage" ng-model-options="{ updateOn: 'blur' }" ng-required="true"
+          label.crs-form__label
+            | Message
+          button.crs-button.crs-button--small type="button"
+            | Send
+          button.crs-button.crs-button--small.crs-utils--pull-right type="reset"
+            | Reset
