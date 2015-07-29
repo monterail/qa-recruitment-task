@@ -7,6 +7,11 @@ module Api
       render json: UsersRepresenter.new(User.sooners(current_user['sso_id'])).basic
     end
 
+    def send_emails
+      NotifyAboutGiftsWorker.perform_async(user_params['_id'])
+      head :ok
+    end
+
     def users_without_birthday
       users = User.without_birthday(current_user.sso_id)
 

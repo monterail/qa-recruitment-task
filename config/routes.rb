@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         get '/me', to: 'users#me'
         put '/me', to: 'users#update_me'
       end
+      post '/emails', to: 'users#send_emails'
     end
     resources :propositions, only: [:update, :create, :destroy] do
       member do

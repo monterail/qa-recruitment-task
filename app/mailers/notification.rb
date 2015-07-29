@@ -6,4 +6,12 @@ class Notification < ApplicationMailer
       subject: "It's #{@days} days until #{@celebrant.name} birthday!"
     )
   end
+
+  def notify_about_gift(users, celebrant, subject, content)
+    @celebrant, @users, @subject, @content = celebrant, users, subject, content
+    mail(
+      to: users.map(&:email),
+      subject: subject
+    )
+  end
 end
