@@ -5,9 +5,10 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
     h2.crs-utils--center ng-if="isPropositionEmpty()"
       | No propositions yet!
     ul ng-repeat="proposition in celebrant.propositions.chosen"
-      li.chosen-proposition__item
+      li
         | {{ proposition.title }} chosen in {{ proposition.year_chosen_in }}
-        button.propositions__button--delete.crs-icon.crs-icon-circle-cross-mark-02 type="button" ng-click="unchooseProposition(proposition)"
+        button.delete-button__icon.crs-icon.crs-icon-circle-cross-mark-02 type="button" ng-click="unchooseProposition(proposition)"
+
     h2.crs-typo__h2.crs-utils--center ng-if="!isPropositionEmpty()"
       | Propositions
     div.propositions__container ng-repeat="proposition in celebrant.propositions.current"
@@ -20,118 +21,44 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
         h4.crs-typo__h4
           | Price: {{ proposition.value  }}
         div.propositions__container
-          button.crs-button.crs-button--small type="button" ng-click="chooseProposition(proposition)"
-            | Mark as bought
-          button.crs-button.crs-button--secondary.crs-button--small.propositions__edit(
-            type="button"
-            ng-if="currentUser.id == proposition.owner.id"
-            ng-click="editProposition(proposition.id)"
-            )
-            | Edit
-          button.crs-button.crs-button--small.crs-utils--pull-right(
-            type="button"
-            ng-click="deleteProposition(proposition)"
-            )
-            | Delete
-      form (
-        ng-submit="updateProposition(proposition)"
-        ng-if="editPropositionId == proposition.id"
-        name="editPropositionForm"
-        novalidate="true"
-        )
+          button.crs-button.crs-button--small type="button" ng-click="chooseProposition(proposition)" Mark as bought
+          button.crs-button.crs-button--secondary.crs-button--small.propositions__edit type="button" ng-if="currentUser.id == proposition.owner.id" ng-click="editProposition(proposition.id)" Edit
+          button.crs-button.crs-button--small.propositions__delete type="button" ng-click="deleteProposition(proposition)" Delete
+      form ng-submit="updateProposition(proposition)" ng-if="editPropositionId == proposition.id" name="editPropositionForm" novalidate="true"
         .crs-input__group
-          input(
-            type="text"
-            class="form__validate"
-            ng-model="proposition.title"
-            ng-model-options="{ updateOn: 'blur' }"
-            name="propositionTitle"
-            ng-required="true"
-            )
-          label.crs-form__label
-            | Title*
-          span.error__message ng-show="editPropositionForm.propositionTitle.$touched && editPropositionForm.propositionTitle.$invalid"
-            | This field is required
+          input type="text" class="form__validate" ng-model="proposition.title" ng-model-options="{ updateOn: 'blur' }" name="propositionTitle" ng-required="true"
+          label.crs-form__label Title*
+          span.error__message ng-show="editPropositionForm.propositionTitle.$touched && editPropositionForm.propositionTitle.$invalid" This field is required
         .crs-input__group
-          input.form__validate(
-            ng-model="proposition.description"
-            ng-model-options="{ updateOn: 'blur' }"
-            name="propositionDescription"
-            ng-required="true"
-            )
-          label
-            | Description*
-          span.error__message ng-show="editPropositionForm.propositionDescription.$touched && editPropositionForm.propositionDescription.$invalid"
-            | This field is required
+          input ng-model="proposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionDescription" ng-required="true"
+          label Description*
+          span.error__message ng-show="editPropositionForm.propositionDescription.$touched && editPropositionForm.propositionDescription.$invalid" This field is required
         .crs-input__group
-          input.form__validate(
-            type="text"
-            ng-pattern="/^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/"
-            ng-model="proposition.value"
-            ng-model-options="{ updateOn: 'blur' }"
-            name="propositionValue"
-            ng-required="true"
-            )
-          label
-            | Value*
-          span.error__message ng-show="editPropositionForm.propositionValue.$touched && editPropositionForm.propositionValue.$invalid"
-            | This field is required and need only numbers
+          input type="text" ng-pattern="/^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/" ng-model="proposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
+          label Value*
+          span.error__message ng-show="editPropositionForm.propositionValue.$touched && editPropositionForm.propositionValue.$invalid" This field is required and need only numbers
           div align="right"
-            input.crs-button.crs-button--success.crs-button--small(
-              type="submit"
-              value="Save"
-              ng-disabled="editPropositionForm.$dirty && editPropositionForm.$invalid"
-              )
-            button.crs-button.crs-button--secondary.crs-button--small type="button" ng-click="cancelEditProposition()"
-              | x
+            input.crs-button.crs-button--success.crs-button--small type="submit" value="Save" ng-disabled="editPropositionForm.$dirty && editPropositionForm.$invalid"
+            button.crs-button.crs-button--secondary.crs-button--small type="button" ng-click="cancelEditProposition()" x
       div ng-include="'assets/comments.html'"
 
     form ng-submit="createProposition()" name="newPropositionForm"
       h2.crs-typo__h2
         | Add your own proposition!
       .crs-input__group
-        input.form__validate(
-          type="text"
-          ng-model="newProposition.title"
-          ng-model-options="{ updateOn: 'blur' }"
-          name="propositionTitle"
-          ng-required="true"
-          )
+        input type="text" class="form__validate" ng-model="newProposition.title" ng-model-options="{ updateOn: 'blur' }" name="propositionTitle" ng-required="true"
         label.crs-form__label
           | Title*
         span.error__message ng-show="newPropositionForm.propositionTitle.$touched && newPropositionForm.propositionTitle.$invalid"
           | This field is required
       .crs-input__group
-        input.form__validate(
-          ng-model="newProposition.description"
-          ng-model-options="{ updateOn: 'blur' }"
-          name="propositionDescription"
-          ng-required="true"
-          )
+        input ng-model="newProposition.description" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionDescription" ng-required="true"
         label
           | Description*
         span.error__message ng-show="newPropositionForm.propositionDescription.$touched && newPropositionForm.propositionDescription.$invalid"
           | This field is required
       .crs-input__group
-        input.form__validate(
-          type="number"
-          ng-model="newProposition.value"
-          ng-model-options="{ updateOn: 'blur' }"
-          name="propositionValue"
-          ng-required="true"
-          )
-        label
-          | Value*
-        span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid"
-          | This field is required and need only numbers
-        input.form__validate(
-          type="text"
-          ng-pattern="/^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/"
-          ng-model="newProposition.value"
-          ng-model-options="{ updateOn: 'blur' }"
-          name="propositionValue"
-          ng-required="true"
-          )
+        input type="number" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
         label
           | Value*
         span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid"

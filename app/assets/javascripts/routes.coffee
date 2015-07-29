@@ -34,10 +34,3 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
           User.show($stateParams.id)
       templateUrl: '/assets/user.html'
 
-    .state 'auth.user.userModal',
-      url: '/modal'
-      templateUrl: '/assets/mail_modal.html'
-      controller: 'ModalCtrl'
-      data:
-        modal: true
-
