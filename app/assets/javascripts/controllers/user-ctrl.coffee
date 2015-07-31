@@ -14,8 +14,6 @@ angular.module('BornApp').controller 'UserCtrl', ($scope, $rootScope, celebrant,
     .success (user) ->
       $scope.celebrant.about = user.about
       $scope.isEditingAbout = false
-    .error (err) ->
-      $rootScope.$broadcast("userUpdateError", { message: "Server Error. Please try again" })
 
   $scope.updateIfCovered = ->
     if $scope.celebrant.covered

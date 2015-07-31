@@ -16,8 +16,6 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
     .success (response) ->
       $scope.celebrant.propositions.current.push response
       $scope.newProposition = {}
-    .error (err) ->
-      $rootScope.$broadcast("userUpdateError", { message: "Server Error. Please try again" })
 
   $scope.updateProposition = (proposition) ->
     Proposition.update(proposition)
@@ -25,8 +23,6 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
       index = $scope.celebrant.propositions.current.indexOf(proposition)
       $scope.celebrant.propositions.current.splice(index, 1, updatedProposition)
       $scope.editPropositionId = null
-    .error (err) ->
-      $rootScope.$broadcast("userUpdateError", { message: "Server Error. Please try again" })
 
   $scope.deleteProposition = (proposition) ->
     Proposition.destroy(proposition).success (response) ->
@@ -44,8 +40,6 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
       index = $scope.celebrant.propositions.current.indexOf(proposition)
       $scope.celebrant.propositions.current.splice(index, 1)
       $scope.celebrant.propositions.chosen.push updatedProposition
-    .error (err) ->
-      $rootScope.$broadcast("userUpdateError", { message: "Server Error. Please try again" })
 
   $scope.unchooseProposition = (proposition) ->
     Proposition.unchoose(proposition)
@@ -53,5 +47,3 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
       index = $scope.celebrant.propositions.chosen.indexOf(proposition)
       $scope.celebrant.propositions.current.push updatedProposition
       $scope.celebrant.propositions.chosen.splice(index, 1)
-    .error (err) ->
-      $rootScope.$broadcast("userUpdateError", { message: "Server Error. Please try again" })

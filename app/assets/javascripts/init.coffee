@@ -11,4 +11,10 @@ app.config ($provide, $httpProvider, Rails) ->
 
       config
 
-  $httpProvider.interceptors.push 'railsAssetsInterceptor'
+  $provide.factory 'errorInterceptor', ($q, errorHandler) ->
+    responseError : (rejection) ->
+      if(rejection.status == 500)
+        errorHandler.occur("Server Error. Please try again")
+      $q.reject(rejection)
+
+  $httpProvider.interceptors.push 'errorInterceptor'
