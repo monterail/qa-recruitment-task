@@ -14,7 +14,7 @@ app.config ($provide, $httpProvider, Rails, $injector) ->
   $provide.factory 'errorInterceptor', ($q, errorHandler) ->
     responseError : (rejection) ->
       if(rejection.status == 500)
-        errorHandler.occur()
+        errorHandler.occur("Server Error. Please try again")
       $q.reject(rejection)
 
   $httpProvider.interceptors.push 'errorInterceptor'
