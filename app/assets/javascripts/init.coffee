@@ -11,10 +11,10 @@ app.config ($provide, $httpProvider, Rails, $injector) ->
 
       config
 
-  $provide.factory 'errorInterceptor', ($q, $rootScope) ->
+  $provide.factory 'errorInterceptor', ($q, errorHandler) ->
     responseError : (rejection) ->
       if(rejection.status == 500)
-        $rootScope.$broadcast("userUpdateError", { message: "Server Error. Please try again" })
+        errorHandler.occur()
       $q.reject(rejection)
 
   $httpProvider.interceptors.push 'errorInterceptor'
