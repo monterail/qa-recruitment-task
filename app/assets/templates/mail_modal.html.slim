@@ -7,14 +7,14 @@
         | Send email to the team
       form.crs-form__group name="mailForm"
         .crs-input__group
-          input.modal__subject type="text" name="emailSubject" ng-model-options="{ updateOn: 'blur' }" ng-required="true"
+          input.modal__subject type="text" ng-model="emailSubject" ng-model-options="{ updateOn: 'blur' }" ng-required="true"
           label.crs-form__label
             | Subject
         .crs-input__group
-          textarea.modal__message type="text" name="emailMessage" ng-model-options="{ updateOn: 'blur' }" ng-required="true"
+          textarea.modal__message type="text" ng-model="emailMessage" ng-model-options="{ updateOn: 'blur' }" ng-required="true"
           label.crs-form__label
             | Message
-          button.crs-button.crs-button--small type="button" ng-click="sendEmail(emailSubject, emailMessage)"
+          button.crs-button.crs-button--small type="button" ng-click="sendEmail()"
             | Send
           button.crs-button.crs-button--small.crs-utils--pull-right type="reset"
             | Reset

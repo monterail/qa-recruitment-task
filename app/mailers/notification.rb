@@ -7,8 +7,8 @@ class Notification < ApplicationMailer
     )
   end
 
-  def notify_about_gift(users, celebrant, subject, content)
-    @celebrant, @users, @subject, @content = celebrant, users, subject, content
+  def notify_about_gifts(users, celebrant, subject, content)
+    @celebrant, @content = celebrant, content
     mail(
       to: users.map(&:email),
       subject: subject

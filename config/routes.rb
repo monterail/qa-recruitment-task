@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   mount RailsSso::Engine => '/sso', as: 'sso'
+
   if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    require 'sidekiq/web'
+
+    mount Sidekiq::Web,             at: '/sidekiq'
+    mount LetterOpenerWeb::Engine,  at: "/letter_opener"
   end
 
   namespace :api do
