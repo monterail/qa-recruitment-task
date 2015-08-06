@@ -22,6 +22,10 @@ div.user__container
             span.error__message< ng-show="aboutMeUpdate.aboutMeInput.$touched && aboutMeUpdate.aboutMeInput.$invalid" This field is required
         h3.crs-typo__h3
           | Person responsible: {{ celebrant.person_responsible.name || 'not chosen yet'}}
+        a.crs-button.crs-utils--pull-right(
+            ui-sref="auth.user.userModal({id: celebrant.id})"
+           )
+          i.crs-icon-pencil
         div ng-if="celebrant.person_responsible"
           label.crs-form__label Is the gift ready?
           .crs-toggle
@@ -29,3 +33,4 @@ div.user__container
             label for="checkbox"
               .crs-toggle__switch
 div ng-include="'/assets/propositions.html'"
+div ui-view=""

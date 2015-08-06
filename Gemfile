@@ -10,6 +10,7 @@ gem 'ngannotate-rails', '~> 0.15.4'
 gem 'sass', '~> 3.4.13'
 
 gem 'sidekiq', '~> 3.4.1'
+gem 'sinatra', :require => nil
 
 source 'https://h6LuM_B67dJ3G6yqY5wL@repo.fury.io/monterail/' do
   gem 'omniauth-hussars', '0.1.1'

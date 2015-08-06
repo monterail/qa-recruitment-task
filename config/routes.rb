@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   mount RailsSso::Engine => '/sso', as: 'sso'
+
   if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    require 'sidekiq/web'
+
+    mount Sidekiq::Web,             at: '/sidekiq'
+    mount LetterOpenerWeb::Engine,  at: "/letter_opener"
   end
 
   namespace :api do
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
         get '/me', to: 'users#me'
         put '/me', to: 'users#update_me'
       end
+      post '/emails', to: 'users#send_emails'
     end
     resources :propositions, only: [:update, :create, :destroy] do
       member do
