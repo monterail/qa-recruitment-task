@@ -24,6 +24,7 @@ div.user__container
           | Person responsible: {{ celebrant.person_responsible.name || 'not chosen yet'}}
         a.crs-button.crs-utils--pull-right(
             ui-sref="auth.user.userModal({id: celebrant.id})"
+            ng-if="celebrant.person_responsible.id == currentUser.id"
            )
           i.crs-icon-pencil
         div ng-if="celebrant.person_responsible"
