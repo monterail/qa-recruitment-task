@@ -10,9 +10,19 @@ $crs-comment-padding: 14px
   padding: rem($crs-comment-padding $crs-comment-padding $crs-comment-padding * 2)
   position: relative
   margin-bottom: rem($crs-comment-padding)
+  transition: all 0.3s ease
 
   .crs-typo__p
     font-size: rem($crs-comment-comment-size)
+
+  &.ng-enter,
+  &.ng-leave.ng-leave-active
+    opacity: 0
+    transform: translateY(130px)
+
+  &.ng-enter.ng-enter-active,
+  &.ng-leave
+    opacity: 1
 
 .crs-comment__delete
   position: absolute

@@ -58,7 +58,14 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
         span.error__message ng-show="newPropositionForm.propositionDescription.$touched && newPropositionForm.propositionDescription.$invalid"
           | This field is required
       .crs-input__group
-        input type="number" ng-model="newProposition.value" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="propositionValue" ng-required="true"
+        input.form__validate(
+          type="text"
+          ng-pattern="/^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/"
+          ng-model="newProposition.value"
+          ng-model-options="{ updateOn: 'blur' }"
+          name="propositionValue"
+          ng-required="true"
+          )
         label
           | Value*
         span.error__message ng-show="newPropositionForm.propositionValue.$touched && newPropositionForm.propositionValue.$invalid"
