@@ -9,6 +9,7 @@ module JsEnv
     data = {
       env: Rails.env,
       templates: templates,
+      logout_url: ENVied.ID_HUSSARS_HOST + "/users/sign_out",
     }
 
     <<-EOS.html_safe
