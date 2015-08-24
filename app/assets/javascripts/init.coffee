@@ -17,4 +17,5 @@ app.config ($provide, $httpProvider, Rails) ->
         errorHandler.occur("Server Error. Please try again")
       $q.reject(rejection)
 
+  $httpProvider.interceptors.push 'railsAssetsInterceptor'
   $httpProvider.interceptors.push 'errorInterceptor'

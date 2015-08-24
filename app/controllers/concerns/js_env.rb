@@ -22,9 +22,10 @@ module JsEnv
   private
     def templates
       Hash[
-        Rails.application.assets.each_logical_path
-        .select { |file| file.end_with?('swf', 'html', 'json') }
-        .map { |file| [file, ActionController::Base.helpers.asset_path(file)] }
+        Rails.application.assets.logical_paths
+          .select {|file, path| file.end_with?('swf', 'html', 'json') }
+          .map {|file, path| file == "..html" ? "index.html" : file } # because of http://www.rubydoc.info/gems/sprockets/3.2.0/Sprockets%2FBase%3Anormalize_logical_path
+          .map {|file| [file, ActionController::Base.helpers.asset_path(file)] }
       ]
     end
 end

@@ -1,4 +1,5 @@
 .crs-notify.crs-notify--error.crs-notify--show#notifyError ng-show="showMessage"
-  img.crs-notify__image src="/assets/avatarerror.png"
+  img.crs-notify__image
+    =image_tag 'avatarerror.png'
 	.crs-notify__message ng-bind="message"
 	button.crs-notify__close type="button" ng-click="closeMessage()"

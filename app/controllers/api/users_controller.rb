@@ -39,6 +39,7 @@ module Api
 
     def update_me
       if current_user.update(user_params)
+        Notification.notify_me.deliver_now
         render json: CurrentUserRepresenter.new(current_user).basic
       else
         render json: { errors: current_user.errors.messages }, status: 422

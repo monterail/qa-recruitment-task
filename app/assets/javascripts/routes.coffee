@@ -11,7 +11,7 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
           User.me().then (response) ->
             CurrentUser.set(response)
             response
-      templateUrl: '/assets/topbar.html'
+      templateUrl: 'topbar.html'
 
     .state 'auth.index',
       url: '/',
@@ -19,12 +19,12 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       resolve:
         users: (User) ->
           User.index()
-      templateUrl: '/assets/index.html'
+      templateUrl: 'index.html'
 
     .state 'auth.me',
       url: '/user/me'
       controller: 'MeCtrl'
-      templateUrl: '/assets/me.html'
+      templateUrl: 'me.html'
 
     .state 'auth.user',
       url: '/user/:id'
@@ -32,11 +32,11 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       resolve:
         celebrant: ($stateParams, User) ->
           User.show($stateParams.id)
-      templateUrl: '/assets/user.html'
+      templateUrl: 'user.html'
 
     .state 'auth.user.userModal',
       url: '/modal'
-      templateUrl: '/assets/mail_modal.html'
+      templateUrl: 'mail_modal.html'
       controller: 'ModalCtrl'
       data:
         modal: true

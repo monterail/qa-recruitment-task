@@ -1,6 +1,6 @@
 angular.module('BornApp').directive 'vote', (CurrentUser, Vote)->
   restrict: 'A'
-  templateUrl: 'assets/vote.html'
+  templateUrl: 'vote.html'
   scope:
     proposition: '=vote'
   controller: ($scope) ->
