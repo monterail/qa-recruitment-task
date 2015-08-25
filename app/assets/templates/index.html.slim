@@ -9,7 +9,7 @@
         .crs-grid__row.crs-grid__row--centered
           .crs-grid__column.crs-grid__unit--sm-10
             ul.crs-typo__ul
-              li.list__item.today-birthday-list__item ng-repeat="user in users | limitTo: 3" ui-sref="auth.user({id: user.id})"
+              li.list__item.today-birthday-list__item ng-repeat="user in todayBirthdays | limitTo: 3" ui-sref="auth.user({id: user.id})"
                 img.crs-user__avatar.person__today--avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
                   = image_tag 'hat.png', class: 'person__today--hat'
                 span.person__index
@@ -22,7 +22,7 @@
         .crs-grid__row.crs-grid__row--centered
           .crs-grid__column.crs-grid__unit--sm-8
             ul.crs-typo__ul.crs-utils--left
-              li.list__item ng-repeat="user in users | limitTo: 6" ui-sref="auth.user({id: user.id })"
+              li.list__item ng-repeat="user in nextBirthdays | limitTo: 6" ui-sref="auth.user({id: user.id })"
                 img.crs-user__avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
                 span.person__index
                   strong
