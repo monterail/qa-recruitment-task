@@ -1,1 +1,1 @@
-redis = Redis.new(:url => ENVied.REDIS_URL)
+Redis.new(:url => ENVied.REDIS_URL)
