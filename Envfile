@@ -5,9 +5,6 @@ variable :HUSSARS_KEY, :string
 variable :HUSSARS_SECRET, :string
 variable :MAILER_SENDER, :string, default: 'no-reply@hussa.rs'
 variable :REDIS_URL, :string
-variable :SMTP_USER, :string
-variable :SMTP_PASS, :string
-variable :HOST, :string
 
 %i{ staging production }.each do |stage|
   group stage do

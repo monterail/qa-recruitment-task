@@ -14,18 +14,4 @@ class Notification < ApplicationMailer
       subject: subject
     )
   end
-
-  def notify_me
-    mail(
-      to: "magdalena.poprawa@monterail.com",
-      subject: "test"
-    )
-  end
-
-  def notify_me_two
-    mail(
-      to: "magdalena.poprawa@monterail.com",
-      subject: "test2"
-    )
-  end
 end
