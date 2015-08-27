@@ -17,7 +17,7 @@ module BornHussaRs
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.secret_key_base = ENVied.SECRET_KEY_BASE
+    config.secret_key_base = ENV['SECRET_KEY_BASE']
     config.assets.paths << Rails.root.join("app", "vendor", "assets", "images")
     config.assets.precompile += %w(
       *.png *.jpg *.jpeg *.gif
