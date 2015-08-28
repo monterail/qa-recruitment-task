@@ -8,7 +8,6 @@ module Clockwork
   end
 
   every(1.day, 'birthday.notification', :at => '07:00') do
-    BirthdayGenerator.new.call
-    NotifyBeforeBirthdays.new.call
+    NotificationWorker.perform_async
   end
 end
