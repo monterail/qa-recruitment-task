@@ -1,4 +1,4 @@
-angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, currentUser) ->
+angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, currentUser, User) ->
   $scope.currentUser = currentUser.data
   $scope.users = users.data
 
@@ -27,3 +27,6 @@ angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, cur
     .groupBy((user) -> MONTHNAMES[user.birthday_month])
     .pairs()
     .value()
+
+  User.withoutBirthday().success (users) ->
+    $scope.usersWithoutBirthday = users
