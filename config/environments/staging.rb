@@ -68,17 +68,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method     = :smtp
   config.action_mailer.perform_deliveries  = true
 
-  #config.action_mailer.default_url_options = { :host => App::Config.domain }
-
   config.action_mailer.smtp_settings = {
-    :address   => "smtp.mandrillapp.com",
-    :port      => 587,
-    :enable_starttls_auto => true,
-    :user_name => ENVied.SMTP_USER,
-    :password  => ENVied.SMTP_PASS,
-    :authentication => 'login',
-    :domain => ENVied.HOST,
-  }
+      address:              ENVied.SMTP_HOST,
+      port:                 ENVied.SMTP_PORT,
+      user_name:            ENVied.SMTP_USER,
+      password:             ENVied.SMTP_PASS,
+      domain:               ENVied.HOST,
+      authentication:       'login',
+      enable_starttls_auto: true
+    }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
