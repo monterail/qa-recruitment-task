@@ -27,6 +27,12 @@ end
 
 gem 'rails_sso', '~> 0.6.1'
 gem 'envied', '~> 0.8.1'
+gem 'puma', '~> 2.13.4'
+gem 'clockwork', '~> 1.2.0'
+
+group :production, :staging do
+  gem 'rails_12factor', '~> 0.0.3'
+end
 
 group :development do
   gem 'spring', '~> 1.3.3'

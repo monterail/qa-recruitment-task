@@ -1,6 +1,6 @@
 angular.module('BornApp').directive 'errorNotify', ($rootScope)->
   restrict: 'A'
-  templateUrl: 'assets/notification.html'
+  templateUrl: 'notification.html'
   link: ($scope) ->
     $scope.closeMessage =  ->
       $scope.showMessage = false

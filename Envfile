@@ -4,11 +4,18 @@ variable :ID_HUSSARS_HOST, :string
 variable :HUSSARS_KEY, :string
 variable :HUSSARS_SECRET, :string
 variable :MAILER_SENDER, :string, default: 'no-reply@hussa.rs'
+variable :REDIS_URL, :string,  default: 'redis://localhost:6379/'
+variable :SECRET_KEY_BASE, :string, default: 'd126216c737ef43ef0a7479d619acf20503d3bc672c75e0a2f08eca09a8b680941abb33cf5d2aaa443525b313a1094b77e2ef3a831f84c2f709b53066950b96e'
 
 %i{ staging production }.each do |stage|
   group stage do
     variable :ID_HUSSARS_HOST, :string
     variable :HUSSARS_KEY, :string
     variable :HUSSARS_SECRET, :string
+    variable :REDIS_URL, :string
+    variable :SMTP_USER, :string
+    variable :SMTP_PASS, :string
+    variable :HOST, :string
+    variable :SECRET_KEY_BASE, :string
   end
 end
