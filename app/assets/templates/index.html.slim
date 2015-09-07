@@ -48,7 +48,7 @@
         .crs-grid__row ng-repeat="month in groupedUsers"
           .crs-grid__column.crs-grid__unit--sm-12
             .birthdaylist__month ng-class="{'birthdaylist__month--active': activeMonth === month}"
-              a.birthdaylist__month__a ng-click="selectMonth(month)"
+              a.birthdaylist__month-link ng-click="selectMonth(month)"
                 | {{month[0]}} {{key}}
               ul.crs-typo__ul.birthdaylist__month-dropdown
                 li.list__item ui-sref="auth.user({id: user.id})" ng-repeat="user in month[1]"
