@@ -1,3 +1,3 @@
-angular.module('BornApp').factory 'errorHandler', ($rootScope) ->
+angular.module('BornApp').factory 'errorHandler', (Notification) ->
   occur: (errormessage) ->
-    $rootScope.$broadcast("userUpdateError", { message: errormessage })
+    Notification.create({ message: errormessage, type: 'error', image: '/assets/avatarerror.png' })
