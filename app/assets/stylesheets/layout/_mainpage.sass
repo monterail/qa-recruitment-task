@@ -1,5 +1,6 @@
 @import ../base/global
 
+
 .mainpage__background
   height: auto
   width: auto
@@ -22,11 +23,11 @@
   z-index: 2
 
 .mainpage__banner
-  background: rgba(#fff, 0.9)
+  background: $crs-global-background-alpha
   width: 100%
 
 .mainpage__box
-  background: rgba(#fff, 0.9)
+  background: $crs-global-background-alpha
   margin: 2rem 0 1rem
   padding: 1rem
 
@@ -69,9 +70,10 @@
     font-size: rem(12px)
     font-family: 'cuirass-icons'
     speak: none
-    font-style: normal
-    font-weight: normal
-    font-variant: normal
+    font:
+      style: normal
+      weight: normal
+      variant: normal
     text-transform: none
     line-height: 0
     transform: rotateX(0)
@@ -92,7 +94,7 @@
   .birthdaylist__month-dropdown
     max-height: rem(600px)
 
-  &:before
+  .birthdaylist__month__a:before
     transform: rotateX(180deg)
 
 .birthdaylist__month-dropdown
@@ -103,7 +105,6 @@
   list-style: none
   padding: 0
   margin: 0 0 0 rem(8px)
-  font-size: rem(12px)
 
 .person-avatar
   cursor: pointer
