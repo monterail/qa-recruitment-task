@@ -50,9 +50,6 @@ GEM
     celluloid (0.16.0)
       timers (~> 4.0.0)
     certifi (2015.08.10)
-    clockwork (1.2.0)
-      activesupport
-      tzinfo
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -261,7 +258,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  clockwork (~> 1.2.0)
   coffee-rails (~> 4.0.0)
   database_cleaner (~> 1.4.1)
   dotenv-rails
