@@ -1,0 +1,8 @@
+.crs-notify__container ng-controller='NotifyCtrl'
+  div ng-repeat="notification in notifications" ng-click="close(notification)"
+    .crs-notify ng-class="{'crs-notify--show': notification.active, 'crs-notify--success': notification.type === 'success', 'crs-notify--error': notification.type === 'error'}"
+      img.crs-notify__image ng-src="{{notification.image}}"
+      .crs-notify__message
+        | {{notification.message}}
+      a.crs-notify__close
+    br

@@ -7,6 +7,6 @@ html ng-app="BornApp"
     = csrf_meta_tags
   body modal-body-lock="true"
     = yield
-    .crs-notify__container#notifyContainer error-notify=""
+    = render "notification/notify"
     = javascript_include_tag 'application'
     = js_env
