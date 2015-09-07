@@ -28,5 +28,11 @@ angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, cur
     .pairs()
     .value()
 
+  $scope.selectMonth = (month) ->
+    if $scope.activeMonth == month
+      $scope.activeMonth = null
+    else
+      $scope.activeMonth = month
+
   User.withoutBirthday().success (users) ->
     $scope.usersWithoutBirthday = users

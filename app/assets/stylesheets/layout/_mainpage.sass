@@ -21,46 +21,92 @@
   position: relative
   z-index: 2
 
+.mainpage__banner
+  background: $crs-global-background-alpha
+  width: 100%
+
+.mainpage__box
+  background: $crs-global-background-alpha
+  margin: 2rem 0 1rem
+  padding: 1rem
+
 .mainpage__image-background
   width: 100%
   height: 100%
   min-width: 1300px
 
-.mainpage__birthdaylist
-  margin:
-    left: 80px
-    top: 50px
-
 .list__item
-  padding-bottom: $crs-global-list-item-space
+  padding-top: $crs-global-list-item-space * 0.25
+  padding-bottom: $crs-global-list-item-space * 0.25
 
 .today-birthday-list__item
   padding-bottom: $crs-global-list-item-space * (4/3)
   position: relative
 
 .person__index
-  color: $crs-tertiary-color
   margin-left: 1rem
   vertical-align: middle
   display: inline-block
   line-height: 1.5
   font-size: $crs-global-font-size
-  text-shadow: $crs-global-shadow
   letter-spacing: $crs-global-letter-spacing
 
   &:hover
     cursor: pointer
 
 .mainpage__header
-  padding-bottom: $crs-global-list-item-space * (4/3)
-  font-size: $crs-header-h1-size
-  text-shadow: $crs-global-shadow
-  letter-spacing: $crs-global-letter-spacing
+  margin: 0 0 1rem
 
 .birthdaylist__month
-  padding-bottom: $crs-global-list-item-space
-  border-bottom: 1px solid $crs-tertiary-color
-  width: 50%
+  margin-left: rem(20px)
+  line-height: 1.5rem
+
+.birthdaylist__month-link
+  cursor: pointer
+
+  &:before
+    content: "\e618"
+    font-size: rem(12px)
+    font-family: 'cuirass-icons'
+    speak: none
+    font:
+      style: normal
+      weight: normal
+      variant: normal
+    text-transform: none
+    line-height: 0
+    transform: rotateX(0)
+    transition: transform .6s ease
+
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+    position: absolute
+    left: rem(-20px)
+    top: calc(50%)
+    width: 0
+    height: 0
+
+.birthdaylist__month--active
+  font-weight: 700
+
+  .birthdaylist__month-dropdown
+    max-height: rem(600px)
+
+  .birthdaylist__month-link:before
+    transform: rotateX(180deg)
+
+.birthdaylist__month-dropdown
+  max-height: 0
+  overflow: hidden
+  display: block
+  transition: max-height .7s ease
+  list-style: none
+  padding: 0
+  margin: 0 0 0 rem(8px)
+
+.person-avatar
+  cursor: pointer
 
 .person__today--avatar
   max-height: 7.5rem
@@ -74,7 +120,6 @@
   top: -55px
 
 .person__index
-  color: $crs-tertiary-color
   margin-left: 1rem
   &:hover
     cursor: pointer
