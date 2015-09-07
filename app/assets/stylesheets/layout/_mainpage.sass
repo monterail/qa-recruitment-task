@@ -36,7 +36,8 @@
   min-width: 1300px
 
 .list__item
-  padding-bottom: $crs-global-list-item-space * 0.5
+  padding-top: $crs-global-list-item-space * 0.25
+  padding-bottom: $crs-global-list-item-space * 0.25
 
 .today-birthday-list__item
   padding-bottom: $crs-global-list-item-space * (4/3)
@@ -58,9 +59,10 @@
 
 .birthdaylist__month
   margin-left: rem(20px)
-  cursor: pointer
-  color: $crs-primary-color
   line-height: 1.5rem
+
+.birthdaylist__month__a
+  cursor: pointer
 
   &:before
     content: "\e618"
@@ -87,8 +89,24 @@
 .birthdaylist__month--active
   font-weight: 700
 
+  .birthdaylist__month-dropdown
+    max-height: rem(400px)
+
   &:before
     transform: rotateX(180deg)
+
+.birthdaylist__month-dropdown
+  max-height: 0
+  overflow: hidden
+  display: block
+  transition: max-height .7s ease
+  list-style: none
+  padding: 0
+  margin: 0 0 0 rem(8px)
+  font-size: rem(12px)
+
+.person-avatar
+  cursor: pointer
 
 .person__today--avatar
   max-height: 7.5rem
