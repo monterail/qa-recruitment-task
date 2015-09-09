@@ -10,6 +10,9 @@ module JsEnv
       env: Rails.env,
       templates: templates,
       logout_url: ENVied.ID_HUSSARS_HOST + "/users/sign_out",
+      authentic_url: ENVied.AUTHENTIC_HOST,
+      eating_url: ENVied.EATING_HOST,
+      vacations_url: ENVied.VACATIONS_HOST
     }
 
     <<-EOS.html_safe
