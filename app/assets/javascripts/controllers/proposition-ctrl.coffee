@@ -1,9 +1,11 @@
 angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
   $scope.editPropositionId = null
 
+  $scope.resetFieldTouched = (form) ->
+    form.$setUntouched()
+
   $scope.editProposition = (id) ->
     $scope.editPropositionId = id
-
 
   $scope.isPropositionEmpty = ->
     $scope.celebrant.propositions.chosen.length <= 0
