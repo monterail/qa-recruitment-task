@@ -24,4 +24,4 @@ div ng-controller="CommentCtrl"
           textarea ng-model="proposition.newComment.body" class="form__validate" ng-model-options="{ updateOn: 'blur' }" name="commentNew" ng-required="true"
           label.crs-form__label Your comment*
           span.error__message ng-show="createCommentForm.commentNew.$touched && createCommentForm.commentNew.$invalid" This field is required
-        button.crs-button.crs-button--small.comments__submit type="submit" Submit comment
+        button.crs-button.crs-button--small.comments__submit type="submit" ng-click="createCommentForm.$setUntouched()" Submit comment
