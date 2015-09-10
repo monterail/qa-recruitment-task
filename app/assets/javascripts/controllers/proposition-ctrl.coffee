@@ -4,7 +4,6 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
   $scope.editProposition = (id) ->
     $scope.editPropositionId = id
 
-
   $scope.isPropositionEmpty = ->
     $scope.celebrant.propositions.chosen.length <= 0
 
@@ -14,6 +13,7 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
   $scope.createProposition = ->
     Proposition.create($scope.newProposition)
     .success (response) ->
+      $scope.newPropositionForm.$setUntouched()
       $scope.celebrant.propositions.current.push response
       $scope.newProposition = {}
 
