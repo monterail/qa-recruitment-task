@@ -59,8 +59,7 @@ div.crs-grid__row.crs-grid__row--centered ng-controller="PropositionCtrl"
           | This field is required
       .crs-input__group
         input.form__validate(
-          type="text"
-          ng-pattern="/^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/"
+          type="number"
           ng-model="newProposition.value"
           ng-model-options="{ updateOn: 'blur' }"
           name="propositionValue"
