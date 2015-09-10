@@ -1,9 +1,6 @@
 angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
   $scope.editPropositionId = null
 
-  $scope.resetFieldTouched = (form) ->
-    form.$setUntouched()
-
   $scope.editProposition = (id) ->
     $scope.editPropositionId = id
 
@@ -16,6 +13,7 @@ angular.module('BornApp').controller 'PropositionCtrl', ($scope, Proposition) ->
   $scope.createProposition = ->
     Proposition.create($scope.newProposition)
     .success (response) ->
+      $scope.newPropositionForm.$setUntouched()
       $scope.celebrant.propositions.current.push response
       $scope.newProposition = {}
 
