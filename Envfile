@@ -1,0 +1,17 @@
+enable_defaults! { ENV.fetch('RACK_ENV', 'development').match(/development|test/) }
+
+variable :ID_HUSSARS_HOST,      :string,  default: 'sampleHussarsHost'
+variable :HUSSARS_KEY,          :string,  default: 'sampleHussarsKey'
+variable :HUSSARS_SECRET,       :string,  default: 'sampleSecret'
+variable :MAILER_SENDER,        :string,  default: 'no-reply@hussa.rs'
+variable :REDIS_URL,            :string,  default: 'redis://localhost:6379/'
+variable :SECRET_KEY_BASE,      :string,  default: 'd126216c737ef43ef0a7479d619acf20503d3bc672c75e0a2f08eca09a8b680941abb33cf5d2aaa443525b313a1094b77e2ef3a831f84c2f709b53066950b96e'
+variable :SENTRY_DSN,           :string,  default: 'sampleDsn'
+variable :SMTP_USER,            :string,  default: 'sampleUser'
+variable :SMTP_PASS,            :string,  default: 'sampleKey'
+variable :HOST,                 :string,  default: 'localhost:3000'
+variable :SMTP_PORT,            :string,  default: 'examplePort'
+variable :SMTP_HOST,            :string,  default: 'exampleHost'
+variable :AUTHENTIC_HOST,       :string,  default: ''
+variable :EATING_HOST,          :string,  default: ''
+variable :VACATIONS_HOST,       :string,  default: ''
