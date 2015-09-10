@@ -10,6 +10,7 @@ angular.module('BornApp').controller 'CommentCtrl', ($scope, Comment) ->
   $scope.createComment = (proposition) ->
     Comment.create(proposition.newComment, proposition)
     .success (comment) ->
+      $scope.createCommentForm.$setUntouched()
       proposition.comments.push comment
       proposition.newComment = {}
 
