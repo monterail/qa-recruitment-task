@@ -1,4 +1,4 @@
-angular.module('BornApp').controller 'MeCtrl', ($scope, $state, $stateParams, currentUser, User, Notification) ->
+angular.module('BornApp').controller 'MeCtrl', ($scope, $state, currentUser, User, Notification) ->
   $scope.user = currentUser.data
 
   $scope.update = ->
