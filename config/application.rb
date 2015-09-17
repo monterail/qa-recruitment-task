@@ -18,6 +18,16 @@ module BornHussaRs
       *.png *.jpg *.jpeg *.gif
       cuirass-icons.eot cuirass-icons.svg cuirass-icons.ttf cuirass-icons.woff
     )
+
+    config.action_mailer.smtp_settings = {
+      address:              ENVied.SMTP_HOST,
+      port:                 ENVied.SMTP_PORT,
+      user_name:            ENVied.SMTP_USER,
+      password:             ENVied.SMTP_PASS,
+      domain:               ENVied.HOST,
+      authentication:       'login',
+      enable_starttls_auto: true
+    }
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'

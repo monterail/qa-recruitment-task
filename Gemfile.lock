@@ -49,9 +49,7 @@ GEM
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    clockwork (1.2.0)
-      activesupport
-      tzinfo
+    certifi (2015.08.10)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -209,6 +207,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    sentry-raven (0.14.0)
+      certifi
+      faraday (>= 0.7.6)
     sidekiq (3.4.2)
       celluloid (~> 0.16.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -257,7 +258,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  clockwork (~> 1.2.0)
   coffee-rails (~> 4.0.0)
   database_cleaner (~> 1.4.1)
   dotenv-rails
@@ -279,6 +279,7 @@ DEPENDENCIES
   rspec-rails
   sass (~> 3.4.13)
   sass-rails (~> 5.0.3)
+  sentry-raven (~> 0.14.0)
   sidekiq (~> 3.4.1)
   sinatra
   slim-rails
