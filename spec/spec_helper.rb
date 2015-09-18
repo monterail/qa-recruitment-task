@@ -8,12 +8,8 @@ RSpec.configure do |config|
   end
 
   config.before(:each, :type => :controller) do
-    RailsSso.test_mode = true
-    default_user = {
-      name: 'John Blacksmith',
-      email: 'john.blacksmith@example.com',
-      uid: '169783'
-    }
+    RailsSso.config.test_mode = true
+    default_user = RailsSso.config.profile_mocks['john_uid']
     auth_as(default_user)
   end
 end

@@ -25,7 +25,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-angular-animate', '~> 1.3.6'
 end
 
-gem 'rails_sso', '~> 0.6.1'
+gem 'rails_sso', '~> 0.7.1'
 gem 'envied', '~> 0.8.1'
 gem 'puma', '~> 2.13.4'
 gem 'sentry-raven', '~> 0.14.0'
