@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe BirthdayGenerator do
   # We always need at least 2 people so we have an option to create a birthday
-  let!(:dawid) { User.create(email: 'dawid@example.com', name: 'dawid', sso_id: '23456789') }
-  let!(:hodak) { User.create(email: 'hodak@example.com', name: 'hodak', sso_id: '23456790') }
-  let(:jakub) { User.create(email: 'jakub@example.com', name: 'jakub', sso_id: '23456791') }
+  let!(:dawid) { User.create(email: "dawid@example.com", name: "dawid", sso_id: "23456789") }
+  let!(:hodak) { User.create(email: "hodak@example.com", name: "hodak", sso_id: "23456790") }
+  let(:jakub) { User.create(email: "jakub@example.com", name: "jakub", sso_id: "23456791") }
 
   describe "celebrants are chosen from next 3 months" do
     after(:each) do
@@ -15,106 +15,106 @@ describe BirthdayGenerator do
       dawid.update_attributes(birthday_month: 2, birthday_day: 20)
       time_febraury = Time.local(Date.today.year, 2, 1, 16, 37, 0)
       Timecop.freeze(time_febraury)
-      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
+      expect { described_class.new.call }.to change { Birthday.count }.by(1)
     end
 
     it "1 month from now" do
       dawid.update_attributes(
         birthday_month: 1.month.from_now.month,
-        birthday_day: 1
+        birthday_day: 1,
       )
-      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
+      expect { described_class.new.call }.to change { Birthday.count }.by(1)
     end
 
     it "3 month from now" do
       dawid.update_attributes(
         birthday_month: 3.month.from_now.month,
-        birthday_day: 1
+        birthday_day: 1,
       )
-      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
+      expect { described_class.new.call }.to change { Birthday.count }.by(1)
     end
 
     it "1 month ago" do
       dawid.update_attributes(
         birthday_month: 1.month.ago.month,
-        birthday_day: 1
+        birthday_day: 1,
       )
-      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+      expect { described_class.new.call }.to change { Birthday.count }.by(0)
     end
 
     it "current month but before today" do
       dawid.update_attributes(
         birthday_month: 2,
-        birthday_day: 2
+        birthday_day: 2,
       )
       time_febraury = Time.local(Date.today.year, 2, 4, 16, 37, 0)
       Timecop.freeze(time_febraury)
-      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+      expect { described_class.new.call }.to change { Birthday.count }.by(0)
     end
 
     it "4 months from now" do
       dawid.update_attributes(
         birthday_month: 4.month.from_now.month,
-        birthday_day: 1
+        birthday_day: 1,
       )
-      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+      expect { described_class.new.call }.to change { Birthday.count }.by(0)
     end
 
     it "2 months from now, but next year" do
       dawid.update_attributes(
         birthday_month: 1,
-        birthday_day: 2
+        birthday_day: 2,
       )
       time_november = Time.local(Date.today.year, 11, 4, 16, 37, 0)
       Timecop.freeze(time_november)
-      expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
+      expect { described_class.new.call }.to change { Birthday.count }.by(1)
     end
   end
 
   it "doesn't create new birthday if there is already a birthday for this celebrant" do
     dawid.update_attributes(
       birthday_month: 1.month.from_now.month,
-      birthday_day: 1
+      birthday_day: 1,
     )
-    expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(1)
-    expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(0)
+    expect { described_class.new.call }.to change { Birthday.count }.by(1)
+    expect { described_class.new.call }.to change { Birthday.count }.by(0)
   end
 
   it "creates 2 Birthdays when there are 2 free celebrants" do
     dawid.update_attributes(
       birthday_month: 1.month.from_now.month,
-      birthday_day: 1
+      birthday_day: 1,
     )
-    hodak.update_attributes(  birthday_month: 2.month.from_now.month,
-      birthday_day: 1
-    )
-    expect{ BirthdayGenerator.new.call }.to change{ Birthday.count }.by(2)
+    hodak.update_attributes(birthday_month: 2.month.from_now.month,
+                            birthday_day: 1,
+                           )
+    expect { described_class.new.call }.to change { Birthday.count }.by(2)
   end
 
   it "assigns a person responsible even when every possible person responsible took care of some birthday already" do
     dawid.update_attributes(
       birthday_month: 1.month.from_now.month,
-      birthday_day: 1
+      birthday_day: 1,
     )
     hodak.update_attributes(
       birthday_month: 2.month.from_now.month,
-      birthday_day: 1
+      birthday_day: 1,
     )
     jakub.update_attributes(
       birthday_month: 2.month.from_now.month,
-      birthday_day: 14
+      birthday_day: 14,
     )
     Birthday.create(
       celebrant: dawid,
       person_responsible: hodak,
-      year: Date.today.year
+      year: Date.today.year,
     )
     Birthday.create(
       celebrant: hodak,
       person_responsible: dawid,
-      year: Date.today.year
+      year: Date.today.year,
     )
-    BirthdayGenerator.new.call
+    described_class.new.call
     birthday = Birthday.find_by!(celebrant_id: jakub.id, year: Date.today.year)
     expect(birthday.year).to eq(Date.today.year)
   end
@@ -123,12 +123,12 @@ describe BirthdayGenerator do
     context "had couple birthdays long time ago" do
       before(:each) do
         dawid.update_attributes(
-        birthday_month: 1.month.from_now.month,
-        birthday_day: 1
+          birthday_month: 1.month.from_now.month,
+          birthday_day: 1,
         )
         hodak.update_attributes(
           birthday_month: 2.month.from_now.month,
-          birthday_day: 1
+          birthday_day: 1,
         )
       end
 
@@ -137,21 +137,21 @@ describe BirthdayGenerator do
           celebrant: dawid,
           person_responsible: hodak,
           year: Date.today.year,
-          created_at: 2.years.ago
+          created_at: 2.years.ago,
         )
         Birthday.create(
           celebrant: dawid,
           person_responsible: hodak,
           year: Date.today.year,
-          created_at: 3.years.ago
+          created_at: 3.years.ago,
         )
         Timecop.return
         Birthday.create(
           celebrant: hodak,
           person_responsible: jakub,
-          year: Date.today.year
+          year: Date.today.year,
         )
-        BirthdayGenerator.new.call
+        described_class.new.call
         birthday = Birthday.find_by!(celebrant_id: dawid.id, year: Date.today.year)
         expect(birthday.person_responsible.id).to eq(hodak.id)
       end
@@ -161,23 +161,23 @@ describe BirthdayGenerator do
       it "assigns person responsible that had no birthdays yet" do
         dawid.update_attributes(
           birthday_month: 1.month.from_now.month,
-          birthday_day: 1
+          birthday_day: 1,
         )
         hodak.update_attributes(
           birthday_month: 2.month.from_now.month,
-          birthday_day: 1
+          birthday_day: 1,
         )
         Birthday.create(
           celebrant: dawid,
           person_responsible: jakub,
-          year: Date.today.year
+          year: Date.today.year,
         )
         Birthday.create(
           celebrant: dawid,
           person_responsible: jakub,
-          year: Date.today.year - 1
+          year: Date.today.year - 1,
         )
-        BirthdayGenerator.new.call
+        described_class.new.call
         birthday = Birthday.find_by(celebrant_id: hodak.id, year: Date.today.year)
         expect(birthday.person_responsible.id).to eq(dawid.id)
       end

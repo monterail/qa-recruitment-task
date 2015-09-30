@@ -18,14 +18,14 @@ class OneUserRepresenter < Struct.new(:user)
         if user.birthdays_as_celebrant.find_by_year(user.next_birthday_year)
           user.birthdays_as_celebrant.find_by_year(user.next_birthday_year).person_responsible.attributes.slice("id", "name", "email")
         end
-        ),
-      profile_photo: "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}"
+      ),
+      profile_photo: "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}",
     }
   end
 
   private
 
-    def covered?
-      user.next_birthday.try(:covered)
-    end
+  def covered?
+    user.next_birthday.try(:covered)
+  end
 end

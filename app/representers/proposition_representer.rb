@@ -9,7 +9,7 @@ class PropositionRepresenter < Struct.new(:proposition)
       owner: User.find(proposition.owner_id).attributes.slice("id", "name"),
       comments: proposition.comments.map { |comment| CommentRepresenter.new(comment).basic },
       rating: proposition.votes.count,
-      votes: proposition.votes
+      votes: proposition.votes,
     }
   end
 end

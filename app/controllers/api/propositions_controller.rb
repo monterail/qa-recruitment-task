@@ -1,6 +1,5 @@
 module Api
   class PropositionsController < ApplicationController
-
     before_action :restrict_wrong_owner, only: [:update, :destroy]
 
     def create
@@ -33,7 +32,7 @@ module Api
       render json: PropositionRepresenter.new(proposition).basic
     end
 
-  private
+    private
 
     def proposition
       @proposition ||= Proposition.find(params[:id])

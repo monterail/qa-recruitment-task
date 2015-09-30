@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :birthday_month, allow_nil: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 12 }
   validates :birthday_day, allow_nil: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 31 }
 
-  scope :ordered_by_soonest_birthday, -> {
+  scope :ordered_by_soonest_birthday, lambda {
     order(
       "CASE
         WHEN #{Date.today.month} < birthday_month THEN birthday_month
@@ -20,19 +20,19 @@ class User < ActiveRecord::Base
           END
         ELSE birthday_month+12
       END")
-    .order(birthday_day: :asc)
+      .order(birthday_day: :asc)
   }
 
-  scope :sooners, -> (uid) {
+  scope :sooners, lambda { |uid|
     User.ordered_by_soonest_birthday.where.not(sso_id: uid, birthday_month: nil, birthday_day: nil)
   }
 
-  scope :without_birthday, -> (uid) {
+  scope :without_birthday, lambda { |uid|
     User.where.not(sso_id: uid).where("birthday_day IS NULL OR birthday_month IS NULL")
   }
 
   def next_birthday_date
-    Date.new(self.next_birthday_year, self.birthday_month, self.birthday_day)
+    Date.new(next_birthday_year, birthday_month, birthday_day)
   end
 
   def next_birthday_year
@@ -40,10 +40,10 @@ class User < ActiveRecord::Base
   end
 
   def birthday_in_next_year?
-    Date.today.month >= self.birthday_month && Date.today.day > self.birthday_day
+    Date.today.month >= birthday_month && Date.today.day > birthday_day
   end
 
   def next_birthday
-    self.birthdays_as_celebrant.find_by(year: self.next_birthday_year)
+    birthdays_as_celebrant.find_by(year: next_birthday_year)
   end
 end

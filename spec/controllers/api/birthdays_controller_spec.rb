@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::BirthdaysController do
   include AuthHelper
 
   let(:celebrant) do
-    User.create!(name: 'celebrant', email: 'celebrant@ju.la', sso_id: '12343241',
+    User.create!(name: "celebrant", email: "celebrant@ju.la", sso_id: "12343241",
                  birthday_day: 14, birthday_month: 1.month.from_now.month)
   end
   let(:current_user) { controller.current_user }

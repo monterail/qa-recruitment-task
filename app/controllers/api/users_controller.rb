@@ -1,18 +1,17 @@
 module Api
   class UsersController < ApplicationController
-
     before_action :restrict_current_user,
-      except: [:index, :users_without_birthday, :update_me, :me]
+                  except: [:index, :users_without_birthday, :update_me, :me]
 
     def index
-      render json: UsersRepresenter.new(User.sooners(current_user['sso_id'])).basic
+      render json: UsersRepresenter.new(User.sooners(current_user["sso_id"])).basic
     end
 
     def send_emails
       NotifyAboutGiftsWorker.perform_async(
         params[:user_id],
         params[:subject],
-        params[:content]
+        params[:content],
       )
 
       head :ok
@@ -50,12 +49,13 @@ module Api
     end
 
     private
-      def restrict_current_user
-        head :unauthorized if current_user.id.to_s == params[:id]
-      end
 
-      def user_params
-        params.require(:user).permit(:birthday_day, :birthday_month, :szama, :about)
-      end
+    def restrict_current_user
+      head :unauthorized if current_user.id.to_s == params[:id]
+    end
+
+    def user_params
+      params.require(:user).permit(:birthday_day, :birthday_month, :szama, :about)
+    end
   end
 end

@@ -8,7 +8,7 @@ class NotifyAboutGiftsWorker
         User.where.not(id: celebrant.id),
         celebrant,
         subject,
-        content
+        content,
       )
       .deliver_now
   end
