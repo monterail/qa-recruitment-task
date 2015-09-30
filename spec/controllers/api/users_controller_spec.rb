@@ -3,11 +3,25 @@ require "rails_helper"
 describe Api::UsersController do
   include AuthHelper
 
-  let(:current_user_attributes) { { "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" } }
+  let(:current_user_attributes) do
+    { "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }
+  end
   let(:current_user) { controller.current_user }
-  let(:user_younger_attributes) { { "id" => 124, "email" => "hodor2@example.com", "name" => "hodor2", "sso_id" => "23456789", "birthday_month" => 2.month.from_now.month, "birthday_day" => 1 } }
-  let(:user_older_attributes) { { "id" => 125, "email" => "hodor3@example.com", "name" => "hodor3", "sso_id" => "34567890", "birthday_month" => 1.month.from_now.month, "birthday_day" => 12 } }
-  let(:user_without_birthday_attributes) { { "email" => "hodor4@example.com", "name" => "hodor4", "sso_id" => "45678901" } }
+  let(:user_younger_attributes) do
+    { "id" => 124, "email" => "hodor2@example.com",
+      "name" => "hodor2", "sso_id" => "23456789",
+      "birthday_month" => 2.month.from_now.month,
+      "birthday_day" => 1 }
+  end
+  let(:user_older_attributes) do
+    { "id" => 125, "email" => "hodor3@example.com",
+      "name" => "hodor3", "sso_id" => "34567890",
+      "birthday_month" => 1.month.from_now.month,
+      "birthday_day" => 12 }
+  end
+  let(:user_without_birthday_attributes) do
+    { "email" => "hodor4@example.com", "name" => "hodor4", "sso_id" => "45678901" }
+  end
 
   before(:each) do
     auth_as(current_user_attributes)
@@ -32,7 +46,8 @@ describe Api::UsersController do
     subject { JSON.parse(response.body) }
 
     it "returns users without current_user_attributes" do
-      is_expected.not_to include(current_user_attributes.slice("name", "id", "birthday_day", "birthday_month"))
+      is_expected.not_to include(current_user_attributes
+        .slice("name", "id", "birthday_day", "birthday_month"))
     end
 
     it "returns users sorted by earliest birthday" do
@@ -41,7 +56,8 @@ describe Api::UsersController do
     end
 
     it "doesn't include users without birthday date" do
-      is_expected.not_to include(user_without_birthday_attributes.slice("name", "id", "birthday_day", "birthday_month"))
+      is_expected.not_to include(user_without_birthday_attributes
+        .slice("name", "id", "birthday_day", "birthday_month"))
     end
   end
 
@@ -136,9 +152,19 @@ describe Api::UsersController do
   end
 
   describe "GET #show" do
-    let!(:chosen_proposition) { Proposition.create!(title: "title", owner_id: user_younger_attributes["id"], celebrant_id: user_older_attributes["id"], year_chosen_in: 2015) }
-    let!(:current_proposition) { Proposition.create!(title: "title", owner_id: user_younger_attributes["id"], celebrant_id: user_older_attributes["id"]) }
-    let!(:comment) { Comment.create!(body: "body", owner_id: user_younger_attributes["id"], proposition_id: current_proposition["id"]) }
+    let!(:chosen_proposition) do
+      Proposition.create!(title: "title", owner_id: user_younger_attributes["id"],
+                          celebrant_id: user_older_attributes["id"],
+                          year_chosen_in: 2015)
+    end
+    let!(:current_proposition) do
+      Proposition.create!(title: "title", owner_id: user_younger_attributes["id"],
+                          celebrant_id: user_older_attributes["id"])
+    end
+    let!(:comment) do
+      Comment.create!(body: "body", owner_id: user_younger_attributes["id"],
+                      proposition_id: current_proposition["id"])
+    end
 
     context "shows user's data" do
       before(:each) do
@@ -149,23 +175,26 @@ describe Api::UsersController do
       it "shows user's previously chosen propositions" do
         get :show, id: user_older_attributes["id"]
         user_shown = JSON.parse(response.body)
-        expect(user_shown["propositions"]["chosen"]).to eq([PropositionRepresenter.new(chosen_proposition).basic.as_json])
+        expect(user_shown["propositions"]["chosen"])
+          .to eq([PropositionRepresenter.new(chosen_proposition).basic.as_json])
       end
 
       it "shows user's current propositions" do
         get :show, id: user_older_attributes["id"]
         user_shown = JSON.parse(response.body)
-        expect(user_shown["propositions"]["current"]).to eq([PropositionRepresenter.new(current_proposition).basic.as_json])
+        expect(user_shown["propositions"]["current"])
+          .to eq([PropositionRepresenter.new(current_proposition).basic.as_json])
       end
 
       it "shows comments to current propositions" do
         get :show, id: user_older_attributes["id"]
         user_shown = JSON.parse(response.body)
-        expect(user_shown["propositions"]["current"].first["comments"]).to eq([CommentRepresenter.new(comment).basic.as_json])
+        expect(user_shown["propositions"]["current"].first["comments"])
+          .to eq([CommentRepresenter.new(comment).basic.as_json])
       end
 
       it "shows person_responsible for current birthday" do
-        birthday = Birthday.create(
+        Birthday.create(
           person_responsible: User.find_by_id(user_older_attributes["id"]),
           celebrant: User.find_by_id(user_younger_attributes["id"]),
           year: Time.zone.today.year,

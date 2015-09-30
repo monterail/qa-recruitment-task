@@ -13,6 +13,7 @@ gem "sass", "~> 3.4.13"
 
 gem "rubocop",  "~> 0.33.0"
 gem "rubocop-rspec", "~> 1.3.0"
+gem "representable"
 
 gem "sidekiq", "~> 3.4.1"
 gem "sinatra", require: nil

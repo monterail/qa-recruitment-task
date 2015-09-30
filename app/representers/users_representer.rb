@@ -1,4 +1,4 @@
-class UsersRepresenter < Struct.new(:users)
+UsersRepresenter = Struct.new(:users) do
   def basic
     users.map do |user|
       {

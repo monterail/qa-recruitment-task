@@ -6,10 +6,9 @@ class NotifyBeforeBirthdays
       .ordered_by_soonest_birthday
       .where.not(birthday_month: nil, birthday_day: nil)
       .each do |user|
-      if DAYS_BEFORE_NOTIFICATIONS.include? days_till_birthday(user)
-        unless birthday_exist_and_covered? user
-          NotifyAboutBirthdaysWorker.perform_async(user.id)
-        end
+      next unless DAYS_BEFORE_NOTIFICATIONS.include? days_till_birthday(user)
+      unless birthday_exist_and_covered? user
+        NotifyAboutBirthdaysWorker.perform_async(user.id)
       end
     end
   end

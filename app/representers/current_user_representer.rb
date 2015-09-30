@@ -1,4 +1,4 @@
-class CurrentUserRepresenter < Struct.new(:user)
+CurrentUserRepresenter = Struct.new(:user) do
   def basic
     {
       id: user.id,

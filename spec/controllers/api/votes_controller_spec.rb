@@ -4,8 +4,14 @@ describe Api::VotesController do
   include AuthHelper
 
   let(:current_user) { controller.current_user }
-  let(:celebrant) { User.create!(name: "celebrant", email: "celebrant@ju.la", sso_id: "12343241") }
-  let(:proposition) { Proposition.create!(id: 222, title: "title", celebrant_id: celebrant.id, owner_id: current_user.id) }
+  let(:celebrant) do
+    User.create!(name: "celebrant", email: "celebrant@ju.la", sso_id: "12343241")
+  end
+  let(:proposition) do
+    Proposition.create!(id: 222, title: "title",
+                        celebrant_id: celebrant.id,
+                        owner_id: current_user.id)
+  end
 
   describe "post #vote" do
     it "adds vote to proposition" do

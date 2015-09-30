@@ -3,7 +3,8 @@ module Api
     before_action :restrict_wrong_owner, only: [:update, :destroy]
 
     def create
-      render json: PropositionRepresenter.new(current_user.propositions_as_owner.create(proposition_params)).basic
+      render json: PropositionRepresenter.new(current_user
+        .propositions_as_owner.create(proposition_params)).basic
     end
 
     def update
@@ -43,7 +44,8 @@ module Api
     end
 
     def proposition_params
-      params.require(:proposition).permit(:celebrant_id, :description, :title, :value, :year_chosen_in)
+      params.require(:proposition).permit(:celebrant_id, :description,
+                                          :title, :value, :year_chosen_in)
     end
   end
 end

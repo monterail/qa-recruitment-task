@@ -8,8 +8,14 @@ describe Api::PropositionsController do
     User.create!(name: "another_user", email: "another@example.com",
                  sso_id: "049523498")
   end
-  let(:celebrant) { User.create!(name: "celebrant", email: "celebrant@ju.la", sso_id: "12343241") }
-  let(:proposition_attributes) { { "id" => 222, "title" => "title", "celebrant_id" => celebrant["id"], "owner_id" => current_user.id } }
+  let(:celebrant) do
+    User.create!(name: "celebrant", email: "celebrant@ju.la", sso_id: "12343241")
+  end
+  let(:proposition_attributes) do
+    { "id" => 222, "title" => "title",
+      "celebrant_id" => celebrant["id"],
+      "owner_id" => current_user.id }
+  end
 
   describe "post #create" do
     it "new proposition has owner" do
@@ -18,7 +24,8 @@ describe Api::PropositionsController do
       expect(created_proposition["owner"]).to eq(current_user.attributes.slice("id", "name"))
     end
     it "creates new proposition" do
-      expect { post :create, proposition: proposition_attributes }.to change { Proposition.count }.by(1)
+      expect { post :create, proposition: proposition_attributes }
+        .to change { Proposition.count }.by(1)
     end
   end
 
@@ -44,7 +51,8 @@ describe Api::PropositionsController do
 
     context "if owner isn't current_user" do
       it "return unauthorized" do
-        other_propo_attributes = { "title" => "title", "celebrant_id" => celebrant["id"], "owner_id" => another_user.id }
+        other_propo_attributes = { "title" => "title", "celebrant_id" => celebrant["id"],
+                                   "owner_id" => another_user.id }
         other_propo = Proposition.create!(other_propo_attributes)
         other_propo_attributes["description"] = "newDescription"
         put :update, id: other_propo.id, proposition: other_propo_attributes

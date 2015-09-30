@@ -91,7 +91,8 @@ describe BirthdayGenerator do
     expect { described_class.new.call }.to change { Birthday.count }.by(2)
   end
 
-  it "assigns a person responsible even when every possible person responsible took care of some birthday already" do
+  it "assigns a person responsible even when every possible
+      person responsible took care of some birthday already" do
     dawid.update_attributes(
       birthday_month: 1.month.from_now.month,
       birthday_day: 1,
@@ -119,7 +120,8 @@ describe BirthdayGenerator do
     expect(birthday.year).to eq(Time.zone.today.year)
   end
 
-  describe "person responsible when choosing, has the least birhtdays as person responsible in the last year" do
+  describe "person responsible when choosing, has the least
+            birhtdays as person responsible in the last year" do
     context "had couple birthdays long time ago" do
       before(:each) do
         dawid.update_attributes(

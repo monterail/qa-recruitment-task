@@ -1,4 +1,4 @@
-class CommentRepresenter < Struct.new(:comment)
+CommentRepresenter = Struct.new(:comment) do
   def basic
     {
       id: comment.id,

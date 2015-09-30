@@ -1,13 +1,20 @@
 class User < ActiveRecord::Base
-  has_many :propositions_as_owner, class_name: Proposition, foreign_key: :owner_id, dependent: :destroy
-  has_many :propositions_as_celebrant, class_name: Proposition, foreign_key: :celebrant_id, dependent: :destroy
-  has_many :birthdays_as_person_responsible, class_name: Birthday, foreign_key: :person_responsible_id
+  has_many :propositions_as_owner, class_name: Proposition,
+                                   foreign_key: :owner_id, dependent: :destroy
+  has_many :propositions_as_celebrant, class_name: Proposition,
+                                       foreign_key: :celebrant_id, dependent: :destroy
+  has_many :birthdays_as_person_responsible, class_name: Birthday,
+                                             foreign_key: :person_responsible_id
   has_many :birthdays_as_celebrant, class_name: Birthday, foreign_key: :celebrant_id
 
   validates :name, presence: true
   validates :email, presence: true
-  validates :birthday_month, allow_nil: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 12 }
-  validates :birthday_day, allow_nil: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 31 }
+  validates :birthday_month, allow_nil: true, numericality: { only_integer: true,
+                                                              greater_than: 0,
+                                                              less_than_or_equal_to: 12 }
+  validates :birthday_day, allow_nil: true, numericality: { only_integer: true,
+                                                            greater_than: 0,
+                                                            less_than_or_equal_to: 31 }
 
   scope :ordered_by_soonest_birthday, lambda {
     order(

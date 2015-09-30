@@ -1,4 +1,4 @@
-class PropositionRepresenter < Struct.new(:proposition)
+PropositionRepresenter = Struct.new(:proposition) do
   def basic
     {
       id: proposition.id,
