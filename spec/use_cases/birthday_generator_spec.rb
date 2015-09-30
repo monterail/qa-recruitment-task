@@ -13,7 +13,7 @@ describe BirthdayGenerator do
 
     it "current month but after today" do
       dawid.update_attributes(birthday_month: 2, birthday_day: 20)
-      time_febraury = Time.local(Date.today.year, 2, 1, 16, 37, 0)
+      time_febraury = Time.zone.local(Time.zone.today.year, 2, 1, 16, 37, 0)
       Timecop.freeze(time_febraury)
       expect { described_class.new.call }.to change { Birthday.count }.by(1)
     end
@@ -47,7 +47,7 @@ describe BirthdayGenerator do
         birthday_month: 2,
         birthday_day: 2,
       )
-      time_febraury = Time.local(Date.today.year, 2, 4, 16, 37, 0)
+      time_febraury = Time.zone.local(Time.zone.today.year, 2, 4, 16, 37, 0)
       Timecop.freeze(time_febraury)
       expect { described_class.new.call }.to change { Birthday.count }.by(0)
     end
@@ -65,7 +65,7 @@ describe BirthdayGenerator do
         birthday_month: 1,
         birthday_day: 2,
       )
-      time_november = Time.local(Date.today.year, 11, 4, 16, 37, 0)
+      time_november = Time.zone.local(Time.zone.today.year, 11, 4, 16, 37, 0)
       Timecop.freeze(time_november)
       expect { described_class.new.call }.to change { Birthday.count }.by(1)
     end
@@ -107,16 +107,16 @@ describe BirthdayGenerator do
     Birthday.create(
       celebrant: dawid,
       person_responsible: hodak,
-      year: Date.today.year,
+      year: Time.zone.today.year,
     )
     Birthday.create(
       celebrant: hodak,
       person_responsible: dawid,
-      year: Date.today.year,
+      year: Time.zone.today.year,
     )
     described_class.new.call
-    birthday = Birthday.find_by!(celebrant_id: jakub.id, year: Date.today.year)
-    expect(birthday.year).to eq(Date.today.year)
+    birthday = Birthday.find_by!(celebrant_id: jakub.id, year: Time.zone.today.year)
+    expect(birthday.year).to eq(Time.zone.today.year)
   end
 
   describe "person responsible when choosing, has the least birhtdays as person responsible in the last year" do
@@ -136,23 +136,23 @@ describe BirthdayGenerator do
         Birthday.create(
           celebrant: dawid,
           person_responsible: hodak,
-          year: Date.today.year,
+          year: Time.zone.today.year,
           created_at: 2.years.ago,
         )
         Birthday.create(
           celebrant: dawid,
           person_responsible: hodak,
-          year: Date.today.year,
+          year: Time.zone.today.year,
           created_at: 3.years.ago,
         )
         Timecop.return
         Birthday.create(
           celebrant: hodak,
           person_responsible: jakub,
-          year: Date.today.year,
+          year: Time.zone.today.year,
         )
         described_class.new.call
-        birthday = Birthday.find_by!(celebrant_id: dawid.id, year: Date.today.year)
+        birthday = Birthday.find_by!(celebrant_id: dawid.id, year: Time.zone.today.year)
         expect(birthday.person_responsible.id).to eq(hodak.id)
       end
     end
@@ -170,15 +170,15 @@ describe BirthdayGenerator do
         Birthday.create(
           celebrant: dawid,
           person_responsible: jakub,
-          year: Date.today.year,
+          year: Time.zone.today.year,
         )
         Birthday.create(
           celebrant: dawid,
           person_responsible: jakub,
-          year: Date.today.year - 1,
+          year: Time.zone.today.year - 1,
         )
         described_class.new.call
-        birthday = Birthday.find_by(celebrant_id: hodak.id, year: Date.today.year)
+        birthday = Birthday.find_by(celebrant_id: hodak.id, year: Time.zone.today.year)
         expect(birthday.person_responsible.id).to eq(dawid.id)
       end
     end

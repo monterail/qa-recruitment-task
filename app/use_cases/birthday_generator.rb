@@ -9,7 +9,7 @@ class BirthdayGenerator
   def soon_to_be_celebrants
     User.ordered_by_soonest_birthday
       .where(birthday_month: 4.times.map { |i| i.months.from_now.month })
-      .where.not("birthday_month = :month AND birthday_day < :day", { month: Date.today.month, day: Date.today.day })
+      .where.not("birthday_month = :month AND birthday_day < :day", { month: Time.zone.today.month, day: Time.zone.today.day })
   end
 
   def assign_people_responsible_to_celebrants(celebrants)
@@ -40,7 +40,7 @@ class BirthdayGenerator
         if !user.birthdays_as_person_responsible.where(year: (-1..1).map { |i| i.years.ago.year }).blank?
           user.birthdays_as_person_responsible.where(year: (-1..1).map { |i| i.years.ago.year }).last.created_at
         else
-          DateTime.now
+          Time.current
         end
       end
       .last

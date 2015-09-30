@@ -12,10 +12,10 @@ class User < ActiveRecord::Base
   scope :ordered_by_soonest_birthday, lambda {
     order(
       "CASE
-        WHEN #{Date.today.month} < birthday_month THEN birthday_month
-        WHEN #{Date.today.month} = birthday_month THEN
+        WHEN #{Time.zone.today.month} < birthday_month THEN birthday_month
+        WHEN #{Time.zone.today.month} = birthday_month THEN
           CASE
-            WHEN #{Date.today.day} <= birthday_day THEN birthday_month
+            WHEN #{Time.zone.today.day} <= birthday_day THEN birthday_month
             ELSE birthday_month+12
           END
         ELSE birthday_month+12
@@ -36,11 +36,11 @@ class User < ActiveRecord::Base
   end
 
   def next_birthday_year
-    self.birthday_in_next_year? ? Date.today.year.next : Date.today.year
+    self.birthday_in_next_year? ? Time.zone.today.year.next : Time.zone.today.year
   end
 
   def birthday_in_next_year?
-    Date.today.month >= birthday_month && Date.today.day > birthday_day
+    Time.zone.today.month >= birthday_month && Time.zone.today.day > birthday_day
   end
 
   def next_birthday

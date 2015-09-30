@@ -83,7 +83,7 @@ describe User do
       context "regarding yesterday/today/tomorrow" do
         it "is today, tomorrow, yesterday" do
           user_yesterday = described_class.create(id: 126, email: "hodor2@example.com", name: "hodor2", sso_id: "23456789", birthday_month: Date.yesterday.month, birthday_day: Date.yesterday.day)
-          user_today = described_class.create(id: 127, email: "hodor2@example.com", name: "hodor2", sso_id: "23456789", birthday_month: Date.today.month, birthday_day: Date.today.day)
+          user_today = described_class.create(id: 127, email: "hodor2@example.com", name: "hodor2", sso_id: "23456789", birthday_month: Time.zone.today.month, birthday_day: Time.zone.today.day)
           user_tomorrow = described_class.create(id: 128, email: "hodor2@example.com", name: "hodor2", sso_id: "23456789", birthday_month: Date.tomorrow.month, birthday_day: Date.tomorrow.day)
 
           is_expected.to eq([user_today, user_tomorrow, user_yesterday])
@@ -118,7 +118,7 @@ describe User do
                                                 birthday_month: 1, birthday_day: 1)
           user_april = described_class.create(email: "april@example.com", name: "april", sso_id: "april123",
                                               birthday_month: 4, birthday_day: 15)
-          time_febraury = Time.local(2015, 2, 1, 16, 37, 0)
+          time_febraury = Time.zone.local(2015, 2, 1, 16, 37, 0)
           Timecop.freeze(time_febraury)
           is_expected.to eq([user_april, user_december, user_january])
         end

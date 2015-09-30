@@ -23,7 +23,7 @@ module Api
     end
 
     def choose
-      proposition.update_attributes(year_chosen_in: Time.now.year)
+      proposition.update_attributes(year_chosen_in: Time.zone.now.year)
       render json: PropositionRepresenter.new(proposition).basic
     end
 

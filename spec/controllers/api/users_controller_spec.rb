@@ -168,7 +168,7 @@ describe Api::UsersController do
         birthday = Birthday.create(
           person_responsible: User.find_by_id(user_older_attributes["id"]),
           celebrant: User.find_by_id(user_younger_attributes["id"]),
-          year: Date.today.year,
+          year: Time.zone.today.year,
         )
         get :show, id: user_younger_attributes["id"]
         user_shown = JSON.parse(response.body)

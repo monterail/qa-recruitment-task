@@ -17,7 +17,7 @@ class NotifyBeforeBirthdays
   private
 
   def days_till_birthday(user)
-    (user.next_birthday_date - Date.today).to_i
+    (user.next_birthday_date - Time.zone.today).to_i
   end
 
   def birthday_exist_and_covered?(user)

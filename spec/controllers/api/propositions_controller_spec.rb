@@ -63,7 +63,7 @@ describe Api::PropositionsController do
       Proposition.create(proposition_attributes)
       put :choose, id: proposition_attributes["id"], proposition: proposition_attributes
       chosen_proposition = JSON.parse(response.body)
-      expect(chosen_proposition["year_chosen_in"]).to eq(Time.now.year)
+      expect(chosen_proposition["year_chosen_in"]).to eq(Time.zone.now.year)
     end
 
     it "heads 404 when proposition not found" do
