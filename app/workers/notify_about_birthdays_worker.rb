@@ -3,13 +3,15 @@ class NotifyAboutBirthdaysWorker
 
   def perform(celebrant_id)
     celebrant = User.find(celebrant_id)
-    Notification
-      .notify_before_birthdays(
-        days_till_birthday(celebrant),
-        User.where.not(id: celebrant.id),
-        celebrant,
-      )
-      .deliver_now
+    User.where.not(id: celebrant.id).each do |user|
+      Notification
+        .notify_before_birthdays(
+          days_till_birthday(celebrant),
+          user,
+          celebrant,
+        )
+        .deliver_now
+    end
   end
 
   private

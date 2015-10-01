@@ -3,13 +3,15 @@ class NotifyAboutGiftsWorker
 
   def perform(celebrant_id, subject, content)
     celebrant = User.find(celebrant_id)
-    Notification
-      .notify_about_gifts(
-        User.where.not(id: celebrant.id),
-        celebrant,
-        subject,
-        content,
-      )
-      .deliver_now
+    User.where.not(id: celebrant.id).each do |user|
+      Notification
+        .notify_about_gifts(
+          user,
+          celebrant,
+          subject,
+          content,
+        )
+        .deliver_now
+    end
   end
 end
