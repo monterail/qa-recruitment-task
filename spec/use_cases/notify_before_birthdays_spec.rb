@@ -24,20 +24,21 @@ describe NotifyBeforeBirthdays do
     end
 
     it "sends email" do
-      expect { described_class.new.call }.to deliver_emails(1)
+      expect { NotifyBeforeBirthdays.new.call }.to deliver_emails(2)
     end
 
     it "doesn't send email to celebrant" do
-      described_class.new.call
-      notification = ActionMailer::Base.deliveries.last
-      expect(notification.to).not_to include(dawid.email)
+      NotifyBeforeBirthdays.new.call
+      ActionMailer::Base.deliveries.each do |mail|
+        expect(mail.to).not_to include(dawid.email)
+      end
     end
 
     it "sends email to all users except celebrant" do
-      described_class.new.call
-      notification = ActionMailer::Base.deliveries.last
-      expect(notification.to).to include(hodak.email)
-      expect(notification.to).to include(jakub.email)
+      NotifyBeforeBirthdays.new.call
+      notification = ActionMailer::Base.deliveries.map(&:to).flatten
+      expect(notification).to include(hodak.email)
+      expect(notification).to include(jakub.email)
     end
 
     it "doesn't send email if birthday is covered" do
@@ -53,7 +54,7 @@ describe NotifyBeforeBirthdays do
     Timecop.freeze(time_december) do
       notify_date = time_december + 30.days
       dawid.update_attributes(birthday_month: notify_date.month, birthday_day: notify_date.day)
-      expect { described_class.new.call }.to deliver_emails(1)
+      expect{ NotifyBeforeBirthdays.new.call }.to deliver_emails(2)
     end
   end
 end
