@@ -14,15 +14,15 @@ class OneUserRepresenter < Representable::Decorator
   property :person_responsible, exec_context: :decorator
   property :profile_photo, exec_context: :decorator
   nested :propositions do
-    property :chosen?, as: :chosen, exec_context: :decorator
-    property :current?, as: :current, exec_context: :decorator
+    property :chosen, exec_context: :decorator
+    property :current, exec_context: :decorator
 
-    def current?
+    def current
       @represented.propositions_as_celebrant
         .current.map { |proposition| PropositionRepresenter.new(proposition).basic }
     end
 
-    def chosen?
+    def chosen
       @represented.propositions_as_celebrant
         .chosen.map { |proposition| PropositionRepresenter.new(proposition).basic }
     end
