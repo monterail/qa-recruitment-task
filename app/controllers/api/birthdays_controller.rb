@@ -1,6 +1,5 @@
 module Api
   class BirthdaysController < ApplicationController
-
     before_action :restrict_celebrant
 
     def mark_as_covered
@@ -21,15 +20,15 @@ module Api
 
     private
 
-      def birthday
-        @birthday ||= begin
-          next_birthday_year = User.find(params[:celebrant_id]).next_birthday_year
-          Birthday.find_by(celebrant_id: params[:celebrant_id], year: next_birthday_year)
-        end
+    def birthday
+      @birthday ||= begin
+        next_birthday_year = User.find(params[:celebrant_id]).next_birthday_year
+        Birthday.find_by(celebrant_id: params[:celebrant_id], year: next_birthday_year)
       end
+    end
 
-      def restrict_celebrant
-        head :unauthorized if current_user.id == params[:celebrant_id]
-      end
+    def restrict_celebrant
+      head :unauthorized if current_user.id == params[:celebrant_id]
+    end
   end
 end

@@ -7,9 +7,9 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.before(:each, :type => :controller) do
+  config.before(:each, type: :controller) do
     RailsSso.config.test_mode = true
-    default_user = RailsSso.config.profile_mocks['john_uid']
+    default_user = RailsSso.config.profile_mocks["john_uid"]
     auth_as(default_user)
   end
 end

@@ -1,10 +1,10 @@
 module Api
   class PropositionsController < ApplicationController
-
     before_action :restrict_wrong_owner, only: [:update, :destroy]
 
     def create
-      render json: PropositionRepresenter.new(current_user.propositions_as_owner.create(proposition_params)).basic
+      render json: PropositionRepresenter.new(current_user
+        .propositions_as_owner.create(proposition_params)).basic
     end
 
     def update
@@ -24,7 +24,7 @@ module Api
     end
 
     def choose
-      proposition.update_attributes(year_chosen_in: Time.now.year)
+      proposition.update_attributes(year_chosen_in: Time.zone.now.year)
       render json: PropositionRepresenter.new(proposition).basic
     end
 
@@ -33,7 +33,7 @@ module Api
       render json: PropositionRepresenter.new(proposition).basic
     end
 
-  private
+    private
 
     def proposition
       @proposition ||= Proposition.find(params[:id])
@@ -44,7 +44,8 @@ module Api
     end
 
     def proposition_params
-      params.require(:proposition).permit(:celebrant_id, :description, :title, :value, :year_chosen_in)
+      params.require(:proposition).permit(:celebrant_id, :description,
+                                          :title, :value, :year_chosen_in)
     end
   end
 end

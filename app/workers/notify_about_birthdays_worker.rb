@@ -7,14 +7,14 @@ class NotifyAboutBirthdaysWorker
       .notify_before_birthdays(
         days_till_birthday(celebrant),
         User.where.not(id: celebrant.id),
-        celebrant
+        celebrant,
       )
       .deliver_now
   end
 
   private
 
-    def days_till_birthday(user)
-      (user.next_birthday_date - Date.today).to_i
-    end
+  def days_till_birthday(user)
+    (user.next_birthday_date - Time.zone.today).to_i
+  end
 end
