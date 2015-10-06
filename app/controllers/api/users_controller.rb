@@ -4,7 +4,7 @@ module Api
                   except: [:index, :users_without_birthday, :update_me, :me]
 
     def index
-      render json: UsersRepresenter.new(User.sooners(current_user["sso_id"])).basic
+      render json: UsersRepresenter.new(User.sooners).basic
     end
 
     def send_emails
@@ -18,7 +18,7 @@ module Api
     end
 
     def users_without_birthday
-      users = User.without_birthday(current_user.sso_id)
+      users = User.without_birthday
 
       render json: UsersRepresenter.new(users).without_birthday
     end

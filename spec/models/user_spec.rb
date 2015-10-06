@@ -77,9 +77,9 @@ describe User do
       Timecop.return
     end
 
-    subject { described_class.sooners(current_user_data["sso_id"]) }
+    subject { described_class.sooners }
 
-    it { expect { described_class.sooners(current_user_data["sso_id"]).to_a }.to query_limit_eq(1) }
+    it { expect { described_class.sooners.to_a }.to query_limit_eq(1) }
 
     describe "order" do
       context "regarding yesterday/today/tomorrow" do

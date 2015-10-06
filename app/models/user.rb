@@ -30,12 +30,12 @@ class User < ActiveRecord::Base
       .order(birthday_day: :asc)
   }
 
-  scope :sooners, lambda { |uid|
-    User.ordered_by_soonest_birthday.where.not(sso_id: uid, birthday_month: nil, birthday_day: nil)
+  scope :sooners, lambda {
+    User.ordered_by_soonest_birthday.where.not(birthday_month: nil, birthday_day: nil)
   }
 
-  scope :without_birthday, lambda { |uid|
-    User.where.not(sso_id: uid).where("birthday_day IS NULL OR birthday_month IS NULL")
+  scope :without_birthday, lambda {
+    User.where("birthday_day IS NULL OR birthday_month IS NULL")
   }
 
   def next_birthday_date

@@ -36,3 +36,6 @@ angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, cur
 
   User.withoutBirthday().success (users) ->
     $scope.usersWithoutBirthday = users
+
+  $scope.isCurrentUser = (user) ->
+    user.id == currentUser.data.id
