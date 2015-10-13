@@ -36,7 +36,7 @@ describe NotifyBeforeBirthdays do
 
     it "sends email to all users except celebrant" do
       described_class.new.call
-      notification = ActionMailer::Base.deliveries.map(&:to).flatten
+      notification = ActionMailer::Base.deliveries.flat_map(&:to)
       expect(notification).to include(hodak.email)
       expect(notification).to include(jakub.email)
     end
