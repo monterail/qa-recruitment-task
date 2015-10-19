@@ -1,5 +1,5 @@
 class NotifyBeforeBirthdays
-  DAYS_BEFORE_NOTIFICATIONS = [1, 5, 15, 30]
+  DAYS_BEFORE_NOTIFICATIONS = [5, 10, 15]
 
   def call
     User
@@ -10,7 +10,11 @@ class NotifyBeforeBirthdays
         next if birthday_exist_and_covered?(celebrant)
 
         User.where.not(id: celebrant.id).each do |user|
-          NotifyAboutBirthdaysWorker.perform_async(user.id, celebrant.id)
+          if celebrant.next_birthday.person_responsible_id == user.id
+            NotifyResponsiblePersonWorker.perform_async(user.id, celebrant.id)
+          else
+            NotifyAboutBirthdaysWorker.perform_async(user.id, celebrant.id)
+          end
         end
       end
   end
