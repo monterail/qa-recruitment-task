@@ -14,13 +14,14 @@ describe NotifyBeforeBirthdays do
   end
 
   context "birthday in a month" do
-    let(:notify_date) { 30.days.from_now }
+    let(:notify_date) { 15.days.from_now }
 
     before(:each) do
       dawid.update_attributes(
         birthday_month: notify_date.month,
         birthday_day: notify_date.day,
       )
+      BirthdayGenerator.new.call
     end
 
     it "sends email" do
@@ -42,7 +43,6 @@ describe NotifyBeforeBirthdays do
     end
 
     it "doesn't send email if birthday is covered" do
-      BirthdayGenerator.new.call
       birthday = dawid.next_birthday
       birthday.update_attributes(covered: true)
       expect { described_class.new.call }.to deliver_emails(0)
@@ -50,10 +50,11 @@ describe NotifyBeforeBirthdays do
   end
 
   it "sends emails when birthday is in the next year" do
-    time_december = Time.zone.local(2015, 12, 15)
+    time_december = Time.zone.local(2015, 12, 25)
     Timecop.freeze(time_december) do
-      notify_date = time_december + 30.days
+      notify_date = time_december + 15.days
       dawid.update_attributes(birthday_month: notify_date.month, birthday_day: notify_date.day)
+      BirthdayGenerator.new.call
       expect { described_class.new.call }.to deliver_emails(2)
     end
   end
