@@ -1,12 +1,13 @@
 class NotifyAboutBirthdaysWorker
   include Sidekiq::Worker
 
-  def perform(celebrant_id)
+  def perform(user_id, celebrant_id)
     celebrant = User.find(celebrant_id)
+    user = User.find(user_id)
     Notification
       .notify_before_birthdays(
         days_till_birthday(celebrant),
-        User.where.not(id: celebrant.id),
+        user,
         celebrant,
       )
       .deliver_now
@@ -14,7 +15,7 @@ class NotifyAboutBirthdaysWorker
 
   private
 
-  def days_till_birthday(user)
-    (user.next_birthday_date - Time.zone.today).to_i
+  def days_till_birthday(celebrant)
+    (celebrant.next_birthday_date - Time.zone.today).to_i
   end
 end

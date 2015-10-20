@@ -1,11 +1,12 @@
 class NotifyAboutGiftsWorker
   include Sidekiq::Worker
 
-  def perform(celebrant_id, subject, content)
+  def perform(user_id, celebrant_id, subject, content)
     celebrant = User.find(celebrant_id)
+    user = User.find(user_id)
     Notification
       .notify_about_gifts(
-        User.where.not(id: celebrant.id),
+        user,
         celebrant,
         subject,
         content,
