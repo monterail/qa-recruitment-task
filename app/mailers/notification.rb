@@ -22,7 +22,7 @@ class Notification < ApplicationMailer
     @days = days
     mail(
       to: user.email,
-      subject: "Have you bought gift for #{@celebrant.name}? It's #{@days} days left.",
+      subject: "It's #{@days} days until #{@celebrant.name} birthday!",
     )
   end
 end

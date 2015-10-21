@@ -1,11 +1,15 @@
-h1 style="font-size:24px; text-align:center; padding:20px 50px; background-color:lightgrey; margin:0;"
+h1 style="font-size:24px; text-align:center; padding:20px 40px; background-color:lightgrey; margin:0;"
   ' Have you bought gift for
   = @celebrant.name
-  '? It's only
+  '?
+  br
+  ' It's only
   = @days
   '  days left.
-p style="padding: 20px 50px; font-family= Arial, Helvetica, sans-serif; font-size:18px;"
-  | Remember You are a responsible person to celebrant! Please see what with your gift.
+p style="padding: 20px 40px; font-family= Arial, Helvetica, sans-serif; font-size:18px;"
+  | And you're the one who can make her gift to come about.
+  br
+  | Is everything on track?
 = link_to celebrant_url(@celebrant.id)
   h3 style="padding: 20px; text-align: center;"
     = @celebrant.name
