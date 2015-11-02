@@ -161,6 +161,7 @@ describe BirthdayGenerator do
 
     context "had no birthdays yet" do
       it "assigns person responsible that had no birthdays yet" do
+        Timecop.freeze(Time.zone.local(2015, 6, 1))
         dawid.update_attributes(
           birthday_month: 1.month.from_now.month,
           birthday_day: 1,
@@ -181,7 +182,8 @@ describe BirthdayGenerator do
         )
         described_class.new.call
         birthday = Birthday.find_by(celebrant_id: hodak.id, year: Time.zone.today.year)
-        expect(birthday.person_responsible.id).to eq(dawid.id)
+        expect(birthday.person_responsible.id).to eq(jakub.id)
+        Timecop.return
       end
     end
   end

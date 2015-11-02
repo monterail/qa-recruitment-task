@@ -2,7 +2,13 @@ require "rails_helper"
 
 describe Api::UsersController do
   include AuthHelper
+  before do
+    Timecop.freeze(Time.zone.local(2015, 6, 1))
+  end
 
+  after do
+    Timecop.return
+  end
   let(:current_user_attributes) do
     { "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }
   end
