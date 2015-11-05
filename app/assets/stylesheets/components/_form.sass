@@ -8,7 +8,8 @@ $crs-input-font-weight: $crs-global-font-weight
 $crs-input-font-size: 14px
 $crs-input-height: 38px
 $crs-input-padding: 0 10px
-$crs-input-label-color: lighten($crs-input-font-color, 80%)
+$crs-input-label-color-dark: lighten($crs-input-font-color, 80%)
+$crs-input-label-color-light: lighten($crs-input-font-color, 20%)
 $crs-input-label-left: 11px
 $crs-input-label-size: 12px
 $crs-input-background: $crs-global-support-background
@@ -65,7 +66,7 @@ $crs-toggle-border-radius: 100px
   resize: vertical
 
 .crs-input__group label
-  color: $crs-input-label-color
+  color: $crs-input-label-color-light
   font-size: rem($crs-input-font-size)
   font-weight: $crs-input-font-weight
   position: absolute
@@ -99,7 +100,7 @@ $crs-toggle-border-radius: 100px
 
 .crs-form__label
   font-size: rem($crs-input-label-size)
-  color: $crs-input-label-color
+  color: $crs-input-label-color-dark
   margin-bottom: rem(5px)
   display: block
   font-family: $crs-global-font
