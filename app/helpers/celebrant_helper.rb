@@ -1,6 +1,6 @@
 module CelebrantHelper
   def celebrant_url(celebrant_id)
-    "http://#{host}/#/user/#{celebrant_id}"
+    "#{host}/#/user/#{celebrant_id}"
   end
 
   def host
