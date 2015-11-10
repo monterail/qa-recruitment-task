@@ -1,5 +1,5 @@
 module Api
-  class CommentsController < ApplicationController
+  class CommentsController < BaseController
     before_action :restrict_wrong_owner, only: [:update, :destroy]
 
     def create

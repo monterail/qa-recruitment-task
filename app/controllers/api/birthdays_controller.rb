@@ -1,5 +1,5 @@
 module Api
-  class BirthdaysController < ApplicationController
+  class BirthdaysController < BaseController
     before_action :restrict_celebrant
 
     def mark_as_covered
