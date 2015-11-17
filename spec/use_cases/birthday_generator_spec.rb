@@ -93,6 +93,8 @@ describe BirthdayGenerator do
 
   it "assigns a person responsible even when every possible
       person responsible took care of some birthday already" do
+    time_febraury = Time.zone.local(Time.zone.today.year, 2, 4, 16, 37, 0)
+    Timecop.freeze(time_febraury)
     dawid.update_attributes(
       birthday_month: 1.month.from_now.month,
       birthday_day: 1,
