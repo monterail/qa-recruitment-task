@@ -18,16 +18,16 @@ app.config ($provide, $httpProvider, Rails) ->
     $modal = undefined
 
     responseError : (rejection) ->
-      if rejection.status is 500
-        errorHandler.occur("Server Error. Please try again")
-
-      if rejection.status is 401
-        $modal = $injector.get("$modal")
-        $modal.open
-          animation: true
-          size: "sm"
-          controller: "ModalRefreshCtrl"
-          templateUrl: "refresh.html"
+      switch rejection.status
+        when 500
+          errorHandler.occur("Server Error. Please try again")
+        when 401
+          $modal = $injector.get("$modal")
+          $modal.open
+            animation: true
+            size: "sm"
+            controller: "ModalRefreshCtrl"
+            templateUrl: "refresh.html"
 
       $q.reject(rejection)
 
