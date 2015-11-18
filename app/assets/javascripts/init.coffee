@@ -31,7 +31,5 @@ app.config ($provide, $httpProvider, Rails) ->
 
       $q.reject(rejection)
 
-
   $httpProvider.interceptors.push 'railsAssetsInterceptor'
   $httpProvider.interceptors.push 'errorInterceptor'
-
