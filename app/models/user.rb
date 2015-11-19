@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
                                                             less_than_or_equal_to: 31 }
 
   scope :ordered_by_soonest_birthday, lambda {
-    order(order_soonest_birthday, birthday_day: :asc)
+    order(next_birthday_month_case_query, birthday_day: :asc)
   }
 
   scope :sooners, lambda {
@@ -44,15 +44,17 @@ class User < ActiveRecord::Base
     birthdays_as_celebrant.find_by(year: next_birthday_year)
   end
 
-  def self.order_soonest_birthday
-    "CASE
-        WHEN #{Time.zone.today.month} < birthday_month THEN birthday_month
-        WHEN #{Time.zone.today.month} = birthday_month THEN
-          CASE
-            WHEN #{Time.zone.today.day} <= birthday_day THEN birthday_month
-            ELSE birthday_month+12
-          END
-        ELSE birthday_month+12
-      END"
+  def self.next_birthday_month_case_query
+    <<-SQL
+    CASE
+      WHEN #{Time.zone.today.month} < birthday_month THEN birthday_month
+      WHEN #{Time.zone.today.month} = birthday_month THEN
+        CASE
+          WHEN #{Time.zone.today.day} <= birthday_day THEN birthday_month
+          ELSE birthday_month+12
+        END
+      ELSE birthday_month+12
+    END
+    SQL
   end
 end
