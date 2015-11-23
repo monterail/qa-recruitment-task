@@ -1,3 +1,5 @@
 test:
   post:
     - ./bin/rubocop
+    - ./bin/brakeman -z
+

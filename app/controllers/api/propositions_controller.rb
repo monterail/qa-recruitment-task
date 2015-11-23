@@ -1,5 +1,5 @@
 module Api
-  class PropositionsController < ApplicationController
+  class PropositionsController < BaseController
     before_action :restrict_wrong_owner, only: [:update, :destroy]
 
     def create

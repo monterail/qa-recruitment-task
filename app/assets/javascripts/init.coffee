@@ -3,6 +3,9 @@ app = angular.module 'BornApp', ['ui.router', 'ngAnimate']
 app.config ($locationProvider) ->
   $locationProvider.html5Mode false
 
+app.config ($httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = angular.element(document.querySelector('meta[name=csrf-token]')).attr('content')
+
 app.config ($provide, $httpProvider, Rails) ->
   $provide.factory 'railsAssetsInterceptor', ->
     request: (config) ->
