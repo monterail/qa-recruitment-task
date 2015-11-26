@@ -8,11 +8,12 @@ class Notification < ApplicationMailer
     )
   end
 
-  def notify_about_gifts(user, celebrant, subject, content)
+  def notify_about_gifts(users, celebrant, subject, content)
     @celebrant = celebrant
     @content = content
     mail(
-      to: user.email,
+      to: users.first["email"],
+      bcc: users.where.not(id: users.first["id"]).map(&:email),
       subject: subject,
     )
   end
