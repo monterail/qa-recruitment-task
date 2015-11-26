@@ -224,7 +224,6 @@ describe Api::UsersController do
   end
 
   describe "POST #send_emails" do
-    let(:current_user_id) { current_user["id"] }
     let(:user_id) { User.first["id"] }
     let(:subject) { "Test subject" }
     let(:content) { "Test content" }
