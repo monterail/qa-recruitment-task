@@ -21,9 +21,6 @@ describe Api::CommentsController do
       "proposition_id" => proposition["id"],
       "owner_id" => current_user.id }
   end
-  let(:not_me_user) do
-    { name: "baduser", email: "bad@user.eu", uid: "87654321" }
-  end
 
   describe "post #create" do
     it "new comment has owner" do

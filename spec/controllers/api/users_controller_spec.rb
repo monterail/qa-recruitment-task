@@ -2,6 +2,7 @@ require "rails_helper"
 
 describe Api::UsersController do
   include AuthHelper
+  include DeliveryHelper
   before do
     Timecop.freeze(Time.zone.local(2015, 6, 1))
   end
@@ -219,6 +220,20 @@ describe Api::UsersController do
     it "heads 404 when user not found" do
       get :show, id: "xyz"
       expect(response.status).to eq(404)
+    end
+  end
+
+  describe "POST #send_emails" do
+    let(:current_user_id) { current_user["id"] }
+    let(:user_id) { User.first["id"] }
+    let(:subject) { "Test subject" }
+    let(:content) { "Test content" }
+
+    it "calls ::perform_async on NotifyAboutGiftsWorker" do
+      expect(NotifyAboutGiftsWorker).to receive(:perform_async)
+        .with(current_user_id, user_id.to_s, subject, content)
+      post :send_emails, user_id: user_id, subject: subject, content: content
+      expect(response.status).to eq(200)
     end
   end
 end
