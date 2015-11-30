@@ -230,7 +230,7 @@ describe Api::UsersController do
 
     it "calls ::perform_async on NotifyAboutGiftsWorker" do
       expect(NotifyAboutGiftsWorker).to receive(:perform_async)
-        .with(current_user_id, user_id.to_s, subject, content)
+        .with(user_id.to_s, subject, content)
       post :send_emails, user_id: user_id, subject: subject, content: content
       expect(response.status).to eq(200)
     end
