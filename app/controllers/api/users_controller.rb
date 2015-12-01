@@ -8,14 +8,11 @@ module Api
     end
 
     def send_emails
-      User.where.not(id: params[:user_id]).each do |user|
-        NotifyAboutGiftsWorker.perform_async(
-          user.id,
-          params[:user_id],
-          params[:subject],
-          params[:content],
-        )
-      end
+      NotifyAboutGiftsWorker.perform_async(
+        params[:user_id],
+        params[:subject],
+        params[:content],
+      )
       head :ok
     end
 
