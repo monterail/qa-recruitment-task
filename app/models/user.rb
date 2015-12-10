@@ -49,6 +49,17 @@ class User < ActiveRecord::Base
     birthdays_as_celebrant.find_by(year: next_birthday_year)
   end
 
+  #
+  # emails <Array<String> = List of emails of the use that want to update their
+  # participation status
+  #
+  # participate <Boolean> = Indicated if the person wants or not to participate
+  # in the game
+  def self.update_participation(emails, participate)
+    users = User.where(email: emails)
+    users.update_all(participate: participate )
+  end
+
   def self.next_birthday_month_case_query
     <<-SQL
     CASE
