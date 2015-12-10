@@ -23,11 +23,12 @@ module Api
     end
 
     def show
-      render json: OneUserRepresenter.new(User.find(params[:id])).to_json
+      render json: OneUserRepresenter.new(User.participating
+                                              .find(params[:id])).to_json
     end
 
     def update
-      user = User.find(params[:id])
+      user = User.participating.find(params[:id])
       if user.update(user_params)
         render json: OneUserRepresenter.new(user).to_json
       else

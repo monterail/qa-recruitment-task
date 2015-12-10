@@ -22,7 +22,7 @@ module Api
 
     def birthday
       @birthday ||= begin
-        next_birthday_year = User.find(params[:celebrant_id]).next_birthday_year
+        next_birthday_year = User.participating.find(params[:celebrant_id]).next_birthday_year
         Birthday.find_by(celebrant_id: params[:celebrant_id], year: next_birthday_year)
       end
     end

@@ -20,12 +20,17 @@ class User < ActiveRecord::Base
     order(next_birthday_month_case_query, birthday_day: :asc)
   }
 
+  scope :participating, lambda {
+    where(participate: true)
+  }
+
   scope :sooners, lambda {
-    User.ordered_by_soonest_birthday.where.not(birthday_month: nil, birthday_day: nil)
+    User.ordered_by_soonest_birthday
+        .participating.where.not(birthday_month: nil, birthday_day: nil)
   }
 
   scope :without_birthday, lambda {
-    User.where("birthday_day IS NULL OR birthday_month IS NULL")
+    User.participating.where("birthday_day IS NULL OR birthday_month IS NULL")
   }
 
   def next_birthday_date

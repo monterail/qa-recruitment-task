@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by(sso_id: current_user_data["uid"])
+    @current_user ||= User.participating.find_by(sso_id: current_user_data["uid"])
   end
 end
