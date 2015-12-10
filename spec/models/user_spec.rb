@@ -3,14 +3,14 @@ require "rspec/query_limit"
 
 describe User do
   let(:user) { described_class.create!(email: "hodor@hodor.eu", name: "hodor", sso_id: "12345") }
-  let(:not_participating_user){
+  let(:not_participating_user) do
     described_class.create(email: "not_participating@example.com",
                            name: "not_participating",
                            birthday_month: 1,
                            birthday_day: 1,
                            participate: false,
                            sso_id: "not_participating1234")
-  }
+  end
 
   it "has a valid factory" do
     expect(user).to be_valid
@@ -169,7 +169,6 @@ describe User do
 
     describe "excluding users" do
       it "excludes not participating users" do
-
         is_expected.not_to include(not_participating_user)
       end
 

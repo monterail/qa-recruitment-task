@@ -25,8 +25,7 @@ class User < ActiveRecord::Base
   }
 
   scope :sooners, lambda {
-    User.ordered_by_soonest_birthday
-        .participating.where.not(birthday_month: nil, birthday_day: nil)
+    User.ordered_by_soonest_birthday.participating.where.not(birthday_month: nil, birthday_day: nil)
   }
 
   scope :without_birthday, lambda {
@@ -57,7 +56,7 @@ class User < ActiveRecord::Base
   # in the game
   def self.update_participation(emails, participate)
     users = User.where(email: emails)
-    users.update_all(participate: participate )
+    users.update_all(participate: participate)
   end
 
   def self.next_birthday_month_case_query
