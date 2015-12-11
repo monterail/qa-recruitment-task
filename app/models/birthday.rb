@@ -5,4 +5,15 @@ class Birthday < ActiveRecord::Base
   validates :celebrant, presence: true
   validates :person_responsible, presence: true
   validates :celebrant, uniqueness: { scope: :year }
+
+  # Gives the upcomming birthdays
+  scope :upcomming_birthdays, lambda {
+    joins(:celebrant)
+      .where("year >= :today_year AND users.birthday_month >= :today_month"\
+             " AND users.birthday_day > :today_day",
+             today_year: Time.zone.today.year,
+             today_month: Time.zone.today.month,
+             today_day: Time.zone.today.day,
+            )
+  }
 end

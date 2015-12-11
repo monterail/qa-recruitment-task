@@ -23,29 +23,9 @@ class BirthdayGenerator
 
   def assign_person_responsible_to_celebrant(celebrant)
     Birthday.create(
-      person_responsible: get_next_person_responsible(celebrant),
+      person_responsible: User.next_user_responsible(celebrant),
       celebrant: celebrant,
       year: celebrant.next_birthday_year,
     )
-  end
-
-  def get_next_person_responsible(celebrant)
-    # Here we want to select first person responsible fitting those criteria:
-    # - celebrant can't be his own person responsible
-    # - first we want people who haven't taken care of birthday in the last or current year
-    #   or haven't birthdays planned in the future
-    # - we want to sort instead of exclude users because we always need someone to be picked
-    condition = { year: (-1..1).map { |i| i.years.ago.year } }
-    User
-      .participating
-      .where.not(id: celebrant.id)
-      .sort_by do |user|
-        if !user.birthdays_as_person_responsible.where(condition).blank?
-          user.birthdays_as_person_responsible.where(condition).last.created_at
-        else
-          Time.current
-        end
-      end
-      .last
   end
 end

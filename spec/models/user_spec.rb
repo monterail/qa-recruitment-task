@@ -3,14 +3,6 @@ require "rspec/query_limit"
 
 describe User do
   let(:user) { described_class.create!(email: "hodor@hodor.eu", name: "hodor", sso_id: "12345") }
-  let(:not_participating_user) do
-    described_class.create(email: "not_participating@example.com",
-                           name: "not_participating",
-                           birthday_month: 1,
-                           birthday_day: 1,
-                           participate: false,
-                           sso_id: "not_participating1234")
-  end
 
   it "has a valid factory" do
     expect(user).to be_valid
@@ -71,23 +63,7 @@ describe User do
       end
     end
   end
-  describe "update_participation" do
-    subject { described_class.participating.pluck(:email) }
 
-    context "changes user to" do
-      it "participate" do
-        not_participating_user
-        described_class.update_participation(["not_participating@example.com"], true)
-        is_expected.to include("not_participating@example.com")
-      end
-
-      it "not participate" do
-        user
-        described_class.update_participation(["hodor@hodor.eu"], false)
-        is_expected.not_to include("hodor@hodor.eu")
-      end
-    end
-  end
   describe "User.sooners scope" do
     let(:current_user_data) do
       { "id" => 1, "name" => "hodor", "email" => "hodor@example.com", "uid" => "12345678" }
@@ -169,6 +145,12 @@ describe User do
 
     describe "excluding users" do
       it "excludes not participating users" do
+        not_participating_user = described_class.create(email: "not_participating@example.com",
+                                                        name: "not_participating",
+                                                        birthday_month: 1,
+                                                        birthday_day: 1,
+                                                        participate: false,
+                                                        sso_id: "not_participating1234")
         is_expected.not_to include(not_participating_user)
       end
 
