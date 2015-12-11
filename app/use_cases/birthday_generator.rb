@@ -37,6 +37,7 @@ class BirthdayGenerator
     # - we want to sort instead of exclude users because we always need someone to be picked
     condition = { year: (-1..1).map { |i| i.years.ago.year } }
     User
+      .participating
       .where.not(id: celebrant.id)
       .sort_by do |user|
         if !user.birthdays_as_person_responsible.where(condition).blank?
