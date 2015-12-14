@@ -1,6 +1,6 @@
 FindOrCreateUser = Struct.new(:auth_hash) do
   def call
-    User.participating.find_or_initialize_by(sso_id: attrs[:sso_id]).tap do |user|
+    User.find_or_initialize_by(sso_id: attrs[:sso_id]).tap do |user|
       user.update_attributes!(attrs)
     end
   end

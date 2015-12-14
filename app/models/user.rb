@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   }
 
   scope :participating, lambda {
-    where(participate: true)
+    where(is_participating: true)
   }
 
   scope :sooners, lambda {
