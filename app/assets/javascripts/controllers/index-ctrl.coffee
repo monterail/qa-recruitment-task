@@ -39,3 +39,7 @@ angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, cur
 
   $scope.isCurrentUser = (user) ->
     user.id == currentUser.data.id
+
+  $scope.monthSort = (user) ->
+    currentMonth = (new Date().getMonth()) + 1
+    return user.birthday_month%currentMonth
