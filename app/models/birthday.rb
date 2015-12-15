@@ -8,8 +8,9 @@ class Birthday < ActiveRecord::Base
 
   scope :upcomming_birthdays, lambda {
     joins(:celebrant)
-      .where("year >= :today_year AND users.birthday_month >= :today_month"\
-             " AND users.birthday_day > :today_day",
+      .where("( year = :today_year AND users.birthday_month >= :today_month"\
+             "  AND users.birthday_day > :today_day"\
+             ") OR (year > :today_year)",
              today_year: Time.zone.today.year,
              today_month: Time.zone.today.month,
              today_day: Time.zone.today.day,

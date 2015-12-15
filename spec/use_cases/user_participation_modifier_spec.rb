@@ -1,13 +1,13 @@
 require "rails_helper"
 
 describe UserParticipationModifier do
-  let(:today_date) { Time.zone.today }
+  let(:christmas_date) { Time.zone.local(2015, 12, 25) }
 
   let!(:birthday_owner) do
     User.create(email: "birthday_owner@example.com",
                 name: "birthday_owner",
-                birthday_month: today_date.month,
-                birthday_day: (today_date.day + 1),
+                birthday_month: 1,
+                birthday_day: christmas_date.day,
                 sso_id: "birthday_owner1234")
   end
   let!(:gift_responsible) do
@@ -43,10 +43,10 @@ describe UserParticipationModifier do
       let!(:birthday) do
         Birthday.create(person_responsible: gift_responsible,
                         celebrant: birthday_owner,
-                        year: today_date.year)
+                        year: (christmas_date.year + 1))
       end
       before(:each) do
-        Timecop.freeze(today_date) do
+        Timecop.freeze(christmas_date) do
           described_class.new.call(["gift_responsible@example.com"], false)
         end
       end
@@ -66,11 +66,11 @@ describe UserParticipationModifier do
       let!(:birthday) do
         Birthday.create(person_responsible: gift_responsible,
                         celebrant: birthday_owner,
-                        year: today_date.year)
+                        year: christmas_date.year)
       end
       before(:each) do
-        birthday_owner.update_attribute(:birthday_day, (today_date.day - 1))
-        Timecop.freeze(today_date) do
+        birthday_owner.update_attribute(:birthday_day, (christmas_date.day - 1))
+        Timecop.freeze(christmas_date) do
           described_class.new.call(["gift_responsible@example.com"], false)
         end
       end
