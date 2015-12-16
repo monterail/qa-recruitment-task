@@ -1,11 +1,13 @@
 class UserParticipationModifier
-  def call(emails, is_participating)
+  def call(emails, participating)
     users = User.where(email: emails)
-    users.update_all(is_participating: is_participating)
-    return if is_participating
+    users.update_all(participating: participating)
+    return if participating
     users.each do |user|
       user
-        .birthdays_as_person_responsible.upcomming_birthdays
+        .birthdays_as_person_responsible
+        .upcoming_birthdays
+        .where(covered: false)
         .each do |birthday|
           update_birthday_responsibility(birthday)
         end

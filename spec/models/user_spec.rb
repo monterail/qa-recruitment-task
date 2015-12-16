@@ -149,7 +149,7 @@ describe User do
                                                         name: "not_participating",
                                                         birthday_month: 1,
                                                         birthday_day: 1,
-                                                        is_participating: false,
+                                                        participating: false,
                                                         sso_id: "not_participating1234")
         is_expected.not_to include(not_participating_user)
       end
