@@ -9,10 +9,10 @@ class Notification < ApplicationMailer
   end
 
   def notify_about_gifts(celebrant_id, subject, content)
-    @celebrant = User.find(celebrant_id)
+    @celebrant = User.participating.find(celebrant_id)
     @content = content
     mail(
-      bcc: User.where.not(id: celebrant_id).pluck(:email),
+      bcc: User.participating.where.not(id: celebrant_id).pluck(:email),
       subject: subject,
     )
     headers["X-MC-PreserveRecipients"] = "False"
