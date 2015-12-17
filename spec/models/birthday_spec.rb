@@ -79,7 +79,7 @@ describe Birthday do
     end
 
     it "doesn't include birthdays from the past" do
-      is_expected.not_to match_array([first_of_november_bday.id])
+      is_expected.not_to include(first_of_november_bday.id)
     end
   end
 end
