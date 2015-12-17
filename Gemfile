@@ -10,8 +10,9 @@ gem "coffee-rails", "~> 4.0.0"
 gem "slim-rails"
 gem "ngannotate-rails", "~> 0.15.4"
 gem "sass", "~> 3.4.13"
+gem "angular-ui-bootstrap-rails", "~> 0.9.0"
 
-gem "rubocop",  "~> 0.33.0"
+gem "rubocop", "~> 0.33.0"
 gem "rubocop-rspec", "~> 1.3.0"
 gem "representable"
 

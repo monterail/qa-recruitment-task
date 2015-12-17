@@ -1,4 +1,4 @@
-app = angular.module 'BornApp', ['ui.router', 'ngAnimate']
+app = angular.module 'BornApp', ['ui.router', 'ngAnimate', 'ui.bootstrap']
 
 app.config ($locationProvider) ->
   $locationProvider.html5Mode false
@@ -14,10 +14,21 @@ app.config ($provide, $httpProvider, Rails) ->
 
       config
 
-  $provide.factory 'errorInterceptor', ($q, errorHandler) ->
+  $provide.factory 'errorInterceptor', ($injector, $q, errorHandler) ->
+    $modal = undefined
+
     responseError : (rejection) ->
-      if(rejection.status == 500)
-        errorHandler.occur("Server Error. Please try again")
+      switch rejection.status
+        when 500
+          errorHandler.occur("Server Error. Please try again")
+        when 401
+          $modal = $injector.get("$modal")
+          $modal.open
+            animation: true
+            size: "sm"
+            controller: "ModalRefreshCtrl"
+            templateUrl: "refresh.html"
+
       $q.reject(rejection)
 
   $httpProvider.interceptors.push 'railsAssetsInterceptor'

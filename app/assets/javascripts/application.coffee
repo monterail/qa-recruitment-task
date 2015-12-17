@@ -1,6 +1,7 @@
 #= require angular
 #= require angular-animate
 #= require angular-ui-router
+#= require angular-ui-bootstrap-tpls
 #
 #= require ./init
 #= require ./routes

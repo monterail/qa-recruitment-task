@@ -95,6 +95,7 @@ describe BirthdayGenerator do
       person responsible took care of some birthday already" do
     time_february = Time.zone.local(Time.zone.today.year, 2, 4, 16, 37, 0)
     Timecop.freeze(time_february)
+
     dawid.update_attributes(
       birthday_month: 1.month.from_now.month,
       birthday_day: 1,
