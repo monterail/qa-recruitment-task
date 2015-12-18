@@ -144,6 +144,16 @@ describe User do
     end
 
     describe "excluding users" do
+      it "excludes not participating users" do
+        not_participating_user = described_class.create(email: "not_participating@example.com",
+                                                        name: "not_participating",
+                                                        birthday_month: 1,
+                                                        birthday_day: 1,
+                                                        participating: false,
+                                                        sso_id: "not_participating1234")
+        is_expected.not_to include(not_participating_user)
+      end
+
       it "excludes current user" do
         is_expected.not_to include(current_user_data
           .slice("name", "id", "birthday_day", "birthday_month"))

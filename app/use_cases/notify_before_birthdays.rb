@@ -9,7 +9,7 @@ class NotifyBeforeBirthdays
         next unless DAYS_BEFORE_NOTIFICATIONS.include?(days_till_birthday(celebrant))
         next if birthday_exist_and_covered?(celebrant)
 
-        User.where.not(id: celebrant.id).each do |user|
+        User.participating.where.not(id: celebrant.id).each do |user|
           if celebrant.next_birthday.person_responsible_id == user.id
             NotifyResponsiblePersonWorker.perform_async(user.id, celebrant.id)
           else

@@ -2,8 +2,8 @@ class NotifyAboutBirthdaysWorker
   include Sidekiq::Worker
 
   def perform(user_id, celebrant_id)
-    celebrant = User.find(celebrant_id)
-    user = User.find(user_id)
+    celebrant = User.participating.find(celebrant_id)
+    user = User.participating.find(user_id)
     Notification
       .notify_before_birthdays(
         days_till_birthday(celebrant),
