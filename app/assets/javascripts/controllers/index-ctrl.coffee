@@ -23,6 +23,7 @@ angular.module('BornApp').controller 'IndexCtrl', ($scope, UsersList, users, cur
   ]
 
   $scope.groupedUsers = _.chain($scope.users)
+    .sortBy((user) -> user.birthday_day)
     .sortBy((user) -> user.birthday_month)
     .groupBy((user) -> MONTHNAMES[user.birthday_month])
     .pairs()
