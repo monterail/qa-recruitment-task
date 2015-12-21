@@ -34,6 +34,7 @@ gem "rails_sso", "~> 0.7.1"
 gem "envied", "~> 0.8.1"
 gem "puma", "~> 2.13.4"
 gem "sentry-raven", "~> 0.14.0"
+gem "newrelic_rpm"
 
 group :production, :staging do
   gem "rails_12factor", "~> 0.0.3"
