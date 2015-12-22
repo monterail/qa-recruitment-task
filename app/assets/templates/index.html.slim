@@ -49,9 +49,9 @@
         .crs-grid__row ng-repeat="month in groupedUsers"
           .crs-grid__column.crs-grid__unit--sm-12
             .birthdaylist__month ng-class="{'birthdaylist__month--active': activeMonth === month}"
-              a.birthdaylist__month-link ng-click="selectMonth(month)"
+              a.birthdaylist__month-link ng-click="selectMonth(month, $event)"
                 | {{month[0]}} {{key}}
-              ul.crs-typo__ul.birthdaylist__month-dropdown
+              ul.crs-typo__ul.js-birthdaylist__month-dropdown
                 li.list__item ng-repeat="user in month[1]"  ng-class="{'list__item--disabled': isCurrentUser(user)}"
                   a.crs-typo__a--black ui-sref="{{ isCurrentUser(user) ?  '.' :  'auth.user({id: user.id })' }}"
                     img.crs-user__avatar.person-avatar ng-src="{{ user.profile_photo }}.jpg?s=200"
