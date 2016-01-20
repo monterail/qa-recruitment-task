@@ -31,7 +31,7 @@ describe NotifyAboutGiftsWorker do
     end
 
     it "is retryable for 5 times" do
-      expect(NotifyAboutGiftsWorker).to be_retryable 5
+      expect(described_class).to be_retryable 5
     end
   end
 end
