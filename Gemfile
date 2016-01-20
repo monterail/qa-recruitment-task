@@ -48,6 +48,7 @@ end
 group :test do
   gem "rspec-query-limit", "~> 0.1.2"
   gem "timecop", "~> 0.7.3"
+  gem "rspec-sidekiq", "~> 2.2.0"
 end
 
 group :development, :test do
