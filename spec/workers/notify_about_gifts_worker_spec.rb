@@ -29,5 +29,9 @@ describe NotifyAboutGiftsWorker do
     it "sends email to all users except celebrant" do
       expect(emails).to include(hodak.email).and include(jakub.email)
     end
+
+    it "is retryable for 5 times" do
+      expect(described_class).to be_retryable 5
+    end
   end
 end
