@@ -30,8 +30,8 @@ describe NotifyAboutGiftsWorker do
       expect(emails).to include(hodak.email).and include(jakub.email)
     end
 
-    it "is retryable for 5 times" do
-      expect(described_class).to be_retryable 5
+    it "is retryable for 3 times" do
+      expect(described_class).to be_retryable 3
     end
   end
 end
