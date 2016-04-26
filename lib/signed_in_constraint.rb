@@ -1,6 +1,5 @@
 class SignedInConstraint
   def matches?(request)
-    return false unless request.env["warden"].authenticate?
-    true
+    request.env["warden"].authenticate?
   end
 end
