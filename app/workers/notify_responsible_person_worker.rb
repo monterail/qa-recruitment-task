@@ -1,6 +1,6 @@
 class NotifyResponsiblePersonWorker
   include Sidekiq::Worker
-  sidekiq_options retry: 5
+  sidekiq_options retry: 3
   sidekiq_retry_in do |count|
     (3600 * 2) * (count + 1)
   end
