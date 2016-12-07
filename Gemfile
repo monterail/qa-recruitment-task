@@ -54,6 +54,7 @@ end
 group :development, :test do
   gem "dotenv-rails"
   gem "pry-rails", "~> 0.3.2"
+  gem "pry-remote", "~> 0.1.8"
   gem "better_errors"
   gem "binding_of_caller"
   gem "rspec-rails"

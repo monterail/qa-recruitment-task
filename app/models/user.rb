@@ -1,11 +1,16 @@
 class User < ActiveRecord::Base
   has_many :propositions_as_owner, class_name: Proposition,
-                                   foreign_key: :owner_id, dependent: :destroy
+                                   foreign_key: :owner_id,
+                                   dependent: :destroy
   has_many :propositions_as_celebrant, class_name: Proposition,
                                        foreign_key: :celebrant_id, dependent: :destroy
   has_many :birthdays_as_person_responsible, class_name: Birthday,
-                                             foreign_key: :person_responsible_id
-  has_many :birthdays_as_celebrant, class_name: Birthday, foreign_key: :celebrant_id
+                                             foreign_key: :person_responsible_id,
+                                             dependent: :destroy
+  has_many :birthdays_as_celebrant, class_name: Birthday,
+                                    foreign_key: :celebrant_id,
+                                    dependent: :destroy
+  has_many :comments, foreign_key: :owner_id, dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true
