@@ -33,9 +33,10 @@ class OneUserRepresenter < Representable::Decorator
   end
 
   def person_responsible
-    return unless @represented.birthdays_as_celebrant.find_by_year(@represented.next_birthday_year)
-    @represented.birthdays_as_celebrant.find_by_year(@represented.next_birthday_year)
-      .person_responsible.attributes.slice("id", "name", "email")
+    next_birthday_as_celebrant =
+      @represented.birthdays_as_celebrant.find_by_year(@represented.next_birthday_year)
+    return unless next_birthday_as_celebrant.present?
+    next_birthday_as_celebrant.person_responsible.attributes.slice("id", "name", "email")
   end
 
   def covered?

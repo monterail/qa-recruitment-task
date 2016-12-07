@@ -18,4 +18,9 @@ class Birthday < ActiveRecord::Base
              today_day: Time.zone.today.day,
             )
   }
+
+  def person_responsible_id=(val)
+    super(val)
+    self.assigned_at = Time.zone.now
+  end
 end

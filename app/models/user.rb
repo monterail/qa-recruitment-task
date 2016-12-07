@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  RESPONSIBLE_USERS_LIMIT = 16
   has_many :propositions_as_owner, class_name: Proposition,
                                    foreign_key: :owner_id,
                                    dependent: :destroy
@@ -46,7 +47,14 @@ class User < ActiveRecord::Base
   end
 
   def birthday_in_next_year?
-    Time.zone.today.month >= birthday_month && Time.zone.today.day > birthday_day
+    Time.zone.today.month >= birthday_month && Time.zone.today.day > birthday_day || next_year?
+  end
+
+  def next_year?
+    last_birthday = birthdays_as_celebrant.last
+    return false unless last_birthday.present?
+
+    Time.zone.today.year.next == last_birthday.year
   end
 
   def next_birthday
@@ -68,22 +76,23 @@ class User < ActiveRecord::Base
   end
 
   def self.next_user_responsible(celebrant)
-    # Here we want to select first person responsible fitting those criteria:
-    # - celebrant can't be his own person responsible
-    # - first we want people who haven't taken care of birthday in the last or current year
-    #   or haven't birthdays planned in the future
-    # - we want to sort instead of exclude users because we always need someone to be picked
-    condition = { year: (-1..1).map { |i| i.years.ago.year } }
-    User
-      .participating
-      .where.not(id: celebrant.id)
-      .sort_by do |user|
-        if !user.birthdays_as_person_responsible.where(condition).blank?
-          user.birthdays_as_person_responsible.where(condition).last.created_at
-        else
-          Time.current
-        end
-      end
-      .last
+    select_user_responsible(celebrant) || select_user_responsible(celebrant, 0)
+  end
+
+  def self.select_user_responsible(celebrant, limit = RESPONSIBLE_USERS_LIMIT)
+    user_responsible_id = <<-SQL
+      SELECT id FROM users WHERE participating = true
+      AND id NOT IN (
+        SELECT person_responsible_id FROM birthdays
+        WHERE person_responsible_id IS NOT NULL
+        ORDER BY assigned_at DESC LIMIT #{limit.to_i}
+      )
+      AND id != #{celebrant.id} ORDER BY random() LIMIT 1
+    SQL
+
+    id = ActiveRecord::Base.connection.execute(user_responsible_id).first.try(:[], "id")
+    return unless id
+
+    find id
   end
 end
