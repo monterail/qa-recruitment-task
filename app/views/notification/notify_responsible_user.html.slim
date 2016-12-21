@@ -1,0 +1,9 @@
+h1 style="font-size:24px; text-align:center; padding:20px 50px; background-color:lightgrey; margin:0;"
+  ' You will be responsible for the birthday gift for
+  = @celebrant.name
+p style="padding: 20px 50px; font-family= Arial, Helvetica, sans-serif; font-size:18px;"
+  | Please make sure you bring it to the office on time! If you need any help with the gift idea, you can ask for it now:
+= link_to celebrant_url(@celebrant.id)
+  h3 style="padding: 20px; text-align: center;"
+    = @celebrant.name
+    ' 's page on born

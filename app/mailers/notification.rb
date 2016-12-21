@@ -26,4 +26,12 @@ class Notification < ApplicationMailer
       subject: "It's #{@days} days until #{@celebrant.name} birthday!",
     )
   end
+
+  def notify_responsible_user(user, celebrant)
+    @celebrant = celebrant
+    mail(
+      to: user.email,
+      subject: "You have been chosen!",
+    )
+  end
 end

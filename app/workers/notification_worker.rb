@@ -8,5 +8,6 @@ class NotificationWorker
   def perform
     BirthdayGenerator.new.call
     NotifyBeforeBirthdays.new.call
+    NotifyUserResponsible.new.call
   end
 end
