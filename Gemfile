@@ -32,7 +32,8 @@ end
 
 gem "rails_sso", "~> 0.7.1"
 gem "envied", "~> 0.8.1"
-gem "puma", "~> 2.13.4"
+gem "puma", "~> 3.6.2"
+gem "devise", "~> 4.2.0"
 gem "sentry-raven", "~> 0.14.0"
 gem "newrelic_rpm"
 

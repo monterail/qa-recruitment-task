@@ -20,10 +20,6 @@ module BornHussaRs
     )
 
     config.action_mailer.smtp_settings = {
-      address:              ENVied.SMTP_HOST,
-      port:                 ENVied.SMTP_PORT,
-      user_name:            ENVied.SMTP_USER,
-      password:             ENVied.SMTP_PASS,
       domain:               ENVied.HOST,
       authentication:       'login',
       enable_starttls_auto: true

@@ -1,7 +1,7 @@
 module Api
   class UsersController < BaseController
-    before_action :restrict_current_user,
-                  except: [:index, :users_without_birthday, :update_me, :me]
+    #before_action :restrict_current_user,
+    #              except: [:index, :users_without_birthday, :update_me, :me]
 
     def index
       render json: UsersRepresenter.new(User.sooners).basic

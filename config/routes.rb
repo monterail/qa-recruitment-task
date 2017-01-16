@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   require "sidekiq/web"
   require "signed_in_constraint"
 

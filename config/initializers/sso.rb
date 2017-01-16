@@ -10,6 +10,8 @@ RailsSso.configure do |config|
   config.provider_sign_out_path = '/api/v1/me'
   # enable cache (will use Rails.cache store)
   config.use_cache = false
+  config.test_mode = true
+  config.access_token_mock = "john_uid"
   config.provider_url = ENV['ID_HUSSARS_HOST'] || 'http://authentic.dev'
   config.profile_mocks = {
     'john_uid' => {

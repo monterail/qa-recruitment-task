@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   RESPONSIBLE_USERS_LIMIT = 16
   has_many :propositions_as_owner, class_name: Proposition,
                                    foreign_key: :owner_id,
