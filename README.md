@@ -23,4 +23,4 @@ foreman start
 
 ## Restaurate app to base state
 
-run the rake task cleant_start -> `rake  cleant_start`
+run the rake task clean_start -> `rake  clean_start`
