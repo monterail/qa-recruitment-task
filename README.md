@@ -20,3 +20,7 @@ bin/setup
 # 3. start the app
 foreman start
 ```
+
+## Restaurate app to base state
+
+run the rake task cleant_start -> `rake  cleant_start`
