@@ -17,7 +17,15 @@ Born helps organising birthdays and gifts for team mates.
 # 2. run setup script and follow its instructions
 bin/setup
 
-# 3. start the app
+# 3. create and migrate database 
+bundle exec rake db:create db:migrate
+# 4. run seeds
+rake db:seed
+
+# 5. install foreman
+gem install foreman
+
+# 6. start the app
 foreman start
 ```
 
