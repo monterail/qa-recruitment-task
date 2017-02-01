@@ -26,6 +26,11 @@ angular.module('BornApp').config ($stateProvider, $urlRouterProvider) ->
       controller: 'MeCtrl'
       templateUrl: 'me.html'
 
+    .state 'auth.wrongmaybe',
+      url: '/authentic'
+      controller: 'MeCtrl'
+      templateUrl: 'nope.html'
+
     .state 'auth.user',
       url: '/user/:id'
       controller: 'UserCtrl'
