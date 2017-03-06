@@ -22,3 +22,15 @@
 # Ignore ruby version locally
 .ruby-version
 
+# Ignore geckodriver for Windows
+/seleniumtest/geckodriver.log
+/seleniumtest/geckodriver.exe
+
+# Ignore local idea files
+.idea/Monterail-born.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+seleniumtest/__init__.pyc
+seleniumtest/pages/__init__.pyc
+seleniumtest/pages/abstract_page.pyc
