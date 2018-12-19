@@ -30,7 +30,3 @@ gem install foreman
 # 6. start the app
 foreman start
 ```
-
-## Restaurate app to base state
-
-run the rake task clean_start -> `rake  clean_start`
