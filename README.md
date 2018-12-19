@@ -5,6 +5,8 @@ Born helps organising birthdays and gifts for team mates.
 ## Requirements
 - Ruby 2.2.0
 - PostgreSQL
+- NodeJS
+- OpenSSL
 - Redis (for Sidekiq)
 
 
